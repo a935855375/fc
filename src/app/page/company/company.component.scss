@@ -1,0 +1,27 @@
+.selector {
+  color: #3c4144;
+  padding: 0.75rem 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.selector:hover {
+  color: #128bed;
+  border-left: 1px solid #f0f0f1;
+  border-right: 1px solid #f0f0f1;
+  background-color: #f6f6f7;
+}
+
+.active {
+  color: #128bed;
+  border-left: 1px solid #f0f0f1;
+  border-right: 1px solid #f0f0f1;
+}
+
+.remove-left-border {
+  border-left: none;
+}
+
+.remove-right-border {
+  border-right: none;
+}

@@ -1,0 +1,38 @@
+.bg {
+  background: url("../../../assets/img/bg.jpg") no-repeat top;
+}
+
+h1{
+  color: #fff;
+  font-size: 45px;
+  font-family: "Microsoft YaHei",Arial;
+}
+ul,li{
+  list-style: none;
+  color: #ffffff;
+  font-family: "Microsoft YaHei",Arial;
+}
+
+.hot{
+  a{
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+  }
+  .hot-title{
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+}
+.hot-person{
+  .person-title{
+    a{
+      color: #737373;
+    }
+    a:hover{
+      color: #0084ff;
+    }
+  }
+  .person-time{
+    color: #b4b4b9;
+  }
+}

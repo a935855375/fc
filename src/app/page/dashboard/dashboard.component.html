@@ -1,0 +1,258 @@
+<div class="container-fluid bg" style="margin-top: -20px">
+  <div class="row flex-column">
+    <h1 class="align-self-center mb-5 mt-5">查企业，就上企信通！</h1>
+    <ul class="align-self-center d-flex  mb-2">
+      <li [class.active]="kind==0" class="mr-5 f-16 active" (click)="changeKind(0)" data-index="0">全部</li>
+      <li [class.active]="kind==1" class="mr-5 f-16 active" (click)="changeKind(1)" data-index="2">企业名</li>
+      <li [class.active]="kind==2" class="mr-5 f-16 active" (click)="changeKind(2)" data-index="4">法人/股东</li>
+      <li [class.active]="kind==3" class="mr-5 f-16 active" (click)="changeKind(3)" data-index="6">高管</li>
+      <li [class.active]="kind==4" class="mr-5 f-16 active" (click)="changeKind(4)" data-index="8">品牌/产品</li>
+      <li [class.active]="kind==5" class="mr-5 f-16 active" (click)="changeKind(5)" data-index="10">地址/电话</li>
+      <li [class.active]="kind==6" class="mr-5 f-16 active" (click)="changeKind(6)" data-index="12"> 经营范围</li>
+    </ul>
+    <div class="align-self-stretch d-flex justify-content-center mb-2">
+      <div class="input-group input-group-lg" style="max-width: 60%">
+        <input type="search" name="q" class="form-control rounded-0" style="font-size: 14px;border: none"
+               placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)">
+        <div class="input-group-btn btn-group-lg">
+          <button style="width: 80px" class="btn btn-info rounded-0" (click)="search()"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <a class="align-self-center ml-2" style="color: #ffffff">高级搜索</a>
+    </div>
+    <div class="align-self-center d-flex justify-content-between mt-5 mb-5">
+      <p><span id="hot_data_label" style="color: #ffffff">热搜：</span>
+        <span>
+          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">张靓颖离婚</a>
+          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">美团收购摩拜</a>
+          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">爱奇艺上市</a>
+          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">乐视股票</a>
+          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">海航集团</a>
+        </span>
+        <a class="px-2" style="color:white;">
+          <span><i class="fa fa-refresh"></i></span>&nbsp;换一批</a></p>
+    </div>
+  </div>
+</div>
+<!--五个小版块-->
+<div class="container mt-3 px-0" style="background: #ffffff">
+  <div class="pt-3">
+    <h3 class="text-center" style="font-size: 24px;">更多专项查询</h3>
+    <div style="border-bottom: 1px solid #ddd" class="pt-2"></div>
+    <div class="d-flex py-3 px-3">
+      <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
+        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+          <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/brand.png"
+                                                               style="width:60px;height: 60px"/></div>
+          <a>商标查询</a>
+        </a>
+      </div>
+      <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
+        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+          <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/patent.png"
+                                                               style="width:60px;height: 60px"/></div>
+          <a>专利查询</a>
+        </a>
+      </div>
+      <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
+        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+          <div class="d-flex justify-content-center  pb-2"><img src="../../../assets/img/financing.png"
+                                                                style="width:60px;height: 60px"/></div>
+          <a>投融资查询</a>
+        </a>
+      </div>
+      <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
+        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+          <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/break.png"
+                                                               style="width:60px;height: 60px"/></div>
+          <a>失信信息</a>
+        </a>
+      </div>
+      <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
+        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+          <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/referee.png"
+                                                               style="width:60px;height: 60px"/></div>
+          <a>裁判文书</a>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<div class="container mt-3">
+  <div class="align-self-center row justify-content-between index_nav">
+    <a href="#">
+      <h2>查商标</h2>
+      <small>2400万+商标</small>
+    </a>
+    <a href="#">
+      <h2>查专利</h2>
+      <small>2000万+专利</small>
+    </a>
+    <a href="#">
+      <h2>查失信</h2>
+      <small>2000万+失信信息</small>
+    </a>
+    <a href="#">
+      <h2>查裁判文书</h2>
+      <small>3000万+裁判文书</small>
+    </a>
+    <a href="#"><h2>投融资查询</h2>
+      <small>30万+创业公司</small>
+    </a>
+  </div>
+</div>-->
+<!--热门头条和热门推荐-->
+<div class="container mt-3 px-0">
+  <div class="d-flex">
+    <div class="col-md-6 pr-3 pl-0">
+      <div class="card pt-3 px-3 rounded-0">
+        <div class="d-flex pb-3">
+          <div class="f-15 text-dark font-weight-bold">热门头条</div>
+          <div class="ml-auto more"><a href="#">查看更多&gt;</a></div>
+        </div>
+        <mat-divider style="margin:0 -1rem"></mat-divider>
+        <ul class="hot-content pl-0 pt-4">
+          <li class="d-flex mb-3">
+            <div>
+              <img src="../../../assets/img/car.jpg" style="height: 130px" title="All in AI，李彦宏：我没说过"
+                   alt="All in AI，李彦宏：我没说过_企查查">
+            </div>
+            <div class="rig-content flex-grow-1 pl-3">
+              <p class="mb-2 mt-4"><a href="#" class="title">All in AI，李彦宏：我没说过</a></p>
+              <p class="d-flex info">
+                <span>来源：投资界 品途商业评论</span>
+                <span class="ml-auto mr-2">2天前</span>
+              </p>
+            </div>
+          </li>
+          <li class="d-flex mb-3">
+            <div>
+              <img src="../../../assets/img/car.jpg" style="height: 130px" title="All in AI，李彦宏：我没说过"
+                   alt="All in AI，李彦宏：我没说过_企查查">
+            </div>
+            <div class="rig-content flex-grow-1 pl-3">
+              <p class="mb-2 mt-4"><a href="#" class="title">All in AI，李彦宏：我没说过</a></p>
+              <p class="d-flex info">
+                <span>来源：投资界 品途商业评论</span>
+                <span class="ml-auto mr-2">2天前</span>
+              </p>
+            </div>
+          </li>
+          <li class="d-flex mb-3">
+            <div>
+              <img src="../../../assets/img/car.jpg" style="height: 130px" title="All in AI，李彦宏：我没说过"
+                   alt="All in AI，李彦宏：我没说过_企查查">
+            </div>
+            <div class="rig-content flex-grow-1 pl-3">
+              <p class="mb-2 mt-4"><a href="#" class="title">All in AI，李彦宏：我没说过</a></p>
+              <p class="d-flex info">
+                <span>来源：投资界 品途商业评论</span>
+                <span class="ml-auto mr-2">2天前</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 pl-3 pr-0">
+      <div class="card pt-3 px-3 rounded-0">
+        <div class="d-flex pb-3">
+          <div class="f-15 text-dark font-weight-bold">热门头条</div>
+          <div class="ml-auto more"><a href="#">查看更多&gt;</a></div>
+        </div>
+        <mat-divider style="margin:0 -1rem"></mat-divider>
+        <ul class="hot-content pl-0 pt-4">
+          <li class="d-flex mb-3">
+            <div>
+              <img src="../../../assets/img/car.jpg" style="height: 130px" title="All in AI，李彦宏：我没说过"
+                   alt="All in AI，李彦宏：我没说过_企查查">
+            </div>
+            <div class="rig-content flex-grow-1 pl-3">
+              <p class="mb-2 mt-4"><a href="#" class="title">All in AI，李彦宏：我没说过</a></p>
+              <p class="d-flex info">
+                <span>来源：投资界 品途商业评论</span>
+                <span class="ml-auto mr-2">2天前</span>
+              </p>
+            </div>
+          </li>
+          <li class="d-flex mb-3">
+            <div>
+              <img src="../../../assets/img/car.jpg" style="height: 130px" title="All in AI，李彦宏：我没说过"
+                   alt="All in AI，李彦宏：我没说过_企查查">
+            </div>
+            <div class="rig-content flex-grow-1 pl-3">
+              <p class="mb-2 mt-4"><a href="#" class="title">All in AI，李彦宏：我没说过</a></p>
+              <p class="d-flex info">
+                <span>来源：投资界 品途商业评论</span>
+                <span class="ml-auto mr-2">2天前</span>
+              </p>
+            </div>
+          </li>
+          <li class="d-flex mb-3">
+            <div>
+              <img src="../../../assets/img/car.jpg" style="height: 130px" title="All in AI，李彦宏：我没说过"
+                   alt="All in AI，李彦宏：我没说过_企查查">
+            </div>
+            <div class="rig-content flex-grow-1 pl-3">
+              <p class="mb-2 mt-4"><a href="#" class="title">All in AI，李彦宏：我没说过</a></p>
+              <p class="d-flex info">
+                <span>来源：投资界 品途商业评论</span>
+                <span class="ml-auto mr-2">2天前</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--公司有关信息查询-->
+<div class="container mt-3 px-0">
+  <div class="card rounded-0 pb-3">
+    <div class="d-flex com_head">
+      <a href="#" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">最新注册公司</h2></a>
+      <a href="#" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">最新认证公司</h2></a>
+      <a href="#" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">按区域查公司</h2></a>
+      <a href="#" style="margin-right: -1px" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">
+        按行业查公司</h2></a>
+    </div>
+    <div class="d-flex py-3 px-3 com_body">
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+    </div>
+
+    <div class="d-flex px-3 com_body">
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+      <div class="mx-2 py-3 flex-grow-1 border">
+        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      </div>
+    </div>
+  </div>
+</div>
+

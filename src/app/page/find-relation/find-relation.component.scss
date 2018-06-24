@@ -1,0 +1,78 @@
+input {
+  text-indent: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+.rel_head {
+  li {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  .active {
+    color: #ffffff;
+    background-color: #00AAEE;
+  }
+}
+
+.ana-spot {
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background: #128bed;
+  box-shadow: 0px 1px 1px #128bed;
+}
+
+.ana-spot2 {
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background: #FF7F00;
+  box-shadow: 0px 1px 1px #FF7F00;
+}
+
+.ana-input-range {
+  border-radius: 10px;
+  height: 2px;
+  -webkit-appearance: none;
+  background: -webkit-linear-gradient(#059CFA, #059CFA) no-repeat;
+  padding: 0.075rem 0.75rem;
+}
+
+.rel-history {
+  li {
+    font-size: 13px;
+  }
+}
+
+.panel-all {
+  color: #fff;
+  background: #88c5f6;
+  font-weight: bold;
+  border-radius: 4px;
+  border-color: #eaeef1;
+  a:hover {
+    color: #fff;
+  }
+}
+
+.custom-class {
+  margin: 0;
+  padding: 0 !important;
+  .c-btn {
+    padding: 0 !important;
+  }
+}
+
+:host /deep/ .myclass {
+  .cuppa-dropdown{
+    .selected-list{
+      .c-btn{
+        padding: 2px !important;
+        font-size: 13px;
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+<div class="mb-2">
+  <div class="d-flex flex-wrap px-2 py-2">
+    <a class="my-2 anchor" href="#">被执行人信息</a>
+    <a class="my-2 anchor">失信被执行人</a>
+    <a class="my-2 anchor">裁判文书</a>
+    <a class="my-2 anchor">主要成员</a>
+    <a class="my-2 anchor">法院公告</a>
+    <a class="my-2 anchor">开庭公告</a>
+    <a class="my-2 anchor">司法协助</a>
+  </div>
+  <mat-divider></mat-divider>
+
+  <!--统计分析-->
+  <p class="mt-4 title">统计分析</p>
+  <div class="d-flex">
+    <div echarts [options]="chartOption" style="width: 50%"></div>
+    <div echarts [options]="chartOption" style="width: 50%"></div>
+  </div>
+
+  <!--被执行人-->
+  <p class="mt-4 title">被执行人</p>
+
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">案号</td>
+      <td class="text-center" width="90">立案时间	</td>
+      <td class="text-center" width="160">执行法院</td>
+      <td class="text-center" width="115">执行标的</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center"><a class="cliable">(2018)粤0306执4965号</a></td>
+      <td class="text-center">2018-03-16</td>
+      <td class="text-center">深圳市宝安区人民法院</td>
+      <td class="text-center">25</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--裁判文书-->
+  <p class="mt-4 title">裁判文书</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">案件名称</td>
+      <td class="text-center" width="90">发布时间</td>
+      <td class="text-center" width="160">案件编号</td>
+      <td class="text-center" width="115">案件身份</td>
+      <td class="text-center" width="115">执行法院</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center"><a class="cliable">小米科技有限责任公司与璧山区星峰通讯器材销售部侵害商标权纠纷一审民事裁定书</a></td>
+      <td class="text-center">2018-05-07</td>
+      <td class="text-center">（2018）渝0112民初1715号</td>
+      <td class="text-center">原告 - 小米科技有限责任公司</td>
+      <td class="text-center">重庆市渝北区人民法院</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--法院公告-->
+  <p class="mt-4 title">法院公告</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">当事人</td>
+      <td class="text-center" width="90">公告类型</td>
+      <td class="text-center" width="160">公告人</td>
+      <td class="text-center" width="115">刊登时间</td>
+      <td class="text-center" width="115">内容</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center">北京晟煌科技有限公司</td>
+      <td class="text-center">起诉状副本及开庭传票</td>
+      <td class="text-center">北京市东城区人民法院</td>
+      <td class="text-center">2018-05-17</td>
+      <td class="text-center"><a class="cliable">查看详情</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--开庭公告-->
+  <p class="mt-4 title">开庭公告</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">案号</td>
+      <td class="text-center" width="90">开庭日期</td>
+      <td class="text-center" width="160">案由</td>
+      <td class="text-center" width="115">公诉人/原告/上诉人/申请人</td>
+      <td class="text-center" width="115">被告人/被告/被上诉人/被申请人</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center"><a class="cliable">(2018)渝05民初455号</a></td>
+      <td class="text-center">2018-09-17 14:30:00</td>
+      <td class="text-center">案由</td>
+      <td class="text-center">-</td>
+      <td class="text-center"><a class="cliable">-</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

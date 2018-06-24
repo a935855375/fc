@@ -1,0 +1,15 @@
+
+button {
+  font-size: 14px !important;
+  width: auto !important;
+  min-width: auto;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+
+:host /deep/ .mat-tab-label {
+  font-size: 14px;
+}

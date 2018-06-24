@@ -14,7 +14,7 @@ const config: Routes = [{
   component: CompanyComponent,
   children: [
     {path: 'basicinfo', component: BasicInfoComponent},
-    {path: 'businessreport', component: BusinessRiskComponent},
+    {path: 'businessreport', component: BusinessReportComponent},
     {path: 'businessrisk', component: BusinessRiskComponent},
     {path: 'historyinfo', component: HistoryInfoComponent},
     {path: 'intellectual', component: IntellectualComponent},

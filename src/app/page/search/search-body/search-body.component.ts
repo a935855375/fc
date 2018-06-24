@@ -7,6 +7,6 @@ import {Company} from '../../../entity/bean';
   styleUrls: ['./search-body.component.scss']
 })
 export class SearchBodyComponent {
-  @Input() company: Company[];
+  @Input() company: Company[] = [];
   selected = 'option1';
 }

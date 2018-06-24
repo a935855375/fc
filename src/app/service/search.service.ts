@@ -9,7 +9,7 @@ export class SearchService {
 
   search(key: string, kind: number) {
     const url = environment.apiUrl + 'search';
-    const params = new HttpParams().set('key', key).append('kind', kind);
+    const params = new HttpParams().set('key', key).append('kind', kind.toString());
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }

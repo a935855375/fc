@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-company',
@@ -9,7 +11,9 @@ import {Router} from '@angular/router';
 export class CompanyComponent implements OnInit {
   selector = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private pageScrollService: PageScrollService,
+              @Inject(DOCUMENT) private document: any) {
     const paths = this.router.url.split('/');
     const to = paths[paths.length- 1];
     switch (to) {
@@ -38,6 +42,10 @@ export class CompanyComponent implements OnInit {
   }
 
   ngOnInit() {
+    // 移动到顶部位置
+    let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, pageScrollDuration: 0});
+    pageScrollInstance.setScrollPosition(0);
+    this.pageScrollService.start(pageScrollInstance);
   }
 
   changePage(page: number) {

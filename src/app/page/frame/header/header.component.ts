@@ -7,6 +7,7 @@ import {AuthService} from '../../../service/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  k=0;
   isCollapsed = true;
   isDropDown = true;
   isLogin: Boolean;

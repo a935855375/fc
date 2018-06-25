@@ -10,4 +10,6 @@ export class Company {
   addr: string;
   website: string;
   introduction: string;
+  img: string;
+  status: string;
 }

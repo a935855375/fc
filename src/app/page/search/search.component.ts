@@ -5,11 +5,11 @@ import {Company} from '../../entity/bean';
 
 @Component({
   selector: 'app-search-result',
-  templateUrl: './search.component.html'
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
   key: string;
-  kind: number;
 
   companies: Company[];
 
@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.router.queryParams.subscribe(params => {
       this.searchService.search(params.key, params.kind).then(x => {
+        this.key = params.key;
         this.companies = (x as any[]).map(x => x._source) as Company[];
       });
     });

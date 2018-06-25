@@ -166,6 +166,12 @@ export class LegalProceedComponent implements OnInit {
         return params.name + '：' + params.data['value'] + '%'
       },
     },
+    toolbox: {
+      show: true,
+      feature: {
+        saveAsImage: {show: true},
+      },
+    },
     visualMap: {
       type: 'continuous',
       text: ['高', '低'],
@@ -209,5 +215,76 @@ export class LegalProceedComponent implements OnInit {
       data: this.data,
     }]
   };
-
+  option = {
+    title: {
+      text: '法律诉讼年份分布',
+      textStyle: {
+        fontSize: 13,
+      },
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { // 坐标轴指示器，坐标轴触发有效
+        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+      }
+    },
+    legend: {
+      data: [ '裁判文书', '法院公告', '开庭公告'],
+      x: 'center',
+      y: 'bottom',
+    },
+    toolbox: {
+      show: true,
+      feature: {
+        saveAsImage: {show: true},
+      },
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '7%',
+      containLabel: true
+    },
+    xAxis: [{
+      type: 'category',
+      data: ['2014', '2015', '2016', '2017', '2018']
+    }],
+    yAxis: [{
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}'
+      }
+    }],
+    series: [ {
+      name: '裁判文书',
+      type: 'bar',
+      label: {
+        normal: {
+          show: true,
+          position: 'insideTop',
+        },
+      },
+      data: [10, 20, 5, 9, 3]
+    }, {
+      name: '法院公告',
+      type: 'bar',
+      label: {
+        normal: {
+          show: true,
+          position: 'insideTop',
+        },
+      },
+      data: [1, 1, 2, 3, 1]
+    }, {
+      name: '开庭公告',
+      type: 'bar',
+      label: {
+        normal: {
+          show: true,
+          position: 'insideTop',
+        },
+      },
+      data: [0.1, 2, 3, 1, 0.5]
+    }]
+  };
 }

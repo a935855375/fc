@@ -62,3 +62,42 @@ td {
 :host ::ng-deep .text-gray {
   color: #999;
 }
+
+.news_talk{
+  .news_tb{
+    tr {
+      vertical-align: inherit;
+      border-color: inherit;
+      td {
+        padding: 12px 10px 12px 10px;
+        border: #E4EEF6 1px solid;
+        word-break: break-all;
+        font-size: 14px;
+        line-height: 19px;
+        color: #222;
+        a{
+          .title {
+            color: #222;
+            font-size: 16px;
+            font-weight: 400;
+          }
+          .title_content{
+            color: #999;
+            font-size: 15px;
+            .subtitle {
+              label {
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+      :hover{
+        .title{
+          color: #128bed;
+        }
+        background-color: #f1f9fe;
+      }
+    }
+  }
+}

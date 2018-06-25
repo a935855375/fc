@@ -13,8 +13,8 @@
   <!--统计分析-->
   <p class="mt-4 title">统计分析</p>
   <div class="d-flex">
-    <div echarts [options]="chartOption" [theme]="macarons" style="width: 50%"></div>
-    <div echarts [options]="chartOption" style="width: 50%"></div>
+    <div echarts [options]="chartOption" theme="macarons" style="width: 50%"></div>
+    <div echarts [options]="option" theme="macarons" style="width: 50%"></div>
   </div>
 
   <!--被执行人-->
@@ -30,11 +30,11 @@
       <td class="text-center" width="115">执行标的</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">(2018)粤0306执4965号</a></td>
-      <td class="text-center">2018-03-16</td>
-      <td class="text-center">深圳市宝安区人民法院</td>
-      <td class="text-center">25</td>
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle"><a class="cliable">(2018)粤0306执4965号</a></td>
+      <td class="text-center vertical-middle">2018-03-16</td>
+      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
+      <td class="text-center vertical-middle">25</td>
     </tr>
     </tbody>
   </table>
@@ -52,12 +52,12 @@
       <td class="text-center" width="115">执行法院</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">小米科技有限责任公司与璧山区星峰通讯器材销售部侵害商标权纠纷一审民事裁定书</a></td>
-      <td class="text-center">2018-05-07</td>
-      <td class="text-center">（2018）渝0112民初1715号</td>
-      <td class="text-center">原告 - 小米科技有限责任公司</td>
-      <td class="text-center">重庆市渝北区人民法院</td>
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle"><a class="cliable">小米科技有限责任公司与璧山区星峰通讯器材销售部侵害商标权纠纷一审民事裁定书</a></td>
+      <td class="text-center vertical-middle">2018-05-07</td>
+      <td class="text-center vertical-middle">（2018）渝0112民初1715号</td>
+      <td class="text-center vertical-middle">原告 - 小米科技有限责任公司</td>
+      <td class="text-center vertical-middle">重庆市渝北区人民法院</td>
     </tr>
     </tbody>
   </table>
@@ -75,12 +75,12 @@
       <td class="text-center" width="115">内容</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center">北京晟煌科技有限公司</td>
-      <td class="text-center">起诉状副本及开庭传票</td>
-      <td class="text-center">北京市东城区人民法院</td>
-      <td class="text-center">2018-05-17</td>
-      <td class="text-center"><a class="cliable">查看详情</a></td>
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle">北京晟煌科技有限公司</td>
+      <td class="text-center vertical-middle">起诉状副本及开庭传票</td>
+      <td class="text-center vertical-middle">北京市东城区人民法院</td>
+      <td class="text-center vertical-middle">2018-05-17</td>
+      <td class="text-center vertical-middle"><a class="cliable">查看详情</a></td>
     </tr>
     </tbody>
   </table>
@@ -98,12 +98,12 @@
       <td class="text-center" width="115">被告人/被告/被上诉人/被申请人</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">(2018)渝05民初455号</a></td>
-      <td class="text-center">2018-09-17 14:30:00</td>
-      <td class="text-center">案由</td>
-      <td class="text-center">-</td>
-      <td class="text-center"><a class="cliable">-</a></td>
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle"><a class="cliable">(2018)渝05民初455号</a></td>
+      <td class="text-center vertical-middle">2018-09-17 14:30:00</td>
+      <td class="text-center vertical-middle">案由</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle"><a class="cliable">-</a></td>
     </tr>
     </tbody>
   </table>

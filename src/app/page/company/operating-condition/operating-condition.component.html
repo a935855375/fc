@@ -1,15 +1,15 @@
 <div class="mb-2">
   <div class="d-flex flex-wrap px-2 py-2">
-    <a class="my-2 anchor">行政许可</a>
-    <a class="my-2 anchor">税务信用</a>
-    <a class="my-2 anchor">产品信息</a>
-    <a class="my-2 anchor">融资信息</a>
-    <a class="my-2 anchor">照投标信息</a>
-    <a class="my-2 anchor">招聘</a>
-    <a class="my-2 anchor">财务总览</a>
-    <a class="my-2 anchor">进出口信用</a>
-    <a class="my-2 anchor">微信公众号</a>
-    <a class="my-2 anchor">新闻舆论</a>
+    <a class="my-2 anchor" href="#administrative_licensing">行政许可</a>
+    <a class="my-2 anchor" href="#tax_letter">税务信用</a>
+    <a class="my-2 anchor" href="#procdure_info">产品信息</a>
+    <a class="my-2 anchor" href="#finance_info">融资信息</a>
+    <a class="my-2 anchor" href="#bid_info">招投标信息</a>
+    <a class="my-2 anchor" href="#recruit">招聘</a>
+    <a class="my-2 anchor" href="#cfo">财务总览</a>
+    <a class="my-2 anchor" href="#imex">进出口信用</a>
+    <a class="my-2 anchor" href="#wechat">微信公众号</a>
+    <a class="my-2 anchor" href="news">新闻舆论</a>
     <a class="my-2 anchor">公告研报</a>
     <a class="my-2 anchor">地块公示</a>
     <a class="my-2 anchor">购地信息</a>
@@ -17,93 +17,250 @@
   </div>
   <mat-divider></mat-divider>
 
-  <!--被执行人-->
-  <p class="mt-4 title">被执行人</p>
-
+  <!--行政许可-->
+  <p  id="administrative_licensing" class="mt-4 title">行政许可<span>[工商局]</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
-      <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">案号</td>
-      <td class="text-center" width="90">立案时间	</td>
-      <td class="text-center" width="160">执行法院</td>
-      <td class="text-center" width="115">执行标的</td>
+      <td class="text-center">序号</td>
+      <td class="text-center" width="15%">许可文件编号</td>
+      <td class="text-center" width="20%">许可文件名称</td>
+      <td class="text-center" width="10%">有效期自</td>
+      <td class="text-center" width="10%">有效期至</td>
+      <td class="text-center">许可机关</td>
+      <td class="text-center" width="20%">许可内容</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
       <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">(2018)粤0306执4965号</a></td>
-      <td class="text-center">2018-03-16</td>
-      <td class="text-center">深圳市宝安区人民法院</td>
-      <td class="text-center">25</td>
+      <td class="text-center"><a class="cliable">新出网证(粤)字010号</a></td>
+      <td class="text-center">互联网出版许可证</td>
+      <td class="text-center">2008-05-04</td>
+      <td class="text-center">2018-12-31</td>
+      <td class="text-center">国家新闻出版广电总局</td>
+      <td class="text-center">网络游戏出版运营</td>
     </tr>
     </tbody>
   </table>
 
-  <!--裁判文书-->
-  <p class="mt-4 title">裁判文书</p>
+  <!--行政许可[信用中国]-->
+  <p class="mt-4 title">行政许可<span>[信用中国]</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">案件名称</td>
-      <td class="text-center" width="90">发布时间</td>
-      <td class="text-center" width="160">案件编号</td>
-      <td class="text-center" width="115">案件身份</td>
-      <td class="text-center" width="115">执行法院</td>
-    </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">小米科技有限责任公司与璧山区星峰通讯器材销售部侵害商标权纠纷一审民事裁定书</a></td>
-      <td class="text-center">2018-05-07</td>
-      <td class="text-center">（2018）渝0112民初1715号</td>
-      <td class="text-center">原告 - 小米科技有限责任公司</td>
-      <td class="text-center">重庆市渝北区人民法院</td>
-    </tr>
-    </tbody>
-  </table>
-
-  <!--法院公告-->
-  <p class="mt-4 title">法院公告</p>
-  <table class="table mw-100">
-    <tbody>
-    <tr class="color-primary border">
-      <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">当事人</td>
-      <td class="text-center" width="90">公告类型</td>
-      <td class="text-center" width="160">公告人</td>
-      <td class="text-center" width="115">刊登时间</td>
+      <td class="text-center" width="370">项目名称</td>
+      <td class="text-center" width="90">地域</td>
+      <td class="text-center" width="160">决定日期</td>
       <td class="text-center" width="115">内容</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
       <td class="text-center">{{index}}</td>
-      <td class="text-center">北京晟煌科技有限公司</td>
-      <td class="text-center">起诉状副本及开庭传票</td>
-      <td class="text-center">北京市东城区人民法院</td>
-      <td class="text-center">2018-05-17</td>
+      <td class="text-center"><a class="cliable">进口网络游戏审查</a></td>
+      <td class="text-center">全国</td>
+      <td class="text-center">2016-11-01</td>
       <td class="text-center"><a class="cliable">查看详情</a></td>
     </tr>
     </tbody>
   </table>
 
-  <!--开庭公告-->
-  <p class="mt-4 title">开庭公告</p>
+  <!--税务信用-->
+  <p id="tax_letter" class="mt-4 title">税务信用</p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">案号</td>
-      <td class="text-center" width="90">开庭日期</td>
-      <td class="text-center" width="160">案由</td>
-      <td class="text-center" width="115">公诉人/原告/上诉人/申请人</td>
-      <td class="text-center" width="115">被告人/被告/被上诉人/被申请人</td>
+      <td class="text-center" width="370">评价年度</td>
+      <td class="text-center" width="90">纳税人识别号</td>
+      <td class="text-center" width="160">纳税信用等级</td>
+      <td class="text-center" width="115">评价单位</td>
     </tr>
     <tr *ngFor="let index of [1,2]" class="table-bordered">
       <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">(2018)渝05民初455号</a></td>
-      <td class="text-center">2018-09-17 14:30:00</td>
-      <td class="text-center">案由</td>
+      <td class="text-center">2016</td>
+      <td class="text-center">440300708461136</td>
+      <td class="text-center">A</td>
+      <td class="text-center">国家税务总局</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--产品信息-->
+  <p id="procdure_info" class="mt-4 title">产品信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">产品图片</td>
+      <td class="text-center" width="10%">产品名</td>
+      <td class="text-center" width="10%">融资信息</td>
+      <td class="text-center" width="12%">成立时间</td>
+      <td class="text-center" width="10%">所属地</td>
+      <td class="text-center">产品介绍</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center"><img src="../../../../assets/img/qq.png"
+                                   style="width: 66px;max-height: 66px;"></td>
+      <td class="text-center"><a class="cliable" href="#">QQ</a></td>
       <td class="text-center">-</td>
-      <td class="text-center"><a class="cliable">-</a></td>
+      <td class="text-center">1998-11-11</td>
+      <td class="text-center">深圳</td>
+      <td>QQ是一款基于Internet的即时通信（IM）软件，支持在线聊天、视频通话、点对点断点续传文件、共享文件、网络硬盘、自定义面板、QQ邮箱等多种功能，并可与多种通讯终端相连。</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--融资信息-->
+  <p  id="finance_info" class="mt-4 title">融资信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">日期</td>
+      <td class="text-center" width="10%">产品名称</td>
+      <td class="text-center" width="10%">级别</td>
+      <td class="text-center" width="18%">金额</td>
+      <td class="text-center">投资方</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center">2012-08-01</td>
+      <td class="text-center">刷机精灵</td>
+      <td class="text-center">并购</td>
+      <td class="text-center">8000万人民币1</td>
+      <td class="text-center"><a class="cliable" href="#">腾讯产业共赢基金</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--招投标信息-->
+  <p id="bid_info" class="mt-4 title">招投标信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">描述</td>
+      <td class="text-center" width="15%">发布时间</td>
+      <td class="text-center" width="10%">所属地区</td>
+      <td class="text-center" width="15%">项目分类</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center"><a class="cliable">广东省经济和信息化委员会2018年“云＋未来”峰会项目的成交公告</a></td>
+      <td class="text-center">2018-05-21</td>
+      <td class="text-center">广东</td>
+      <td class="text-center">中标公告</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--招聘-->
+  <p id="recruit" class="mt-4 title">招聘</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">发布时间</td>
+      <td class="text-center">招聘职位</td>
+      <td class="text-center" width="15%">月薪</td>
+      <td class="text-center" width="10%">所在城市</td>
+      <td class="text-center" width="15%">来源</td>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center">2018-06-23</td>
+      <td class="text-center">数据产品经理</td>
+      <td class="text-center">面议</td>
+      <td class="text-center">北京_北京市</td>
+      <td class="text-center"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable"
+                                 target="_blank" rel="nofollow">
+        前程无忧
+      </a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--财务总览-->
+  <p id="cfo" class="mt-4 title">财务总览<span class="f-14" style="font-weight: 400"> (相关数据来源企业年报估算，仅供参考)</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr>
+      <td width="20%" class="table-primary">公司实力等级：</td>
+      <td width="30%">100亿以上</td>
+      <td width="20%" class="table-primary">纳税区间：</td>
+      <td width="30%">1亿以上</td>
+    </tr>
+    <tr>
+      <td class="table-primary">销售净利润率：</td>
+      <td>0到10%</td>
+      <td class="table-primary">销售毛利率：</td>
+      <td>10%到50%</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--进出口信用-->
+  <p id="imex" class="mt-4 title">进出口信用</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">注册海关</td>
+      <td class="text-center">经营类别</td>
+      <td class="text-center" width="15%">注册日期</td>
+      <td class="text-center" width="10%">内容</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">1</td>
+      <td class="text-center">深圳海关</td>
+      <td class="text-center">进出口收发货人</td>
+      <td class="text-center">2015-07-08</td>
+      <td class="text-center"><a class="cliable">查看详情</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--微信公众号-->
+  <p id="wechat" class="mt-4 title">微信公众号</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <th class="text-center" width="60">序号</th>
+      <th class="text-center" width="90">头像</th>
+      <th class="text-center" width="174">微信公众号</th>
+      <th class="text-center" width="134">微信号</th>
+      <th class="text-center" width="80">二维码</th>
+      <th>简介</th>
+    </tr>
+    <tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/00844a9684b5fefa911a3be8ede6b2f8.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center">科技不怕问</td>
+      <td class="text-center">asktech</td>
+      <td class="text-center"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td>《科技不怕问》每天上下班路上在腾讯新闻客户端推出，晚间微信集中推送，对近期科技热点疑问进行解答。</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--新闻舆情-->
+  <p id="news" class="mt-4 title">新闻舆情</p>
+  <table class="table mw-100 news_talk">
+    <tbody class="news_tb">
+    <tr *ngFor="let index of [1,2,3]" class="mb-2">
+      <td>
+        <a href="#" class="clearfix" rel="nofollow">
+        <div><span class="title">6月25日—7月1日共有29款游戏开测｜GameRes</span>
+          <div class="d-flex title_content mt-5">
+            <div class="subtitle"><label>来源：</label> 东方网</div>
+            <div class="ml-auto"><label>发布时间：</label> 2018-06-24 </div>
+          </div>
+        </div>
+      </a></td>
     </tr>
     </tbody>
   </table>

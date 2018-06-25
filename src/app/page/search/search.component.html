@@ -2,13 +2,50 @@
   <div class="row">
     <div class="col-lg-9 col-md-12">
 
-      <app-search-cate ></app-search-cate>
-      <app-search-body [company]="companies"></app-search-body>
+      <app-search-cate></app-search-cate>
+      <app-search-body
+        [company]="companies"
+        [k]="key"></app-search-body>
     </div>
 
-    <div class="col-lg-3 col-md-12" style="height: 600px">
-      <div style="height: 600px; background-color: white">
-
+    <div class="col-lg-3 col-md-12">
+      <div class="f-bg">
+        <div class="p-3" style="font-size: 18px">您可能感兴趣的公司</div>
+        <div class="f-bdr mb-3"></div>
+        <div class="mb-3">
+          <li *ngFor="let index of [1,2,3]" class="d-flex px-3 pb-3">
+            <a href="#"><img src="http://co-image.qichacha.com/CompanyImage/9cce0780ab7644008b73bc2120479d31.jpg"
+                             width="50"></a>
+            <div class="mr-auto pl-2">
+              <div class="f-14"><a href="#">小米科技有限责任公司</a></div>
+              <div class="f-14 pt-1">法定代表人：<span style="color: #37a">雷军</span></div>
+            </div>
+          </li>
+        </div>
+      </div>
+      <div class="f-bg mt-3">
+        <div class="p-3" style="font-size: 18px">您可能感兴趣的热点人物</div>
+        <div class="f-bdr mb-3"></div>
+        <div class="mb-3">
+          <li *ngFor="let index of [1,2,3]" class="d-flex px-3 pb-3 justify-content-between">
+            <a  href="#" class="flex-grow-1 text-center">
+              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
+              <div><em class="f-thide">马云</em></div>
+            </a>
+            <a  href="#" class="flex-grow-1 text-center">
+              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
+              <div><em class="f-thide">马云</em></div>
+            </a>
+            <a  href="#" class="flex-grow-1 text-center">
+              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
+              <div><em class="f-thide">马云</em></div>
+            </a>
+            <a  href="#" class="flex-grow-1 text-center">
+              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
+              <div><em class="f-thide">马云</em></div>
+            </a>
+          </li>
+        </div>
       </div>
     </div>
   </div>

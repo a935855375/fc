@@ -1,11 +1,11 @@
 <mat-card class="mt-4 py-0">
   <div class="d-flex justify-content-between">
-    <span class="align-self-center">搜索到 {{company == undefined ? 0: company.length}} 位同名 “小米” 的关键字</span>
+    <span class="align-self-center">搜索到 <em>{{company == undefined ? 0: company.length}}</em> 位同名 <em>“{{k}}”</em> 的关键字</span>
     <mat-form-field style="width: 15%">
       <mat-select [(value)]="selected">
         <mat-option value="option1">默认排序</mat-option>
-        <mat-option value="option2">Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
+        <mat-option value="option2">成立日期升序</mat-option>
+        <mat-option value="option3">注册资本升序</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -26,17 +26,17 @@
     <mat-divider></mat-divider>
     <div class="d-flex">
       <img class="align-self-center mr-4" style="width: 80px; height: 80px"
-           src="http://co-image.qichacha.com/CompanyImage/9cce0780ab7644008b73bc2120479d31.jpg">
+           src="{{c.img}}">
       <div class="py-3">
-        <p class="mb-2"><a (click)="navigate(c.id)" style="font-size: 18px; color: black; font-weight: bold">{{c.name}}</a>
+        <p class="mb-2"><a routerLink="/company" style="font-size: 18px; color: black; font-weight: bold" [innerHTML]="replaceFun(c.name, k)"></a>
         </p>
-        <p class="f-14 mb-2">法定代表人： {{c.represent}}<span class="ml-3">注册资本：{{c.capital}}万人民币元</span> <span
-          class="ml-3">成立时间：{{c.found_time}}</span></p>
-        <p class="f-14 mb-2">邮箱：{{c.mail}} <span class="ml-3">电话：{{c.phone}}</span>&nbsp;<a>更多号码</a></p>
+        <p class="f-14 mb-2">法定代表人： <span style="color: #1e99bc">{{c.represent}}</span><span class="ml-3">注册资本：{{c.capital}}万人民币元</span> <span
+          class="ml-3">成立时间：{{c.found_time | date: 'yyyy-MM-dd'}}</span></p>
+        <p class="f-14 mb-2">邮箱：{{c.mail}} <span class="ml-3">电话：{{c.phone}}</span>&nbsp;<a style="color: #007AFC">更多号码</a></p>
         <p class="f-14 mb-2">地址：{{c.addr}}</p>
-        <p class="f-14 mb-2"><i class="fa fa-search"></i>法定代表人：<em>{{c.represent}}</em></p>
+        <!--<p class="f-14 mb-2"><i class="fa fa-search"></i>法定代表人：<em style="color: #dc3545; font-style: normal">{{c.represent}}</em></p>-->
       </div>
     </div>
-    <span class="align-self-center mr-3">在业</span>
+    <span class="align-self-center mr-3 nsatus col_work">{{c.status}}</span>
   </div>
 </mat-card>

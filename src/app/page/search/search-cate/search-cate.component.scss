@@ -9,7 +9,13 @@ button {
   margin-right: 3px;
 }
 
+.btn-head{
+  color: #EC6C47 !important;
+}
 
-:host /deep/ .mat-tab-label {
-  font-size: 14px;
+
+:host /deep/ .mat-tab-label{
+  color: #000000 !important;
+  font-weight: bold;
+  font-size: 16px;
 }

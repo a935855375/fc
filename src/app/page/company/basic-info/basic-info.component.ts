@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PageScrollConfig} from 'ngx-page-scroll';
+import {CompanyService} from '../../../service/company.service';
 
 @Component({
   selector: 'app-basic-info',
@@ -7,13 +8,25 @@ import {PageScrollConfig} from 'ngx-page-scroll';
   styleUrls: ['./basic-info.component.scss']
 })
 export class BasicInfoComponent implements OnInit {
+  d: any;
 
-  constructor() {
+  constructor(private companyService: CompanyService) {
   }
+
+  rangeArray = (start, end) =>
+    Array(end - start + 1)
+      .fill(0)
+      .map((v, i) => i + start)
+      .filter(x => x % 2 == 0);
 
   ngOnInit() {
     PageScrollConfig.defaultScrollOffset = 70;
     PageScrollConfig.defaultDuration = 500;
+
+    this.companyService.getBasicInfo(this.companyService.cid).then(x => {
+      console.log(x);
+      this.d = x;
+    });
   }
 
   data = [{
@@ -274,5 +287,6 @@ export class BasicInfoComponent implements OnInit {
       },
     }]
   };
+
 
 }

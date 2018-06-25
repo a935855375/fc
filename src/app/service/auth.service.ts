@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {User} from '../entity/User';
 import * as moment from 'moment';
-import {Subject} from 'rxjs/index';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class AuthService {

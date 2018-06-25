@@ -15,7 +15,7 @@ export class GenealogyComponent implements OnInit {
 
   ngOnInit() {
     // 移动到顶部位置
-    let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, pageScrollDuration: 0});
+    let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({document: this.document, pageScrollDuration: 0, scrollTarget: undefined});
     pageScrollInstance.setScrollPosition(0);
     this.pageScrollService.start(pageScrollInstance);
   }

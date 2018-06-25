@@ -5,6 +5,7 @@ import {MaterialModule} from '../../material.module';
 import {CommonModule} from '@angular/common';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {CompanyService} from '../../service/company.service';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
   declarations: [
     CompanyComponent,
     ...routedComponent
-  ]
+  ],
 })
 export class CompanyModule {
 }

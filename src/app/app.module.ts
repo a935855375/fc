@@ -15,6 +15,7 @@ import {AuthService} from './service/auth.service';
 import {CommonService} from './service/common.service';
 import {AuthInterceptor} from './service/auth-interceptor';
 import { CompanyComponent } from './page/company/company.component';
+import {CompanyService} from './service/company.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CompanyComponent } from './page/company/company.component';
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
     AuthService,
+    CompanyService,
     CommonService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   ],

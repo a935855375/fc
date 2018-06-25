@@ -10,9 +10,16 @@ export class FindRelationComponent implements OnInit {
   itemList = [];
   selectedItems = [];
   settings = {};
+  select=0;
+  flag=false;
 
   constructor() {
 
+  }
+
+  test() {
+    console.log('ss');
+    this.flag = !this.flag;
   }
 
   ngOnInit() {

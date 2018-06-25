@@ -16,7 +16,7 @@
 
   <p id="business-information" class="mt-4 title">工商信息</p>
 
-  <table class="table table-bordered mw-100">
+  <table *ngIf="data" class="table table-bordered mw-100">
     <tbody>
     <tr>
       <td>法定代表人信息</td>
@@ -24,7 +24,7 @@
       <td>股权结构图</td>
     </tr>
     <tr>
-      <td>
+      <td class="no_bottom_border">
         <div class="mt-2 d-flex flex-column justify-content-between">
           <div class="d-flex align-self-center">
             <img style="height: 54px; width: 54px" class="mr-3"
@@ -34,91 +34,99 @@
               <a>他关联 110 家公司 ></a>
             </div>
           </div>
-          <button class="mt-5 btn btn-primary align-self-center">查看人物图谱</button>
         </div>
       </td>
-      <td>
+      <td class="no_bottom_border">
         <div class="d-flex flex-column">
           <img class="align-self-center" style="height: auto; width: 267px"
                src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/icon_gltp@2x.png">
-          <button routerLink="/genealogy" class="mt-4 btn btn-primary align-self-center">查看详情</button>
         </div>
       </td>
-      <td>
+      <td class="no_bottom_border">
         <div class="d-flex flex-column">
           <img class="align-self-center" style="height: auto; width: 267px"
                src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/icon_gltp@2x.png">
-          <button class="mt-4 btn btn-primary align-self-center">查看详情</button>
         </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="no_top_border text-center">
+        <button class="btn btn-primary align-self-center">查看人物图谱</button>
+      </td>
+      <td class="no_top_border text-center">
+        <button routerLink="/genealogy" class="btn btn-primary align-self-center">查看详情</button>
+      </td>
+      <td class="no_top_border text-center">
+        <button class="btn btn-primary align-self-center">查看详情</button>
       </td>
     </tr>
     </tbody>
   </table>
 
-  <table class="table table-bordered">
+  <table *ngIf="d" class="table table-bordered">
     <tbody>
     <tr>
       <td class="table-primary">注册资本</td>
-      <td>185000万人民币元</td>
+      <td>{{d.company.capital}}万人民币元</td>
       <td class="table-primary">实缴资本：</td>
-      <td>5000万人民币元</td>
+      <td>{{d.basicInfo.paid_capital}}万人民币元</td>
     </tr>
     <tr>
       <td class="table-primary">经营状态：</td>
-      <td>开业</td>
+      <td>{{d.basicInfo.open_status}}</td>
       <td class="table-primary">成立日期：</td>
-      <td>2010-03-03</td>
+      <td>{{d.company.found_time | date: 'yyyy-MM-dd'}}</td>
     </tr>
     <tr>
       <td class="table-primary">统一社会信用代码：</td>
-      <td>91110108551385082Q</td>
+      <td>{{d.basicInfo.social_credit_code}}</td>
       <td class="table-primary">纳税人识别号：</td>
-      <td>91110108551385082Q</td>
+      <td>{{d.basicInfo.taxpayer_identification_number}}</td>
     </tr>
     <tr>
       <td class="table-primary">注册号：</td>
-      <td>110108012660422</td>
+      <td>{{d.basicInfo.registration_number}}</td>
       <td class="table-primary">组织机构代码：</td>
-      <td>55138508-2</td>
+      <td>{{d.basicInfo.organization_code}}-2</td>
     </tr>
     <tr>
       <td class="table-primary">公司类型：</td>
-      <td>有限责任公司(自然人投资或控股)</td>
+      <td>{{d.basicInfo.type_of_company}}</td>
       <td class="table-primary">所属行业：</td>
-      <td>科学研究和技术服务业</td>
+      <td>{{d.basicInfo.industry}}</td>
     </tr>
     <tr>
       <td class="table-primary">核准日期：</td>
-      <td>2018-05-09</td>
+      <td>{{d.basicInfo.date_of_approval | date: 'yyyy-MM-dd'}}</td>
       <td class="table-primary">登记机关：</td>
-      <td>北京市工商行政管理局海淀分局</td>
+      <td>{{d.basicInfo.registration_authority}}</td>
     </tr>
     <tr>
       <td class="table-primary">所属地区：</td>
-      <td>北京市</td>
+      <td>{{d.basicInfo.region}}</td>
       <td class="table-primary">英文名：</td>
-      <td>Xiaomi Inc.</td>
+      <td>{{d.basicInfo.english_name}}</td>
     </tr>
     <tr>
       <td class="table-primary">曾用名：</td>
-      <td>北京小米科技有限责任公司</td>
+      <td>{{d.basicInfo.name_used_before}}</td>
       <td class="table-primary">经营方式：</td>
-      <td>-</td>
+      <td>{{d.basicInfo.operation_mode}}</td>
     </tr>
     <tr>
       <td class="table-primary">人员规模：</td>
-      <td>10000以上</td>
+      <td>{{d.basicInfo.personnel_scale}}</td>
       <td class="table-primary">营业期限：</td>
-      <td>2010-03-03 至 2030-03-02</td>
+      <td>{{d.basicInfo.time_limit_for_business}}</td>
     </tr>
     <tr>
       <td class="table-primary">企业地址：</td>
-      <td colspan="3">北京市海淀区清河中街68号华润五彩城购物中心二期13层</td>
+      <td colspan="3">{{d.basicInfo.enterprise_address}}</td>
     </tr>
     <tr>
       <td style="width: 15%; vertical-align: middle;" class="table-primary">经营范围：</td>
       <td colspan="3">
-        技术开发;货物进出口、技术进出口、代理进出口;销售通讯设备、厨房用品、卫生用品(含个人护理用品)、日用杂货、化妆品、医疗器械I类、II类、避孕器具、玩具、体育用品、文化用品、服装鞋帽、钟表眼镜、针纺织品、家用电器、家具(不从事实体店铺经营)、花、草及观赏植物、不再分装的包装种子、照相器材、工艺品、礼品、计算机、软件及辅助设备、珠宝首饰、食用农产品、宠物食品、电子产品、摩托车、电动车、自行车及零部件、智能卡、五金交电(不从事实体店铺经营)、建筑材料(不从事实体店铺经营);维修仪器仪表;维修办公设备;承办展览展示活动;会议服务;筹备、策划、组织大型庆典;设计、制作、代理、发布广告;摄影扩印服务;文艺演出票务代理、体育赛事票务代理、展览会票务代理、博览会票务代理;手机技术开发;手机生产、手机服务(限海淀区永捷北路2号二层经营);从事互联网文化活动;出版物零售;出版物批发;销售第三类医疗器械;销售食品;零售药品;广播电视节目制作。(企业依法自主选择经营项目,开展经营活动;从事互联网文化活动、出版物批发、出版物零售、销售食品、广播电视节目制作、零售药品、销售第三类医疗器械以及依法须经批准的项目,经相关部门批准后依批准的内容开展经营活动;不得从事本市产业政策禁止和限制类项目的经营活动。)
+        {{d.basicInfo.scope_of_operation}}
       </td>
     </tr>
     </tbody>
@@ -127,7 +135,7 @@
   <!--股东信息-->
   <p id="shareholder-information" class="title">股东信息</p>
 
-  <table class="table mw-100">
+  <table *ngIf="d" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="60">序号</td>
@@ -137,13 +145,13 @@
       <td class="text-center" width="115">认缴出资日期</td>
       <td class="text-center" width="110">股东类型</td>
     </tr>
-    <tr *ngFor="let index of [1,2,3,4]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td><a class="cliable">雷军</a></td>
-      <td class="text-center">77.8022%</td>
-      <td class="text-center">143934.047800</td>
+    <tr *ngFor="let si of d.shareholderInformation; let i = index" class="table-bordered">
+      <td class="text-center">{{i + 1}}</td>
+      <td><a class="cliable">{{si.name}}</a></td>
+      <td class="text-center">{{si.shareholding_ratio}}%</td>
+      <td class="text-center">{{si.subscribed_capital_contribution}}</td>
       <td class="text-center">-</td>
-      <td class="text-center">自然人股东</td>
+      <td class="text-center">{{si.type_of_shareholder}}</td>
     </tr>
     </tbody>
   </table>
@@ -158,7 +166,7 @@
 
   <!--对外投资-->
   <p id="foreign-investment" class="title">对外投资</p>
-  <table class="table mw-100">
+  <table *ngIf="d" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center">被投资企业名称</td>
@@ -168,50 +176,51 @@
       <td class="text-center">成立日期</td>
       <td class="text-center">状态</td>
     </tr>
-    <tr *ngFor="let a of [1,2,3,4]" class="table-bordered">
-      <td class="text-center"><a>重庆小米商业保理有限公司</a></td>
-      <td><a>洪锋</a></td>
-      <td class="text-center">10000万</td>
-      <td class="text-center">100%</td>
-      <td class="text-center">2017-08-11</td>
-      <td class="text-center text-success">存续</td>
+    <tr *ngFor="let idx of d.outboundInvestment" class="table-bordered">
+      <td class="text-center"><a class="cliable">{{idx.invested_enterprise }}</a></td>
+      <td><a class="cliable">{{idx.investment_representative }}</a></td>
+      <td class="text-center">{{idx.registered_capital }}</td>
+      <td class="text-center">{{idx.contribution===undefined? '-': idx.contribution}}%</td>
+      <td class="text-center">{{idx.date_of_establishment | date: 'yyyy-MM-dd'}}</td>
+      <td class="text-center text-success">{{idx.status}}</td>
     </tr>
     </tbody>
   </table>
 
   <!--分支机构-->
   <p id="branches" class="title">分支机构</p>
-  <table class="table mw-100">
+  <table *ngIf="d" class="table mw-100">
     <tbody>
-    <tr *ngFor="let index of [1,3,5,7]" class="table-bordered">
-      <td class="text-center color-primary">{{index}}</td>
-      <td class="text-center"><a>广东小米科技有限责任公司</a></td>
-      <td class="text-center color-primary">{{index + 1}}</td>
-      <td class="text-center"><a>广东小米科技有限责任公司</a></td>
+    <tr *ngFor="let i of rangeArray(0, d.branch.length - 1)" class="table-bordered">
+      <td class="text-center color-primary">{{i+1}}</td>
+      <td class="text-center"><a class="cliable">{{d.branch[i].name}}</a></td>
+
+      <td *ngIf="i+2<=d.branch.length" class="text-center color-primary">{{i+2}}</td>
+      <td *ngIf="i+2<=d.branch.length" class="text-center"><a class="cliable">{{d.branch[i + 1].name}}</a></td>
     </tr>
     </tbody>
   </table>
 
   <!--主要人员-->
   <p id="main-staff" class="title">主要人员</p>
-  <table class="table mw-100">
+  <table *ngIf="d" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="50" class="text-center">序号</td>
       <td width="320" class="text-center">姓名</td>
       <td width="300" class="text-center">职务</td>
     </tr>
-    <tr *ngFor="let index of [1,2,3,4]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td><a>洪锋</a></td>
-      <td class="text-center">董事长</td>
+    <tr *ngFor="let i of d.mainPersonnel; let idx = index" class="table-bordered">
+      <td class="text-center">{{idx}}</td>
+      <td><a class="cliable">{{i.name}}</a></td>
+      <td class="text-center">{{i.desc}}</td>
     </tr>
     </tbody>
   </table>
 
   <!--变更记录-->
   <p id="change-log" class="title">变更记录</p>
-  <table class="table mw-100">
+  <table *ngIf="d" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="60" class="text-center">序号</td>
@@ -220,31 +229,20 @@
       <td width="300" class="text-center">变更前</td>
       <td width="300" class="text-center">变更后</td>
     </tr>
-    <tr *ngFor="let index of [1,2,3,4]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center">2016-03-24</td>
-      <td class="text-center">注册资本</td>
-      <td class="text-center">5000万元</td>
-      <td class="text-center">185000万元(+3600%)</td>
+    <tr *ngFor="let i of d.changeRecord; let idx = index" class="table-bordered">
+      <td class="text-center">{{idx}}</td>
+      <td class="text-center">{{i.change_date | date: 'yyyy-MM-dd'}}</td>
+      <td class="text-center">{{i.change_project}}</td>
+      <td class="text-center">{{i.before_change}}</td>
+      <td class="text-center">{{i.after_change}}</td>
     </tr>
     </tbody>
   </table>
 
   <!--公司简介-->
   <p id="company-profile" class="title">公司简介</p>
-  <div class="p-3 f-14 border">
-    <p>
-      小米公司正式成立于2010年4月，是一家专注于高端智能手机、互联网电视以及智能家居生态链建设的创新型科技企业。
-    </p>
-    <p>
-      “让每个人都能享受科技的乐趣”是小米公司的愿景。小米公司应用了互联网开发模式开发产品的模式，用极客精神做产品，用互联网模式干掉中间环节，致力于让全球每个人，都能享用来自中国的优质科技产品。
-    </p>
-    <p><br></p>
-    <p>
-      小米公司自创办以来，保持了令世界惊讶的增长速度，小米公司在2012年全年售出手机719万台，2013年售出手机1870万台，2014年售出手机6112万台。
-    </p>
-    <p><span style="line-height:1.5;">小米</span><span style="line-height:1.5;">公司在互联网电视机顶盒、互联网智能电视，以及家用智能路由器和智能家居产品等领域也颠覆了传统市场。截至2014年年底，小米公司旗下生态链企业已达22家，其中紫米科技的小米移动电源、华米科技的小米手环、智米科技的小米空气净化器、加一联创的小米活塞耳机等产品均在短时间内迅速成为影响整个中国消费电子市场的明星产品。 小米生态链建设将秉承开放、不排他、非独家的合作策略，和业界合作伙伴一起推动智能生态链建设。</span>
-    </p>
+  <div *ngIf="d" [innerHTML]="d.companyProfile.profile" class="p-3 f-14 border">
+
   </div>
 
 </div>

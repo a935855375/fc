@@ -15,21 +15,22 @@
         <input type="search" name="q" class="form-control rounded-0" style="font-size: 14px;border: none"
                placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)">
         <div class="input-group-btn btn-group-lg">
-          <button style="width: 80px" class="btn btn-info rounded-0" (click)="search()"><i class="fa fa-search"></i></button>
+          <button style="width: 80px" class="btn btn-info rounded-0" (click)="search()"><i class="fa fa-search"></i>
+          </button>
         </div>
       </div>
-      <a class="align-self-center ml-2" style="color: #ffffff">高级搜索</a>
+      <a class="align-self-center ml-2" style="color: #000000">高级搜索</a>
     </div>
     <div class="align-self-center d-flex justify-content-between mt-5 mb-5">
-      <p><span id="hot_data_label" style="color: #ffffff">热搜：</span>
+      <p><span id="hot_data_label" style="color: #000000">热搜：</span>
         <span>
-          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">张靓颖离婚</a>
-          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">美团收购摩拜</a>
-          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">爱奇艺上市</a>
-          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">乐视股票</a>
-          <a class="f-16 px-2" style="color: #BCEAFF;" href="#">海航集团</a>
+          <a class="f-16 px-2" style="color: #000000;" href="#">张靓颖离婚</a>
+          <a class="f-16 px-2" style="color: #000000;" href="#">美团收购摩拜</a>
+          <a class="f-16 px-2" style="color: #000000;" href="#">爱奇艺上市</a>
+          <a class="f-16 px-2" style="color: #000000;" href="#">乐视股票</a>
+          <a class="f-16 px-2" style="color: #000000;" href="#">海航集团</a>
         </span>
-        <a class="px-2" style="color:white;">
+        <a class="px-2" style="color:#000000;">
           <span><i class="fa fa-refresh"></i></span>&nbsp;换一批</a></p>
     </div>
   </div>
@@ -210,47 +211,122 @@
 <div class="container mt-3 px-0">
   <div class="card rounded-0 pb-3">
     <div class="d-flex com_head">
-      <a href="#" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">最新注册公司</h2></a>
-      <a href="#" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">最新认证公司</h2></a>
-      <a href="#" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">按区域查公司</h2></a>
-      <a href="#" style="margin-right: -1px" class="flex-grow-1"><h2 class="font-weight-bold my-3 f-15 text-center">
+      <a class="flex-grow-1 com_active" [class.com_active]="k==0" (click)="k=0"><h2
+        class="font-weight-bold my-3 f-15 text-center">最新注册公司</h2></a>
+      <a class="flex-grow-1 com_active" [class.com_active]="k==1" (click)="k=1"><h2
+        class="font-weight-bold my-3 f-15 text-center">最新认证公司</h2></a>
+      <a class="flex-grow-1 com_active" [class.com_active]="k==2" (click)="k=2"><h2
+        class="font-weight-bold my-3 f-15 text-center">按区域查公司</h2></a>
+      <a style="margin-right: -1px" class="flex-grow-1 com_active" [class.com_active]="k==3" (click)="k=3"><h2
+        class="font-weight-bold my-3 f-15 text-center">
         按行业查公司</h2></a>
     </div>
-    <div class="d-flex py-3 px-3 com_body">
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+    <div *ngIf="k==0">
+      <div class="d-flex py-3 px-3 com_body">
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
       </div>
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
-      </div>
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
-      </div>
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+
+      <div class="d-flex px-3 com_body">
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+        </div>
       </div>
     </div>
-
-    <div class="d-flex px-3 com_body">
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+    <div *ngIf="k==1">
+      <div class="d-flex py-3 px-3 com_body">
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
       </div>
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+      <div class="d-flex px-3 com_body">
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
+        <div class="mx-2 py-3 flex-grow-1 border">
+          <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
+          <p class="text-center mb-0 f-13" style="color: #a1a8ac">认证人：马云</p>
+        </div>
       </div>
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+    </div>
+    <div *ngIf="k==2">
+      <div class="d-flex flex-wrap pt-3 px-3 com_body">
+        <li *ngFor="let province of provinces" class="text-center d-block com_pro" style="min-width: 10%"><a href="#">{{province}} </a>
+        </li>
       </div>
-      <div class="mx-2 py-3 flex-grow-1 border">
-        <p class="text-center mb-2"><a>深圳鑫嘉美胶业有限公司</a></p>
-        <p class="text-center mb-0 f-13" style="color: #a1a8ac">成立日期：2018-05-28</p>
+    </div>
+    <div *ngIf="k==3">
+      <div class="py-3 px-3">
+        <div class="d-flex align-items-center my-2 py-2 com_work">
+          <div class="col-md-4"><h4 class=""><a href="#"> 农、林、牧、渔业 </a></h4>
+          </div>
+          <div class="col-md-8 d-flex flex-wrap">
+            <a *ngFor="let work of ['林业','畜牧业','渔业','农、林、牧、渔专业及辅助性活动']" href="#" class="mr-3">{{work}}</a>
+          </div>
+        </div>
+        <div class="d-flex align-items-center my-2 py-2 com_work">
+          <div class="col-md-4"><h4 class=""><a href="#"> 农、林、牧、渔业 </a></h4>
+          </div>
+          <div class="col-md-8 d-flex flex-wrap">
+            <a *ngFor="let work of ['林业','畜牧业','渔业','农、林、牧、渔专业及辅助性活动']" href="#" class="mr-3">{{work}}</a>
+          </div>
+        </div>
+        <div class="d-flex align-items-center my-2 py-2 com_work">
+          <div class="col-md-4"><h4 class=""><a href="#"> 农、林、牧、渔业 </a></h4>
+          </div>
+          <div class="col-md-8 d-flex flex-wrap">
+            <a *ngFor="let work of ['林业','畜牧业','渔业','农、林、牧、渔专业及辅助性活动']" href="#" class="mr-3">{{work}}</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,3 +1,64 @@
-<p>
-  business-risk works!
-</p>
+<div class="mb-2">
+  <div class="d-flex flex-wrap px-2 py-2">
+    <a pageScroll class="my-2 anchor">经营异常</a>
+    <a pageScroll class="my-2 anchor">股权出质</a>
+    <a pageScroll class="my-2 anchor">对外投资</a>
+    <a pageScroll class="my-2 anchor" href="#administrative_penalty">行政处罚</a>
+    <a pageScroll class="my-2 anchor" href="#spot_exam">抽查检查</a>
+    <a pageScroll class="my-2 anchor">税收违法</a>
+    <a pageScroll class="my-2 anchor">环保处罚</a>
+    <a pageScroll class="my-2 anchor">清算信息</a>
+    <a pageScroll class="my-2 anchor">司法拍卖</a>
+    <a pageScroll class="my-2 anchor">土地抵押</a>
+    <a pageScroll class="my-2 anchor">简易注销</a>
+    <a pageScroll class="my-2 anchor">公示催告</a>
+  </div>
+  <mat-divider></mat-divider>
+  <!--行政处罚-->
+  <p id="administrative_penalty" class="title">行政处罚</p>
+
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">决定文书号</td>
+      <td class="text-center" width="90">违法行为类型</td>
+      <td class="text-center" width="160">行政处罚内容</td>
+      <td class="text-center" width="115">公示日期</td>
+      <td class="text-center" width="110">决定机关</td>
+      <td class="text-center" width="110">决定日期</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td><a class="cliable">深市质南市监罚字[2017]639号</a></td>
+      <td class="text-center">广告违法行为</td>
+      <td class="text-center">罚款10000</td>
+      <td class="text-center">2017-09-08</td>
+      <td class="text-center">粤海所</td>
+      <td class="text-center">2017-11-07</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--抽查检查-->
+  <p id="spot_exam" class="title">抽查检查</p>
+
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">检查实施机关</td>
+      <td class="text-center" width="90">类型</td>
+      <td class="text-center" width="160">日期</td>
+      <td class="text-center" width="115">结果</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td><a class="cliable">深圳市市场和质量监督管理委员会</a></td>
+      <td class="text-center">抽查</td>
+      <td class="text-center">2017-12-14</td>
+      <td class="text-center">正常（自行按规定公示）</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

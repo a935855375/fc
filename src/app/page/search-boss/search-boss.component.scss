@@ -1,25 +1,25 @@
 .bg {
-  background: url("../../../assets/img/bg.jpg") no-repeat top;
+  background: #DEBD6F url("../../../assets/img/bg.png") no-repeat top;
 }
 
 h1{
-  color: #fff;
+  color: #000000;
   font-size: 45px;
-  font-family: "Microsoft YaHei",Arial;
+  font-family: "Microsoft YaHei";
 }
 ul,li{
   list-style: none;
-  color: #ffffff;
-  font-family: "Microsoft YaHei",Arial;
+  color: #000000;
+  font-family: "Microsoft YaHei";
 }
 
 .hot{
   a{
     background-color: rgba(255, 255, 255, 0.15);
-    color: #e0e0e0;
+    color: #000000;
   }
   .hot-title{
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
   }
 
 }

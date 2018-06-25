@@ -147,7 +147,10 @@
     </tr>
     <tr *ngFor="let si of d.shareholderInformation; let i = index" class="table-bordered">
       <td class="text-center">{{i + 1}}</td>
-      <td><a class="cliable">{{si.name}}</a></td>
+      <td>
+        <a class="cliable">{{si.name}}</a>
+        <a class="associate">他关联 {{si.associate_count}} 家公司></a>
+      </td>
       <td class="text-center">{{si.shareholding_ratio}}%</td>
       <td class="text-center">{{si.subscribed_capital_contribution}}</td>
       <td class="text-center">-</td>
@@ -169,20 +172,25 @@
   <table *ngIf="d" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
-      <td class="text-center">被投资企业名称</td>
-      <td class="text-center">被投资法定代表人</td>
-      <td class="text-center">注册资本</td>
-      <td class="text-center">出资比例</td>
+      <td width="27%" class="text-center">被投资企业名称</td>
+      <td width="28%" class="text-center">被投资法定代表人</td>
+      <td width="15%" class="text-center">注册资本</td>
+      <td width="10%" class="text-center">出资比例</td>
       <td class="text-center">成立日期</td>
-      <td class="text-center">状态</td>
+      <td width="7%" class="text-center">状态</td>
     </tr>
     <tr *ngFor="let idx of d.outboundInvestment" class="table-bordered">
-      <td class="text-center"><a class="cliable">{{idx.invested_enterprise }}</a></td>
-      <td><a class="cliable">{{idx.investment_representative }}</a></td>
-      <td class="text-center">{{idx.registered_capital }}</td>
-      <td class="text-center">{{idx.contribution===undefined? '-': idx.contribution}}%</td>
-      <td class="text-center">{{idx.date_of_establishment | date: 'yyyy-MM-dd'}}</td>
-      <td class="text-center text-success">{{idx.status}}</td>
+      <td class="text-center vertical-middle"><a class="cliable">{{idx.invested_enterprise }}</a></td>
+      <td class="vertical-middle">
+        <a class="cliable">{{idx.investment_representative }}</a>
+        <a *ngIf="idx.investment_representative.length < 15" class="associate">对外投资与任职></a>
+      </td>
+      <td class="text-center vertical-middle">{{idx.registered_capital===undefined? '-': idx.registered_capital}}</td>
+      <td class="text-center vertical-middle">{{idx.contribution===undefined? '-': idx.contribution + '%'}}</td>
+      <td class="text-center vertical-middle">{{idx.date_of_establishment | date: 'yyyy-MM-dd'}}</td>
+      <td [ngClass]="{'text-success': idx.status==='存续' || idx.status==='在业', 'text-danger': idx.status==='注销'}"
+          class="text-center vertical-middle text-success text-danger">{{idx.status}}
+      </td>
     </tr>
     </tbody>
   </table>
@@ -192,11 +200,12 @@
   <table *ngIf="d" class="table mw-100">
     <tbody>
     <tr *ngFor="let i of rangeArray(0, d.branch.length - 1)" class="table-bordered">
-      <td class="text-center color-primary">{{i+1}}</td>
-      <td class="text-center"><a class="cliable">{{d.branch[i].name}}</a></td>
+      <td width="6%" class="text-center color-primary">{{i+1}}</td>
+      <td width="44%" class="text-center"><a class="cliable">{{d.branch[i].name}}</a></td>
 
-      <td *ngIf="i+2<=d.branch.length" class="text-center color-primary">{{i+2}}</td>
-      <td *ngIf="i+2<=d.branch.length" class="text-center"><a class="cliable">{{d.branch[i + 1].name}}</a></td>
+      <td width="6%" *ngIf="i+2<=d.branch.length" class="text-center color-primary">{{i+2}}</td>
+      <td width="44%" *ngIf="i+2<=d.branch.length" class="text-center"><a class="cliable">{{d.branch[i + 1].name}}</a>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -211,8 +220,11 @@
       <td width="300" class="text-center">职务</td>
     </tr>
     <tr *ngFor="let i of d.mainPersonnel; let idx = index" class="table-bordered">
-      <td class="text-center">{{idx}}</td>
-      <td><a class="cliable">{{i.name}}</a></td>
+      <td class="text-center">{{idx + 1}}</td>
+      <td>
+        <a class="cliable">{{i.name}}</a>
+        <a class="associate">他关联 {{i.associate_count}} 家公司></a>
+      </td>
       <td class="text-center">{{i.desc}}</td>
     </tr>
     </tbody>
@@ -230,19 +242,17 @@
       <td width="300" class="text-center">变更后</td>
     </tr>
     <tr *ngFor="let i of d.changeRecord; let idx = index" class="table-bordered">
-      <td class="text-center">{{idx}}</td>
-      <td class="text-center">{{i.change_date | date: 'yyyy-MM-dd'}}</td>
-      <td class="text-center">{{i.change_project}}</td>
-      <td class="text-center">{{i.before_change}}</td>
-      <td class="text-center">{{i.after_change}}</td>
+      <td class="text-center vertical-middle">{{idx + 1}}</td>
+      <td class="text-center vertical-middle">{{i.change_date | date: 'yyyy-MM-dd'}}</td>
+      <td width="23%" class="text-center vertical-middle" [innerHTML]="i.change_project | safeHTML"></td>
+      <td class="vertical-middle" [innerHTML]="i.before_change | safeHTML"></td>
+      <td class="vertical-middle" [innerHTML]="i.after_change | safeHTML"></td>
     </tr>
     </tbody>
   </table>
 
   <!--公司简介-->
   <p id="company-profile" class="title">公司简介</p>
-  <div *ngIf="d" [innerHTML]="d.companyProfile.profile" class="p-3 f-14 border">
-
-  </div>
+  <div *ngIf="d" [innerHTML]="d.companyProfile.profile | safeHTML" class="p-3 f-14 border"></div>
 
 </div>

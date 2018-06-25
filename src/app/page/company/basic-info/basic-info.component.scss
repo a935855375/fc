@@ -44,4 +44,21 @@ td {
   border-bottom: none !important;
 }
 
+.associate {
+  color: #F5A623 !important;
+  float: right;
+  font-size: 14px;
+}
 
+.vertical-middle {
+  vertical-align: middle;
+}
+
+:host ::ng-deep em {
+  font-style:normal;
+  color: #e33244;
+}
+
+:host ::ng-deep .text-gray {
+  color: #999;
+}

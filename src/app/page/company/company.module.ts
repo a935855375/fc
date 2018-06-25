@@ -6,6 +6,7 @@ import {CommonModule} from '@angular/common';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {CompanyService} from '../../service/company.service';
+import {SafeHtmlPipe} from '../../service/safehtml.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {CompanyService} from '../../service/company.service';
   ],
   declarations: [
     CompanyComponent,
+    SafeHtmlPipe,
     ...routedComponent
   ],
 })

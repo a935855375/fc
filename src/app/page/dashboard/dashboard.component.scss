@@ -102,6 +102,7 @@ ul, li {
   a {
     color: #666;
     border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     :hover {
       color: #000;
     }
@@ -143,7 +144,6 @@ ul, li {
 
 .com_active {
   border-bottom: none !important;
-  margin-bottom: -2px;
   h2 {
     color: #000000;
   }

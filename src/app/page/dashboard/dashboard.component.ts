@@ -20,7 +20,8 @@ export class DashboardComponent {
   }
 
   search() {
-    this.router.navigate(['/search'], {queryParams: {key: this.key, kind: this.kind}});
+    const k = 1;
+    this.router.navigate(['/search'], {queryParams: {key: this.key, kind: k}});
   }
 
   keyChanged(event) {

@@ -2,6 +2,9 @@ import {ExtraOptions, RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './page/login/login.component';
 import {RegisterComponent} from './page/register/register.component';
 import {NgModule} from '@angular/core';
+import {HotnewsModule} from './page/hotnews/hotnews.module';
+import {BossModule} from './page/boss/boss.module';
+import {BossinfoModule} from './page/bossinfo/bossinfo.module';
 
 
 const routes: Routes = [
@@ -14,6 +17,9 @@ const routes: Routes = [
   {path: 'search-boss', loadChildren: './page/search-boss/search-boss.module#SearchBossModule'},
   {path: 'dashboard', loadChildren: './page/dashboard/dashboard.module#DashboardModule'},
   {path: 'genealogy', loadChildren: './page/genealogy/genealogy.module#GenealogyModule'},
+  {path: 'hotnews', loadChildren: './page/hotnews/hotnews.module#HotnewsModule'},
+  {path: 'boss', loadChildren: './page/boss/boss.module#BossModule'},
+  {path: 'bossinfo', loadChildren: './page/bossinfo/bossinfo.module#BossinfoModule'},
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 

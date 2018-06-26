@@ -59,6 +59,27 @@ export class CompanyComponent implements OnInit, OnDestroy {
     })
   }
 
+  // 过滤<p>标签
+  reformNoticeContent = (content) => {
+    content = content.split('');
+    let tagBoolean = false;
+    content.forEach((c,index) => {
+      if('<' === c){
+        tagBoolean = true;
+      }else if('>' === c){
+        content[index] = '';
+        tagBoolean = false;
+      }
+      if(tagBoolean) {
+        content[index] = '';
+      }
+    });
+    content = content.join('');
+    console.log('replaceTest: ',content);
+    return content;
+  };
+
+
   changePage(page: number) {
     this.selector = page;
   }

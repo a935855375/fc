@@ -11,5 +11,7 @@ export class SearchBodyComponent {
   @Input() k: string;
   selected = 'option1';
 
+  page = 1;
+
   replaceFun = (source: string, key: string) => source.replace(key, '<em>' + key + '</em>')
 }

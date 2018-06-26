@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Company} from '../../../entity/bean';
 
 @Component({
@@ -9,9 +9,14 @@ import {Company} from '../../../entity/bean';
 export class SearchBodyComponent {
   @Input() company: Company[] = [];
   @Input() k: string;
-  selected = 'option1';
+  @Output() fromChild = new EventEmitter<number>();
+  selected = '0';
 
   page = 1;
 
   replaceFun = (source: string, key: string) => source.replace(key, '<em>' + key + '</em>')
+
+  sort(e) {
+    this.fromChild.emit(e);
+  }
 }

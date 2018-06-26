@@ -6,4 +6,5 @@ import {Component} from '@angular/core';
   styleUrls: ['./search-cate.component.scss']
 })
 export class SearchCateComponent {
+  k: number = 0;
 }

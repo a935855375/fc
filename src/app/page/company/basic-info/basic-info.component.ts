@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PageScrollConfig} from 'ngx-page-scroll';
 import {CompanyService} from '../../../service/company.service';
 
@@ -24,8 +24,8 @@ export class BasicInfoComponent implements OnInit {
     PageScrollConfig.defaultDuration = 500;
 
     this.companyService.getBasicInfo(this.companyService.cid).then(x => {
-      console.log(x);
       this.d = x;
+      this.companyService.getSubject().next(x.company)
     });
   }
 

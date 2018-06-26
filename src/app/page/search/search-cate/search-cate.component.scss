@@ -19,3 +19,30 @@ button {
   font-weight: bold;
   font-size: 16px;
 }
+
+
+.com_head {
+  border-bottom: 1px solid #ddd;
+  background-color: #fcfcfd;
+  a {
+    color: #666;
+
+  }
+  a:hover {
+    color: #128cec;
+  }
+}
+
+.com_active {
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  background: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -2px;
+  color: #128cec !important;
+  font-weight: 700;
+}
+
+.clear_left_border {
+  border-left: none !important;
+}

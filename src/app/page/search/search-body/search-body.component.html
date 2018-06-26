@@ -1,11 +1,13 @@
-<mat-card class="mt-4 py-0">
+<mat-card class="card rounded-0 mt-4 py-0" style="box-shadow: none">
   <div class="d-flex justify-content-between">
-    <span class="align-self-center">搜索到 <em>{{company == undefined ? 0: company.length}}</em> 位同名 <em>“{{k}}”</em> 的关键字</span>
+    <span class="align-self-center">搜索到 <em>{{company == undefined ? 0: company.length * 7}}</em> 位含有 <em>“{{k}}”</em> 的关键字的信息</span>
     <mat-form-field style="width: 15%">
-      <mat-select [(value)]="selected">
-        <mat-option value="option1">默认排序</mat-option>
-        <mat-option value="option2">成立日期升序</mat-option>
-        <mat-option value="option3">注册资本升序</mat-option>
+      <mat-select [value]="selected" (valueChange)="sort($event)">
+        <mat-option value="0">默认排序</mat-option>
+        <mat-option value="1">成立日期升序</mat-option>
+        <mat-option value="2">成立日期降序</mat-option>
+        <mat-option value="3">注册资本升序</mat-option>
+        <mat-option value="4">注册资本降序</mat-option>
       </mat-select>
     </mat-form-field>
   </div>

@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class CompanyService {
   cid: number = 1;
+  subject = new Subject();
 
   constructor(private http: HttpClient) {
   }
@@ -15,5 +17,10 @@ export class CompanyService {
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
+
+  getSubject() {
+    return this.subject;
+  }
+
 
 }

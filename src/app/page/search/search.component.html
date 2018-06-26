@@ -5,20 +5,21 @@
       <app-search-cate></app-search-cate>
       <app-search-body
         [company]="companies"
-        [k]="key"></app-search-body>
+        [k]="key"
+        (fromChild)="sort($event)"></app-search-body>
     </div>
 
     <div class="col-lg-3 col-md-12">
       <div class="f-bg">
         <div class="p-3" style="font-size: 18px">您可能感兴趣的公司</div>
         <div class="f-bdr mb-3"></div>
-        <div class="mb-3">
-          <li *ngFor="let index of [1,2,3]" class="d-flex px-3 pb-3">
-            <a href="#"><img src="http://co-image.qichacha.com/CompanyImage/9cce0780ab7644008b73bc2120479d31.jpg"
+        <div *ngIf="companies" class="mb-3">
+          <li *ngFor="let c of interestedCompany(companies)" class="d-flex px-3 pb-3">
+            <a href="#"><img src="{{c.img}}"
                              width="50"></a>
             <div class="mr-auto pl-2">
-              <div class="f-14"><a href="#">小米科技有限责任公司</a></div>
-              <div class="f-14 pt-1">法定代表人：<span style="color: #37a">雷军</span></div>
+              <div class="f-14"><a href="#">{{c.name}}</a></div>
+              <div class="f-14 pt-1">法定代表人：<span style="color: #37a">{{c.represent}}</span></div>
             </div>
           </li>
         </div>
@@ -26,25 +27,12 @@
       <div class="f-bg mt-3">
         <div class="p-3" style="font-size: 18px">您可能感兴趣的热点人物</div>
         <div class="f-bdr mb-3"></div>
-        <div class="mb-3">
-          <li *ngFor="let index of [1,2,3]" class="d-flex px-3 pb-3 justify-content-between">
-            <a  href="#" class="flex-grow-1 text-center">
-              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
-              <div><em class="f-thide">马云</em></div>
-            </a>
-            <a  href="#" class="flex-grow-1 text-center">
-              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
-              <div><em class="f-thide">马云</em></div>
-            </a>
-            <a  href="#" class="flex-grow-1 text-center">
-              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
-              <div><em class="f-thide">马云</em></div>
-            </a>
-            <a  href="#" class="flex-grow-1 text-center">
-              <div><img  src="../../../assets/img/avatar.png" width="48"></div>
-              <div><em class="f-thide">马云</em></div>
-            </a>
-          </li>
+        <div *ngIf="people" class="mb-3 d-flex flex-wrap">
+          <a *ngFor="let p of people.slice(0, 9)" href="#" class="flex-grow-1 text-center col-4 px-2">
+            <div><img style="max-width: 100%" src="{{p.img}}"></div>
+            <div><em>{{p.name}}</em></div>
+            <p>{{p.desc}}</p>
+          </a>
         </div>
       </div>
     </div>

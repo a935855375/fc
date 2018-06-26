@@ -1,15 +1,17 @@
 <div id="top" class="container">
-  <mat-card>
+  <mat-card *ngIf="company">
     <div class="row pl-2">
       <img class="mr-4" style="height: 100px; width: 100px"
-           src="http://co-image.qichacha.com/CompanyImage/9cce0780ab7644008b73bc2120479d31.jpg">
+           src="{{company.img}}">
       <div>
-        <p class="mb-2 mb-3"><a style="font-size: 22px; color: black; font-weight: bold">小米科技有限责任公司</a></p>
-        <p class="f-14 mb-2">电话： 010-60606666-1000 <a class="ml-2">更多号码</a></p>
-        <p class="f-14 mb-2">邮箱： chenchongwei@xiaomi.com <span class="ml-2">官网： www.xiaomi.com</span></p>
-        <p class="f-14 mb-2">地址： 北京市海淀区清河中街68号华润五彩城购物中心二期13层 <a class="ml-2">附近公司</a></p>
-        <p class="f-14 mb-2">企业情报动态： 共 569 条 <a class="ml-2">查看详情</a> <span class="ml-2">小米科技： E轮</span> <a
-          class="ml-2">查看详情</a></p>
+        <p class="mb-2 mb-3">
+          <a style="font-size: 22px; color: black; font-weight: bold">{{company.name}}<span class="ml-3 nsatus col_name">曾用名</span>
+          <span class="ml-2 nsatus col_work">在业</span>
+        </a></p>
+        <p class="f-14 mb-2">电话： {{company.phone}} <a href="#" class="ml-2">更多号码</a></p>
+        <p class="f-14 mb-2">邮箱： {{company.mail}} <span class="ml-2">官网： {{company.website}}</span></p>
+        <p class="f-14 mb-2">地址： {{company.addr}} <a href="#" class="ml-2">附近公司</a></p>
+        <p class="f-14 mb-2">简介： {{company.introduction.slice(0, 50)}} <a href="#" class="ml-2">查看详情</a></p>
       </div>
 
       <div class="d-flex flex-column ml-auto">

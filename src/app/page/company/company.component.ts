@@ -3,8 +3,8 @@ import {Router} from '@angular/router';
 import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
 import {DOCUMENT} from '@angular/common';
 import {CompanyService} from '../../service/company.service';
-import {Subscription} from 'rxjs/src/internal/Subscription';
 import {Company} from '../../entity/bean';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-company',

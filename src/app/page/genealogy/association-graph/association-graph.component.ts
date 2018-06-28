@@ -58,7 +58,7 @@ export class AssociationGraphComponent implements OnInit {
           name: '亲戚',
           itemStyle: {
             normal: {
-              color: "#3592F",
+              color: "#d3592F",
             }
           }
         }],
@@ -85,6 +85,7 @@ export class AssociationGraphComponent implements OnInit {
         },
         data: [{
           name: '徐贱云',
+          category: 0,
           draggable: true,
         }, {
           name: '冯可梁',

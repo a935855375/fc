@@ -17,4 +17,18 @@ export class CommonService {
     const url = environment.apiUrl + 'test';
     return this.http.get(url, {observe: 'response'}).toPromise();
   }
+
+  getEnterpriseGraphById(id: number) {
+    const url = environment.apiUrl + 'enterprisegraph';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  getInvestmentGraphById(id: number) {
+    const url = environment.apiUrl + 'investmentgraph';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     });
 
     this.searchService.getInterestedPeople().then(x => {
-      this.people = x;
+      this.people = x as any[];
     })
   }
 

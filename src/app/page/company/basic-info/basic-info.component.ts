@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PageScrollConfig} from 'ngx-page-scroll';
 import {CompanyService} from '../../../service/company.service';
 
@@ -25,7 +25,7 @@ export class BasicInfoComponent implements OnInit {
 
     this.companyService.getBasicInfo(this.companyService.cid).then(x => {
       this.d = x;
-      this.companyService.getSubject().next(x.company)
+      this.companyService.getSubject().next((x as any).company)
     });
   }
 
@@ -175,6 +175,15 @@ export class BasicInfoComponent implements OnInit {
       },
       x: 'left'
     },
+    toolbox: {
+      show : true,
+      feature : {
+        mark : {show: true},
+        dataView : {show: true, readOnly: false},
+        restore : {show: true},
+        saveAsImage : {show: true}
+      }
+    },
     tooltip: {
       show: true,
       formatter: function (params) {
@@ -232,6 +241,15 @@ export class BasicInfoComponent implements OnInit {
       bottom: 75,
       left: 75,
       backgroundColor: '#fbfbfb'
+    },
+    toolbox: {
+      show : true,
+      feature : {
+        mark : {show: true},
+        dataView : {show: true, readOnly: false},
+        restore : {show: true},
+        saveAsImage : {show: true}
+      }
     },
     title: {
       text: '企业对外投资行业前五分布图',

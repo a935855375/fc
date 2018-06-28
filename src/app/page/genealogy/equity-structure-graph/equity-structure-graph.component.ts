@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-equity-structure-graph',
@@ -7,16 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquityStructureGraphComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   data = [
     {
-      name: '董事会',
+      name: '小米有限责任公司',
       value: 6,
-      symbolSize: [70, 30],
+      symbolSize: [130, 30],
       symbol: 'rectangle',
       itemStyle: {
         normal: {
@@ -26,7 +27,7 @@ export class EquityStructureGraphComponent implements OnInit {
       },
       children: [
         {
-          name: '总经理',
+          name: '股东',
           value: 6,
           symbolSize: [70, 30],
           symbol: 'rectangle',
@@ -38,222 +39,8 @@ export class EquityStructureGraphComponent implements OnInit {
           },
           children: [
             {
-              name: '营销中心',
-              value: 4,
-              symbolSize: [70, 30],
-              symbol: 'rectangle',
-              itemStyle: {
-                normal: {
-                  label: {
-                    show: true,
-                    position: 'inside'
-                  },
-                  borderWidth: 2,
-                  borderColor: 'black'
-                }
-              },
-              children: [
-                {
-                  name: '市场部',
-                  value: 4,
-                  symbolSize: [60, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '销售部',
-                  value: 4,
-                  symbolSize: [60, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '客服部',
-                  value: 4,
-                  symbolSize: [60, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                }
-              ]
-            },
-            {
-              name: '项目中心',
-              value: 4,
-              symbolSize: [70, 30],
-              symbol: 'rectangle',
-              itemStyle: {
-                normal: {
-                  label: {
-                    show: true,
-                    position: 'inside'
-                  },
-                  borderWidth: 2,
-                  borderColor: 'black'
-                }
-              },
-              children: [
-                {
-                  name: '售前支持部',
-                  value: 4,
-                  symbolSize: [90, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '项目一部',
-                  value: 4,
-                  symbolSize: [70, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '项目二部',
-                  value: 4,
-                  symbolSize: [70, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '项目三部',
-                  value: 4,
-                  symbolSize: [70, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                }
-              ]
-            },
-            {
-              name: '技术中心',
-              value: 4,
-              symbolSize: [70, 30],
-              symbol: 'rectangle',
-              itemStyle: {
-                normal: {
-                  label: {
-                    show: true,
-                    position: 'inside'
-                  },
-                  borderWidth: 2,
-                  borderColor: 'black'
-                }
-              },
-              children: [
-                {
-                  name: '开发部',
-                  value: 4,
-                  symbolSize: [70, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '设计部',
-                  value: 4,
-                  symbolSize: [70, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                },
-                {
-                  name: '系统部',
-                  value: 4,
-                  symbolSize: [70, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
-                  },
-                }
-              ]
-            },
-            {
-              name: '行政部',
-              value: 4,
+              name: '雷军',
+              value: '77.8%',
               symbolSize: [70, 30],
               symbol: 'rectangle',
               itemStyle: {
@@ -268,25 +55,9 @@ export class EquityStructureGraphComponent implements OnInit {
               }
             },
             {
-              name: '财务部',
-              value: 4,
-              symbolSize: [70, 30],
-              symbol: 'rectangle',
-              itemStyle: {
-                normal: {
-                  label: {
-                    show: true,
-                    position: 'inside'
-                  },
-                  borderWidth: 2,
-                  borderColor: 'black'
-                }
-              }
-            },
-            {
-              name: '其他分支',
-              value: 4,
-              symbolSize: [70, 30],
+              name: '黎万强',
+              value: '10.12%',
+              symbolSize: [60, 30],
               symbol: 'rectangle',
               itemStyle: {
                 normal: {
@@ -298,57 +69,134 @@ export class EquityStructureGraphComponent implements OnInit {
                   borderColor: 'black'
                 }
               },
-              children: [
-                {
-                  name: '汕头分公司',
-                  value: 4,
-                  symbolSize: [90, 30],
-                  symbol: 'rectangle',
-                  itemStyle: {
-                    normal: {
-                      label: {
-                        show: true,
-                        position: 'inside'
-                      },
-                      borderWidth: 2,
-                      borderColor: 'black'
-                    }
+            },
+            {
+              name: '洪峰',
+              value: '10.07%',
+              symbolSize: [60, 30],
+              symbol: 'rectangle',
+              itemStyle: {
+                normal: {
+                  label: {
+                    show: true,
+                    position: 'inside'
                   },
+                  borderWidth: 2,
+                  borderColor: 'black'
                 }
-              ]
+              },
+            },
+            {
+              name: '刘德',
+              value: '2.01%',
+              symbolSize: [60, 30],
+              symbol: 'rectangle',
+              itemStyle: {
+                normal: {
+                  label: {
+                    show: true,
+                    position: 'inside'
+                  },
+                  borderWidth: 2,
+                  borderColor: 'black'
+                }
+              },
             },
           ]
-        }]
+        },
+        {
+          name: '对外投资',
+          value: 6,
+          symbolSize: [70, 30],
+          symbol: 'rectangle',
+          itemStyle: {
+            normal: {
+              borderWidth: 2,
+              borderColor: 'black'
+            }
+          },
+          children: [
+            {
+              name: '湖北小米长江产业基金合伙企业(有限合伙)',
+              value: 6,
+              symbolSize: [70, 30],
+              symbol: 'rectangle',
+              itemStyle: {
+                normal: {
+                  borderWidth: 2,
+                  borderColor: 'black'
+                }
+              },
+            },
+            {
+              name: '重庆小米商业保理有限公司',
+              value: 6,
+              symbolSize: [70, 30],
+              symbol: 'rectangle',
+              itemStyle: {
+                normal: {
+                  borderWidth: 2,
+                  borderColor: 'black'
+                }
+              },
+            },
+            {
+              name: '珠海小米金融科技有限公司',
+              value: 6,
+              symbolSize: [70, 30],
+              symbol: 'rectangle',
+              itemStyle: {
+                normal: {
+                  borderWidth: 2,
+                  borderColor: 'black'
+                }
+              },
+            },
+            {
+              name: '成都西米互动科技有限公司',
+              value: 6,
+              symbolSize: [70, 30],
+              symbol: 'rectangle',
+              itemStyle: {
+                normal: {
+                  borderWidth: 2,
+                  borderColor: 'black'
+                }
+              },
+            },
+          ],
+        },
+      ]
     }
   ];
 
 
   options = {
-    tooltip : {
+    tooltip: {
       show: false,
       trigger: 'item',
-      formatter: "{b}: {c}"
+      formatter: '{b}: {c}'
     },
     toolbox: {
-      show : true,
-      feature : {
-        mark : {show: true},
-        dataView : {show: true, readOnly: false},
-        restore : {show: true},
-        saveAsImage : {show: true}
+      show: true,
+      feature: {
+        mark: {show: true},
+        dataView: {show: true, readOnly: false},
+        restore: {show: true},
+        saveAsImage: {show: true}
       }
     },
-    calculable : false,
-    series : [
+    calculable: false,
+    series: [
       {
-        name:'树图',
-        type:'tree',
-        orient: 'vertical',  // vertical horizontal
+        name: '股权结构图',
+        type: 'tree',
+        orient: 'horizontal',  // vertical horizontal
         rootLocation: {x: '50%', y: '10%'}, // 根节点位置  {x: 'center',y: 10}
         nodePadding: 20,
-        layerPadding:40,
+        layerPadding: 40,
         symbol: 'rectangle',
-        borderColor:'black',
+        borderColor: 'black',
         itemStyle: {
           normal: {
             color: '#fff',//节点背景色

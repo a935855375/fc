@@ -35,7 +35,7 @@ export class SuspectedControllerComponent implements OnInit {
     series: [
       {
         type: 'graph',
-        layout: 'circular',
+        layout: 'force',
         circular: {
           rotateLabel: false,
         },
@@ -81,7 +81,7 @@ export class SuspectedControllerComponent implements OnInit {
           }
         },
         force: {
-          repulsion: 1000
+          repulsion: 15000
         },
         edgeSymbol: ['none', 'arrow'],
         edgeLabel: {
@@ -102,9 +102,9 @@ export class SuspectedControllerComponent implements OnInit {
           draggable: true,
         },],
         links: [{
-          source: 0,
-          target: 1,
-          value: '77.8'
+          source: 1,
+          target: 0,
+          value: '77.8%'
         }],
         lineStyle: {
           normal: {

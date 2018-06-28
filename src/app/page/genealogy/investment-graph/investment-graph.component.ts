@@ -7,7 +7,6 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./investment-graph.component.scss']
 })
 export class InvestmentGraphComponent implements OnInit {
-  mInstance: any;
   flag = false;
 
   constructor(private commonService: CommonService) {
@@ -18,10 +17,6 @@ export class InvestmentGraphComponent implements OnInit {
       this.options.series[0].data = [x as any];
       this.flag = true;
     });
-  }
-
-  init(c) {
-    this.mInstance = c;
   }
 
   options = {

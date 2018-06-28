@@ -31,4 +31,11 @@ export class CommonService {
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
+
+  getAssociationGraphById(id: number) {
+    const url = environment.apiUrl + 'associationgraph';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

@@ -16,12 +16,12 @@
 <div class="mb-2">
   <div class="d-flex flex-wrap px-2 py-2">
     <a pageScroll href="#business-information" class="my-2 anchor">工商信息</a>
-    <a pageScroll href="#shareholder-information" class="my-2 anchor">股东信息</a>
-    <a pageScroll href="#foreign-investment" class="my-2 anchor">对外投资</a>
-    <a pageScroll href="#main-staff" class="my-2 anchor">主要成员</a>
-    <a pageScroll href="#branches" class="my-2 anchor">分支机构</a>
-    <a pageScroll href="#change-log" class="my-2 anchor">变更记录</a>
-    <a pageScroll href="#company-profile" class="my-2 anchor">公司简介</a>
+    <a *ngIf="d && d.shareholderInformation" pageScroll href="#shareholder-information" class="my-2 anchor">股东信息</a>
+    <a *ngIf="d && d.outboundInvestment" pageScroll href="#foreign-investment" class="my-2 anchor">对外投资</a>
+    <a *ngIf="d && d.mainPersonnel" pageScroll href="#main-staff" class="my-2 anchor">主要成员</a>
+    <a *ngIf="d && d.branch" pageScroll href="#branches" class="my-2 anchor">分支机构</a>
+    <a *ngIf="d && d.changeRecord" pageScroll href="#change-log" class="my-2 anchor">变更记录</a>
+    <a *ngIf="d && d.companyProfile" pageScroll href="#company-profile" class="my-2 anchor">公司简介</a>
     <a pageScroll class="my-2 anchor">最终受益人</a>
     <a class="my-2 anchor">控股企业</a>
   </div>
@@ -31,7 +31,7 @@
 
   <p id="business-information" class="mt-4 title">工商信息</p>
 
-  <table *ngIf="data" class="table table-bordered mw-100">
+  <table *ngIf="d" class="table table-bordered mw-100">
     <tbody>
     <tr>
       <td>法定代表人信息</td>
@@ -43,10 +43,10 @@
         <div class="mt-2 d-flex flex-column justify-content-between">
           <div class="d-flex align-self-center">
             <img style="height: 54px; width: 54px" class="mr-3"
-                 src="http://co-image.qichacha.com/PersonImage/p1910534b4ae98fea35ddbeb1d61cd44.jpg">
-            <div>
-              <a class="d-block">雷军</a>
-              <a>他关联 110 家公司 ></a>
+                 src="{{d.boss.avator}}">
+            <div class="d-flex flex-column justify-content-between">
+              <a>{{d.boss.name}}</a>
+              <a class="associate">他关联 {{d.boss.associate_count}} 家公司 ></a>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
     </tr>
     <tr>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center" routerLink="/boss">查看人物图谱</button>
+        <button class="btn btn-primary align-self-center" routerLink="/bossinfo">查看人物图谱</button>
       </td>
       <td class="no_top_border text-center">
         <button routerLink="/genealogy" class="btn btn-primary align-self-center">查看详情</button>
@@ -78,7 +78,7 @@
     </tbody>
   </table>
 
-  <table *ngIf="d" class="table table-bordered">
+  <table *ngIf="d && d.company" class="table table-bordered">
     <tbody>
     <tr>
       <td class="table-primary">注册资本</td>
@@ -148,9 +148,9 @@
   </table>
 
   <!--股东信息-->
-  <p id="shareholder-information" class="title">股东信息</p>
+  <p *ngIf="d && d.shareholderInformation" id="shareholder-information" class="title">股东信息</p>
 
-  <table *ngIf="d" class="table mw-100">
+  <table *ngIf="d && d.shareholderInformation" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="60">序号</td>
@@ -164,7 +164,7 @@
       <td class="text-center">{{i + 1}}</td>
       <td>
         <a class="cliable">{{si.name}}</a>
-        <a class="associate">他关联 {{si.associate_count}} 家公司></a>
+        <a *ngIf="si.associate_count > 0" class="associate">他关联 {{si.associate_count}} 家公司></a>
       </td>
       <td class="text-center">{{si.shareholding_ratio}}%</td>
       <td class="text-center">{{si.subscribed_capital_contribution}}</td>
@@ -183,8 +183,8 @@
   </div>
 
   <!--对外投资-->
-  <p id="foreign-investment" class="title">对外投资</p>
-  <table *ngIf="d" class="table mw-100">
+  <p *ngIf="d && d.outboundInvestment" id="foreign-investment" class="title">对外投资</p>
+  <table *ngIf="d && d.outboundInvestment" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="27%" class="text-center">被投资企业名称</td>
@@ -211,8 +211,8 @@
   </table>
 
   <!--分支机构-->
-  <p id="branches" class="title">分支机构</p>
-  <table *ngIf="d" class="table mw-100">
+  <p *ngIf="d && d.branch.length>0" id="branches" class="title">分支机构</p>
+  <table *ngIf="d && d.branch" class="table mw-100">
     <tbody>
     <tr *ngFor="let i of rangeArray(0, d.branch.length - 1)" class="table-bordered">
       <td width="6%" class="text-center color-primary">{{i+1}}</td>
@@ -226,8 +226,8 @@
   </table>
 
   <!--主要人员-->
-  <p id="main-staff" class="title">主要人员</p>
-  <table *ngIf="d" class="table mw-100">
+  <p *ngIf="d && d.mainPersonnel" id="main-staff" class="title">主要人员</p>
+  <table *ngIf="d && d.mainPersonnel" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="50" class="text-center">序号</td>
@@ -246,8 +246,8 @@
   </table>
 
   <!--变更记录-->
-  <p id="change-log" class="title">变更记录</p>
-  <table *ngIf="d" class="table mw-100">
+  <p *ngIf="d && d.changeRecord" id="change-log" class="title">变更记录</p>
+  <table *ngIf="d && d.changeRecord" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center">序号</td>
@@ -267,7 +267,7 @@
   </table>
 
   <!--公司简介-->
-  <p id="company-profile" class="title">公司简介</p>
-  <div *ngIf="d" [innerHTML]="d.companyProfile.profile | safeHTML" class="p-3 f-14 border"></div>
+  <p *ngIf="d && d.companyProfile" id="company-profile" class="title">公司简介</p>
+  <div *ngIf="d && d.companyProfile" [innerHTML]="d.companyProfile.profile | safeHTML" class="p-3 f-14 border"></div>
 
 </div>

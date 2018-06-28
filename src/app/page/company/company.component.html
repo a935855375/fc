@@ -12,19 +12,22 @@
         <p class="f-14 mb-2">电话： {{company.phone}} <a href="#" class="ml-2">更多号码</a></p>
         <p class="f-14 mb-2">邮箱： {{company.mail}} <span class="ml-2">官网： {{company.website}}</span></p>
         <p class="f-14 mb-2">地址： {{company.addr}} <a href="#" class="ml-2">附近公司</a></p>
-        <p class="f-14 mb-2">简介： {{reformNoticeContent(company.introduction.slice(0, 50)) + '...'}} <a href="#"
-                                                                                                       class="ml-2">查看详情</a>
+        <p *ngIf="company.introduction" class="f-14 mb-2">简介： {{bugHanddle(company.introduction) + '...'}} <a href="#"
+                                                                                                              class="ml-2">查看详情</a>
         </p>
       </div>
 
       <div class="d-flex flex-column ml-auto mr-2-5">
         <div class="d-flex justify-content-between">
           <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-pencil-square-o" style="margin-right: 2px;"></i></span>笔记</a>
-          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-retweet mr-1" style="margin-right: 2px;"></i></span>对比</a>
-          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-heart-o mr-1" style="margin-right: 2px;"></i></span>关注</a>
+          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-retweet mr-1"
+                                                          style="margin-right: 2px;"></i></span>对比</a>
+          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-heart-o mr-1"
+                                                          style="margin-right: 2px;"></i></span>关注</a>
           <a href="#" class="c_iconDt px-2"><span><i class="fa fa-eye mr-1" style="margin-right: 2px;"></i></span>监控</a>
         </div>
-        <p class="text-right my-3 f-14">更新时间：4时9分钟前<span class="ml-1"><i class="fa fa-refresh f-16" style="color: #ABABAB;"></i></span></p>
+        <p class="text-right my-3 f-14">更新时间：4时9分钟前<span class="ml-1"><i class="fa fa-refresh f-16"
+                                                                         style="color: #ABABAB;"></i></span></p>
         <p class="text-right mt-auto mb-2 f-14"><span class="mr-2">关注：4968</span> 浏览：16402629 次</p>
       </div>
     </div>

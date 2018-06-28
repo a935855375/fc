@@ -28,6 +28,7 @@ export class BasicInfoComponent implements OnInit {
 
     this.companyService.getBasicInfo(this.companyService.cid).then(x => {
       this.d = x;
+      console.log(x);
       this.title = (x as any).company.name;
       this.companyService.getSubject().next((x as any).company);
     });

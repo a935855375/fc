@@ -13,7 +13,7 @@ export class EnterpriseGraphComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commonService.getEnterpriseGraphById(1).then(x => {
+    this.commonService.getEnterpriseGraphById(localStorage.getItem('cid')).then(x => {
       this.options.series[0].data = [x as any];
       this.flag = true;
     });
@@ -38,13 +38,26 @@ export class EnterpriseGraphComponent implements OnInit {
 
         layout: 'radial',
 
-        symbol: 'emptyCircle',
+        symbol: 'circle',
 
         symbolSize: 7,
 
         initialTreeDepth: 3,
 
-        animationDurationUpdate: 750
+        animationDurationUpdate: 750,
+
+        itemStyle: {
+          normal: {
+            color: '#4bec56',
+          },
+          emphasis: {
+            color: '#4bec56',
+          },
+          borderColor: {
+            color: '#4bec56',
+          },
+          borderType: 'dashed'
+        },
 
       }
     ]

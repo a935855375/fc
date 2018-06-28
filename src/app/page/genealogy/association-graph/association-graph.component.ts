@@ -17,7 +17,6 @@ export class AssociationGraphComponent implements OnInit {
       this.options.series[0].data = (x as any).data;
       this.options.series[0].links = (x as any).links;
       this.flag = true;
-      console.log(x);
     });
   }
 

@@ -15,7 +15,7 @@ import {BossComponent} from './boss.component';
     NgbModule,
     BossRoutingModule,
     MaterialModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
   ],
   declarations: [
     BossComponent,

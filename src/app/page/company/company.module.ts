@@ -6,6 +6,7 @@ import {CommonModule} from '@angular/common';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {SafeHtmlPipe} from '../../service/safehtml.pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {SafeHtmlPipe} from '../../service/safehtml.pipe';
     CompanyRoutingModule,
     MaterialModule,
     NgxEchartsModule,
+    NgbModule,
     NgxPageScrollModule
   ],
   declarations: [

@@ -1,3 +1,18 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div echarts [options]="option1" theme="macarons" style="height: 70vh"></div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
 <div class="mb-2">
   <div class="d-flex flex-wrap px-2 py-2">
     <a pageScroll href="#business-information" class="my-2 anchor">工商信息</a>
@@ -45,19 +60,19 @@
       <td class="no_bottom_border">
         <div class="d-flex flex-column">
           <img class="align-self-center" style="height: auto; width: 267px"
-               src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/icon_gltp@2x.png">
+               src="../../../../assets/img/structure_img.png">
         </div>
       </td>
     </tr>
     <tr>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center">查看人物图谱</button>
+        <button class="btn btn-primary align-self-center" routerLink="/boss">查看人物图谱</button>
       </td>
       <td class="no_top_border text-center">
         <button routerLink="/genealogy" class="btn btn-primary align-self-center">查看详情</button>
       </td>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center">查看详情</button>
+        <button class="btn btn-primary align-self-center" (click)="openLg(content)">查看详情</button>
       </td>
     </tr>
     </tbody>

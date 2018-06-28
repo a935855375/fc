@@ -44,3 +44,17 @@
 .col_name{
   color: #F5A623;
 }
+
+.c_iconDt {
+  height: 36px;
+  border: 1px solid #128bed;
+  color: #128bed;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 36px;
+  display: inline-block;
+  border-radius: 2px;
+  span{
+    color: #128bed;
+  }
+}

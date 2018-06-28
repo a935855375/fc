@@ -9,7 +9,7 @@
     <a class="my-2 anchor" href="#cfo">财务总览</a>
     <a class="my-2 anchor" href="#imex">进出口信用</a>
     <a class="my-2 anchor" href="#wechat">微信公众号</a>
-    <a class="my-2 anchor" href="news">新闻舆论</a>
+    <a class="my-2 anchor" href="#news">新闻舆论</a>
     <a class="my-2 anchor">公告研报</a>
     <a class="my-2 anchor">地块公示</a>
     <a class="my-2 anchor">购地信息</a>
@@ -18,11 +18,11 @@
   <mat-divider></mat-divider>
 
   <!--行政许可-->
-  <p  id="administrative_licensing" class="mt-4 title">行政许可<span>[工商局]</span></p>
+  <p id="administrative_licensing" class="mt-4 title">行政许可<span>[工商局]</span><span class="tbadge">5</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
-      <td class="text-center">序号</td>
+      <td class="text-center" width="8%">序号</td>
       <td class="text-center" width="15%">许可文件编号</td>
       <td class="text-center" width="20%">许可文件名称</td>
       <td class="text-center" width="10%">有效期自</td>
@@ -30,20 +30,56 @@
       <td class="text-center">许可机关</td>
       <td class="text-center" width="20%">许可内容</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">新出网证(粤)字010号</a></td>
-      <td class="text-center">互联网出版许可证</td>
-      <td class="text-center">2008-05-04</td>
-      <td class="text-center">2018-12-31</td>
-      <td class="text-center">国家新闻出版广电总局</td>
-      <td class="text-center">网络游戏出版运营</td>
+    <tr class="table-bordered">
+      <td class="text-center">1</td>
+      <td>HDJDXN20161123355</td>
+      <td>渣土消纳许可</td>
+      <td>2016-11-23</td>
+      <td>-</td>
+      <td>海淀区市政市容委</td>
+      <td>渣土消纳许可</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">2</td>
+      <td>0014151113000030</td>
+      <td>准予行政许可决定书</td>
+      <td>2015-12-14</td>
+      <td>-</td>
+      <td>-</td>
+      <td>超限高层建筑工程抗震设防审批</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">3</td>
+      <td>京网文〔2017〕1530-131号</td>
+      <td>网络文化经营许可证</td>
+      <td>2017-09-05</td>
+      <td>-</td>
+      <td>北京市文化局</td>
+      <td>设立经营性互联网文化单位审批</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">4</td>
+      <td>京国土海预[2015]0015号</td>
+      <td>建设项目用地预审意见</td>
+      <td>2015-03-23</td>
+      <td>-</td>
+      <td>-</td>
+      <td>建设项目用地预审</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">5</td>
+      <td>J1000088560404</td>
+      <td>开户许可证</td>
+      <td>长期</td>
+      <td>-</td>
+      <td>-</td>
+      <td>变更</td>
     </tr>
     </tbody>
   </table>
 
   <!--行政许可[信用中国]-->
-  <p class="mt-4 title">行政许可<span>[信用中国]</span></p>
+  <p class="mt-4 title">行政许可<span>[信用中国]</span><span class="tbadge">3</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
@@ -53,31 +89,77 @@
       <td class="text-center" width="160">决定日期</td>
       <td class="text-center" width="115">内容</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">进口网络游戏审查</a></td>
-      <td class="text-center">全国</td>
-      <td class="text-center">2016-11-01</td>
-      <td class="text-center"><a class="cliable">查看详情</a></td>
+    <tr class="table-bordered">
+      <td class="text-center">1</td>
+      <td class="text-center">企业实行综合计算工时工作制和不定时工作制</td>
+      <td class="text-center">
+        全国
+      </td>
+      <td width="103">
+        2016-05-16
+      </td>
+      <td width="90" class="text-center"><a class="ma_court c-max600"  >
+        查看详情
+      </a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">2</td>
+      <td class="text-center">开户许可证</td>
+      <td class="text-center">
+        全国
+      </td>
+      <td width="103">
+        2010-03-03
+      </td>
+      <td width="90" class="text-center"><a class="ma_court c-max600">
+        查看详情
+      </a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">3</td>
+      <td class="text-center">小米移动互联网产业园项目</td>
+      <td class="text-center">
+        全国
+      </td>
+      <td width="103">
+        2010-03-03
+      </td>
+      <td width="90" class="text-center"><a class="ma_court c-max600">
+        查看详情
+      </a></td>
     </tr>
     </tbody>
   </table>
 
   <!--税务信用-->
-  <p id="tax_letter" class="mt-4 title">税务信用</p>
+  <p id="tax_letter" class="mt-4 title">税务信用<span class="tbadge">3</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">评价年度</td>
-      <td class="text-center" width="90">纳税人识别号</td>
+      <td class="text-center" width="170">评价年度</td>
+      <td class="text-center" width="190">纳税人识别号</td>
       <td class="text-center" width="160">纳税信用等级</td>
       <td class="text-center" width="115">评价单位</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
+    <tr class="table-bordered">
+      <td class="text-center">1</td>
       <td class="text-center">2016</td>
-      <td class="text-center">440300708461136</td>
+      <td class="text-center">110108551385082</td>
+      <td class="text-center">A</td>
+      <td class="text-center">国家税务总局</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">2</td>
+      <td class="text-center">2015</td>
+      <td class="text-center">110108551385082</td>
+      <td class="text-center">A</td>
+      <td class="text-center">国家税务总局</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">3</td>
+      <td class="text-center">2014</td>
+      <td class="text-center">110108551385082</td>
       <td class="text-center">A</td>
       <td class="text-center">国家税务总局</td>
     </tr>
@@ -85,7 +167,7 @@
   </table>
 
   <!--产品信息-->
-  <p id="procdure_info" class="mt-4 title">产品信息</p>
+  <p id="procdure_info" class="mt-4 title">产品信息<span class="tbadge">2</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
@@ -97,21 +179,33 @@
       <td class="text-center" width="10%">所属地</td>
       <td class="text-center">产品介绍</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><img src="../../../../assets/img/qq.png"
-                                   style="width: 66px;max-height: 66px;"></td>
-      <td class="text-center"><a class="cliable" href="#">QQ</a></td>
-      <td class="text-center">-</td>
-      <td class="text-center">1998-11-11</td>
-      <td class="text-center">深圳</td>
-      <td>QQ是一款基于Internet的即时通信（IM）软件，支持在线聊天、视频通话、点对点断点续传文件、共享文件、网络硬盘、自定义面板、QQ邮箱等多种功能，并可与多种通讯终端相连。</td>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle"><img
+        src="https://img.qichacha.com/Product/566827d7-bddc-4940-aa91-f09abf53edcd.jpg"
+        style="width: 66px;max-height: 66px;"></td>
+      <td class="text-center vertical-middle"><a class="c_a" href="#">米聊</a></td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">2010-03-03</td>
+      <td class="text-center vertical-middle">佛山</td>
+      <td>米聊是一个手机聊天通信工具及社交网络，小米公司旗下产品。</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle"><img
+        src="https://img.qichacha.com/Product/69179edd-2ff3-439e-83c3-65e42d4f49fd.jpg"
+        style="width: 66px;max-height: 66px;"></td>
+      <td class="text-center vertical-middle"><a class="c_a" href="#">小米科技</a></td>
+      <td class="text-center vertical-middle">E轮</td>
+      <td class="text-center vertical-middle">2010-03-03</td>
+      <td class="text-center vertical-middle">北京</td>
+      <td>小米公司是一家专注于高端智能手机、互联网电视以及智能家居生态链建设的创新型科技企业。</td>
     </tr>
     </tbody>
   </table>
 
   <!--融资信息-->
-  <p  id="finance_info" class="mt-4 title">融资信息</p>
+  <p id="finance_info" class="mt-4 title">融资信息<span class="tbadge">5</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
@@ -122,19 +216,93 @@
       <td class="text-center" width="18%">金额</td>
       <td class="text-center">投资方</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center">2012-08-01</td>
-      <td class="text-center">刷机精灵</td>
-      <td class="text-center">并购</td>
-      <td class="text-center">8000万人民币1</td>
-      <td class="text-center"><a class="cliable" href="#">腾讯产业共赢基金</a></td>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle">2014-12-29</td>
+      <td class="text-center vertical-middle">小米科技</td>
+      <td class="text-center vertical-middle">E轮</td>
+      <td class="text-center vertical-middle">11亿美元</td>
+      <td class="text-center vertical-middle">
+        <div><a href="#">GIC新加坡政府投资公司</a>
+        </div>
+        <div>
+          全明星投资All-Stars Investment
+        </div>
+        <div><a href="#">DST</a>
+        </div>
+        <div><a href="#">厚朴基金</a>
+        </div>
+        <div><a href="#">云锋基金</a>
+        </div>
+      </td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle">2013-09-12</td>
+      <td class="text-center vertical-middle">小米科技</td>
+      <td class="text-center vertical-middle">D轮</td>
+      <td class="text-center vertical-middle">1亿美元</td>
+      <td class="text-center vertical-middle">
+        <div><a href="#">DST</a>
+        </div>
+      </td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="text-center vertical-middle">2012-06-01</td>
+      <td class="text-center vertical-middle">小米科技</td>
+      <td class="text-center vertical-middle">C轮</td>
+      <td class="text-center vertical-middle">2.16亿美元</td>
+      <td class="text-center vertical-middle">
+        <div><a href="#">DST</a>
+        </div>
+        <div><a href="#">Temasek淡马锡</a>
+        </div>
+      </td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="text-center vertical-middle">2011-12-01</td>
+      <td class="text-center vertical-middle">小米科技</td>
+      <td class="text-center vertical-middle">B轮</td>
+      <td class="text-center vertical-middle">9000万美元</td>
+      <td class="text-center vertical-middle">
+        <div><a href="#">Temasek淡马锡</a>
+        </div>
+        <div><a href="#">高通QualcommVentures</a>
+        </div>
+        <div><a href="#">晨兴资本</a>
+        </div>
+        <div><a href="#">顺为基金</a>
+        </div>
+        <div><a href="#">IDG资本</a>
+        </div>
+        <div><a href="#">启明创投</a>
+        </div>
+      </td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="text-center vertical-middle">2011-07-01</td>
+      <td class="text-center vertical-middle">小米科技</td>
+      <td class="text-center vertical-middle">A轮</td>
+      <td class="text-center vertical-middle">4100万美元</td>
+      <td class="text-center vertical-middle">
+        <div><a href="#">晨兴资本</a>
+        </div>
+        <div><a href="#">顺为基金</a>
+        </div>
+        <div><a href="#">IDG资本</a>
+        </div>
+        <div><a href="#">启明创投</a>
+        </div>
+      </td>
     </tr>
     </tbody>
   </table>
 
   <!--招投标信息-->
-  <p id="bid_info" class="mt-4 title">招投标信息</p>
+  <p id="bid_info" class="mt-4 title">招投标信息<span class="tbadge">51</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
@@ -144,18 +312,82 @@
       <td class="text-center" width="10%">所属地区</td>
       <td class="text-center" width="15%">项目分类</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><a class="cliable">广东省经济和信息化委员会2018年“云＋未来”峰会项目的成交公告</a></td>
-      <td class="text-center">2018-05-21</td>
-      <td class="text-center">广东</td>
-      <td class="text-center">中标公告</td>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="vertical-middle"><a class="cliable">武汉市东西湖区第五小学报告厅升级改造公开招标采购项目（第一次）中标公告</a></td>
+      <td class="text-center vertical-middle">2018-05-22</td>
+      <td class="text-center vertical-middle">湖北</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="vertical-middle"><a class="cliable">QHZB-201803KM0043：云南开放大学经济与管理学院机房建设及摄影实验室改造设备更新成交结果公告</a></td>
+      <td class="text-center vertical-middle">2018-04-09</td>
+      <td class="text-center vertical-middle">甘肃</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="vertical-middle"><a class="cliable">QHZB-201803KM0043：云南开放大学经济与管理学院机房建设及摄影实验室改造设备更新成交结果公告</a></td>
+      <td class="text-center vertical-middle">2018-04-09</td>
+      <td class="text-center vertical-middle">云南</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="vertical-middle"><a class="cliable">国家教育考试指挥监控中心改造成交公告</a></td>
+      <td class="text-center vertical-middle">2018-04-03</td>
+      <td class="text-center vertical-middle">辽宁</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="vertical-middle"><a class="cliable">江西银隆管理咨询有限公司关于南昌工程学院计算机工程创新实验室设备1采购项目（采购编号：JXYL2018-J0303）竞争性谈判采购成交公告</a></td>
+      <td class="text-center vertical-middle">2018-03-22</td>
+      <td class="text-center vertical-middle">江西</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">6</td>
+      <td class="vertical-middle"><a class="cliable">开发区九江市长盛招标代理有限公司关于九江市城西港区智慧港区管理项目（招标编号：JJCS2017-JJ-G027）公开招标中标公告</a></td>
+      <td class="text-center vertical-middle">2017-10-16</td>
+      <td class="text-center vertical-middle">江西</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">7</td>
+      <td class="vertical-middle"><a class="cliable">中国电信股份有限公司德阳分公司2017年装维营销用小米无线路由器R3L（百兆）采购项目单一来源采购公示</a></td>
+      <td class="text-center vertical-middle">2017-09-22	</td>
+      <td class="text-center vertical-middle">四川</td>
+      <td class="text-center vertical-middle">招标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">8</td>
+      <td class="vertical-middle"><a class="cliable">晋中市无线电管理局晋中市无线电监测技术机房标准化建设中标公告</a></td>
+      <td class="text-center vertical-middle">2017-09-11</td>
+      <td class="text-center vertical-middle">山西</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">9</td>
+      <td class="vertical-middle"><a class="cliable">东胜区新媒体管理中心采购基础设施设备中标公示</a></td>
+      <td class="text-center vertical-middle">2017-09-04</td>
+      <td class="text-center vertical-middle">内蒙古</td>
+      <td class="text-center vertical-middle">中标公告</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">10</td>
+      <td class="vertical-middle"><a class="cliable">鄂尔多斯市环境保护局采购环境污染防治设备(二次)中标结果公告</a></td>
+      <td class="text-center vertical-middle">2017-04-06</td>
+      <td class="text-center vertical-middle">内蒙古</td>
+      <td class="text-center vertical-middle">中标公告</td>
     </tr>
     </tbody>
   </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="60" [maxSize]="10" [(page)]="page"></ngb-pagination>
 
   <!--招聘-->
-  <p id="recruit" class="mt-4 title">招聘</p>
+  <p id="recruit" class="title mt-0">招聘<span class="tbadge">25</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
@@ -163,25 +395,105 @@
       <td class="text-center" width="15%">发布时间</td>
       <td class="text-center">招聘职位</td>
       <td class="text-center" width="15%">月薪</td>
-      <td class="text-center" width="10%">所在城市</td>
+      <td class="text-center" width="12%">所在城市</td>
       <td class="text-center" width="15%">来源</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center">2018-06-23</td>
-      <td class="text-center">数据产品经理</td>
-      <td class="text-center">面议</td>
-      <td class="text-center">北京_北京市</td>
-      <td class="text-center"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable"
-                                 target="_blank" rel="nofollow">
-        前程无忧
-      </a></td>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle">2018-06-20</td>
+      <td class="text-center vertical-middle">	运维开发工程师</td>
+      <td class="text-center vertical-middle">面议</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        看准网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle">2018-06-20</td>
+      <td class="text-center vertical-middle">	高级创意设计师</td>
+      <td class="text-center vertical-middle">15000-30000</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        看准网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="text-center vertical-middle">2018-06-20</td>
+      <td class="text-center vertical-middle">	数据库工程师</td>
+      <td class="text-center vertical-middle">面议</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        看准网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">	系统规划经理主管(小米)</td>
+      <td class="text-center vertical-middle">8000-12000</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">	平面设计师 零售(小米)</td>
+      <td class="text-center vertical-middle">面议</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">6</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">电商内容运营北美(小米)</td>
+      <td class="text-center vertical-middle">8000-12000</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">7</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">	Product Operations Manager(小米)</td>
+      <td class="text-center vertical-middle">面议</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">8</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">	Global ECommerce Operation Manager(小米)</td>
+      <td class="text-center vertical-middle">面议</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">9</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">	BI数据开发(小米)</td>
+      <td class="text-center vertical-middle">面议</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">10</td>
+      <td class="text-center vertical-middle">2018-06-12</td>
+      <td class="text-center vertical-middle">	行政专员北美业务部(小米)</td>
+      <td class="text-center vertical-middle">5000-8000</td>
+      <td class="text-center vertical-middle">北京_北京市</td>
+      <td class="text-center vertical-middle"><a href="http://search.51job.com/job/103705119,c.html?from=baidualaddin" class="cliable">
+        猎聘网</a></td>
     </tr>
     </tbody>
   </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="25" [maxSize]="10" [(page)]="page"></ngb-pagination>
 
   <!--财务总览-->
-  <p id="cfo" class="mt-4 title">财务总览<span class="f-14" style="font-weight: 400"> (相关数据来源企业年报估算，仅供参考)</span></p>
+  <p id="cfo" class="title mt-0">财务总览<span class="f-14" style="font-weight: 400"> (相关数据来源企业年报估算，仅供参考)</span></p>
   <table class="table mw-100">
     <tbody>
     <tr>
@@ -194,13 +506,13 @@
       <td class="table-primary">销售净利润率：</td>
       <td>0到10%</td>
       <td class="table-primary">销售毛利率：</td>
-      <td>10%到50%</td>
+      <td>0%到10%</td>
     </tr>
     </tbody>
   </table>
 
   <!--进出口信用-->
-  <p id="imex" class="mt-4 title">进出口信用</p>
+  <p id="imex" class="mt-4 title">进出口信用<span class="tbadge">1</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
@@ -211,57 +523,186 @@
       <td class="text-center" width="10%">内容</td>
     </tr>
     <tr class="table-bordered">
-      <td class="text-center">1</td>
-      <td class="text-center">深圳海关</td>
-      <td class="text-center">进出口收发货人</td>
-      <td class="text-center">2015-07-08</td>
-      <td class="text-center"><a class="cliable">查看详情</a></td>
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle">北京关区</td>
+      <td class="text-center vertical-middle">进出口收发货人</td>
+      <td class="text-center vertical-middle">2011-04-20</td>
+      <td class="text-center vertical-middle"><a class="cliable">查看详情</a></td>
     </tr>
     </tbody>
   </table>
 
   <!--微信公众号-->
-  <p id="wechat" class="mt-4 title">微信公众号</p>
+  <p id="wechat" class="mt-4 title">微信公众号<span class="tbadge">8</span></p>
   <table class="table mw-100">
     <tbody>
     <tr class="color-primary border">
-      <th class="text-center" width="60">序号</th>
-      <th class="text-center" width="90">头像</th>
-      <th class="text-center" width="174">微信公众号</th>
-      <th class="text-center" width="134">微信号</th>
-      <th class="text-center" width="80">二维码</th>
-      <th>简介</th>
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="80">头像</td>
+      <td class="text-center" width="120">微信公众号</td>
+      <td class="text-center" width="120">微信号</td>
+      <td class="text-center" width="100">二维码</td>
+      <td class="text-center">简介</td>
     </tr>
-    <tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center">{{index}}</td>
-      <td class="text-center"><img
-        src="http://img.qichacha.com/Wechat/Qrcode/00844a9684b5fefa911a3be8ede6b2f8.jpg?x-oss-process=style/image_crop"
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/0b49c8cd235b62bd6530ae7609d7e2e7.jpg?x-oss-process=style/image_crop"
         style="width: 66px;"></td>
-      <td class="text-center">科技不怕问</td>
-      <td class="text-center">asktech</td>
-      <td class="text-center"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+      <td class="text-center vertical-middle">小米智能家庭</td>
+      <td class="text-center vertical-middle">MiSmartHome</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
         <div class="text-primary wechart-hover">详情</div>
       </td>
-      <td>《科技不怕问》每天上下班路上在腾讯新闻客户端推出，晚间微信集中推送，对近期科技热点疑问进行解答。</td>
+      <td class="vertical-middle">帮助您了解小米智能家庭，更好的体验智能产品。</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/2315a3aca88bbc09a0e939b932b35f0f.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">小米手机</td>
+      <td class="text-center vertical-middle">	xmsj816</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">5.7英寸大屏旗舰——小米Note：前后双曲面玻璃，独立HiFi音乐系统，索尼1300万像素光学防抖相机，双卡双待双4G，1799元起。</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/333198eb087c1d7918e4e1333775904f.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">小米平板</td>
+      <td class="text-center vertical-middle">mipad515</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">小米平板2：英特尔凌动14纳米处理器+HD Graphics显卡，全金属机身，7.9英寸视网膜屏幕，6190mAh电池，机身薄至6.95mm。16GB版999元，64GB版1299元。</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/2315a3aca88bbc09a0e939b932b35f0f.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">小米公司</td>
+      <td class="text-center vertical-middle">	xiaomigongsi0406</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">小米公司官方帐号：第一时间为你呈现公司各种重大活动、内部文化，让你顷刻走进小米。——小米为发烧而生</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/8a04416bd16593efae86bab386714d9c.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">小米公司发言人</td>
+      <td class="text-center vertical-middle">	gh_4aac382383cd</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">小米公司官方发言人。</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">6</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/a8874d2cdf02566d0de11858bf453678.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">小米客服那些事</td>
+      <td class="text-center vertical-middle">	XiaomiService</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">小米客服官方账号：这是一个年轻人的舞台，我们是一群充满活力、充满激情的小伙伴。关注我们的公共账号，更全面的走进小米客服，零距离接触小米客服。小米客服那些事，讲述小米客服自己的故事！</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">7</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/b911e26e08b88c44c12a5e5fcedb840e.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">小米食堂</td>
+      <td class="text-center vertical-middle">	xiaomi-canteen</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">米厂食堂：一个拥有五星品质，地摊价格的地方</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">8</td>
+      <td class="text-center vertical-middle"><img
+        src="http://img.qichacha.com/Wechat/Qrcode/2315a3aca88bbc09a0e939b932b35f0f.jpg?x-oss-process=style/image_crop"
+        style="width: 66px;"></td>
+      <td class="text-center vertical-middle">红米手机</td>
+      <td class="text-center vertical-middle">	hmsj2013</td>
+      <td class="text-center vertical-middle"><img src="../../../../assets/img/qrcode.png" class="wechat-img">
+        <div class="text-primary wechart-hover">详情</div>
+      </td>
+      <td class="vertical-middle">红米Note3，千元旗舰，如你所愿！全金属机身，4000mAh大容量电池，快至0.3秒指纹解锁。</td>
     </tr>
     </tbody>
   </table>
 
   <!--新闻舆情-->
-  <p id="news" class="mt-4 title">新闻舆情</p>
+  <p id="news" class="mt-4 title">新闻舆情<span class="tbadge">24</span></p>
   <table class="table mw-100 news_talk">
     <tbody class="news_tb">
-    <tr *ngFor="let index of [1,2,3]" class="mb-2">
+    <tr class="mb-2">
       <td>
         <a href="#" class="clearfix" rel="nofollow">
-        <div><span class="title">6月25日—7月1日共有29款游戏开测｜GameRes</span>
-          <div class="d-flex title_content mt-5">
-            <div class="subtitle"><label>来源：</label> 东方网</div>
-            <div class="ml-auto"><label>发布时间：</label> 2018-06-24 </div>
+          <div><span class="title">美的集团：中信证券股份有限公司关于公司非公开发行限售股解禁的专项核查意见</span>
+            <div class="d-flex title_content mt-4">
+              <div class="subtitle"><label>来源：</label> 同花顺金融网</div>
+              <div class="ml-auto"><label>发布时间：</label> 2018-06-27</div>
+            </div>
           </div>
-        </div>
-      </a></td>
+        </a></td>
+    </tr>
+    <tr class="mb-2">
+      <td>
+        <a href="#" class="clearfix" rel="nofollow">
+          <div><span class="title">美的集团：中信证券股份有限公司关于公司非公开发行限售股解禁的专项核查意见</span>
+            <div class="d-flex title_content mt-4">
+              <div class="subtitle"><label>来源：</label> 同花顺金融网</div>
+              <div class="ml-auto"><label>发布时间：</label> 2018-06-27</div>
+            </div>
+          </div>
+        </a></td>
+    </tr>
+    <tr class="mb-2">
+      <td>
+        <a href="#" class="clearfix" rel="nofollow">
+          <div><span class="title">绿盟企业走进雄峰集团 雄峰城打造4.0创新商业模式</span>
+            <div class="d-flex title_content mt-4">
+              <div class="subtitle"><label>来源：</label>  赢商网</div>
+              <div class="ml-auto"><label>发布时间：</label> 2018-06-26</div>
+            </div>
+          </div>
+        </a></td>
+    </tr>
+    <tr class="mb-2">
+      <td>
+        <a href="#" class="clearfix" rel="nofollow">
+          <div><span class="title">物流领域新星--货车帮运满满组合下的“满帮集团” 强势入榜福布斯中国最具创新企业</span>
+            <div class="d-flex title_content mt-4">
+              <div class="subtitle"><label>来源：</label>  青海网络广播电视台</div>
+              <div class="ml-auto"><label>发布时间：</label> 2018-06-26</div>
+            </div>
+          </div>
+        </a></td>
+    </tr>
+    <tr class="mb-2">
+      <td>
+        <a href="#" class="clearfix" rel="nofollow">
+          <div><span class="title">小米(01810)：重为轻根，米氏互联网的过去、现在和未来</span>
+            <div class="d-flex title_content mt-4">
+              <div class="subtitle"><label>来源：</label>   凤凰网</div>
+              <div class="ml-auto"><label>发布时间：</label> 2018-06-26</div>
+            </div>
+          </div>
+        </a></td>
     </tr>
     </tbody>
   </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-center" [collectionSize]="50" [maxSize]="5" [(page)]="page"></ngb-pagination>
 </div>

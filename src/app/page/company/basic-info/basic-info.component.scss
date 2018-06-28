@@ -101,3 +101,8 @@ td {
     }
   }
 }
+
+::ng-deep .modal-dialog{
+  max-width: 70%;
+  width: 70%;
+}

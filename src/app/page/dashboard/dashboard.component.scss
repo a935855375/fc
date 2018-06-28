@@ -64,10 +64,10 @@ ul, li {
 .index_nav {
   a:hover {
     h2 {
-      color: #00AAEE !important;
+      color: #007BFF !important;
     }
     small {
-      color: #00AAEE;
+      color: #007BFF;
     }
   }
 }
@@ -78,7 +78,7 @@ ul, li {
 }
 
 .more a:hover {
-  color: #00AAEE;
+  color: #007BFF;
 }
 
 .hot-content {
@@ -112,7 +112,7 @@ ul, li {
 .com_body {
   p {
     :hover {
-      color: #428bca;
+      color: #007BFF;
     }
   }
   :hover {
@@ -131,14 +131,14 @@ ul, li {
     color: #3c4144;
   }
   a:hover {
-    color: #007AFC;
+    color: #007BFF;
   }
 }
 
 .select_brand {
   color: #5c5c5c;
   a:hover {
-    color: #428bca;
+    color: #007BFF;
   }
 }
 
@@ -151,4 +151,11 @@ ul, li {
 
 li {
   cursor: pointer;
+}
+
+a{
+  color: #000;
+}
+a:hover {
+  color: #12AAF4;
 }

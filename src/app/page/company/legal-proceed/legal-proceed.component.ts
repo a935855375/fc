@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./legal-proceed.component.scss']
 })
 export class LegalProceedComponent implements OnInit {
+  page=1;
 
   constructor() { }
 
@@ -264,7 +265,7 @@ export class LegalProceedComponent implements OnInit {
           position: 'insideTop',
         },
       },
-      data: [10, 20, 5, 9, 3]
+      data: [0, 319, 665, 1359, 416]
     }, {
       name: '法院公告',
       type: 'bar',
@@ -274,7 +275,7 @@ export class LegalProceedComponent implements OnInit {
           position: 'insideTop',
         },
       },
-      data: [1, 1, 2, 3, 1]
+      data: [34, 62, 70, 59, 16]
     }, {
       name: '开庭公告',
       type: 'bar',
@@ -284,7 +285,7 @@ export class LegalProceedComponent implements OnInit {
           position: 'insideTop',
         },
       },
-      data: [0.1, 2, 3, 1, 0.5]
+      data: [1, 15, 93, 739, 295]
     }]
   };
 }

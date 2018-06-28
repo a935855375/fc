@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['../basic-info/basic-info.component.scss']
 })
 export class OperatingConditionComponent implements OnInit {
+  page = 1;
 
   constructor() {
   }

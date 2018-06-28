@@ -5,24 +5,27 @@
            src="{{company.img}}">
       <div>
         <p class="mb-2 mb-3">
-          <a style="font-size: 22px; color: black; font-weight: bold">{{company.name}}<span class="ml-3 nsatus col_name">曾用名</span>
-          <span class="ml-2 nsatus col_work">在业</span>
-        </a></p>
+          <a style="font-size: 22px; color: black; font-weight: bold">{{company.name}}<span
+            class="ml-3 nsatus col_name">曾用名</span>
+            <span class="ml-2 nsatus col_work">在业</span>
+          </a></p>
         <p class="f-14 mb-2">电话： {{company.phone}} <a href="#" class="ml-2">更多号码</a></p>
         <p class="f-14 mb-2">邮箱： {{company.mail}} <span class="ml-2">官网： {{company.website}}</span></p>
         <p class="f-14 mb-2">地址： {{company.addr}} <a href="#" class="ml-2">附近公司</a></p>
-        <p class="f-14 mb-2">简介： {{reformNoticeContent(company.introduction.slice(0, 50)) + '...'}} <a href="#" class="ml-2">查看详情</a></p>
+        <p class="f-14 mb-2">简介： {{reformNoticeContent(company.introduction.slice(0, 50)) + '...'}} <a href="#"
+                                                                                                       class="ml-2">查看详情</a>
+        </p>
       </div>
 
-      <div class="d-flex flex-column ml-auto">
+      <div class="d-flex flex-column ml-auto mr-2-5">
         <div class="d-flex justify-content-between">
-          <button class="btn mx-1">笔记</button>
-          <button class="btn mx-1">对比</button>
-          <button class="btn mx-1">关注</button>
-          <button class="btn mx-1">监控</button>
+          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-pencil-square-o" style="margin-right: 2px;"></i></span>笔记</a>
+          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-retweet mr-1" style="margin-right: 2px;"></i></span>对比</a>
+          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-heart-o mr-1" style="margin-right: 2px;"></i></span>关注</a>
+          <a href="#" class="c_iconDt px-2"><span><i class="fa fa-eye mr-1" style="margin-right: 2px;"></i></span>监控</a>
         </div>
-        <p class="text-right my-3">更新时间： 4时9分钟前 更新数据</p>
-        <p class="text-right mt-auto mb-0">关注 4968 浏览 16402629</p>
+        <p class="text-right my-3 f-14">更新时间：4时9分钟前<span class="ml-1"><i class="fa fa-refresh f-16" style="color: #ABABAB;"></i></span></p>
+        <p class="text-right mt-auto mb-2 f-14"><span class="mr-2">关注：4968</span> 浏览：16402629 次</p>
       </div>
     </div>
   </mat-card>
@@ -63,15 +66,6 @@
       </mat-card>
 
       <mat-card style="box-shadow: none" class="card rounded-0 mt-3 py-2-5">
-        <p class="f-16 mb-2-5">企业图谱</p>
-        <mat-divider></mat-divider>
-        <div class="d-flex flex-column align-items-center pt-4">
-          <img src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/qytu.jpg">
-          <button class="btn btn-primary mt-3 f-12">查看企业图谱</button>
-        </div>
-      </mat-card>
-
-      <mat-card style="box-shadow: none" class="card rounded-0 mt-3 py-2-5">
         <p class="f-16 mb-2-5">投资图谱</p>
         <mat-divider></mat-divider>
         <div class="d-flex flex-column align-items-center pt-4">
@@ -86,6 +80,15 @@
         <div class="d-flex flex-column align-items-center pt-4">
           <img src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/muhou.png">
           <button class="btn btn-primary mt-3 f-12">查看关联图谱</button>
+        </div>
+      </mat-card>
+
+      <mat-card style="box-shadow: none" class="card rounded-0 mt-3 py-2-5">
+        <p class="f-16 mb-2-5">企业图谱</p>
+        <mat-divider></mat-divider>
+        <div class="d-flex flex-column align-items-center pt-4">
+          <img src="https://www.qichacha.com/material/theme/chacha/cms/v2/images/qytu.jpg">
+          <button class="btn btn-primary mt-3 f-12">查看企业图谱</button>
         </div>
       </mat-card>
     </div>

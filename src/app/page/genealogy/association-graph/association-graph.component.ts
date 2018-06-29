@@ -50,28 +50,21 @@ export class AssociationGraphComponent implements OnInit {
         name: '法定代表人',
         itemStyle: {
           normal: {
-            color: '#009800',
+            color: '#5da0ee',
           }
         }
       }, {
-        name: '投资',
+        name: '人物',
         itemStyle: {
           normal: {
-            color: '#4592FF',
+            color: '#f5415e',
           }
         }
       }, {
-        name: '董事',
+        name: '目标',
         itemStyle: {
           normal: {
-            color: '#d3592F',
-          }
-        }
-      }, {
-        name: '执行董事',
-        itemStyle: {
-          normal: {
-            color: '#a2d3cb',
+            color: '#e28f12',
           }
         }
       }],
@@ -85,7 +78,7 @@ export class AssociationGraphComponent implements OnInit {
       },
       edgeSymbol: ['none', 'arrow'],
       force: {
-        repulsion: 1000
+        repulsion: 1500
       },
       edgeLabel: {
         normal: {
@@ -217,9 +210,8 @@ export class AssociationGraphComponent implements OnInit {
           width: 1,
           curveness: 0
         }
-      }
-    }
-    ]
+      },
+    }]
   };
 
 }

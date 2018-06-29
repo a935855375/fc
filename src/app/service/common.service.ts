@@ -45,4 +45,11 @@ export class CommonService {
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
+
+  getSuspectedControllerById(id) {
+    const url = environment.apiUrl + 'suspectedcontroller';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

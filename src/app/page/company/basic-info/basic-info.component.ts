@@ -28,8 +28,8 @@ export class BasicInfoComponent implements OnInit {
 
     this.companyService.getBasicInfo(this.companyService.cid).then(x => {
       this.d = x;
-      console.log(x);
       this.title = (x as any).company.name;
+      localStorage.setItem('name', this.title);
       this.companyService.getSubject().next((x as any).company);
     });
   }
@@ -428,5 +428,418 @@ export class BasicInfoComponent implements OnInit {
     }],
     'animationEasingUpdate': 'quinticInOut',
     'animationDurationUpdate': 1500
+  };
+
+  data2 = [
+    {
+      "name": "小米科技有限责任公司",
+      "children": [
+        {
+          "name": "对外投资",
+          "children": [
+            {
+              "name": "湖北小米长江产业基金合伙企业(有限合伙)",
+              "value": 0
+            },
+            {
+              "name": "重庆小米商业保理有限公司",
+              "value": 0
+            },
+            {
+              "name": "珠海小米金融科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "成都西米互动科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "天津金星投资有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳英鹏互娱科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "英鹏互娱科技(北京)有限公司",
+              "value": 0
+            },
+            {
+              "name": "北京创派力量科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "西藏小米科技有限责任公司",
+              "value": 0
+            },
+            {
+              "name": "小米科技有限责任公司深圳分公司",
+              "value": 0
+            },
+            {
+              "name": "江苏紫米电子技术有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳英鹏信息技术股份有限公司",
+              "value": 0
+            },
+            {
+              "name": "上海迈外迪网络科技有限公司",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "name": "高管",
+          "children": [
+            {
+              "name": "雷军",
+              "value": 0
+            },
+            {
+              "name": "林斌",
+              "value": 0
+            },
+            {
+              "name": "刘芹",
+              "value": 0
+            },
+            {
+              "name": "许达来",
+              "value": 0
+            },
+            {
+              "name": "黎万强",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "name": "裁判文书",
+          "children": [
+            {
+              "name": "深圳市远威达科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙华新区观澜中讯通手机店\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙华新区龙华恒丰佳手机配件店\t",
+              "value": 0
+            },
+            {
+              "name": "宜昌市西陵区无限数码通讯器材经营部\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市力升科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市协美特科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市神祺科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市宝安区松岗涵祺五金电子加工厂\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市宏达旺电子科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市创研达科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市强劲电池技术有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市美斯邦微科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市雅乐斯科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市拓顶科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市汪为电子科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市坪蝶科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市神兵科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市欧歌电子有限公司",
+              "value": 0
+            },
+            {
+              "name": "惠州市惠城区创军通讯店",
+              "value": 0
+            },
+            {
+              "name": "博罗县石湾镇智润通通讯行\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市环纪通电子有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市优胜通电子有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市源发科创吸塑制品有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市大玺过控商务咨询服务有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市恺文宋科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市易路捷科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市柏盈贸易有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市章明数码科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市朋客电子科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "长沙市岳麓区恒仕日用品店\t",
+              "value": 0
+            },
+            {
+              "name": "长沙市岳麓区中南通讯器材商店",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "name": "股东",
+          "children": [
+            {
+              "name": "雷军",
+              "value": 0
+            },
+            {
+              "name": "黎万强",
+              "value": 0
+            },
+            {
+              "name": "洪锋",
+              "value": 0
+            },
+            {
+              "name": "刘德",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "name": "法院公告",
+          "children": [
+            {
+              "name": "深圳市龙华新区达克港电子商务商行",
+              "value": 0
+            },
+            {
+              "name": "北京晟煌科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市盛航光电有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市宝安区石岩音之烁电子厂",
+              "value": 0
+            },
+            {
+              "name": "深圳市宝安区龙华丰佳通讯店",
+              "value": 0
+            },
+            {
+              "name": "深圳市宝安区沙井友谊通讯店",
+              "value": 0
+            },
+            {
+              "name": "深圳千秋大业科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "苏州昇兴通讯设备有限公司",
+              "value": 0
+            },
+            {
+              "name": "朔州市万通鼎盛商贸有限公司",
+              "value": 0
+            },
+            {
+              "name": "北京睿达亨通通讯器材有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙华新区民治恒帆维贸易商行",
+              "value": 0
+            },
+            {
+              "name": "武汉华恒远行商贸有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙岗区布吉镇坂田飞宇手机配件店",
+              "value": 0
+            },
+            {
+              "name": "深圳市亿富鼎通信科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市狼图营销咨询顾问有限公司",
+              "value": 0
+            },
+            {
+              "name": "吉林省安华通信科技发展有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市宝安区沙井友谊通讯店",
+              "value": 0
+            },
+            {
+              "name": "深圳市灵魂世纪贸易有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市宝安区龙华丰佳通讯店",
+              "value": 0
+            },
+            {
+              "name": "深圳市酷瑞时代科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "北京乐享环宇数码器材批发中心",
+              "value": 0
+            },
+            {
+              "name": "朔州市万通鼎盛商贸有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市中视电子有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市理德御品贸易有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市远威达科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市晟之鹏科技有限公司\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市广懋蓝丰电子科技有限公司",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙华新区观澜中讯通手机店",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙华新区龙华恒丰佳手机配件店\t",
+              "value": 0
+            },
+            {
+              "name": "深圳市龙华新区大浪小优手机店",
+              "value": 0
+            },
+            {
+              "name": "昆山市金三角通讯设备有限公司",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
+  option2 = {
+
+    tooltip: {
+      trigger: 'item',
+      triggerOn: 'mousemove'
+    },
+    series: [
+      {
+        type: 'tree',
+
+        roam: true,
+
+        data: this.data2,
+
+        top: '20%',
+        bottom: '20%',
+
+        layout: 'radial',
+
+        symbol: 'circle',
+
+        symbolSize: 7,
+
+        initialTreeDepth: 3,
+
+        animationDurationUpdate: 750,
+
+        itemStyle: {
+          normal: {
+            color: '#4bec56',
+          },
+          emphasis: {
+            color: '#4bec56',
+          },
+          borderColor: {
+            color: '#4bec56',
+          },
+          borderType: 'dashed'
+        },
+
+      }
+    ]
   };
 }

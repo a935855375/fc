@@ -9,11 +9,14 @@ import {DOCUMENT} from '@angular/common';
 })
 export class GenealogyComponent implements OnInit {
   selector = 0;
+  title: string;
 
   constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
   }
 
   ngOnInit() {
+    this.title = localStorage.getItem('name');
+
     // 移动到顶部位置
     let pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
       document: this.document,

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex">
-    <a routerLink="/company" class="text-primary f-14 mr-5"><i class="fa fa-backward mr-1" aria-hidden="true"></i>小米科技有限责任公司</a>
+    <a routerLink="/company" class="text-primary f-14 mr-5"><i class="fa fa-backward mr-1" aria-hidden="true"></i>{{title}}</a>
 
     <a [class.selected]="selector===0" routerLink="/genealogy/enterprisegraph" (click)="changePage(0)"
        class="ml-5 selector selected">企业图谱</a>

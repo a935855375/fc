@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonService} from '../../../service/common.service';
 
 @Component({
   selector: 'app-suspected-controller',
@@ -6,11 +7,19 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./suspected-controller.component.scss']
 })
 export class SuspectedControllerComponent implements OnInit {
+  flag = false;
 
-  constructor() {
+  constructor(private commonService: CommonService) {
   }
 
   ngOnInit() {
+    this.commonService.getSuspectedControllerById(localStorage.getItem('cid')).then(x => {
+      this.options.series[0].data[0].name = localStorage.getItem('name');
+      this.options.series[0].data[1].name = (x as any).name;
+      this.options.series[0].links[0].value = (x as any).shareholding_ratio + '%';
+      console.log(x);
+      this.flag = true;
+    });
   }
 
   options = {

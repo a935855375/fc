@@ -1,0 +1,50 @@
+a {
+  color: #000;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #4289FF;
+  cursor: pointer;
+}
+
+.f-bg {
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 2px #bbb;
+  -moz-box-shadow: 0 1px 2px #bbb;
+  box-shadow: 0 1px 2px #bbb;
+}
+
+li {
+  list-style: none;
+}
+
+.f-bdr {
+  border-top: 1px solid #dfdfdf;
+}
+
+.panel {
+  border-radius: 0;
+}
+
+.panel-default {
+  border-color: #ddd;
+}
+
+.panel {
+  background-color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.list-group-item {
+  a {
+    color: #666666;
+    font-size: 12px;
+  }
+}
+
+.company_content a:hover {
+  background-color: #f1f9fe;
+}

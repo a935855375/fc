@@ -15,6 +15,7 @@ export class InvestmentGraphComponent implements OnInit {
   ngOnInit() {
     this.commonService.getInvestmentGraphById(localStorage.getItem('cid')).then(x => {
       this.options.series[0].data = [x as any];
+      console.log(x);
       this.flag = true;
     });
   }

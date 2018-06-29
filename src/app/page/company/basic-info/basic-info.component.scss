@@ -104,5 +104,23 @@ td {
 
 ::ng-deep .modal-dialog {
   max-width: 70%;
-  width: 70%;
+  width: 70%;;
+}
+
+.final-radio-wrap {
+  display: inline-block;
+  height: 14px;
+  width: 80px;
+  position: relative;
+  background: url(../../../../assets/img/arrow.png) no-repeat 0 50%;
+  background-size: 100%;
+}
+
+.final-radio-wrap>span {
+  color: #128bed;
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 50%;
 }

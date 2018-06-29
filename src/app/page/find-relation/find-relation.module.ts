@@ -6,6 +6,8 @@ import {FindRelationRoutingModule} from './find-relation.routing.module';
 import {FindRelationComponent} from './find-relation.component';
 import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import {FormsModule} from '@angular/forms';
     NgbModule,
     FindRelationRoutingModule,
     MaterialModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    Ng2SearchPipeModule,
+    NgxEchartsModule
   ],
   declarations: [
     FindRelationComponent,

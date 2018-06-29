@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonService} from '../../../service/common.service';
 
 @Component({
   selector: 'app-equity-structure-graph',
@@ -6,11 +7,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./equity-structure-graph.component.scss']
 })
 export class EquityStructureGraphComponent implements OnInit {
+  flag = false;
 
-  constructor() {
+  constructor(private commonService: CommonService) {
   }
 
   ngOnInit() {
+    this.commonService.getEquityStructureGraphById(localStorage.getItem('cid')).then(x => {
+      this.options.series[0].data = [x as any];
+      this.flag = true;
+    });
   }
 
   data = [

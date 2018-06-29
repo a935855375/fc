@@ -14,7 +14,6 @@ import {APP_BASE_HREF} from '@angular/common';
 import {AuthService} from './service/auth.service';
 import {CommonService} from './service/common.service';
 import {AuthInterceptor} from './service/auth-interceptor';
-import { CompanyComponent } from './page/company/company.component';
 import {CompanyService} from './service/company.service';
 
 

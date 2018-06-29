@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-legal-proceed',
@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./legal-proceed.component.scss']
 })
 export class LegalProceedComponent implements OnInit {
-  page=1;
+  page = 1;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -163,8 +164,8 @@ export class LegalProceedComponent implements OnInit {
     },
     tooltip: {
       show: true,
-      formatter: function(params) {
-        return params.name + '：' + params.data['value'] + '%'
+      formatter: function (params) {
+        return params.name + '：' + params.data['value'] + '%';
       },
     },
     toolbox: {
@@ -182,7 +183,7 @@ export class LegalProceedComponent implements OnInit {
       min: 0,
       max: 7,
       inRange: {
-        color: ['#edfbfb', '#b7d6f3', '#40a9ed', '#3598c1', '#215096', ]
+        color: ['#edfbfb', '#b7d6f3', '#40a9ed', '#3598c1', '#215096',]
       },
       textStyle: {
         color: '#000'
@@ -230,7 +231,7 @@ export class LegalProceedComponent implements OnInit {
       }
     },
     legend: {
-      data: [ '裁判文书', '法院公告', '开庭公告'],
+      data: ['裁判文书', '法院公告', '开庭公告'],
       x: 'center',
       y: 'bottom',
     },
@@ -256,7 +257,7 @@ export class LegalProceedComponent implements OnInit {
         formatter: '{value}'
       }
     }],
-    series: [ {
+    series: [{
       name: '裁判文书',
       type: 'bar',
       label: {

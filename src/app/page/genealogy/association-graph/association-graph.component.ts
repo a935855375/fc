@@ -13,7 +13,7 @@ export class AssociationGraphComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commonService.getAssociationGraphById(1).then(x => {
+    this.commonService.getAssociationGraphById(localStorage.getItem('cid')).then(x => {
       this.options.series[0].data = (x as any).data;
       this.options.series[0].links = (x as any).links;
       this.flag = true;

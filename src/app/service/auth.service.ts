@@ -20,7 +20,6 @@ export class AuthService {
   }
 
 
-
   login(username: string, password: string) {
     const url = this.apiUrl + 'login';
     const user = new User();

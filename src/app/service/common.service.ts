@@ -18,22 +18,29 @@ export class CommonService {
     return this.http.get(url, {observe: 'response'}).toPromise();
   }
 
-  getEnterpriseGraphById(id: number) {
+  getEnterpriseGraphById(id) {
     const url = environment.apiUrl + 'enterprisegraph';
     const params = {id: id.toString()};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
 
-  getInvestmentGraphById(id: number) {
+  getInvestmentGraphById(id) {
     const url = environment.apiUrl + 'investmentgraph';
     const params = {id: id.toString()};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
 
-  getAssociationGraphById(id: number) {
+  getAssociationGraphById(id) {
     const url = environment.apiUrl + 'associationgraph';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  getEquityStructureGraphById(id) {
+    const url = environment.apiUrl + 'equitystructuregraph';
     const params = {id: id.toString()};
     const options = {params: params};
     return this.http.get(url, options).toPromise();

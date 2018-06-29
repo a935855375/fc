@@ -55,7 +55,7 @@ td {
 }
 
 :host ::ng-deep em {
-  font-style:normal;
+  font-style: normal;
   color: #e33244;
 }
 
@@ -63,8 +63,8 @@ td {
   color: #999;
 }
 
-.news_talk{
-  .news_tb{
+.news_talk {
+  .news_tb {
     tr {
       vertical-align: inherit;
       border-color: inherit;
@@ -75,13 +75,13 @@ td {
         font-size: 14px;
         line-height: 19px;
         color: #222;
-        a{
+        a {
           .title {
             color: #222;
             font-size: 16px;
             font-weight: 400;
           }
-          .title_content{
+          .title_content {
             color: #999;
             font-size: 15px;
             .subtitle {
@@ -92,8 +92,8 @@ td {
           }
         }
       }
-      :hover{
-        .title{
+      :hover {
+        .title {
           color: #128bed;
         }
         background-color: #f1f9fe;
@@ -102,7 +102,7 @@ td {
   }
 }
 
-::ng-deep .modal-dialog{
+::ng-deep .modal-dialog {
   max-width: 70%;
   width: 70%;
 }

@@ -13,7 +13,7 @@ export class InvestmentGraphComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commonService.getInvestmentGraphById(1).then(x => {
+    this.commonService.getInvestmentGraphById(localStorage.getItem('cid')).then(x => {
       this.options.series[0].data = [x as any];
       this.flag = true;
     });

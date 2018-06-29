@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   people: any[];
 
   interestedCompany = (companies: Company[]) =>
-    companies.filter(x => x.name.search(this.key) != -1).slice(0,5);
+    companies.filter(x => x.name.search(this.key) != -1).slice(0, 5);
 
   constructor(private router: ActivatedRoute, private searchService: SearchService) {
 
@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     this.searchService.getInterestedPeople().then(x => {
       this.people = x as any[];
-    })
+    });
   }
 
   sort(e) {

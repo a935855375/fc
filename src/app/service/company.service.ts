@@ -5,7 +5,7 @@ import {Subject} from 'rxjs';
 
 @Injectable()
 export class CompanyService {
-  cid: number = localStorage.getItem('cid');
+  cid = localStorage.getItem('cid');
   subject = new Subject();
 
   constructor(private http: HttpClient) {

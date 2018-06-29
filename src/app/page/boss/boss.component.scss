@@ -1,8 +1,9 @@
-a{
+a {
   color: #000;
   cursor: pointer;
 }
-a:hover{
+
+a:hover {
   color: #4289FF;
   cursor: pointer;
 }
@@ -14,48 +15,48 @@ a:hover{
   box-shadow: 0 1px 2px #bbb;
 }
 
-li{
+li {
   list-style: none;
 }
-
 
 .f-bdr {
   border-top: 1px solid #dfdfdf;
 }
 
-
-.btn-head{
+.btn-head {
   color: #EC6C47 !important;
 }
 
-.pills-more{
+.pills-more {
   color: #979797;
 }
-.pills-header,.pills-item{
+
+.pills-header, .pills-item {
   font-size: 14px;
 }
 
 /*搜寻的老板*/
-.boss-wrap{
+.boss-wrap {
   border: 1px solid #eaeef1;
   box-sizing: border-box;
 }
- .boss-head {
+
+.boss-head {
   width: 54px;
   height: 54px;
   border-radius: 4px;
 }
 
- .boss-name {
+.boss-name {
   font-size: 20px;
   color: #000;
 }
 
- .myicon{
-   color: #DEDEDE;
-   width: 10px;
-   height: 15px;
- }
+.myicon {
+  color: #DEDEDE;
+  width: 10px;
+  height: 15px;
+}
 
 .partner-head {
   width: 40px;
@@ -69,12 +70,13 @@ li{
   border: 1px solid #f1f1f1;
 }
 
- .partner-name {
+.partner-name {
   margin-left: 8px;
   color: #000;
   font-size: 16px;
   line-height: 40px;
 }
+
 .partner-com {
   margin-top: 5px;
   font-size: 12px;
@@ -88,7 +90,7 @@ li{
   width: 60px;
   height: 60px;
   overflow: visible;
-  border: 1px solid rgba(0,0,0,.06);
+  border: 1px solid rgba(0, 0, 0, .06);
   border-radius: 50%;
 }
 
@@ -114,6 +116,7 @@ li{
   border-radius: 5px;
   background: #EFEFEF;
 }
+
 .partner-letter:before {
   line-height: 40px !important;
   height: 40px !important;
@@ -121,13 +124,13 @@ li{
   color: #999 !important;
 }
 
-.avatar{
-  img{
+.avatar {
+  img {
     border-radius: 6px;
   }
 }
 
-.title{
+.title {
   color: #333;
   font-size: 14px;
   line-height: 30px;

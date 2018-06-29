@@ -7,14 +7,14 @@
   line-height: 32px;
   display: inline-block;
   border-radius: 2px;
-  span{
+  span {
     color: #128bed;
   }
 }
-a{
+
+a {
   color: #128bed;
 }
-
 
 .table-primary {
   background-color: #F2F9FC;
@@ -53,12 +53,12 @@ td {
   background-color: #3889ec !important;
 }
 
-
-a{
+a {
   color: #000;
   cursor: pointer;
 }
-a:hover{
+
+a:hover {
   color: #4289FF;
   cursor: pointer;
 }
@@ -70,12 +70,12 @@ a:hover{
   box-shadow: 0 1px 2px #bbb;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.big_boss{
-  .title{
+.big_boss {
+  .title {
     color: #333;
     font-size: 14px;
     line-height: 30px;

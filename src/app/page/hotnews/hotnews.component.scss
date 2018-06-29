@@ -5,10 +5,9 @@
   box-shadow: 0 1px 2px #bbb;
 }
 
-li{
+li {
   list-style: none;
 }
-
 
 .f-bdr {
   border-top: 1px solid #dfdfdf;
@@ -24,20 +23,21 @@ li{
   background-size: cover;
 }
 
-.app-hot-item>.app-hot-wrapper {
+.app-hot-item > .app-hot-wrapper {
   margin-top: 60.87%;
 }
-.app-hot-item>.app-content-container {
+
+.app-hot-item > .app-content-container {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
   color: #fff;
   padding: 6px 10px;
 }
 
- .app-hot-item>.brand {
+.app-hot-item > .brand {
   position: absolute;
   left: 15px;
   top: 0;

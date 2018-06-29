@@ -1,5 +1,4 @@
 
-
 strong {
   padding-bottom: 12px;
   border-bottom: 2px solid #00AAEE;
@@ -27,7 +26,6 @@ strong {
   border-radius: .2rem;
 }
 
-
 /*标签云*/
 .tag-cloud {
   margin: auto;
@@ -37,47 +35,57 @@ strong {
   justify-content: center;
   flex-wrap: nowrap;
 }
+
 .tags {
-  color:#fff;
+  color: #fff;
   padding: .08rem .4rem;
   float: left;
   text-align: center;
   margin: .3rem;
   transition: all .5s;
 }
+
 /*云标签颜色*/
 .tags:nth-child(9n+1) {
-  background:#78BBE6;
-}
-.tags:nth-child(9n+2){
-  background:#FF895D;
-}
-.tags:nth-child(9n+3) {
-  background:#A3DE83;
-}
-.tags:nth-child(9n+4) {
-  background:#00BBF0;
-}
-.tags:nth-child(9n+5) {
-  background:#FF2E63;
-}
-.tags:nth-child(9n+6) {
-  background:#0D7377;
-}
-.tags:nth-child(9n+7) {
-  background:#AC005D;
-}
-.tags:nth-child(9n+8) {
-  background:#0881A3;
-}
-.tags:nth-child(9n+9) {
-  background:#EDA045;
-}
-.tags:hover {
-  color:#fff;
-  background:#333;
+  background: #78BBE6;
 }
 
+.tags:nth-child(9n+2) {
+  background: #FF895D;
+}
+
+.tags:nth-child(9n+3) {
+  background: #A3DE83;
+}
+
+.tags:nth-child(9n+4) {
+  background: #00BBF0;
+}
+
+.tags:nth-child(9n+5) {
+  background: #FF2E63;
+}
+
+.tags:nth-child(9n+6) {
+  background: #0D7377;
+}
+
+.tags:nth-child(9n+7) {
+  background: #AC005D;
+}
+
+.tags:nth-child(9n+8) {
+  background: #0881A3;
+}
+
+.tags:nth-child(9n+9) {
+  background: #EDA045;
+}
+
+.tags:hover {
+  color: #fff;
+  background: #333;
+}
 
 .heading {
   font-size: 45px;

@@ -15,7 +15,8 @@ export class SearchBodyComponent {
   selected = '0';
 
   constructor(private companyService: CompanyService,
-              private router: Router) {}
+              private router: Router) {
+  }
 
   page = 1;
 

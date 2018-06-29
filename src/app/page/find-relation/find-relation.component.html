@@ -2,28 +2,80 @@
   <div class="row">
     <div class="col-lg-3 col-md-12 card rounded-0 px-0" style="min-height: 1019px;">
       <div class="d-flex rel_head">
-        <li class="flex-grow-1 active" [class.active]="select==0" (click)="select=0" ><h2 class="font-weight-bold my-3 f-15 text-center">两节点关系</h2></li>
-        <li href="#" style="margin-right: -1px" class="flex-grow-1 active" [class.active]="select==1" (click)="select=1" ><h2 class="font-weight-bold my-3 f-15 text-center">
+        <li class="flex-grow-1 active" [class.active]="select==0" (click)="select=0"><h2
+          class="font-weight-bold my-3 f-15 text-center">两节点关系</h2></li>
+        <li href="#" style="margin-right: -1px" class="flex-grow-1 active" [class.active]="select==1"
+            (click)="select=1"><h2 class="font-weight-bold my-3 f-15 text-center">
           多节点关系</h2></li>
       </div>
       <div *ngIf="select==0" class="d-flex rel-content">
         <div class="px-3 flex-grow-1">
           <h5 class="font-weight-bold py-3">关联路径</h5>
-          <div>
-            <div class="d-flex ml-0">
-              <div class="ana-spot align-self-center mr-2"></div>
-              <input class="flex-grow-1" placeholder="在此添加公司">
-            </div>
-            <div class="d-flex py-1 pl-3">
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox">
+
+
+          <div class="d-flex">
+
+            <div class="ana-spot align-self-start mr-2 mt-2"></div>
+
+            <div style="width: 100%" class="d-flex flex-column">
+
+              <input class="flex-grow-1" placeholder="在此添加公司"
+                     [ngModel]="content"
+                     (ngModelChange)="change($event)">
+
+              <div class="dropdown" *ngIf="show">
+                <ul class="bilibili-suggest">
+                  <li class="kw"><a>
+                    <div class="b-line"><p><span>关键词</span></p></div>
+                  </a>
+                  </li>
+                  <li class="suggest-item" (click)="click(item)" *ngFor="let item of items |filter:content">{{item}}
+                  </li>
+                </ul>
               </div>
+
             </div>
+          </div>
+
+          <div class="d-flex py-1 pl-3">
+            <div class="ana-uncheck f-14">选择人
+              <input type="checkbox" (click)="flag2=!flag2">
+            </div>
+          </div>
+          <div *ngIf="flag2" class="pl-3 flex-grow-1">
+            <angular2-multiselect [data]="itemList"
+                                  [(ngModel)]="selectedItems"
+                                  [settings]="settings"
+                                  (onSelect)="onItemSelect($event)"
+                                  (onDeSelect)="OnItemDeSelect($event)">
+            </angular2-multiselect>
           </div>
           <div class="py-3">
             <div class="d-flex ml-0">
-              <div class="ana-spot2 align-self-center mr-2"></div>
-              <input class="flex-grow-1" placeholder="在此添加公司">
+              <div style="width: 100%" class="d-flex">
+
+                <div class="ana-spot2 align-self-start mr-2 mt-2"></div>
+
+                <div style="width: 100%" class="d-flex flex-column">
+
+                  <input class="flex-grow-1" placeholder="在此添加公司"
+                         [ngModel]="content2"
+                         (ngModelChange)="change2($event)">
+
+                  <div class="dropdown" *ngIf="show2">
+                    <ul class="bilibili-suggest">
+                      <li class="kw"><a>
+                        <div class="b-line"><p><span>关键词</span></p></div>
+                      </a>
+                      </li>
+                      <li class="suggest-item" (click)="click2(item)" *ngFor="let item of items |filter:content2">
+                        {{item}}
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
             </div>
             <div class="d-flex py-1 pl-3">
               <div class="ana-uncheck f-14">选择人
@@ -31,53 +83,127 @@
               </div>
             </div>
             <div *ngIf="flag" class="pl-3 flex-grow-1">
-              <angular2-multiselect  [data]="itemList"
-                                     [(ngModel)]="selectedItems"
-                                     [settings]="settings"
-                                     (onSelect)="onItemSelect($event)"
-                                     (onDeSelect)="OnItemDeSelect($event)"
-                                     (onSelectAll)="onSelectAll($event)"
-                                     (onDeSelectAll)="onDeSelectAll($event)">
+              <angular2-multiselect [data]="itemList2"
+                                    [(ngModel)]="selectedItems2"
+                                    [settings]="settings"
+                                    (onSelect)="onItemSelect($event)"
+                                    (onDeSelect)="OnItemDeSelect($event)">
               </angular2-multiselect>
             </div>
           </div>
           <div class="py-3">
             <span class="f-14">显示路径数</span>
             <div class="d-flex pt-2">
-              <input type="range" min="1" max="10" value="3" class="form-control ana-input-range mt-2" style=" background-size: 25% 100%;">
+              <input type="range" min="1" max="10" value="3" class="form-control ana-input-range mt-2"
+                     style=" background-size: 25% 100%;">
               <div class="range-value ml-2">3</div>
             </div>
           </div>
-          <button type="submit" class="btn btn-info" style="width: 100%;">开始分析</button>
+          <button type="submit" class="btn btn-info" (click)="f=!f" style="width: 100%;">开始分析</button>
           <div class="mt-3" style="border-bottom: 1px solid #ddd"></div>
-          <div class="py-3">
+          <div *ngIf="f" class="py-3">
             <div class="d-flex">
               <h5 class="font-weight-bold pb-3">路径详情</h5>
               <div class="ml-auto f-14">找到15条路径</div>
             </div>
             <div class="py-1">
-              <div class="d-flex py-2 px-2 panel-all">
+              <div class="d-flex py-2 px-2 panel-all mb-1">
                 <div class="panel-heading">路径1</div>
-                <a class="d-inline-flex ml-auto" href="#">5站<i
+                <a class="d-inline-flex ml-auto" href="#">3站<i
                   class="fa fa-angle-right align-self-center pl-1"></i></a>
+              </div>
+              <div style="display: none" class="panel-body mt-1">
+                <ul class="ana-timeline">
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">雷军</div>
+                      <div class="member">执行董事</div>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">小米商业保理(天津)有限责任公司</div>
+                      <div class="member">法人,总经理,总经理</div>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">洪锋</div>
+                      <div class="member"></div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="py-1">
               <div class="d-flex py-2 px-2 panel-all">
-                <div class="panel-heading">路径1</div>
-                <a class="d-inline-flex ml-auto" href="#">5站<i
+                <div class="panel-heading">路径2</div>
+                <a class="d-inline-flex ml-auto" href="#">3站<i
                   class="fa fa-angle-right align-self-center pl-1"></i></a>
+              </div>
+              <div style="display: none" class="panel-body mt-1">
+                <ul class="ana-timeline">
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">雷军</div>
+                      <div class="member">董事</div>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">上海小米金融信息服务有限公司</div>
+                      <div class="member">法人,董事长</div>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">洪锋</div>
+                      <div class="member"></div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
             <div class="py-1">
               <div class="d-flex py-2 px-2 panel-all">
-                <div class="panel-heading">路径1</div>
-                <a class="d-inline-flex ml-auto" href="#">5站<i
+                <div class="panel-heading">路径3</div>
+                <a class="d-inline-flex ml-auto" href="#">3站<i
                   class="fa fa-angle-right align-self-center pl-1"></i></a>
+              </div>
+              <div style="display: none" class="panel-body mt-1">
+                <ul class="ana-timeline">
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">雷军</div>
+                      <div class="member">董事长,法人</div>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">捷付睿通股份有限公司</div>
+                      <div class="member">任职</div>
+                    </div>
+                  </li>
+                  <li class="d-flex">
+                    <div class="point"></div>
+                    <div class="mr-auto content">
+                      <div class="com">洪锋</div>
+                      <div class="member"></div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div  style="border-bottom: 1px solid #ddd"></div>
+          <div style="border-bottom: 1px solid #ddd"></div>
           <div class="py-3">
             <h5 class="font-weight-bold pb-3">搜索历史</h5>
             <div class="d-flex">
@@ -134,13 +260,13 @@
               </div>
             </div>
             <div class="flex-grow-1">
-              <angular2-multiselect  [data]="itemList"
-                                     [(ngModel)]="selectedItems"
-                                     [settings]="settings"
-                                     (onSelect)="onItemSelect($event)"
-                                     (onDeSelect)="OnItemDeSelect($event)"
-                                     (onSelectAll)="onSelectAll($event)"
-                                     (onDeSelectAll)="onDeSelectAll($event)">
+              <angular2-multiselect [data]="itemList"
+                                    [(ngModel)]="selectedItems"
+                                    [settings]="settings"
+                                    (onSelect)="onItemSelect($event)"
+                                    (onDeSelect)="OnItemDeSelect($event)"
+                                    (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)">
               </angular2-multiselect>
             </div>
           </div>
@@ -148,7 +274,8 @@
           <div class="py-3">
             <span class="f-14">显示路径数</span>
             <div class="d-flex pt-2">
-              <input type="range" min="1" max="10" value="3" class="form-control ana-input-range mt-2" style=" background-size: 25% 100%;">
+              <input type="range" min="1" max="10" value="3" class="form-control ana-input-range mt-2"
+                     style=" background-size: 25% 100%;">
               <div class="range-value ml-2">3</div>
             </div>
           </div>
@@ -181,7 +308,7 @@
               </div>
             </div>
           </div>
-          <div  style="border-bottom: 1px solid #ddd"></div>
+          <div style="border-bottom: 1px solid #ddd"></div>
           <div class="py-3">
             <h5 class="font-weight-bold pb-3">搜索历史</h5>
             <div class="d-flex">
@@ -206,23 +333,28 @@
         </div>
       </div>
     </div>
+
+
     <div *ngIf="select==0" class="col-lg-9 col-md-12" style="min-height: 1019px;">
       <div class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
-        <div class="no_data d-flex flex-column align-items-center">
-          <img class="demoAna py-5" src="../../../assets/img/relation_exa.png" style="width: 600px">
+        <div *ngIf="!f" class="no_data d-flex flex-column align-items-center mt-5">
+          <img class="demoAna py-5" src="../../../assets/img/search-relation.jpg" style="width: 900px">
           <div class="f-16" style="color: #bbb">您可以添加两个公司或个人，一键分析即可查看其所有关联路径。</div>
-          <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 马化腾</span> 的关联路径分析</div>
+          <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 赵微</span> 的关联路径分析</div>
         </div>
+
+        <div *ngIf="f" echarts [options]="options" style="height: 100vh"></div>
       </div>
     </div>
     <div *ngIf="select==1" class="col-lg-9 col-md-12" style="min-height: 1019px;">
       <div class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
         <div class="no_data d-flex flex-column align-items-center">
-          <img class="demoAna py-5" src="../../../assets/img/relation_exa.png" style="width: 600px">
+          <img class="demoAna py-5" src="../../../assets/img/relation_exa.png" style="width: 900px">
           <div class="f-16" style="color: #bbb">您可以添加多个公司或个人，一键分析即可查看其所有关联路径。</div>
           <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 马化腾</span> 的关联路径分析</div>
         </div>
       </div>
     </div>
+
   </div>
 </div>

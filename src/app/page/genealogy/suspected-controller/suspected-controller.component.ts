@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-suspected-controller',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuspectedControllerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -28,9 +29,9 @@ export class SuspectedControllerComponent implements OnInit {
       }
     },
     legend: {
-      x: "center",
+      x: 'center',
       show: false,
-      data: ["朋友", "战友", '亲戚']
+      data: ['朋友', '战友', '亲戚']
     },
     series: [
       {
@@ -42,10 +43,14 @@ export class SuspectedControllerComponent implements OnInit {
         symbolSize: (value, params) => {
           //根据数据params中的data来判定数据大小
           switch (params.data.category) {
-            case 0:return 50;
-            case 1:return 50;
-            case 2:return 20;
-            default:return 60;
+            case 0:
+              return 50;
+            case 1:
+              return 50;
+            case 2:
+              return 20;
+            default:
+              return 60;
           }
         },
         focusNodeAdjacency: true,
@@ -54,21 +59,21 @@ export class SuspectedControllerComponent implements OnInit {
           name: '朋友',
           itemStyle: {
             normal: {
-              color: "#009800",
+              color: '#009800',
             }
           }
         }, {
           name: '战友',
           itemStyle: {
             normal: {
-              color: "#4592FF",
+              color: '#4592FF',
             }
           }
         }, {
           name: '亲戚',
           itemStyle: {
             normal: {
-              color: "#3592F",
+              color: '#3592F',
             }
           }
         }],
@@ -90,7 +95,7 @@ export class SuspectedControllerComponent implements OnInit {
             textStyle: {
               fontSize: 10
             },
-            formatter: "{c}"
+            formatter: '{c}'
           }
         },
         data: [{

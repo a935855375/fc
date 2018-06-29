@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-boss',
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class BossComponent implements OnInit {
   page = 1;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

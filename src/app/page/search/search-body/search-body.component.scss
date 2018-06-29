@@ -9,7 +9,7 @@ button {
   margin-right: 3px;
 }
 
-.nsatus{
+.nsatus {
   font-weight: normal;
   display: inline-block;
   line-height: 16px;
@@ -19,12 +19,12 @@ button {
   border: 1px solid;
 }
 
-.col_work{
+.col_work {
   //color: #009944;
   color: #1e99bc;
 }
 
 :host ::ng-deep em {
-  font-style:normal;
+  font-style: normal;
   color: #e33244;
 }

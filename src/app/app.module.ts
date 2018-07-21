@@ -10,7 +10,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {APP_BASE_HREF} from '@angular/common';
 import {AuthService} from './service/auth.service';
 import {CommonService} from './service/common.service';
 import {AuthInterceptor} from './service/auth-interceptor';
@@ -34,7 +33,6 @@ import {CompanyService} from './service/company.service';
     HttpClientModule,
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'},
     AuthService,
     CompanyService,
     CommonService,

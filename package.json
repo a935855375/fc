@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --open",
-    "build": "ng build --aot --prod",
+    "build": "ng build --aot --prod --base-href ./",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,6 +27,7 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.7",
     "echarts": "^4.1.0",
+    "d3": "^5.5.0",
     "font-awesome": "^4.7.0",
     "moment": "^2.22.1",
     "ng2-search-filter": "^0.4.7",
@@ -44,6 +45,7 @@
     "@types/jasmine": "~2.8.7",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.1.4",
+    "@types/d3": "^5.0.0",
     "codelyzer": "~4.3.0",
     "jasmine-core": "~3.1.0",
     "jasmine-spec-reporter": "~4.2.1",

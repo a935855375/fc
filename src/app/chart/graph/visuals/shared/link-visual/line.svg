@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <path d="M40 40 C90 60, 130 60, 180 40" stroke="red" fill="none" style="stroke-width: 4px;"></path>
+  <text x="150" y="350" transform="rotate(20 150,350)" style="text-anchor: middle;">Start</text>
+
+  <line x1="0" y1="0" x2="200" y2="200"
+        style="stroke:rgb(255,0,0);stroke-width:2"/>
+</svg>

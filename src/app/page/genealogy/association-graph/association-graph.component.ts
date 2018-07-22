@@ -7,7 +7,7 @@ import CONFIG from '../../../chart/graph/graph.config';
   templateUrl: './association-graph.component.html',
   styleUrls: ['./association-graph.component.scss']
 })
-export class AssociationGraphComponent implements OnInit {
+export class AssociationGraphComponent {
   nodes: Node[] = [];
   links: Link[] = [];
 

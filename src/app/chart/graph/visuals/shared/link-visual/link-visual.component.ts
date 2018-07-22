@@ -11,7 +11,7 @@ import {Link} from '../../../d3';
         [attr.y1]="link.getSourceY()"
         [attr.x2]="link.getTargetX()"
         [attr.y2]="link.getTargetY()"
-        [ngStyle]="{'stroke': link.getColor(),'stroke-width': link.width, 'marker-end': link.getArrowColor()}"
+        [ngStyle]="{'stroke': link.getColor(),'stroke-width': link.width, 'marker-end': link.getArrowColor(), 'stroke-opacity': link.opacity}"
       >
       </svg:line>
       <text *ngIf="!link.isMultiple()" [attr.x]="link.getX()"

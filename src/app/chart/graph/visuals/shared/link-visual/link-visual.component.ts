@@ -3,7 +3,7 @@ import {Link} from '../../../d3';
 
 @Component({
   selector: '[linkVisual]',
-  template: `    
+  template: `
     <svg:g>
       <svg:line
         class="link"

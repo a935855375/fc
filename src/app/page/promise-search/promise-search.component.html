@@ -1,0 +1,60 @@
+<div class="promise-title">
+  <div class="container">
+    <div class="top-search-nav d-flex">
+      <div class="py-2 pb-1">
+        <a [class.pactive]="kind==0" (click)="selectPromise(0)" routerLink="/promise-search/lostpro">失信人</a>
+        <a [class.pactive]="kind==1" (click)="selectPromise(1)" routerLink="/promise-search/executed">被执行人</a>
+        <a [class.pactive]="kind==2" (click)="selectPromise(2)" routerLink="/promise-search/referee">裁判文书</a>
+        <nz-dropdown>
+          <a nz-dropdown>
+            更多 <i class="anticon anticon-down"></i>
+          </a>
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item>
+              <a routerLink="/company">公司</a>
+            </li>
+            <li nz-menu-item>
+              <a (click)="changeSpItem(0)" routerLink="/brand-search/brand-body">商标</a>
+            </li>
+            <li nz-menu-item>
+              <a (click)="changeSpItem(1)" routerLink="/brand-search/patent">专利</a>
+            </li>
+            <li nz-menu-item>
+              <a (click)="changeSpItem(2)" routerLink="/brand-search/copyright">著作权</a>
+            </li>
+            <li nz-menu-item>
+              <a (click)="changeSpItem(3)" routerLink="/brand-search/software">软件著作权</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+      <div class="ml-2">
+        <div class="input-group">
+          <input type="text" class="form-control input-lg" style="font-size: 14px;" placeholder="请输入你想要查找的裁判文书名称"
+                 autocomplete="off" value="马云">
+          <span class="input-group-btn"><button type="submit" class="input-lg anticon anticon-search"></button> </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-9 col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-lg-3 col-md-12">
+      <div class="f-bg">
+        <div class="p-3" style="font-size: 18px">您可能感兴趣的公司</div>
+        <div class="company_content">
+          <a href="#" class="list-group-item d-flex"> <span class="clear"> <span>上海灵华仪器有限公司杨浦分公司</span><br> </span></a>
+          <a href="#" class="list-group-item d-flex"> <span class="clear"> <span>重庆川苗电子商务有限公司</span><br> </span></a>
+          <a href="#" class="list-group-item d-flex"> <span class="clear"> <span>上海氯碱创业有限公司氟制品分公司</span><br> </span></a>
+          <a href="#" class="list-group-item d-flex"> <span
+            class="clear"> <span>广州市花都区新华林伟基中医诊所</span><br> </span></a>
+          <a href="#" class="list-group-item d-flex"> <span class="clear"> <span>大连万达集团股份有限公司</span><br> </span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

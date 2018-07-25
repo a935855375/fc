@@ -13,13 +13,14 @@
     <div class="align-self-stretch d-flex justify-content-center mb-2">
       <div class="input-group input-group-lg" style="max-width: 60%">
         <input type="search" name="q" class="form-control rounded-0" style="font-size: 14px;border: none"
-               placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)">
+               placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)"
+               (keydown)="onKeydown($event)">
         <div class="input-group-btn btn-group-lg">
           <button style="width: 80px" class="btn btn-info rounded-0" (click)="search()"><i class="fa fa-search"></i>
           </button>
         </div>
       </div>
-      <a class="align-self-center ml-2" style="color:#5a5a5a">高级搜索</a>
+      <a class="align-self-center ml-2" style="color:#5a5a5a" routerLink="/high-search">高级搜索</a>
     </div>
     <div class="align-self-center d-flex justify-content-between mt-5 mb-5">
       <p><span id="hot_data_label" style="color: #5a5a5a">热搜：</span>
@@ -42,35 +43,35 @@
     <div style="border-bottom: 1px solid #ddd" class="pt-2"></div>
     <div class="d-flex py-3 px-3">
       <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
-        <a routerLink="/brands" class="link select_brand" data-original-title="一键查询企业股东、高管">
+        <a (click)="selSpecial(0)" class="link select_brand" data-original-title="一键查询企业股东、高管">
           <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/brand.png"
                                                                style="width:60px;height: 60px"/></div>
           <a>商标查询</a>
         </a>
       </div>
       <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
-        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+        <a (click)="selSpecial(1)" class="link select_brand" data-original-title="一键查询企业股东、高管">
           <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/patent.png"
                                                                style="width:60px;height: 60px"/></div>
           <a>专利查询</a>
         </a>
       </div>
       <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
-        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+        <a (click)="selSpecial(2)" class="link select_brand" data-original-title="一键查询企业股东、高管">
           <div class="d-flex justify-content-center  pb-2"><img src="../../../assets/img/financing.png"
                                                                 style="width:60px;height: 60px"/></div>
-          <a>投融资查询</a>
+          <a>著作权查询</a>
         </a>
       </div>
       <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
-        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+        <a (click)="selPromise(0)" class="link select_brand" data-original-title="一键查询企业股东、高管">
           <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/break.png"
                                                                style="width:60px;height: 60px"/></div>
           <a>失信信息</a>
         </a>
       </div>
       <div class="mx-2 px-2 py-3 d-flex justify-content-center flex-grow-1">
-        <a href="#" class="link select_brand" data-original-title="一键查询企业股东、高管">
+        <a (click)="selPromise(2)" class="link select_brand" data-original-title="一键查询企业股东、高管">
           <div class="d-flex justify-content-center pb-2"><img src="../../../assets/img/referee.png"
                                                                style="width:60px;height: 60px"/></div>
           <a>裁判文书</a>
@@ -332,5 +333,4 @@
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>

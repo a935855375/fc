@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {CommonService} from '../../service/common.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,8 +16,18 @@ export class DashboardComponent {
   provinces: string[] = ['河北', '山西', '辽宁', '吉林', '黑龙江', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北'
     , '湖南', '广东', '海南', '四川', '贵州', '云南', '陕西', '甘肃', '青海', '台湾'];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private commonService: CommonService) {
 
+  }
+
+  selSpecial(sel) {
+    this.commonService.special = sel;
+    this.router.navigate(['/brands']);
+  }
+
+  selPromise(sel) {
+    this.commonService.promise = sel;
+    this.router.navigate(['/promise']);
   }
 
   search() {
@@ -28,11 +39,18 @@ export class DashboardComponent {
     this.key = event;
   }
 
+  onKeydown(event) {
+    if (event.key === 'Enter') {
+      console.log(event);
+      this.search();
+    }
+  }
+
   changeKind(kind) {
     this.kind = kind;
     switch (kind) {
       case 0:
-        this.holder = '请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军';
+        this.holder = '请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军”';
         break;
       case 1:
         this.holder = '请输入企业名称、注册号或统一社会信用代码，如“小米科技”';

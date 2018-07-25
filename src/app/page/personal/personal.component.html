@@ -1,0 +1,35 @@
+<div style="background-color: #F0F3F4;height: 90vh">
+  <div class="row p-0">
+    <div class="col-md-2">
+      <div class="hidden-xs" style="background-color: #ffffff">
+        <div class="d-flex top_header">
+          <div class="ft">
+            <div class="img"><img src=" http://co-image.qichacha.com/upload/face/108.jpg " style="width: 54px">
+            </div>
+          </div>
+          <div class="bd mr-auto">
+            <div class="title">
+              <div class="name">
+                乐观的海燕
+              </div>
+              <div class="desc"><a href="#" class="text-primary">18795351234</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul nz-menu [nzMode]="'inline'" style="height: 90vh">
+        <li nz-menu-item [nzSelected]="true" routerLink="/personal/message"><i class="anticon anticon-message"></i> 消息中心
+        </li>
+        <li nz-menu-item routerLink="/personal/monitor"><i class="anticon anticon-appstore"></i>监控企业</li>
+        <li nz-menu-item routerLink="/personal/attention"><i class="anticon anticon-heart-o"></i>我的关注</li>
+        <li nz-menu-item routerLink="/personal/note"><i class="anticon anticon-form"></i>我的笔记</li>
+      </ul>
+    </div>
+    <div class="col-md-10">
+      <div class="mr-5">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+

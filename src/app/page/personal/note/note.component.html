@@ -1,0 +1,42 @@
+<mat-card style="box-shadow: none;padding: 0" class="card rounded-0">
+  <h4 class="m-3">我的笔记</h4>
+  <table class="table table-hover b-light" style="margin-bottom: 0">
+    <thead>
+    <tr>
+      <th width="15%">内容</th>
+      <th width="10%">企业名称</th>
+      <th width="15%">记录时间</th>
+      <th width="10%">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="attention_content">
+      <td>啦啦啦啦啦</td>
+      <td><a href="#">小米科技有限责任公司</a></td>
+      <td>18分钟前</td>
+      <td class="attention_edit">
+        <button nz-button nzType="default" [nzSize]="size" (click)="openModal(edit)">
+          <span>编辑</span>
+        </button>
+        <ng-template #edit let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">编辑笔记</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea class="form-control noteEditContent noteDetail" rows="5"
+                      placeholder="亲爱的用户：请在这里填写您对该企业的笔记"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" (click)="c('Save click')">提交</button>
+          </div>
+        </ng-template>
+        <button nz-button nzType="default" [nzSize]="size" (click)="cancel()">
+          <span>取消</span>
+        </button>
+    </tr>
+    </tbody>
+  </table>
+</mat-card>

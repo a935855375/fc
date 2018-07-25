@@ -18,8 +18,11 @@ const routes: Routes = [
   {path: 'boss', loadChildren: './page/boss/boss.module#BossModule'},
   {path: 'bossinfo', loadChildren: './page/bossinfo/bossinfo.module#BossinfoModule'},
   {path: 'brands', loadChildren: './page/brands/brands.module#BrandsMoudule'},
+  {path: 'promise', loadChildren: './page/promise/promise.module#PromiseModule'},
   {path: 'brand-search', loadChildren: './page/brand-search/brand-search.module#BrandSearchModule'},
-  {path: 'brand-info', loadChildren: './page/brand-info/brand-info.module#BrandInfoModule'},
+  {path: 'promise-search', loadChildren: './page/promise-search/promise-search.module#PromiseSearchModule'},
+  {path: 'personal', loadChildren: './page/personal/personal.module#PersonalModule'},
+  {path: 'high-search', loadChildren: './page/high-search/high-search.module#HighSearchModule'},
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 

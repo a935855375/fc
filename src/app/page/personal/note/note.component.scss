@@ -1,0 +1,35 @@
+.attention_content {
+  a {
+    color: #000;
+  }
+  a:hover {
+    color: #128bed;
+  }
+}
+
+.attention_edit [nz-button] {
+  border: none;
+  color: #128bed;
+  background: none;
+  margin-left: -6px;
+  :hover {
+    background: transparent !important;
+  }
+  :focus {
+    background: transparent !important;
+  }
+}
+
+:host /deep/ .ant-tabs-bar {
+  margin: 0;
+  margin-right: 10px;
+}
+
+:host /deep/ .ant-tabs-nav-container {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+textarea.form-control {
+  height: auto;
+}

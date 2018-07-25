@@ -1,13 +1,19 @@
 a {
   color: #000;
   cursor: pointer;
+  text-decoration: none;
 }
 
 a:hover {
   color: #4289FF;
   cursor: pointer;
+  text-decoration: none;
 }
 
+em {
+  font-style: normal;
+  color: #e33244;
+}
 .f-bg {
   background-color: #fff;
   -webkit-box-shadow: 0 1px 2px #bbb;
@@ -171,12 +177,42 @@ li {
   background-color: #f1f9fe;
 }
 
-.nstatus {
-  line-height: 16px;
-  font-size: 14px;
-  padding: 4px 8px 4px 8px;
-  border-radius: 2px;
-  border-style: solid;
-  border-width: 1px;
-  color: #138496;
+.promise-title {
+  margin-top: -18px;
+  background-color: #ffffff;
+  padding: 0.75rem 0.5rem 0;
+
+}
+
+.top-search-nav {
+  margin-top: 0;
+  border: none;
+}
+
+.top-search-nav a {
+  padding: 7px 5px 5px;
+  margin-right: 20px;
+  color: #333;
+  font-size: 15px;
+  border: none;
+}
+
+.pactive {
+  font-weight: normal;
+  background-color: #ffffff;
+  color: #000000 !important;
+  border-bottom: 2px solid #0084FF !important;
+}
+
+.input-group .form-control {
+  width: 490px;
+  height: 36px;
+}
+
+.input-group .input-group-btn button {
+  height: 34px;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  color: #128bed;
 }

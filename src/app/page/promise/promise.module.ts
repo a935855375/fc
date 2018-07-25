@@ -4,8 +4,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MaterialModule} from '../../material.module';
 import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
-import {BrandInfoComponent} from './brand-info.component';
-import {BrandInfoRoutingMudule} from './brand-info.routing.mudule';
+import {PromiseComponent} from './promise.component';
+import {PromiseRoutingModule} from './promise.routing.module';
 
 
 @NgModule({
@@ -13,13 +13,13 @@ import {BrandInfoRoutingMudule} from './brand-info.routing.mudule';
     CommonModule,
     FormsModule,
     NgbModule,
-    BrandInfoRoutingMudule,
+    PromiseRoutingModule,
     MaterialModule,
     AngularMultiSelectModule
   ],
   declarations: [
-    BrandInfoComponent,
+    PromiseComponent,
   ]
 })
-export class BrandInfoModule {
+export class PromiseModule {
 }

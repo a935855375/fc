@@ -1,0 +1,45 @@
+<mat-card style="box-shadow: none;padding: 0" class="card rounded-0">
+  <h4 class="m-3">监控企业</h4>
+  <table class="table table-hover table-borderless b-light" style="margin-bottom: 0">
+    <thead>
+    <tr>
+      <th width="10%">企业名称</th>
+      <th width="15%">开始监控时间</th>
+      <th width="10%">监控</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div class="user-company">
+          <a href="#">小米通讯技术有限公司</a>
+        </div>
+        <div class="user-detail text-over mt-2"><span
+          class="pr-2 text-over mx">法定代表人：<span>黎万强</span></span><span
+          class="pr-2 text-over mx">状态：<span>开业</span></span><span
+          class="pr-2-over mx">行业：<span>科技推广和应用服务业</span></span>
+        </div>
+      </td>
+      <td style="padding-top: 28px">2018-07-19</td>
+      <td style="padding-top: 28px"><i (click)="openModal(delMonitor)" class="fa fa-eye"
+                                       style="font-size: 26px;color: #F7B30F"></i></td>
+      <ng-template #delMonitor let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">移除监控</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <div style="font-size:38px"><i class="fa fa-trash-o mr-2" style="color: #128bed"></i>确定移除?</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" (click)="c('Save click')">确认</button>
+        </div>
+      </ng-template>
+    </tr>
+    </tbody>
+  </table>
+</mat-card>

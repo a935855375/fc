@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BrandInfoComponent} from './brand-info.component';
+import {PromiseComponent} from './promise.component';
 
 const routes: Routes = [
-  {path: '', component: BrandInfoComponent}
+  {path: '', component: PromiseComponent}
 ];
 
 @NgModule({
@@ -14,5 +14,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class BrandInfoRoutingMudule {
+export class PromiseRoutingModule {
 }

@@ -1,0 +1,103 @@
+<mat-card style="box-shadow: none;padding: 0" class="card rounded-0">
+  <nz-tabset [nzTabBarExtraContent]="editgroup">
+    <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab" style="margin-bottom: 0">
+      <table class="table table-hover table-borderless b-light" style="margin-bottom: 0">
+        <thead>
+        <tr>
+          <th width="10%">企业名称</th>
+          <th width="15%">关注日期</th>
+          <th width="10%">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="border-top attention_content">
+          <td><a class="font-weight-bold vertical-middle" href="#">小米科技有限责任公司</a></td>
+          <td class="vertical-middle">2018-07-19</td>
+          <td class="attention_edit">
+            <button nz-button nzType="default" [nzSize]="size" (click)="openModal(edit)">
+              <span>编辑</span>
+            </button>
+            <ng-template #edit let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title">选择分组</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div style="height: 125px;overflow-y:auto">
+                  <nz-radio-group [(ngModel)]="radioValue">
+                    <label nz-radio *ngFor="let group of groups" nzValue="{{group}}">{{group}}</label>
+                  </nz-radio-group>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" (click)="c('Save click')">保存</button>
+              </div>
+            </ng-template>
+            <button nz-button nzType="default" [nzSize]="size" (click)="cancel()">
+              <span>取消</span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </nz-tab>
+  </nz-tabset>
+  <ng-template #editgroup>
+    <button nz-button (click)="editModal(editg)"><i class="anticon anticon-plus-circle-o"></i>编辑分组</button>
+  </ng-template>
+
+  <ng-template #editg class="editg" let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">编辑分组</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="new-add">
+        <a (click)="adGroup()"><span class="plus">+</span><span class="caption">新建分组</span></a>
+      </div>
+      <div *ngIf="addGroup" class="col-xs-24 margin-t-1x">
+        <div class="group-label">
+          <label class="sr-only">分组名称</label>
+          <input class="group-content" value="" placeholder="输入分组名字" maxlength="50">
+          <div class="btns">
+            <button nz-button nzType="primary" [nzSize]="size" class="mr-2" (click)="addSave()">保存</button>
+            <button nz-button nzType="default" [nzSize]="size" (click)="addCancel()">取消</button>
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let group of groups; let idx=index">
+        <div *ngIf="saveGroup[idx]" class="col-xs-24 margin-t-1x">
+          <div class="group-label">
+            <div class="group-label-inner hidelong">{{group}}
+              <div class="icons font-16">
+                <span class="icon icon-rename cursor-p"></span><span
+                class="icon icon-delete margin-l-1x cursor-p"></span>
+              </div>
+              <div class="btns hide">
+                <button nz-button nzType="default" class="mr-2" (click)="edGroup(idx)"><i class="anticon anticon-edit"
+                                                                                          style="font-size: 20px"></i>
+                </button>
+                <button nz-button nzType="default"><i class="anticon anticon-delete" style="font-size: 20px"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!saveGroup[idx]" class="col-xs-24 margin-t-1x">
+          <div class="group-label">
+            <label class="sr-only">分组名称</label>
+            <input class="group-content" value="" placeholder="{{group}}" maxlength="50">
+            <div class="btns">
+              <button nz-button nzType="primary" [nzSize]="size" class="mr-2" (click)="saGroup(idx)">保存</button>
+              <button nz-button nzType="default" [nzSize]="size" (click)="canGroup(idx)">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</mat-card>

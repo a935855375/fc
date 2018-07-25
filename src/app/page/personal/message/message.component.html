@@ -1,0 +1,19 @@
+<mat-card style="box-shadow: none" class="card rounded-0">
+  <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'" [nzTabBarExtraContent]="allread">
+    <nz-tab nzTitle="个人通知">
+      <div class="text-center" style="margin-top: 100px;margin-bottom: 100px">
+        <img src="http://icon.qiantucdn.com/img/searchnew/nores.png" width="100" alt="">
+        <div class="mt-2">空空如也，啥也没有～</div>
+      </div>
+    </nz-tab>
+    <nz-tab nzTitle="系统消息">
+      <div class="text-center" style="margin-top: 100px;margin-bottom: 100px">
+        <img src="http://icon.qiantucdn.com/img/searchnew/nores.png" width="100" alt="">
+        <div class="mt-2">空空如也，啥也没有～</div>
+      </div>
+    </nz-tab>
+  </nz-tabset>
+  <ng-template #allread>
+    <button nz-button><i class="anticon anticon-sync"></i>全部已读</button>
+  </ng-template>
+</mat-card>

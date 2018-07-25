@@ -14,14 +14,14 @@ export class SuspectedControllerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commonService.getSuspectedControllerById(localStorage.getItem('cid')).then(x => {
+    /*this.commonService.getSuspectedControllerById(localStorage.getItem('cid')).then(x => {
       this.options.series[0].data[0].name = localStorage.getItem('name');
       this.options.series[0].data[1].name = (x as any).name;
       this.options.series[0].links[0].value = (x as any).shareholding_ratio + '%';
       this.title = '疑似实际控制人为：' + '<em class="mr-4">' + (x as any).name + '</em>' +
         '总股权占比例为：' + '<em>' + (x as any).shareholding_ratio + '%' + '</em>';
       this.flag = true;
-    });
+    });*/
   }
 
   options = {

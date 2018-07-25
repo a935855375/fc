@@ -59,23 +59,31 @@ li {
   }
 }
 
-.custom-class {
-  margin: 0;
-  padding: 0 !important;
-  .c-btn {
-    padding: 0 !important;
-  }
-}
-
 :host /deep/ .myclass {
   .cuppa-dropdown {
     .selected-list {
       .c-btn {
         padding: 2px !important;
         font-size: 13px;
+        width: 100px;
+        box-shadow: none;
+        .c-angle-down {
+          width: 12px;
+          height: 12px;
+          top: 40%;
+        }
+        .c-angle-up {
+          width: 12px;
+          height: 12px;
+          top: 40%;
+        }
       }
     }
   }
+}
+
+.ana-uncheck {
+  margin-top: 2px;
 }
 
 .search {

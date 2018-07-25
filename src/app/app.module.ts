@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './page/login/login.component';
 import {RegisterComponent} from './page/register/register.component';
-import {FooterComponent} from './page/frame/footer/footer.component';
 import {HeaderComponent} from './page/frame/header/header.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

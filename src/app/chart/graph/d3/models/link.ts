@@ -1,5 +1,6 @@
 import {Node} from './';
 import CONFIG from '../../graph.config';
+import * as d3 from 'd3';
 
 export class Link implements d3.SimulationLinkDatum<Node> {
   // optional - defining optional implementation properties - required for relevant typing assistance
@@ -8,12 +9,18 @@ export class Link implements d3.SimulationLinkDatum<Node> {
   // must - defining enforced implementation properties
   source: Node;
   target: Node;
-  relation: string | string[] = '老板';
   color = 0;
-  offset = CONFIG.OFFSET;
   isHide = false;
   isFocus = false;
   isHighLight = false;
+  relation?: string;
+
+  get offset() {
+    if (this.isFocus || this.isHighLight)
+      return CONFIG.BIG_OFFSET;
+    else
+      return CONFIG.OFFSET;
+  }
 
   getX(): number {
     return (this.getSourceX() + this.getTargetX()) / 2;
@@ -83,9 +90,10 @@ export class Link implements d3.SimulationLinkDatum<Node> {
     return this.target.y + t;
   }
 
-  constructor(source, target) {
+  constructor(source, target, relation: string) {
     this.source = source;
     this.target = target;
+    this.relation = relation;
   }
 
   setRelation(relation: string) {

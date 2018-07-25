@@ -1,4 +1,5 @@
 import APP_CONFIG, {default as CONFIG} from '../../graph.config';
+import * as d3 from 'd3';
 
 export class Node implements d3.SimulationNodeDatum {
   // optional - defining optional implementation properties - required for relevant typing assistance
@@ -10,12 +11,44 @@ export class Node implements d3.SimulationNodeDatum {
   fx?: number | null;
   fy?: number | null;
 
-  id: string;
+  id: number;
   linkCount: number = 0;
   isHide = false;
+  _name: string;
+  category: number;
 
-  constructor(id) {
+  line: string[] = [];
+
+  constructor(id, name, category) {
     this.id = id;
+    this._name = name;
+    this.category = category;
+
+    if (this.category != 1 && this._name) {
+      this.line.push(this._name.slice(0, 4));
+
+      if (this._name.length > 4) {
+        this.line.push(this._name.slice(4, 9));
+      }
+
+      if (this._name.length > 9) {
+        this.line.push(this._name.slice(9, 12));
+      }
+
+      if (this._name.length == 12) {
+        this.line[this.line.length - 1] = this.line[this.line.length - 1].concat(this._name.slice(12, 13));
+      }
+
+      if (this._name.length > 12) {
+        this.line[this.line.length - 1] = this.line[this.line.length - 1].concat('..');
+      }
+
+      console.log(this.line);
+    }
+  }
+
+  get stroke() {
+    return CONFIG.STROKE_COLOR[this.category];
   }
 
   normal = () => {
@@ -23,21 +56,38 @@ export class Node implements d3.SimulationNodeDatum {
   };
 
   get r() {
-    return 50 * this.normal() + 10;
+    switch (this.category) {
+      case 0:
+        return 30;
+      case 1:
+        return 20;
+      case 2:
+        return 30;
+      default:
+        return 0;
+    }
   }
 
   get fontSize() {
-    return (30 * this.normal() + 10) + 'px';
+    return '11px';
   }
 
   get color() {
-    let index = Math.floor(APP_CONFIG.SPECTRUM.length * this.normal());
-    return APP_CONFIG.SPECTRUM[index];
+    switch (this.category) {
+      case 0:
+        return APP_CONFIG.SPECTRUM[0];
+      case 1:
+        return APP_CONFIG.SPECTRUM[1];
+      case 2:
+        return APP_CONFIG.SPECTRUM[2];
+      default:
+        return APP_CONFIG.SPECTRUM[0];
+    }
   }
 
   get name() {
     if (!this.isHide)
-      return this.id;
+      return this._name;
     else
       return '';
   }

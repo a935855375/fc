@@ -91,7 +91,6 @@ export class D3Service {
     for (let x = 0; x < links.length; x++) {
       if (links[x].source == node || links[x].target == node) {
         links[x].isFocus = true;
-        links[x].offset = CONFIG.BIG_OFFSET;
         this.queue.push(links[x]);
         nodeSet.add(links[x].source);
         nodeSet.add(links[x].target);
@@ -113,7 +112,6 @@ export class D3Service {
       while (this.queue.length) {
         let l = this.queue.pop();
         l.isFocus = false;
-        l.offset = CONFIG.OFFSET;
         l.isHide = false;
       }
     }

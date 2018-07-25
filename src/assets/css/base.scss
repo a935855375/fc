@@ -1,8 +1,11 @@
 app-root {
   padding-top: 74px;
-  background-color: #F4F4F4;
   display: flex;
   flex-direction: column;
+}
+
+body {
+  background-color: #F4F4F4;
 }
 
 main {

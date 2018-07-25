@@ -12,7 +12,7 @@ export class GenealogyComponent implements OnInit {
   title: string;
 
   constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
-    console.log(self.scrollbars);
+
   }
 
   ngOnInit() {

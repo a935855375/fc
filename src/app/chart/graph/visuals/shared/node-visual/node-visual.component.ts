@@ -6,17 +6,27 @@ import {D3Service, Node} from '../../../d3';
   template: `
     <svg:g (mouseenter)="highLight()" (mouseleave)="unHighLight()" style="cursor: pointer" [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
       <svg:circle
-          class="node"
-          [attr.fill]="node.color"
-          cx="0"
-          cy="0"
-          [attr.opacity]="node.opacity"
-          [attr.r]="node.r">
+        class="node"
+        [attr.fill]="node.color"
+        cx="0"
+        cy="0"
+        [attr.opacity]="node.opacity"
+        [ngStyle]="{'stroke': node.stroke}"
+        [attr.r]="node.r">
       </svg:circle>
       <svg:text
-          class="node-name"
-          [attr.font-size]="node.fontSize">
+        *ngIf="node.category==1"
+        class="node-name"
+        [attr.font-size]="node.fontSize">
         {{node.name}}
+      </svg:text>
+      <svg:text
+        y="-27"
+        *ngIf="node.category!=1"
+        [attr.font-size]="node.fontSize">
+        <svg:tspan *ngFor="let x of node.line" x="0" dy="0.9rem" class="node-name">
+          {{x}}
+        </svg:tspan>
       </svg:text>
     </svg:g>
   `,

@@ -74,16 +74,16 @@ export class TreeComponent implements OnChanges {
       }
     };
 
+    // 全部缩回
     this.rootData.children.forEach(collapse);
 
+    // 展开第二次
     this.rootData.children.forEach(this.chanegStatus);
 
     this.drawTree(this.rootData);
   }
 
   drawTree(source) {
-    console.log(source);
-
     const radialPoint = (x, y) => {
       return [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];
     };

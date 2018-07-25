@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Ng2SearchPipe} from 'ng2-search-filter';
+import {NzNotificationService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-find-relation',
@@ -7,6 +8,26 @@ import {Ng2SearchPipe} from 'ng2-search-filter';
   styleUrls: ['./find-relation.component.scss']
 })
 export class FindRelationComponent implements OnInit {
+  value1 = 3;
+  sInfo = true;
+  addCompany = [false];
+  dflag = [false, false, false];
+
+  addCom() {
+    if (this.addCompany.length < 3) {
+      this.addCompany.push(false);
+    } else {
+      this.notification.info('提示信息', '添加公司不能超过五个');
+    }
+  }
+
+  divCom() {
+    this.addCompany.shift();
+  }
+
+  seeInfo() {
+    this.sInfo = !this.sInfo;
+  }
 
   itemList = [
     {'id': 1, 'itemName': '雷军'},
@@ -27,17 +48,41 @@ export class FindRelationComponent implements OnInit {
   selectedItems2 = [];
   settings = {};
   select = 0;
-  flag = false;
 
   f = false;
 
-  constructor() {
+  constructor(private notification: NzNotificationService) {
 
   }
 
-  test() {
+  /*两节点关系*/
+  flag1 = false;
+  flag2 = false;
+
+  selPerson1() {
     console.log('ss');
-    this.flag = !this.flag;
+    this.flag1 = !this.flag1;
+  }
+
+  selPerson2() {
+    console.log('ss');
+    this.flag2 = !this.flag2;
+  }
+
+  /*多节点关系*/
+  dflag1 = false;
+  dflag2 = false;
+
+  selDPerson1() {
+    this.dflag1 = !this.dflag1;
+  }
+
+  selDPerson2() {
+    this.dflag2 = !this.dflag2;
+  }
+
+  selDPerson(idx) {
+    this.dflag[idx] = !this.dflag[idx];
   }
 
   ngOnInit() {

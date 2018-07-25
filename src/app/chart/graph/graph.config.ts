@@ -21,6 +21,11 @@ const CONFIG = {
   LINE_COLOR: [
     'rgb(93,161,239)',
     'rgb(246,66,95)',
+  ],
+  STROKE_COLOR: [
+    'rgb(56,137,236)',
+    'rgb(246,66,95)',
+    'rgb(249, 112, 22)',
   ]
 };
 

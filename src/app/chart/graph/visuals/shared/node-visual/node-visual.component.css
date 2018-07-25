@@ -3,15 +3,13 @@
   transition: stroke-width 0.1s ease-out,
   fill 0.1s ease-out,
   stroke 0.1s ease-out;
-
-  stroke: red;
-  stroke-width: 0.5;
+  stroke-width: 1px;
 }
 
 .node-name {
   font-family: 'Lato';
   text-anchor: middle;
   alignment-baseline: central;
-  font-weight: 300;
+  font-weight: 400;
   fill: white;
 }

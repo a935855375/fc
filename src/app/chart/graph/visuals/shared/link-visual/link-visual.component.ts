@@ -1,10 +1,23 @@
 import {Component, Input} from '@angular/core';
 import {Link} from '../../../d3';
+import CONFIG from '../../../graph.config';
 
 @Component({
   selector: '[linkVisual]',
   template: `
     <svg:g>
+      <svg:defs>
+        <marker id="{{link.uuid}}"
+                markerUnits="strokeWidth"
+                markerWidth="12"
+                markerHeight="12"
+                viewBox="0 0 12 12"
+                refX="6"
+                refY="6"
+                orient="auto">
+          <path d="M2,2 L10,6 L2,10 L6,6 L2,2" [ngStyle]="{'fill': link.getColor(), 'fill-opacity': link.opacity}"/>
+        </marker>
+      </svg:defs>
       <svg:line
         class="link"
         [attr.x1]="link.getSourceX()"
@@ -25,4 +38,6 @@ import {Link} from '../../../d3';
 })
 export class LinkVisualComponent {
   @Input('linkVisual') link: Link;
+
+  CONFIG = CONFIG.LINE_COLOR;
 }

@@ -4,7 +4,8 @@ import {D3Service, Node} from '../../../d3';
 @Component({
   selector: '[nodeVisual]',
   template: `
-    <svg:g (mouseenter)="highLight()" (mouseleave)="unHighLight()" style="cursor: pointer" [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
+    <svg:g (mouseenter)="highLight()" (mouseleave)="unHighLight()" style="cursor: pointer"
+           [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
       <svg:circle
         class="node"
         [attr.fill]="node.color"

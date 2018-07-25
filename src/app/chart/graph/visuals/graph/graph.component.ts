@@ -7,18 +7,6 @@ import CONFIG from '../../graph.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <svg #svg [attr.width]="_options.width" [attr.height]="_options.height">
-      <svg:defs *ngFor="let color of CONFIG; let idx = index">
-        <marker id="color-{{idx}}"
-                markerUnits="strokeWidth"
-                markerWidth="12"
-                markerHeight="12"
-                viewBox="0 0 12 12"
-                refX="6"
-                refY="6"
-                orient="auto">
-          <path d="M2,2 L10,6 L2,10 L6,6 L2,2" [ngStyle]="{'fill': color}"/>
-        </marker>
-      </svg:defs>
       <g [zoomableOf]="svg">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
         <g [nodeVisual]="node" *ngFor="let node of nodes"
@@ -38,8 +26,6 @@ export class GraphComponent implements OnInit, AfterViewInit {
   onResize(event) {
     this.graph.initSimulation(this.options);
   }
-
-  CONFIG = CONFIG.LINE_COLOR;
 
   constructor(private d3Service: D3Service, private ref: ChangeDetectorRef) {
   }

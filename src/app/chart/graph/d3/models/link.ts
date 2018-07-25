@@ -15,6 +15,15 @@ export class Link implements d3.SimulationLinkDatum<Node> {
   isHighLight = false;
   relation?: string;
 
+  uuid;
+
+  getGuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
   get offset() {
     if (this.isFocus || this.isHighLight)
       return CONFIG.BIG_OFFSET;
@@ -94,6 +103,8 @@ export class Link implements d3.SimulationLinkDatum<Node> {
     this.source = source;
     this.target = target;
     this.relation = relation;
+
+    this.uuid = this.getGuid();
   }
 
   setRelation(relation: string) {
@@ -106,11 +117,13 @@ export class Link implements d3.SimulationLinkDatum<Node> {
   }
 
   getColor() {
+    if (this.relation == '投资')
+      this.color = 1;
     return CONFIG.LINE_COLOR[this.color];
   }
 
   getArrowColor() {
-    return 'url(#color-' + this.color + ')';
+    return 'url(#' + this.uuid + ')';
   }
 
   get width() {

@@ -17,7 +17,7 @@ export class Node implements d3.SimulationNodeDatum {
   _name: string;
   category: number;
 
-  line: string[] = [];
+  _line: string[] = [];
 
   constructor(id, name, category) {
     this.id = id;
@@ -25,25 +25,23 @@ export class Node implements d3.SimulationNodeDatum {
     this.category = category;
 
     if (this.category != 1 && this._name) {
-      this.line.push(this._name.slice(0, 4));
+      this._line.push(this._name.slice(0, 4));
 
       if (this._name.length > 4) {
-        this.line.push(this._name.slice(4, 9));
+        this._line.push(this._name.slice(4, 9));
       }
 
       if (this._name.length > 9) {
-        this.line.push(this._name.slice(9, 12));
+        this._line.push(this._name.slice(9, 12));
       }
 
       if (this._name.length == 12) {
-        this.line[this.line.length - 1] = this.line[this.line.length - 1].concat(this._name.slice(12, 13));
+        this._line[this._line.length - 1] = this._line[this._line.length - 1].concat(this._name.slice(12, 13));
       }
 
       if (this._name.length > 12) {
-        this.line[this.line.length - 1] = this.line[this.line.length - 1].concat('..');
+        this._line[this._line.length - 1] = this._line[this._line.length - 1].concat('..');
       }
-
-      console.log(this.line);
     }
   }
 
@@ -90,6 +88,13 @@ export class Node implements d3.SimulationNodeDatum {
       return this._name;
     else
       return '';
+  }
+
+  get line() {
+    if (!this.isHide)
+      return this._line;
+    else
+      return Array(3).fill('');
   }
 
   get opacity() {

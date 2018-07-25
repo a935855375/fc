@@ -1,3 +1,9 @@
 <graph *ngIf="flag" [nodes]="nodes" [links]="links"></graph>
 
-<div *ngIf="flag" class="footer"></div>
+<div *ngIf="flag" class="footer d-flex justify-content-center border-top">
+  <div class="mx-3"><span class="fa fa-circle" style="color:#ff9e00"></span> <span>当前结点</span></div>
+  <div class="mx-3"><span class="fa fa-circle" style="color:#4ea2f0"></span> <span>企业</span></div>
+  <div class="mx-3"><span class="fa fa-circle" style="color:#FD485E"></span> <span>人员</span></div>
+  <div class="mx-3"><span class="fa fa-long-arrow-right" style="color:#fd485e"></span> <span>投资</span></div>
+  <div class="mx-3"><span class="fa fa-long-arrow-right" style="color:#4ea2f0;"></span><span>任职</span></div>
+</div>

@@ -2,3 +2,26 @@
   max-width: 80%;
   width: 80%;
 }
+
+.final-radio-wrap {
+  display: inline-block;
+  height: 14px;
+  width: 80px;
+  position: relative;
+  background: url(../../../../assets/img/arrow.png) no-repeat 0 50%;
+  background-size: 100%;
+}
+
+.final-radio-wrap > span {
+  color: #128bed;
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 50%;
+}
+
+.relation {
+  font-size: 15px;
+  color: rgba(0, 0, 0, .65);
+}

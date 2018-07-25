@@ -76,10 +76,14 @@ export class TreeComponent implements OnChanges {
 
     this.rootData.children.forEach(collapse);
 
+    this.rootData.children.forEach(this.chanegStatus);
+
     this.drawTree(this.rootData);
   }
 
   drawTree(source) {
+    console.log(source);
+
     const radialPoint = (x, y) => {
       return [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];
     };
@@ -269,7 +273,7 @@ export class TreeComponent implements OnChanges {
     });
   }
 
-  toggle(d) {
+  chanegStatus(d) {
     if (d.children) {
       d._children = d.children;
       d.children = null;
@@ -277,6 +281,10 @@ export class TreeComponent implements OnChanges {
       d.children = d._children;
       d._children = null;
     }
+  }
+
+  toggle(d) {
+    this.chanegStatus(d);
     this.drawTree(d);
   }
 

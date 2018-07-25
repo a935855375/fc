@@ -5,13 +5,17 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'structure-modal',
   template: `
-    <div #div  class="modal-header">
+    <div #div class="modal-header">
       <h4 class="modal-title">股权结构</h4>
       <button type="button" class="close" aria-label="Close" (click)="bsModalRef.dismiss()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
+      <div class="mb-1">
+        <span style="font-size: 18px;color: #333;">疑似实际控制人：</span> <span class="relation">雷军</span> <span
+        class="final-radio-wrap"> <span id="final-radio">77.8%</span> </span> <span class="relation">小米科技有限责任公司</span>
+      </div>
       <indented-tree [width]="width" [dataset]="data"></indented-tree>
     </div>
   `,

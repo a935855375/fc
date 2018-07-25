@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ForceDirectedGraph, Link, Node} from './models';
 import * as d3 from 'd3';
-import CONFIG from '../graph.config';
 
 @Injectable()
 export class D3Service {

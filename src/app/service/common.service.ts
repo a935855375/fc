@@ -8,6 +8,7 @@ export class CommonService {
   promise = 0;
   spitem1 = 0;
   spitem2 = 0;
+
   constructor(private http: HttpClient) {
 
   }
@@ -45,6 +46,13 @@ export class CommonService {
 
   getEquityStructureGraphById(id) {
     const url = environment.apiUrl + 'equitystructuregraph';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  getSuspectedControllerById(id) {
+    const url = environment.apiUrl + 'suspectedcontroller';
     const params = {id: id.toString()};
     const options = {params: params};
     return this.http.get(url, options).toPromise();

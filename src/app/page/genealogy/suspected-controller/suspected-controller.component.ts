@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../../service/common.service';
+import {Link, Node} from '../../../chart/graph/d3/models';
 
 @Component({
   selector: 'app-suspected-controller',
@@ -10,18 +11,22 @@ export class SuspectedControllerComponent implements OnInit {
   flag = false;
   title;
 
+  nodes: Node[] = [];
+  links: Link[] = [];
+
   constructor(private commonService: CommonService) {
   }
 
   ngOnInit() {
-    /*this.commonService.getSuspectedControllerById(localStorage.getItem('cid')).then(x => {
-      this.options.series[0].data[0].name = localStorage.getItem('name');
+    this.commonService.getSuspectedControllerById(localStorage.getItem('cid')).then(x => {
+      console.log(x);
+      /*this.options.series[0].data[0].name = localStorage.getItem('name');
       this.options.series[0].data[1].name = (x as any).name;
       this.options.series[0].links[0].value = (x as any).shareholding_ratio + '%';
       this.title = '疑似实际控制人为：' + '<em class="mr-4">' + (x as any).name + '</em>' +
         '总股权占比例为：' + '<em>' + (x as any).shareholding_ratio + '%' + '</em>';
-      this.flag = true;
-    });*/
+      this.flag = true;*/
+    });
   }
 
   options = {

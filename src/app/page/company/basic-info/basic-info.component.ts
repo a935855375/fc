@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {PageScrollConfig} from 'ngx-page-scroll';
 import {CompanyService} from '../../../service/company.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';

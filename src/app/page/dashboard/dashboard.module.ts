@@ -5,8 +5,6 @@ import {MaterialModule} from '../../material.module';
 import {DashboardComponent} from './dashboard.component';
 import {DashboardRoutingModule} from './dashboard.routing.module';
 import {FormsModule} from '@angular/forms';
-import {FooterComponent} from '../frame/footer/footer.component';
-import {FrameComponent} from '../frame/frame.component';
 import {FrameModule} from '../frame/frame.module';
 
 

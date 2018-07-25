@@ -1,32 +1,3 @@
-<ng-template #person let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{title}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div echarts [options]="option2" theme="macarons" style="height: 85vh"></div>
-  </div>
-</ng-template>
-
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{title}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="final-wrap-content mb-1">
-      <span style="font-size: 18px;color: #333;">疑似实际控制人：</span> <span id="final-person">雷军</span> <span
-      class="final-radio-wrap"> <span id="final-radio">77.8%</span> </span> <span id="final-stock">小米科技有限责任公司</span>
-    </div>
-    <div echarts [options]="option1" theme="macarons" style="height: 70vh"></div>
-  </div>
-</ng-template>
-
-
 <div class="mb-2">
   <div class="d-flex flex-wrap px-2 py-2">
     <a pageScroll href="#business-information" class="my-2 anchor">工商信息</a>
@@ -80,13 +51,13 @@
     </tr>
     <tr>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center" (click)="openLg(person)">查看人物图谱</button>
+        <button class="btn btn-primary align-self-center" (click)="openLg(0)">查看人物图谱</button>
       </td>
       <td class="no_top_border text-center">
         <button routerLink="/genealogy" class="btn btn-primary align-self-center">查看详情</button>
       </td>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center" (click)="openLg(content)">查看详情</button>
+        <button class="btn btn-primary align-self-center" (click)="openLg(1)">查看详情</button>
       </td>
     </tr>
     </tbody>

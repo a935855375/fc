@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import * as d3 from 'd3';
 import {HierarchyPointLink, HierarchyPointNode} from 'd3';
 
@@ -7,8 +7,12 @@ import {HierarchyPointLink, HierarchyPointNode} from 'd3';
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss']
 })
-export class TreeComponent implements OnInit {
+export class TreeComponent implements OnChanges {
   @Input('dataset') data;
+
+  @Input('width') width;
+
+  @Input('height') height;
 
   @ViewChild('tree')
   _rootElement: ElementRef;
@@ -20,13 +24,14 @@ export class TreeComponent implements OnInit {
   nodeIndex = 0;
 
   constructor() {
+
   }
 
   BCG = d3.linkRadial<HierarchyPointLink<{}>, HierarchyPointNode<{}>>().angle(d => d.x).radius(d => d.y);
 
-
-  ngOnInit() {
-    this.draw();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.width != 0)
+      this.draw();
   }
 
   draw() {
@@ -36,11 +41,9 @@ export class TreeComponent implements OnInit {
         return (a.parent === b.parent ? 1 : 2) / a.depth;
       });
 
-    const con = d3.select(this._rootElement.nativeElement);
-    const svg = con.append('svg')
-      .attr('width', this.options.width)
+    const svg = d3.select(this._rootElement.nativeElement)
+      .attr('width', this.width)
       .attr('height', this.options.height);
-
     this.container = svg.append('g');
     this.linkContainer = this.container.append('g');
 
@@ -54,6 +57,7 @@ export class TreeComponent implements OnInit {
       });
     svg.call(zoom);
     // 初始化g标签的位置（居中）
+
     svg.call(zoom.transform, d3.zoomIdentity.translate(this.options.width / 2, this.options.height / 2).scale(0.9));
 
     this.getData();
@@ -278,8 +282,8 @@ export class TreeComponent implements OnInit {
 
   get options() {
     return {
-      width: window.innerWidth,
-      height: window.innerHeight
+      width: this.width,
+      height: this.height
     };
   }
 

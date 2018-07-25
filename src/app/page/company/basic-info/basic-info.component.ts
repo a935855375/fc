@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 import {PageScrollConfig} from 'ngx-page-scroll';
 import {CompanyService} from '../../../service/company.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PERSONDATA} from './person';
+import {PersonModal} from '../modals/person.modal';
+import {StructureModal} from '../modals/structure.modal';
 
 @Component({
   selector: 'app-basic-info',
@@ -12,10 +14,11 @@ import {PERSONDATA} from './person';
 export class BasicInfoComponent implements OnInit {
   d: any;
   title: string;
-  data2:any=PERSONDATA;
+  data2: any = PERSONDATA;
 
   constructor(private companyService: CompanyService,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private element: ElementRef) {
   }
 
   rangeArray = (start, end) =>
@@ -36,8 +39,11 @@ export class BasicInfoComponent implements OnInit {
     });
   }
 
-  openLg(content) {
-    this.modalService.open(content, {size: 'lg'});
+  openLg(content: number) {
+    if (content == 0)
+      this.modalService.open(PersonModal, {size: 'lg'});
+    else
+      this.modalService.open(StructureModal, {size: 'lg'});
   }
 
 
@@ -332,7 +338,7 @@ export class BasicInfoComponent implements OnInit {
     },
     'legend': [{
       'data': ['自然人股东', '企业股东', '大股东'],
-      left:'left'
+      left: 'left'
     }],
     'series': [{
       'top': 0,
@@ -428,75 +434,5 @@ export class BasicInfoComponent implements OnInit {
     }],
     'animationEasingUpdate': 'quinticInOut',
     'animationDurationUpdate': 1500
-  };
-
-
-
-  option2 = {
-
-    tooltip: {
-      trigger: 'item',
-      triggerOn: 'mousemove'
-    },
-    series: [
-      {
-        type: 'tree',
-
-        roam: true,
-
-        data: this.data2,
-
-        top: '20%',
-        bottom: '20%',
-
-        layout: 'radial',
-
-        symbol: 'circle',
-
-        symbolSize: 7,
-
-        initialTreeDepth: 3,
-
-        animationDurationUpdate: 750,
-
-       /* itemStyle: {
-
-          normal: {
-            label: {
-              show:true,
-              textStyle: {
-                fontSize: 14,
-                fontWeight: "bolder",
-                color: '#3FA7DC'
-              },
-            },
-            lineStyle: {
-
-              type: 'dash',
-              color: '#333 ',
-              width: 2,
-            },
-            color:'#ffd700',
-
-          },// for legend
-
-          emphasis: { label: { show:true} }
-
-        },*/
-        itemStyle: {
-          normal: {
-            color: '#ffd700',
-          },
-          emphasis: {
-            color: '#ffd700',
-          },
-          borderColor: {
-            color: '#ffd700',
-          },
-          borderType: 'dashed'
-        },
-
-      }
-    ]
   };
 }

@@ -5,6 +5,7 @@ import {FrameComponent} from './frame.component';
 import {BannerComponent} from './bannner/banner.component';
 import {ArticleListComponent} from './article-list/article-list.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FooterComponent} from './footer/footer.component';
 
 
 @NgModule({
@@ -16,8 +17,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     FrameComponent,
     BannerComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    FooterComponent,
   ],
+  exports: [
+    FooterComponent
+  ]
 })
 export class FrameModule {
 }

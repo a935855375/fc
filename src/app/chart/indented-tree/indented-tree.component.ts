@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import * as d3 from 'd3';
 import {HierarchyPointLink, HierarchyPointNode} from 'd3';
 
@@ -7,7 +7,7 @@ import {HierarchyPointLink, HierarchyPointNode} from 'd3';
   templateUrl: './indented-tree.component.html',
   styleUrls: ['./indented-tree.component.scss']
 })
-export class IndentedTreeComponent implements OnInit {
+export class IndentedTreeComponent implements OnChanges {
   @ViewChild('svg')
   svg_ref: ElementRef;
 
@@ -20,7 +20,8 @@ export class IndentedTreeComponent implements OnInit {
 
   root;
 
-  width = this.options.width;
+  @Input('width')
+  width;
   barHeight = 60;
   barWidth = 380;
 
@@ -31,7 +32,12 @@ export class IndentedTreeComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.width != 0)
+      this.draw();
+  }
+
+  draw() {
     this.data.root = true;
     this.svg = d3.select(this.svg_ref.nativeElement)
       .attr('width', this.width)
@@ -44,7 +50,7 @@ export class IndentedTreeComponent implements OnInit {
       });
     d3.select(this.svg_ref.nativeElement).call(zoom);
     // 初始化g标签的位置（居中）
-    d3.select(this.svg_ref.nativeElement).call(zoom.transform, d3.zoomIdentity.translate(this.options.width / 2 - this.barWidth / 2, 100).scale(0.9));
+    d3.select(this.svg_ref.nativeElement).call(zoom.transform, d3.zoomIdentity.translate(this.width / 2 - this.barWidth / 2, 100).scale(0.9));
 
     this.root = d3.hierarchy(this.data);
     this.root.x0 = 0;
@@ -73,11 +79,11 @@ export class IndentedTreeComponent implements OnInit {
       n.y = n.depth * 20;
     });
 
-    const node = this.svg.selectAll('.node')
+    const node = this.svg.selectAll('.snode')
       .data(nodes, d => d.id || (d.id = ++this.i));
 
     const nodeEnter = node.enter().append('g')
-      .attr('class', 'node')
+      .attr('class', 'snode')
       .attr('transform', d => 'translate(' + source.y0 + ',' + source.x0 + ')')
       .style('opacity', 0);
 
@@ -236,12 +242,12 @@ export class IndentedTreeComponent implements OnInit {
       .remove();
 
     // Update the links…
-    const link = this.svg.selectAll('.link')
+    const link = this.svg.selectAll('.slink')
       .data(this.root.links(), d => d.target.id);
 
     // Enter any new links at the parent's previous position.
     link.enter().insert('path', 'g')
-      .attr('class', 'link')
+      .attr('class', 'slink')
       .attr('d', d => {
         const o: any = [source.x0, source.y0];
         this.BCG({source: o, target: o});
@@ -290,7 +296,7 @@ export class IndentedTreeComponent implements OnInit {
   get options() {
     return {
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight * 0.8
     };
   }
 

@@ -1,22 +1,42 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonService} from '../../../service/common.service';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
-  selector: 'app-investment-graph',
-  templateUrl: './investment-graph.component.html',
-  styleUrls: ['./investment-graph.component.scss']
-})
-export class InvestmentGraphComponent implements OnInit {
+  selector: 'person-modal',
+  template: `
+    <div #div class="modal-header">
+      <h4 class="modal-title">人物图谱</h4>
+      <button type="button" class="close" aria-label="Close" (click)="bsModalRef.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <tree [width]="width" [height]="height" [dataset]="dataset"></tree>
+    </div>
+  `,
+  styleUrls: ['./modal.scss']
 
-  constructor(private commonService: CommonService) {
+})
+export class PersonModal implements OnInit {
+  @ViewChild('div') set assetInput(elRef: ElementRef) {
+    this.div = elRef;
   }
 
-  width: number;
-  height: number;
+  div: ElementRef;
 
-  ngOnInit() {
-    this.width = window.innerWidth;
-    this.height = window.innerHeight - 62;
+  width = 0;
+
+  height;
+
+  constructor(public bsModalRef: NgbActiveModal) {
+    this.height = window.innerHeight * 0.85;
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.width = this.div.nativeElement.offsetWidth;
+    });
   }
 
   dataset = {
@@ -777,3 +797,4 @@ export class InvestmentGraphComponent implements OnInit {
     }]
   };
 }
+

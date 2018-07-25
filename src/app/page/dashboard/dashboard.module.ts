@@ -5,6 +5,7 @@ import {MaterialModule} from '../../material.module';
 import {DashboardComponent} from './dashboard.component';
 import {DashboardRoutingModule} from './dashboard.routing.module';
 import {FormsModule} from '@angular/forms';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     NgbModule,
     DashboardRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FrameModule
   ],
   declarations: [
     DashboardComponent,

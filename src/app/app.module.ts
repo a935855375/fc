@@ -21,7 +21,6 @@ import {CompanyService} from './service/company.service';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent,
     HeaderComponent,
   ],
   imports: [

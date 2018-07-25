@@ -5,6 +5,8 @@ import {GenealogyComponent} from './genealogy.component';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {GraphMudule} from '../../chart/graph/graph.mudule';
+import {TreeModule} from '../../chart/tree/tree.module';
+import {StructureModule} from '../../chart/structure/structure.module';
 
 @NgModule({
   imports: [
@@ -12,7 +14,9 @@ import {GraphMudule} from '../../chart/graph/graph.mudule';
     GenealogyRoutingModule,
     NgxEchartsModule,
     NgxPageScrollModule,
-    GraphMudule
+    GraphMudule,
+    TreeModule,
+    StructureModule
   ],
   declarations: [
     GenealogyComponent,

@@ -41,7 +41,59 @@
 }
 
 ::ng-deep .node3 circle {
-  fill: #9be4b7;
+  fill: #66e297;
+  stroke: #66e297;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node4 circle {
+  fill: #7985f1;
+  stroke: #7985f1;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node5 circle {
+  fill: #bd73d5;
+  stroke: #bd73d5;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node6 circle {
+  fill: #e2885c;
+  stroke: #e2885c;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node7 circle {
+  fill: #aae246;
+  stroke: #aae246;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node8 circle {
+  fill: #57d9e2;
+  stroke: #57d9e2;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node9 circle {
+  fill: #f68bfa;
+  stroke: #f68bfa;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
+}
+
+::ng-deep .node10 circle {
+  fill: #faa81a;
+  stroke: #faa81a;
+  stroke-opacity: 0.5;
+  stroke-width: 6px;
 }
 
 /*.node.node-child circle {
@@ -68,7 +120,7 @@
 
 ::ng-deep .link {
   fill: none;
-  stroke: #c6c6c6;
-  stroke-opacity: 0.4;
+  stroke: #9ecae1;
+  stroke-opacity: 1;
   stroke-width: 1px;
 }

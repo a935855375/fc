@@ -26,6 +26,10 @@ a:hover {
   color: #ea6f5a;
 }
 
+a:focus {
+  text-decoration: none
+}
+
 .h1, h1 {
   font-size: 1.4em;
 }

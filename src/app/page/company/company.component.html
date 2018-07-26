@@ -39,7 +39,7 @@
         <div style="margin: 0 -24px" class="d-flex flex-nowrap justify-content-between">
           <a [ngClass]="{'active': selector===0, 'remove-left-border': selector===0}" (click)="changePage(0)"
              routerLink="/company/basicinfo" class="selector f-16 active remove-left-border">基本信息</a>
-          <a (focus)="test()" [class.active]="selector===1" (click)="changePage(1)" routerLink='/company/legalproceed'
+          <a [class.active]="selector===1" (click)="changePage(1)" routerLink='/company/legalproceed'
              class="selector f-16">法律诉讼</a>
           <a [class.active]="selector===2" (click)="changePage(2)" routerLink="/company/operatingcondition"
              class="selector f-16">经营状况</a>

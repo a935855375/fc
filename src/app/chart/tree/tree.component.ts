@@ -17,6 +17,9 @@ export class TreeComponent implements OnChanges {
   @ViewChild('tree')
   _rootElement: ElementRef;
 
+  @Input('showValue')
+  showValue = false;
+
   tree;
   rootData;
   container;
@@ -66,6 +69,8 @@ export class TreeComponent implements OnChanges {
   getData() {
     this.rootData = d3.hierarchy(this.data, d => d.children);
 
+    this.rootData.color = 0;
+
     const collapse = d => {
       if (d.children) {
         d._children = d.children;
@@ -73,6 +78,19 @@ export class TreeComponent implements OnChanges {
         d.children = null;
       }
     };
+
+    const addColor = (d, c) => {
+      if (d) {
+        if (d.children)
+          d.children.forEach(dd => addColor(dd, c));
+        d.color = c;
+      }
+    };
+
+    // 增加类型颜色
+    for (let x = 0; x < this.rootData.children.length; x++) {
+      addColor(this.rootData.children[x], x + 1);
+    }
 
     // 全部缩回
     this.rootData.children.forEach(collapse);
@@ -113,7 +131,7 @@ export class TreeComponent implements OnChanges {
     // Enter
     const nodeEnter = node.enter().append('g')
       .attr('class', d => {
-        return 'node node' + d.depth;
+        return 'node node' + d.color;
       })
       .attr('transform', d => {
         return 'translate(' + radialPoint(source.x0, source.y0) + ')';
@@ -164,6 +182,34 @@ export class TreeComponent implements OnChanges {
       })
       .style('fill-opacity', 1e-6);
 
+    if (this.showValue) {
+      nodeEnter.append('text')
+        .attr('dy', function (d) {
+          if (d.depth === 0) return '-1.5em';
+          return '0.31em';
+        })
+        .attr('x', function (d) {
+          if (d.depth === 0) return 0;
+          return d.x < Math.PI ? -16 : 16;
+        })
+        .attr('text-anchor', function (d) {
+          if (d.depth === 0) return 'middle';
+          return d.x < Math.PI ? 'end' : 'start';
+        })
+        .attr('transform', function (d) {
+          if (d.depth === 0) return 'rotate(0)';
+          return 'rotate(' + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ')';
+        })
+        .text(function (d) {
+          if (!d.data.children)
+            return d.data.name;
+          else
+            return '';
+        })
+        .style('fill-opacity', 1)
+        .attr('class', 'text-flag');
+    }
+
     // Update
     const nodeUpdate = nodeEnter.merge(node).transition()
       .duration(600)
@@ -212,6 +258,23 @@ export class TreeComponent implements OnChanges {
         return 'rotate(' + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ')';
       })
       .style('fill-opacity', 1);
+
+    if (this.showValue) {
+      nodeUpdate.select('.text-flag')
+        .attr('x', function (d) {
+          if (d.depth === 0) return 0;
+          return d.x < Math.PI ? -16 : 16;
+        })
+        .attr('text-anchor', function (d) {
+          if (d.depth === 0) return 'middle';
+          return d.x < Math.PI ? 'end' : 'start';
+        })
+        .attr('transform', function (d) {
+          if (d.depth === 0) return 'rotate(0)';
+          return 'rotate(' + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ')';
+        })
+        .style('fill-opacity', 1);
+    }
 
     // Exit
     const nodeExit = node.exit().transition()

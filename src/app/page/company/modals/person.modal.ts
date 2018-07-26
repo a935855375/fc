@@ -12,7 +12,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
       </button>
     </div>
     <div class="modal-body">
-      <tree [width]="width" [height]="height" [dataset]="dataset"></tree>
+      <tree [width]="width" [height]="height" [showValue]="true" [dataset]="dataset"></tree>
     </div>
   `,
   styleUrls: ['./modal.scss']

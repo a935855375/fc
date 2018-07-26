@@ -17,7 +17,6 @@ const config: Routes = [{
     {path: '', redirectTo: 'message', pathMatch: 'full'}
   ]
 }];
-
 @NgModule({
   imports: [
     RouterModule.forChild(config),
@@ -28,7 +27,6 @@ const config: Routes = [{
 })
 export class PersonalRoutingModule {
 }
-
 export const routedComponent = [
   MessageComponent,
   AttentionComponent,

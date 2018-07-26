@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
-  tabs = ['个人通知', '系统消息'];
+  k = 0;
 
   constructor() {
   }

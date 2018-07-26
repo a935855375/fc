@@ -7,6 +7,7 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./referee.component.scss']
 })
 export class RefereeComponent implements OnInit {
+  page = 1;
 
   constructor(private commonService: CommonService) {
   }

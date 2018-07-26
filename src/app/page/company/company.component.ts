@@ -5,6 +5,8 @@ import {DOCUMENT} from '@angular/common';
 import {CompanyService} from '../../service/company.service';
 import {Company} from '../../entity/bean';
 import {Subscription} from 'rxjs';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-company',
@@ -15,10 +17,22 @@ export class CompanyComponent implements OnInit, OnDestroy {
   selector = 0;
   company: Company;
   subscription: Subscription;
+  wriNote = true;
+  radioValue = 0;
+  monitorValue = 0;
+  groups = ['默认分组', '竞品', '客户', '经销商', '营销商'];
+  alreadyAttention = false;
+  alreadyMonitor = false;
+
+  style = {
+    display: 'block',
+    height: '30px',
+    lineHeight: '30px'
+  };
 
   constructor(private router: Router,
               private pageScrollService: PageScrollService,
-              private companyService: CompanyService,
+              private companyService: CompanyService, private modalService: NgbModal,
               @Inject(DOCUMENT) private document: any) {
     const paths = this.router.url.split('/');
     const to = paths[paths.length - 1];
@@ -65,6 +79,34 @@ export class CompanyComponent implements OnInit, OnDestroy {
     return this.reformNoticeContent(bug);
   };
 
+  modalReference: NgbModalRef;
+
+  openNote(content) {
+    this.modalReference = this.modalService.open(content, {windowClass: 'ass-modal'});
+  }
+
+  editNote() {
+    this.wriNote = !this.wriNote;
+  }
+
+  saveSel() {
+    this.alreadyAttention = !this.alreadyAttention;
+    this.modalReference.close();
+  }
+
+  cancelAttention() {
+    this.alreadyAttention = !this.alreadyAttention;
+  }
+
+  saveMonitor() {
+    this.alreadyMonitor = !this.alreadyMonitor;
+    this.modalReference.close();
+  }
+
+  cancelMonitor() {
+    this.alreadyMonitor = false;
+  }
+
   // 过滤<p>标签
   reformNoticeContent = (content) => {
     content = content.split('');
@@ -92,6 +134,21 @@ export class CompanyComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+  ainputFlag = false;
+
+  onAttentionCheck(radio) {
+    this.radioValue = radio;
+    this.ainputFlag = radio == this.groups.length;
+  }
+
+  minputFlag = false;
+
+  onMonitorCheck(radio) {
+    this.monitorValue = radio;
+    this.minputFlag = radio == this.groups.length;
+  }
+
 
   option = {
     'tooltip': {

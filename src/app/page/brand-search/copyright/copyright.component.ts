@@ -7,6 +7,7 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./copyright.component.scss']
 })
 export class CopyrightComponent implements OnInit {
+  page = 1;
 
   constructor(private commonService: CommonService) {
   }

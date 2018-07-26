@@ -12,10 +12,12 @@ import {TreeModule} from '../../chart/tree/tree.module';
 import {PersonModal} from './modals/person.modal';
 import {IndentedTreeModule} from '../../chart/indented-tree/indented-tree.module';
 import {StructureModal} from './modals/structure.modal';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     CompanyRoutingModule,
     MaterialModule,
     NgxEchartsModule,

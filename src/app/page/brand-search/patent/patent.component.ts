@@ -7,6 +7,7 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./patent.component.scss']
 })
 export class PatentComponent implements OnInit {
+  page = 1;
 
   constructor(private commonService: CommonService) {
   }

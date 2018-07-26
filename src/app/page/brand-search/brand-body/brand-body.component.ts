@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./brand-body.component.scss']
 })
 export class BrandBodyComponent implements OnInit {
+  page = 1;
 
   constructor() {
   }

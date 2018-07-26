@@ -15,7 +15,7 @@
       <td><a href="#">小米科技有限责任公司</a></td>
       <td>18分钟前</td>
       <td class="attention_edit">
-        <button nz-button nzType="default" [nzSize]="size" (click)="openModal(edit)">
+        <button class="butn" (click)="openModal(edit)">
           <span>编辑</span>
         </button>
         <ng-template #edit let-c="close" let-d="dismiss">
@@ -33,8 +33,8 @@
             <button type="button" class="btn btn-outline-primary" (click)="c('Save click')">提交</button>
           </div>
         </ng-template>
-        <button nz-button nzType="default" [nzSize]="size" (click)="cancel()">
-          <span>取消</span>
+        <button class="butn">
+          <span>删除</span>
         </button>
     </tr>
     </tbody>

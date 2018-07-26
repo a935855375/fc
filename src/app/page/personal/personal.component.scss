@@ -2,6 +2,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 .top_header {
   padding: 15px 8px 15px 15px;
   border-bottom: solid 1px #eee;
@@ -34,4 +38,10 @@ a {
 .bg-content {
   border: solid 1px #eee;
   background-color: #ffffff;
+}
+
+.rtab_active {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border-right: 2px solid #1890ff;
 }

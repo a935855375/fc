@@ -6,7 +6,6 @@ import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
 import {BrandSearchComponent} from './brand-search.component';
 import {BrandSearchRoutingModule, routedComponent} from './brand-search.routing.module';
-import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 
 
 @NgModule({
@@ -16,14 +15,12 @@ import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
     NgbModule,
     BrandSearchRoutingModule,
     MaterialModule,
-    AngularMultiSelectModule,
-    NgZorroAntdModule
+    AngularMultiSelectModule
   ],
   declarations: [
     BrandSearchComponent,
     ...routedComponent
-  ],
-  providers: [{provide: NZ_I18N, useValue: zh_CN}]
+  ]
 })
 export class BrandSearchModule {
 }

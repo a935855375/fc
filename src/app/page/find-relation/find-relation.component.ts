@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Ng2SearchPipe} from 'ng2-search-filter';
-import {NzNotificationService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-find-relation',
@@ -8,7 +7,8 @@ import {NzNotificationService} from 'ng-zorro-antd';
   styleUrls: ['./find-relation.component.scss']
 })
 export class FindRelationComponent implements OnInit {
-  value1 = 3;
+  value1 = 0;
+  boxWidth = this.value1 / 10 * 100;
   sInfo = true;
   addCompany = [false];
   dflag = [false, false, false];
@@ -17,7 +17,7 @@ export class FindRelationComponent implements OnInit {
     if (this.addCompany.length < 3) {
       this.addCompany.push(false);
     } else {
-      this.notification.info('提示信息', '添加公司不能超过五个');
+      alert('添加公司不能超过五个');
     }
   }
 
@@ -51,7 +51,7 @@ export class FindRelationComponent implements OnInit {
 
   f = false;
 
-  constructor(private notification: NzNotificationService) {
+  constructor() {
 
   }
 
@@ -109,6 +109,11 @@ export class FindRelationComponent implements OnInit {
   selected: string;
   show: boolean = false;
   filter = new Ng2SearchPipe();
+
+  changeValue(con) {
+    this.value1 = con;
+    this.boxWidth = this.value1 / 10 * 100;
+  }
 
   change(content: string): void {
     this.show = true;

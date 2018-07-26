@@ -309,3 +309,26 @@ ul {
 .ana-timeline .content .com {
   color: #333;
 }
+
+/*横条样式*/
+input[type=range] {
+  -webkit-appearance: none; /*清除系统默认样式*/
+  width: 100%;
+  /*background: -webkit-linear-gradient(#91d5ff, #91d5ff) no-repeat, #ddd;*//*设置左边颜色为#61bd12，右边颜色为#ddd*/
+  background: -webkit-linear-gradient(#91d5ff, #91d5ff) no-repeat;
+  background-size: 0% 100%; /*设置左右宽度比例*/
+  height: 4px;
+  border-radius: 4px;
+}
+
+/*拖动块的样式*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; /*清除系统默认样式*/
+  /*  background: #fff; !*拖动块背景*!*/
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #91d5ff;
+  background-color: #fff;
+}

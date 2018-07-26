@@ -32,7 +32,6 @@ const routes: Routes = [{
 })
 export class BrandSearchRoutingModule {
 }
-
 export const routedComponent = [
   BrandBodyComponent,
   PatentComponent,

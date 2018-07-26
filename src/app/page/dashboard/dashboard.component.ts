@@ -41,7 +41,6 @@ export class DashboardComponent {
 
   onKeydown(event) {
     if (event.key === 'Enter') {
-      console.log(event);
       this.search();
     }
   }

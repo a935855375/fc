@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./lostpro.component.scss']
 })
 export class LostproComponent implements OnInit {
+  page = 1;
 
   constructor() {
   }

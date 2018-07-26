@@ -1,32 +1,22 @@
 <div class="promise-title">
   <div class="container">
     <div class="top-search-nav d-flex">
-      <div class="py-2 pb-1">
+      <div class="py-2 pb-1 d-flex">
         <a [class.pactive]="kind==0" (click)="selectPromise(0)" routerLink="/brand-search/brand-body">商标</a>
         <a [class.pactive]="kind==1" (click)="selectPromise(1)" routerLink="/brand-search/patent">专利</a>
         <a [class.pactive]="kind==2" (click)="selectPromise(2)" routerLink="/brand-search/copyright">著作权</a>
         <a [class.pactive]="kind==3" (click)="selectPromise(3)" routerLink="/brand-search/software">软件著作权</a>
-        <nz-dropdown>
-          <a nz-dropdown>
-            更多 <i class="anticon anticon-down"></i>
-          </a>
-          <ul nz-menu nzSelectable>
-            <li nz-menu-item>
-              <a routerLink="/company">公司</a>
-            </li>
-            <li nz-menu-item>
-              <a (click)="changeSpItem(0)" routerLink="/promise-search/lostpro">失信人</a>
-            </li>
-            <li nz-menu-item>
-              <a (click)="changeSpItem(1)" routerLink="/promise-search/executed">被执行人</a>
-            </li>
-            <li nz-menu-item>
-              <a (click)="changeSpItem(2)" routerLink="/promise-search/referee">裁判文书</a>
-            </li>
-          </ul>
-        </nz-dropdown>
+        <div ngbDropdown class="mt-2">
+          <a ngbDropdownToggle>更多</a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <a class="dropdown-item" routerLink="/company">公司</a>
+            <a class="dropdown-item" (click)="changeSpItem(0)" routerLink="/promise-search/lostpro">失信人</a>
+            <a class="dropdown-item" (click)="changeSpItem(1)" routerLink="/promise-search/executed">被执行人</a>
+            <a class="dropdown-item" (click)="changeSpItem(2)" routerLink="/promise-search/referee">裁判文书</a>
+          </div>
+        </div>
       </div>
-      <div class="ml-2">
+      <div class="ml-2 mt-2">
         <div class="input-group">
           <input type="text" class="form-control input-lg" style="font-size: 14px;" placeholder="请输入你想要查找的裁判文书名称"
                  autocomplete="off" value="小米">

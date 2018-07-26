@@ -1,0 +1,13 @@
+.message_content {
+  border: 1px solid #e8e8e8;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  background: #fafafa;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.active {
+  background-color: #ffffff;
+  color: #128bed !important;
+}

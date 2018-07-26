@@ -1,17 +1,12 @@
-<nz-breadcrumb>
-  <nz-breadcrumb-item>
-    <a routerLink="/dashboard">首页</a>
-  </nz-breadcrumb-item>
-  <nz-breadcrumb-item>
-    <a routerLink="/promise" (click)="selectZx(2)">裁判文书查询</a>
-  </nz-breadcrumb-item>
-  <nz-breadcrumb-item>
-    <a routerLink="/promise-search/referee">马云裁判文书查询列表</a>
-  </nz-breadcrumb-item>
-  <nz-breadcrumb-item>
-    裁判文书查询详情
-  </nz-breadcrumb-item>
-</nz-breadcrumb>
+<div class="d-flex">
+  <li class="mr-2"><a routerLink="/dashboard">首页</a></li>
+  /
+  <li class="mx-2"><a routerLink="/promise" (click)="selectZx(2)">裁判文书查询</a></li>
+  /
+  <li class="mx-2"><a routerLink="/promise-search/referee">马云裁判文书查询列表</a></li>
+  /
+  <li class="mx-2">马云裁判文书查询列表</li>
+</div>
 <section class="panel panel-default patentdetailbox wenshu-box mt-3">
   <div id="wsview">
     <div style="TEXT-ALIGN: center; LINE-HEIGHT: 25pt; MARGIN: 0.5pt 0cm; FONT-FAMILY: 宋体; FONT-SIZE: 22pt;">

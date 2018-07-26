@@ -18,13 +18,104 @@
       </div>
 
       <div class="d-flex flex-column ml-auto mr-2-5">
-        <div class="d-flex justify-content-between">
-          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-pencil-square-o" style="margin-right: 2px;"></i></span>笔记</a>
-          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-retweet mr-1"
-                                                          style="margin-right: 2px;"></i></span>对比</a>
-          <a href="#" class="c_iconDt mr-2 px-2"><span><i class="fa fa-heart-o mr-1"
-                                                          style="margin-right: 2px;"></i></span>关注</a>
-          <a href="#" class="c_iconDt px-2"><span><i class="fa fa-eye mr-1" style="margin-right: 2px;"></i></span>监控</a>
+        <div class="d-flex justify-content-between functions">
+          <a class="c_iconDt mr-2 px-2" (click)="openNote(note)"><span><i class="fa fa-pencil-square-o"
+                                                                          style="margin-right: 2px;"></i></span>笔记</a>
+          <ng-template #note let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">笔记</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="nnote-list">
+                <div class="item d-flex">
+                  <div class="content">啦啦啦啦啦
+                    <div class="time">2018-07-20 16:16</div>
+                  </div>
+                  <div class="ml-auto">
+                    <button class="butn mr-2" style="color: #d3d3d3;" (click)="editNote()">
+                      <i class="fa fa-pencil" style="font-size: 22px;"></i>
+                    </button>
+                    <button class="butn" style="color: #d3d3d3">
+                      <i class="fa fa-trash" style="font-size: 22px"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <textarea *ngIf="wriNote" class="form-control" style="resize: none;" rows="5"
+                            placeholder="请输入笔记…"></textarea>
+                  <textarea *ngIf="!wriNote" class="form-control" style="resize: none;" rows="5"
+                            placeholder="啦啦啦"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary" (click)="c('Save click')">提交</button>
+            </div>
+          </ng-template>
+          <!-- <a class="c_iconDt mr-2 px-2"><span><i class="fa fa-retweet mr-1"
+                                                  style="margin-right: 2px;"></i></span>对比</a>-->
+          <a *ngIf="!alreadyAttention" class="c_iconDt mr-2 px-2" (click)="openNote(attention)"><span><i
+            class="fa fa-heart-o mr-1"
+            style="margin-right: 2px;"></i></span>关注</a>
+          <a *ngIf="alreadyAttention" class="c_iconDt mr-2 px-2" (click)="cancelAttention()"
+             style="background-color: #128bed;color: #ffffff"><span><i class="fa fa-heart-o mr-1"
+                                                                       style="margin-right: 2px;color: #ffffff!important;"></i></span>已关注</a>
+          <ng-template #attention let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">添加关注</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-2 choice" *ngFor="let g of groups;let idx=index">
+                <label class="radio">{{g}}<input type="radio" name="radioValue" [(ngModel)]="radioValue" [value]="idx"
+                                                 (click)="onAttentionCheck(idx)"><i></i></label>
+              </div>
+              <div class="mb-2 choice d-flex">
+                <label class="radio">更多...<input type="radio" name="radioValue" [(ngModel)]="radioValue"
+                                                 [value]="groups.length"
+                                                 (click)="onAttentionCheck(groups.length)"><i></i></label>
+                <input *ngIf="ainputFlag" type="text" class="ml-2 form-control pl-1" style="width: 120px;height: 26px"/>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary" (click)="saveSel()">确认</button>
+            </div>
+          </ng-template>
+          <a *ngIf="!alreadyMonitor" class="c_iconDt px-2" (click)="openNote(monitor)"><span><i class="fa fa-eye mr-1"
+                                                                                                style="margin-right: 2px;"></i></span>监控</a>
+          <a *ngIf="alreadyMonitor" class="c_iconDt mr-2 px-2" (click)="cancelMonitor()"
+             style="background-color: #128bed;color: #ffffff"><span><i class="fa fa-eye mr-1"
+                                                                       style="margin-right: 2px;color: #ffffff!important;"></i></span>已监控</a>
+          <ng-template #monitor let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">添加监控</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-2 choice" *ngFor="let g of groups;let idx=index">
+                <label class="radio">{{g}}<input type="radio" name="monitorValue" [(ngModel)]="monitorValue"
+                                                 [value]="idx" (click)="onMonitorCheck(idx)"><i></i></label>
+              </div>
+              <div class="mb-2 choice d-flex">
+                <label class="radio">更多...<input type="radio" name="monitorValue" [(ngModel)]="monitorValue"
+                                                 [value]="groups.length" (click)="onMonitorCheck(groups.length)"><i></i></label>
+                <input *ngIf="minputFlag" type="text" class="ml-2 form-control pl-1 "
+                       style="width: 120px;height: 26px"/>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-primary" (click)="saveMonitor()">确认</button>
+            </div>
+          </ng-template>
         </div>
         <p class="text-right my-3 f-14">更新时间：4时9分钟前<span class="ml-1"><i class="fa fa-refresh f-16"
                                                                          style="color: #ABABAB;"></i></span></p>
@@ -97,5 +188,3 @@
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>

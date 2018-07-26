@@ -20,7 +20,6 @@ export class LoginComponent {
       return;
     } else {
       // this.authService.login(this.username, this.password);
-      console.log(this.username + ' ' + this.password + ' ' + this.rem);
       this.authService.login(this.username, this.password).then(res => {
         if (res.status === 0)
           alert('登录成功');

@@ -12,7 +12,7 @@ import {CommonService} from '../../../service/common.service';
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body p-0">
       <tree *ngIf="flag" [width]="width" [height]="height" [showValue]="true" [dataset]="dataset"></tree>
     </div>
   `,

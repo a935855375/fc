@@ -104,11 +104,14 @@ export class IndentedTreeComponent implements OnChanges {
       .attr('height', this.barHeight)
       .attr('width', 8)
       .style('fill', d => {
-        if (d.data.root) {
+        if (d.data.root)
           return 'rgb(18, 139, 237)';
+        else {
+          if (d.id == 2)
+            return 'rgb(247, 76, 82)';
+          else
+            return 'rgb(88, 208, 177)';
         }
-        else
-          return 'rgb(218, 145, 245)';
       })
       .style('fill-opacity', 1)
       .style('stroke', 'none');
@@ -145,7 +148,7 @@ export class IndentedTreeComponent implements OnChanges {
         if (d.data.root)
           return '';
         else
-          return '77.8%';
+          return d.data.percent;
       });
 
     nodeEnter.append('line')
@@ -210,7 +213,7 @@ export class IndentedTreeComponent implements OnChanges {
         if (d.data.root)
           return '';
         else
-          return '143934.0478万元';
+          return d.data.money + '万元';
       });
 
     nodeEnter.transition()

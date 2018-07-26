@@ -20,8 +20,8 @@ export class EnterpriseGraphComponent implements OnInit {
     this.width = window.innerWidth;
     this.height = window.innerHeight - 62;
 
-    this.commonService.getEnterpriseGraphById(localStorage.getItem('cid')).then(x => {
-      this.dataset = x;
+    this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 2).then(x => {
+      this.dataset = x.Result.Node;
       this.flag = true;
     });
   }

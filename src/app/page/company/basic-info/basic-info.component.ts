@@ -197,8 +197,6 @@ export class BasicInfoComponent implements OnInit {
       show: true,
       feature: {
         mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        restore: {show: true},
         saveAsImage: {show: true}
       }
     },
@@ -264,8 +262,6 @@ export class BasicInfoComponent implements OnInit {
       show: true,
       feature: {
         mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        restore: {show: true},
         saveAsImage: {show: true}
       }
     },

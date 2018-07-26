@@ -57,4 +57,11 @@ export class CommonService {
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
+
+  getPersonalGraphById(id, kind) {
+    const url = environment.apiUrl + 'personalGraph';
+    const params = {id: id.toString(), kind: kind.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

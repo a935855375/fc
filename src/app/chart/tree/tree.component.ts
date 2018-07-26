@@ -61,7 +61,7 @@ export class TreeComponent implements OnChanges {
     svg.call(zoom);
     // 初始化g标签的位置（居中）
 
-    svg.call(zoom.transform, d3.zoomIdentity.translate(this.options.width / 2, this.options.height / 2).scale(0.9));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(this.options.width / 2, this.options.height / 2).scale(0.7));
 
     this.getData();
   }
@@ -201,8 +201,16 @@ export class TreeComponent implements OnChanges {
           return 'rotate(' + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ')';
         })
         .text(function (d) {
-          if (!d.data.children)
-            return d.data.name;
+          if (!d.data.children) {
+            if (d.parent.data.name == '担任法定代表人')
+              return '';
+            else if (d.parent.data.name == '在外任职')
+              return d.data.Relation.filter(x => x.Type == 2)[0].Value;
+            else if (d.parent.data.name == '对外投资') {
+              return d.data.Relation.filter(x => x.Type == 1)[0].Value;
+            }
+            return d.data.Value;
+          }
           else
             return '';
         })

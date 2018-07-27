@@ -35,6 +35,7 @@ export class DashboardComponent {
 
   click(value: string): void {
     this.key = value;
+    this.input.nativeElement.focus();
   }
 
   selSpecial(sel) {

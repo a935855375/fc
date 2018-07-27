@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {PageScrollInstance, PageScrollService} from 'ngx-page-scroll';
 import {DOCUMENT} from '@angular/common';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-genealogy',
@@ -11,8 +12,28 @@ export class GenealogyComponent implements OnInit {
   selector = 0;
   title: string;
 
-  constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
-
+  constructor(private router: Router,
+              private pageScrollService: PageScrollService,
+              @Inject(DOCUMENT) private document: any) {
+    const paths = this.router.url.split('/');
+    const to = paths[paths.length - 1];
+    switch (to) {
+      case 'enterprisegraph':
+        this.selector = 0;
+        break;
+      case 'investmentgraph':
+        this.selector = 1;
+        break;
+      case 'associationgraph':
+        this.selector = 2;
+        break;
+      case 'equitystructuregraph':
+        this.selector = 3;
+        break;
+      case 'suspectedcontroller':
+        this.selector = 4;
+        break;
+    }
   }
 
   ngOnInit() {

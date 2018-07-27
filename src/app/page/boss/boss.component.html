@@ -2,33 +2,40 @@
   <div class="row">
     <div class="col-lg-9 col-md-12">
       <div class="f-bg p-3">
-        <div class="d-flex pb-3">
-          <div class="pills-header btn-head pr-3">省份地区</div>
-          <div class="pills-after">
-            <a class="pills-item pr-3">安徽</a>
-            <a class="pills-item pr-3">北京</a>
-            <a class="pills-item pr-3">重庆</a>
-            <a class="pills-item pr-3">福建</a>
-            <a class="pills-item pr-3">广东</a>
-            <a class="pills-item pr-3">甘肃</a>
-            <a class="pills-item pr-3">广西</a>
-            <a class="pills-item pr-3">贵州</a>
-            <a class="pills-item pr-3">海南</a>
-            <a class="pills-item pr-3">河北</a>
-            <a class="pills-item pr-3">河南</a>
+        <div>
+          <div class="pills d-flex">
+            <div class="pills-header">省份：</div>
+            <div class="pills-after d-flex">
+              <a *ngFor="let province of provinces.slice(0,12);let idx=index" class="pills-item"
+                 (click)="selValue(0,idx)"
+                 [class.active]="kind[0]==idx">{{province}}</a>
+            </div>
+            <a *ngIf="!proFlag" class="pills-more ml-auto" (click)="openProvince()">更多 <i
+              class="fa fa-angle-down"></i></a>
+            <a *ngIf="proFlag" class="pills-more ml-auto" (click)="openProvince()">收起 <i class="fa fa-angle-up"></i></a>
           </div>
-          <div class="pills-more active ml-auto">更多 <i class="fa fa-angle-down"></i></div>
+          <div class="d-flex flex-wrap mb-3" *ngIf="proFlag" style="margin-left: 71px">
+            <a *ngFor="let province of provinces.slice(12,provinces.length);let idx=index" class="pills-item"
+               (click)="selValue(0,idx+12)"
+               [class.active]="kind[0]==(idx+12)">{{province}}</a>
+          </div>
         </div>
-        <div class="d-flex">
-          <div class="pills-header btn-head pr-3">行业门类</div>
-          <div class="pills-after">
-            <a class="pills-item pr-3">农、林、牧、渔业</a>
-            <a class="pills-item pr-3">采矿业</a>
-            <a class="pills-item pr-3">制造业</a>
-            <a class="pills-item pr-3">电力、热力、燃气及水生产和供应业</a>
-            <a class="pills-item pr-3">建筑业</a>
+        <div>
+          <div class="pills d-flex mt-3">
+            <div class="pills-header">主营行业：</div>
+            <div class="pills-after d-flex">
+              <a *ngFor="let work of works.slice(0,6);let idx=index" class="pills-item" (click)="selValue(1,idx)"
+                 [class.active]="kind[1]==idx">{{work}}</a>
+            </div>
+            <a *ngIf="!workFlag" class="pills-more ml-auto" (click)="openWork()">更多 <i
+              class="fa fa-angle-down"></i></a>
+            <a *ngIf="workFlag" class="pills-more ml-auto" (click)="openWork()">收起 <i class="fa fa-angle-up"></i></a>
           </div>
-          <div class="pills-more active ml-auto">更多 <i class="fa fa-angle-down"></i></div>
+          <div class="d-flex flex-wrap" *ngIf="workFlag" style="margin-left: 71px">
+            <a *ngFor="let work of works.slice(6,provinces.length);let idx=index" class="pills-item"
+               (click)="selValue(1,idx+6)"
+               [class.active]="kind[1]==(idx+6)">{{work}}</a>
+          </div>
         </div>
       </div>
       <div class="f-bg mt-3">

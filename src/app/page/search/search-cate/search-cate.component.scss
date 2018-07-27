@@ -10,7 +10,12 @@ button {
 }
 
 .btn-head {
-  color: #EC6C47 !important;
+  color: #9a9a9a !important;
+}
+
+.cate_active {
+  background-color: #128bed;
+  color: #ffffff;
 }
 
 :host /deep/ .mat-tab-label {

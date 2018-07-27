@@ -166,15 +166,15 @@ li {
   color: #ffffff !important;
 }
 
-.list-group-item {
+.company_content {
   a {
-    color: #666666;
-    font-size: 12px;
+    color: #666666 !important;
   }
 }
 
 .company_content a:hover {
   background-color: #f1f9fe;
+  color: #128bed !important;
 }
 
 .promise-title {

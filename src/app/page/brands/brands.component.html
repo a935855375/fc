@@ -1,17 +1,17 @@
 <div class="jumbotron">
   <div class="container-fluid">
     <div class="row flex-column mb-5">
-      <div class="clogo">商标搜索</div>
+      <div class="clogo">{{title}}搜索</div>
       <ul class="align-self-center d-flex mb-2 rea-tab">
-        <li class="mr-5 f-16 active">商标</li>
-        <li class="mr-5 f-16">专利</li>
-        <li class="mr-5 f-16">著作权</li>
-        <li class="mr-5 f-16">软件著作权</li>
+        <li [class.active]="kind==0" class="mr-5 f-16" (click)="changeKind(0)" data-index="0">商标</li>
+        <li [class.active]="kind==1" class="mr-5 f-16" (click)="changeKind(1)" data-index="1">专利</li>
+        <li [class.active]="kind==2" class="mr-5 f-16" (click)="changeKind(2)" data-index="2">著作权</li>
+        <li [class.active]="kind==3" class="mr-5 f-16" (click)="changeKind(3)" data-index="3">软件著作权</li>
       </ul>
       <div class="align-self-stretch d-flex justify-content-center mb-2">
         <div class="input-group input-group-lg" style="max-width: 60%">
           <input type="search" name="q" class="form-control rounded-0" style="font-size: 14px;border: none"
-                 placeholder="请输入商标名称、注册号或申请人名称">
+                 placeholder="{{holder}}">
           <div class="input-group-btn btn-group-lg">
             <button style="width: 80px" class="btn btn-info rounded-0" routerLink="/brand-search"><i
               class="fa fa-search"></i>

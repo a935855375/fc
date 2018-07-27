@@ -20,6 +20,9 @@ export class Company {
   arrow_y1?: number;
   arrow_y2?: number;
 
+  lines: string[];
+  line_y: number[];
+
   get show_x() {
     return this._x - this.width / 2;
   }
@@ -42,6 +45,10 @@ export class Company {
 
   get y() {
     return this._y;
+  }
+
+  getY(idx: number) {
+    return this._y + this.line_y[idx];
   }
 
   get width() {

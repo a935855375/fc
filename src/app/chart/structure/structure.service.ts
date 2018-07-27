@@ -34,17 +34,32 @@ export class StructureService {
     this.calCompany();
   }
 
+  spliteLongString(s: string, l: number): string[] {
+    let buffer: string[] = [];
+    let line = Math.ceil(s.length / l);
+    for (let x = 0; x < line; x++) {
+      buffer.push(s.slice(x * l, (x + 1) * l));
+    }
+    return buffer.filter(x => x.length != 0);
+  }
+
   initConfig() {
     const MAX_PERSON_LENGTH = this.persons.map(x => x._name.length).reduce((x, y) => Math.max(x, y));
     CONFIG.PERSON_WIDTH = 13 * MAX_PERSON_LENGTH + 15;
     CONFIG.PERSON_X_OFFSET = CONFIG.PERSON_WIDTH * 2;
     const MAX_COMPANY_LENGTH = this.companies.map(x => x._name.length).reduce((x, y) => Math.max(x, y));
-    CONFIG.COMPANY_WIDTH = 14 * MAX_COMPANY_LENGTH;
+    CONFIG.COMPANY_WIDTH = 7 * MAX_COMPANY_LENGTH;
     CONFIG.COMPANY_X_OFFSET = CONFIG.COMPANY_WIDTH * 1.1;
     if (CONFIG.PERSON_LINK_X_OFFSET * this.persons.length >= this.target.width)
       CONFIG.PERSON_LINK_X_OFFSET = this.target.width / this.persons.length;
     if (CONFIG.COMPANY_LINK_X_OFFSET * this.companies.length >= this.target.width)
       CONFIG.COMPANY_LINK_X_OFFSET = this.target.width / this.companies.length;
+
+    const MAX_COMPANY_LINE = Math.ceil(MAX_COMPANY_LENGTH / CONFIG.COMPANY_WORD_LEGNTH_PER_LINE);
+
+    CONFIG.COMPANY_HEIGHT = MAX_COMPANY_LINE * CONFIG.COMPANY_LINE_HEIGHT;
+
+    console.log(MAX_COMPANY_LINE);
   }
 
   calCompany() {
@@ -224,6 +239,35 @@ export class StructureService {
     // company value坐标
     company.value_x = company.x + 20;
     company.value_y = company.show_y - CONFIG.COMPANY_VALUE_OFFSET;
+
+    company.lines = this.spliteLongString(company._name, CONFIG.COMPANY_WORD_LEGNTH_PER_LINE);
+
+    // 计算company的文字位置
+
+    company.line_y = Array(company.lines.length);
+
+    if (company.lines.length % 2 != 0) {
+      const center = Math.floor(company.lines.length / 2);
+      company.line_y[center] = 0;
+      for (let x = center - 1; x >= 0; x--)
+        company.line_y[x] = company.line_y[x + 1] - 15;
+
+      for (let x = center + 1; x < company.lines.length; x++)
+        company.line_y[x] = company.line_y[x - 1] + 15;
+
+    } else {
+      const left = Math.floor((company.lines.length - 1) / 2);
+      const right = left + 1;
+
+      company.line_y[left] = -10;
+      company.line_y[right] = 10;
+
+      for (let x = left - 1; x >= 0; x--)
+        company.line_y[x] = company.line_y[x + 1] - 10;
+
+      for (let x = right + 1; x < company.lines.length; x++)
+        company.line_y[x] = company.line_y[x - 1] + 10;
+    }
   }
 
   getWidth(s: string) {

@@ -13,9 +13,18 @@ import {CommonService} from '../../../service/common.service';
       </button>
     </div>
     <div class="modal-body">
-      <div class="mb-1">
+      <div class="mb-1 info">
         <span style="font-size: 18px;color: #333;">疑似实际控制人：</span> <span class="relation">雷军</span> <span
         class="final-radio-wrap"> <span id="final-radio">77.8%</span> </span> <span class="relation">小米科技有限责任公司</span>
+
+        <div class="legend" style="visibility: visible;">
+          <span class="big-block"></span>
+          <span class="big-text">大股东</span>
+          <span class="ent-block ml-3"></span>
+          <span class="ent-text">企业股东</span>
+          <span class="person-block  ml-3"></span>
+          <span class="person-text">自然人股东</span>
+        </div>
       </div>
       <indented-tree *ngIf="flag" [width]="width" [dataset]="data"></indented-tree>
     </div>

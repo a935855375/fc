@@ -53,7 +53,11 @@ import {StructureService} from './structure.service';
           </svg:rect>
         </g>
         <g *ngFor="let company of companies">
-          <svg:text [attr.x]="company.x" [attr.y]="company.y" class="node-name">{{company._name}}</svg:text>
+          <svg:text>
+            <svg:tspan *ngFor="let x of company.lines;let idx = index" [attr.x]="company.x" [attr.y]="company.getY(idx)" class="node-name">
+              {{x}}
+            </svg:tspan>
+          </svg:text>
           <svg:text [attr.x]="company.value_x" [attr.y]="company.value_y" class="value-name">{{company._value}}</svg:text>
           <svg:line
             class="link"

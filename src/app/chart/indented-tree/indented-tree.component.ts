@@ -50,7 +50,7 @@ export class IndentedTreeComponent implements OnChanges {
       });
     d3.select(this.svg_ref.nativeElement).call(zoom);
     // 初始化g标签的位置（居中）
-    d3.select(this.svg_ref.nativeElement).call(zoom.transform, d3.zoomIdentity.translate(this.width / 2 - this.barWidth / 2, 100).scale(0.9));
+    d3.select(this.svg_ref.nativeElement).call(zoom.transform, d3.zoomIdentity.translate(this.width / 2 - this.barWidth / 2, 150).scale(1.1));
 
     this.root = d3.hierarchy(this.data);
     this.root.x0 = 0;

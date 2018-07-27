@@ -163,3 +163,27 @@ a {
 a:hover {
   color: #12AAF4;
 }
+
+.suggest-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: block;
+  color: #222;
+  position: relative;
+}
+
+.suggest-item a {
+  color: #222;
+  display: block;
+  max-width: 200px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggest-item:hover {
+  background-color: #e5e9ef;
+}

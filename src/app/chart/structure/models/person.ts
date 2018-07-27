@@ -48,6 +48,7 @@ export class Person {
     return CONFIG.PERSON_WIDTH;
   }
 
+
   get height() {
     return CONFIG.PERSON_HEIGHT;
   }

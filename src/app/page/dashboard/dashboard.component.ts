@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonService} from '../../service/common.service';
 
@@ -10,7 +10,20 @@ import {CommonService} from '../../service/common.service';
 export class DashboardComponent {
   kind = 0;
   holder = '请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军';
-  key: string;
+  key: string = '';
+
+  items: string[] = ['小米科技有限责任公司',
+    '北京小米支付技术有限公司',
+    '小米通讯技术有限公司',
+    '熊小米(北京)文化传播有限公司',
+    '北京小米保险经纪有限公司'];
+
+  @ViewChild('myDrop') myDrop;
+  @ViewChild('input') input;
+
+  width = 0;
+
+  filter = (array: string[], key: string) => array.filter(x => x.includes(key));
 
   k = 0;
   provinces: string[] = ['河北', '山西', '辽宁', '吉林', '黑龙江', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北'
@@ -18,6 +31,10 @@ export class DashboardComponent {
 
   constructor(private router: Router, private commonService: CommonService) {
 
+  }
+
+  click(value: string): void {
+    this.key = value;
   }
 
   selSpecial(sel) {
@@ -36,7 +53,17 @@ export class DashboardComponent {
   }
 
   keyChanged(event) {
+    this.width = this.input.nativeElement.offsetWidth;
     this.key = event;
+    if (!(this.filter(this.items, this.key).length === 0 || this.key.length === 0))
+      this.myDrop.open();
+    else
+      this.myDrop.close();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.width = this.input.nativeElement.offsetWidth;
   }
 
   onKeydown(event) {

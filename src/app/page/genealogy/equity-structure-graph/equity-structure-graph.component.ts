@@ -13,30 +13,30 @@ export class EquityStructureGraphComponent implements OnInit {
   flag = false;
 
   target: Target;
-  companies: Company[];
-  persons: Person[];
+  companies: Company[] = [];
+  persons: Person[] = [];
 
 
   constructor(private commonService: CommonService) {
+    this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 5).then((x: any) => {
+      this.target = new Target();
+      this.target.name = x.Result.Name;
+
+
+      for (let z = 0; z < x.Result.touzi.length; z++) {
+        this.companies.push(new Company(x.Result.touzi[z].Name, x.Result.touzi[z].FundedRatio));
+      }
+
+
+      for (let z = 0; z < x.Result.DetailList.length; z++) {
+        this.persons.push(new Person(x.Result.DetailList[z].Name, x.Result.DetailList[z].Percent.trim()));
+      }
+
+      this.flag = true;
+    });
   }
 
   ngOnInit() {
-    this.target = new Target();
-    this.target.name = '小米科技有限责任公司';
-
-    this.companies = [];
-    this.persons = [];
-
-    for (let x = 0; x < 12; x++) {
-      this.companies.push(new Company('idxxxxxx' + x, x * 10));
-    }
-
-    this.persons.push(new Person('雷军', 77.8));
-    this.persons.push(new Person('黎万强', 10.12));
-    this.persons.push(new Person('洪峰', 10.07));
-    this.persons.push(new Person('刘德', 2.01));
-    this.persons.push(new Person('测试', 0.01));
-    this.persons.push(new Person('测试', 0.01));
   }
 
 

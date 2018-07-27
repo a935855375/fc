@@ -32,6 +32,8 @@ export class PersonModal implements OnInit {
 
   height;
 
+  dataset;
+
   constructor(public bsModalRef: NgbActiveModal, private commonService: CommonService) {
     this.height = window.innerHeight * 0.85;
   }
@@ -41,7 +43,7 @@ export class PersonModal implements OnInit {
       this.width = this.div.nativeElement.offsetWidth;
     });
 
-    this.commonService.getPersonalGraphById(1, 0).then(x => {
+    this.commonService.getPersonalGraphById(1, 0).then((x: any) => {
       this.dataset = x;
       console.log(x);
       this.flag = true;

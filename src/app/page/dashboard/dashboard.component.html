@@ -11,10 +11,19 @@
       <li [class.active]="kind==6" class="mr-5 f-16 active" (click)="changeKind(6)" data-index="12"> 经营范围</li>
     </ul>
     <div class="align-self-stretch d-flex justify-content-center mb-2">
-      <div class="input-group input-group-lg" style="max-width: 60%">
-        <input type="search" name="q" class="form-control rounded-0" style="font-size: 14px;border: none"
-               placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)"
-               (keydown)="onKeydown($event)">
+      <div class="d-flex" style="width: 60%">
+        <div ngbDropdown class="d-flex flex-column w-100" #myDrop="ngbDropdown">
+          <input #input ngbDropdownAnchor id="dropdownManual" name="q" class="rounded-0 flex-grow-1"
+                 style="font-size: 14px;border: none;text-indent: 12px;max-height: 48px" autocomplete="off"
+                 placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)"
+                 (keydown)="onKeydown($event)">
+          <div ngbDropdownMenu aria-labelledby="dropdownManual">
+            <ul class="px-3 py-0 m-0" [ngStyle]="{'width': width + 'px'}">
+              <li class="suggest-item" (click)="click(item)" *ngFor="let item of filter(items, key)">{{item}}
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="input-group-btn btn-group-lg">
           <button style="width: 80px" class="btn btn-info rounded-0" (click)="search()"><i class="fa fa-search"></i>
           </button>

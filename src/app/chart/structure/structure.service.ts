@@ -37,10 +37,10 @@ export class StructureService {
   initConfig() {
     const MAX_PERSON_LENGTH = this.persons.map(x => x._name.length).reduce((x, y) => Math.max(x, y));
     CONFIG.PERSON_WIDTH = 13 * MAX_PERSON_LENGTH + 15;
-    CONFIG.PERSON_X_OFFSET = CONFIG.PERSON_WIDTH + 40;
+    CONFIG.PERSON_X_OFFSET = CONFIG.PERSON_WIDTH * 2;
     const MAX_COMPANY_LENGTH = this.companies.map(x => x._name.length).reduce((x, y) => Math.max(x, y));
-    CONFIG.COMPANY_WIDTH = 7 * MAX_COMPANY_LENGTH + 15;
-    CONFIG.COMPANY_LINK_X_OFFSET = CONFIG.COMPANY_WIDTH + 30;
+    CONFIG.COMPANY_WIDTH = 14 * MAX_COMPANY_LENGTH;
+    CONFIG.COMPANY_X_OFFSET = CONFIG.COMPANY_WIDTH * 1.1;
     if (CONFIG.PERSON_LINK_X_OFFSET * this.persons.length >= this.target.width)
       CONFIG.PERSON_LINK_X_OFFSET = this.target.width / this.persons.length;
     if (CONFIG.COMPANY_LINK_X_OFFSET * this.companies.length >= this.target.width)

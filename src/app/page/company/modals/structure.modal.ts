@@ -42,7 +42,7 @@ export class StructureModal implements OnInit {
       this.width = this.div.nativeElement.offsetWidth;
     });
 
-    this.commonService.getPersonalGraphById(1, 1).then(x => {
+    this.commonService.getPersonalGraphById(1, 1).then((x: any) => {
       this.data.children = [];
       this.data.name = x.Result.Name;
       x.Result.DetailList.forEach(x => this.data.children.push({name: x.Name, percent: x.Percent, money: x.ShouldCapi}));

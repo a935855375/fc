@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {FooterComponent} from '../frame/footer/footer.component';
 import {FrameComponent} from '../frame/frame.component';
 import {FrameModule} from '../frame/frame.module';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {FrameModule} from '../frame/frame.module';
     NgbModule,
     DashboardRoutingModule,
     MaterialModule,
-    FrameModule
+    FrameModule,
   ],
   declarations: [
     DashboardComponent,

@@ -40,7 +40,7 @@ import {StructureService} from './structure.service';
             [attr.height]="person.height"
             style="stroke-width:1px;stroke:rgb(56,137,236);fill: transparent;cursor: pointer;">
           </svg:rect>
-          <svg:text [attr.x]="person.value_x" [attr.y]="person.value_y" class="value-name">{{person._value}}%</svg:text>
+          <svg:text [attr.x]="person.value_x" [attr.y]="person.value_y" class="value-name">{{person._value}}</svg:text>
         </g>
         <g>
           <svg:text [attr.x]="target.center_x" [attr.y]="target.center_y" class="node-name">{{target.name}}</svg:text>
@@ -54,7 +54,7 @@ import {StructureService} from './structure.service';
         </g>
         <g *ngFor="let company of companies">
           <svg:text [attr.x]="company.x" [attr.y]="company.y" class="node-name">{{company._name}}</svg:text>
-          <svg:text [attr.x]="company.value_x" [attr.y]="company.value_y" class="value-name">{{company._value}}%</svg:text>
+          <svg:text [attr.x]="company.value_x" [attr.y]="company.value_y" class="value-name">{{company._value}}</svg:text>
           <svg:line
             class="link"
             [attr.x1]="company.x"

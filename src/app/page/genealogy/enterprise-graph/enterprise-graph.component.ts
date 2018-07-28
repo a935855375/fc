@@ -16,8 +16,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         display: 'none',
         opacity: 0
       })),
-      transition('open => close', animate('500ms ease-out')),
-      transition('close => open', animate('500ms ease-in'))
+      transition('open => close', animate('250ms ease-out')),
+      transition('close => open', animate('250ms ease-in'))
     ])
   ]
 })
@@ -25,19 +25,29 @@ export class EnterpriseGraphComponent implements OnInit {
   flag: boolean = false;
   dataset;
 
-  modalStatus = 'open';
+  modalStatus = 'close';
+
+  current;
 
   constructor(private commonService: CommonService) {
-    setTimeout(() => {
-      this.modalStatus = 'close';
-    }, 3000);
-    setTimeout(() => {
-      this.modalStatus = 'open';
-    }, 5000);
   }
 
   width: number;
   height: number;
+
+  openModal(event) {
+    if (this.current != event) {
+      this.modalStatus = 'close';
+      setTimeout(() => {
+        this.modalStatus = 'open';
+      }, 250);
+    }
+    this.current = event;
+  }
+
+  closeModal() {
+    this.modalStatus = 'close';
+  }
 
   ngOnInit() {
     this.width = window.innerWidth;

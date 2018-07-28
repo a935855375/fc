@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild} from '@angular/core';
 import * as d3 from 'd3';
 import {HierarchyPointLink, HierarchyPointNode} from 'd3';
 
@@ -19,6 +19,8 @@ export class TreeComponent implements OnChanges {
 
   @Input('showValue')
   showValue = false;
+
+  @Output() clicked: EventEmitter<number> = new EventEmitter<number>();
 
   tree;
   rootData;
@@ -114,7 +116,7 @@ export class TreeComponent implements OnChanges {
     const nodes = treeData.descendants(); // Array
     const links = treeData.links(); // Array
 
-    // Normalize for fixed-depth.
+    // 初始化高度
     nodes.forEach(d => {
       if (d.depth === 1) {
         d.y = d.depth * 180;
@@ -138,6 +140,7 @@ export class TreeComponent implements OnChanges {
       })
       .on('click', d => {
         if (d.depth > 0) this.toggle(d);
+        if (!d.data.children) this.clicked.emit(d.id);
       });
 
     nodeEnter.append('circle')

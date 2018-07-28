@@ -6,6 +6,7 @@ import {EquityStructureGraphComponent} from './equity-structure-graph/equity-str
 import {SuspectedControllerComponent} from './suspected-controller/suspected-controller.component';
 import {EnterpriseGraphComponent} from './enterprise-graph/enterprise-graph.component';
 import {GenealogyComponent} from './genealogy.component';
+import {InfoModalComponent} from './info-modal/info-modal.component';
 
 const config: Routes = [{
   path: '', component: GenealogyComponent,
@@ -33,4 +34,5 @@ export const routedComponent = [
   AssociationGraphComponent,
   EquityStructureGraphComponent,
   SuspectedControllerComponent,
+  InfoModalComponent
 ];

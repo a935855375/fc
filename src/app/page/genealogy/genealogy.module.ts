@@ -6,6 +6,7 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {GraphMudule} from '../../chart/graph/graph.mudule';
 import {TreeModule} from '../../chart/tree/tree.module';
 import {StructureModule} from '../../chart/structure/structure.module';
+import {MatCardModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -14,11 +15,12 @@ import {StructureModule} from '../../chart/structure/structure.module';
     NgxPageScrollModule,
     GraphMudule,
     TreeModule,
-    StructureModule
+    StructureModule,
+    MatCardModule,
   ],
   declarations: [
     GenealogyComponent,
-    ...routedComponent
+    ...routedComponent,
   ]
 })
 export class GenealogyModule {

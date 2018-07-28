@@ -14,6 +14,9 @@ export class SuspectedControllerComponent implements OnInit {
   nodes: Node[] = [];
   links: Link[] = [];
 
+  name: string;
+  rate: string;
+
   constructor(private commonService: CommonService) {
   }
 
@@ -24,6 +27,8 @@ export class SuspectedControllerComponent implements OnInit {
       this.nodes.push(source);
       this.nodes.push(target);
       this.links.push(new Link(source, target, x.person.shareholding_ratio + '%'));
+      this.name = x.person.name;
+      this.rate = x.person.shareholding_ratio + '%';
       this.flag = true;
     });
   }

@@ -1,12 +1,10 @@
-:host ::ng-deep em {
-  font-style: normal;
-  color: #fe5151;
+.tip {
+  position: absolute;
+  right: 5%;
+  top: 120px;
+  font-size: 17px;
 }
 
-.tag {
-  position: absolute;
-  right: 100px;
-  top: 130px;
-  font-size: 18px;
-  color: #333;
+.stock-name {
+  color: #fe5151;
 }

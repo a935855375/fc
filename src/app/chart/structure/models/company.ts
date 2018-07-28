@@ -1,7 +1,7 @@
 import CONFIG from '../config';
 
 export class Company {
-  _name: String;
+  _name: string;
 
   _value?: number;
 

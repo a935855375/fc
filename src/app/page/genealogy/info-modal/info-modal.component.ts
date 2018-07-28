@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'info-modal',
@@ -8,6 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class InfoModalComponent implements OnInit {
   k: number = 0;
 
+  @Input('data') data;
   @Output() clicked: EventEmitter = new EventEmitter();
 
   constructor() {

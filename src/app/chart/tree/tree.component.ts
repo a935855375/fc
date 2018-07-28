@@ -20,7 +20,7 @@ export class TreeComponent implements OnChanges {
   @Input('showValue')
   showValue = false;
 
-  @Output() clicked: EventEmitter<number> = new EventEmitter<number>();
+  @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
 
   tree;
   rootData;
@@ -137,10 +137,6 @@ export class TreeComponent implements OnChanges {
       })
       .attr('transform', d => {
         return 'translate(' + radialPoint(source.x0, source.y0) + ')';
-      })
-      .on('click', d => {
-        if (d.depth > 0) this.toggle(d);
-        if (!d.data.children) this.clicked.emit(d.id);
       });
 
     nodeEnter.append('circle')
@@ -151,6 +147,9 @@ export class TreeComponent implements OnChanges {
         } else {
           return 0;
         }
+      })
+      .on('click', d => {
+        if (d.depth > 0) this.toggle(d);
       });
 
     nodeEnter.append('path')
@@ -161,7 +160,10 @@ export class TreeComponent implements OnChanges {
           return 'M-6 -1 H6 V1 H-6 Z';
         }
       })
-      .style('fill-opacity', 0);
+      .style('fill-opacity', 0)
+      .on('click', d => {
+        if (d.depth > 0) this.toggle(d);
+      });
 
     nodeEnter.append('text')
       .attr('dy', function (d) {
@@ -183,7 +185,10 @@ export class TreeComponent implements OnChanges {
       .text(function (d) {
         return d.data.name;
       })
-      .style('fill-opacity', 1e-6);
+      .style('fill-opacity', 1e-6)
+      .on('click', d => {
+        if (d.data.KeyNo) this.clicked.emit(d.data.KeyNo);
+      });
 
     if (this.showValue) {
       nodeEnter.append('text')

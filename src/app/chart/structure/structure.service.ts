@@ -58,8 +58,6 @@ export class StructureService {
     const MAX_COMPANY_LINE = Math.ceil(MAX_COMPANY_LENGTH / CONFIG.COMPANY_WORD_LEGNTH_PER_LINE);
 
     CONFIG.COMPANY_HEIGHT = MAX_COMPANY_LINE * CONFIG.COMPANY_LINE_HEIGHT;
-
-    console.log(MAX_COMPANY_LINE);
   }
 
   calCompany() {
@@ -286,7 +284,9 @@ export class StructureService {
       container.attr('transform', value);
     };
 
-    zoom = d3.zoom().on('zoom', zoomed);
+    zoom = d3.zoom()
+      .scaleExtent([0.4, 2])
+      .on('zoom', zoomed);
 
     svg.call(zoom);
   }

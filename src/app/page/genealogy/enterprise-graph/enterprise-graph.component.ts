@@ -23,11 +23,12 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class EnterpriseGraphComponent implements OnInit {
   flag: boolean = false;
+  modalFlag: boolean = false;
   dataset;
 
   modalStatus = 'close';
 
-  current;
+  modalData;
 
   constructor(private commonService: CommonService) {
   }
@@ -36,13 +37,18 @@ export class EnterpriseGraphComponent implements OnInit {
   height: number;
 
   openModal(event) {
-    if (this.current != event) {
-      this.modalStatus = 'close';
-      setTimeout(() => {
-        this.modalStatus = 'open';
-      }, 250);
+    if (event) {
+      if (this.modalStatus == 'open')
+        this.modalStatus = 'close';
+      this.commonService.getCompanyShortInfoByKey(event).then((x: any) => {
+        if (x) {
+          this.modalData = x.Result;
+          this.modalFlag = true;
+          this.modalStatus = 'open';
+          this.current = event;
+        }
+      });
     }
-    this.current = event;
   }
 
   closeModal() {
@@ -54,7 +60,6 @@ export class EnterpriseGraphComponent implements OnInit {
     this.height = window.innerHeight - 62;
 
     this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 2).then((x: any) => {
-      console.log(x);
       this.dataset = x.Result.Node;
       this.flag = true;
     });

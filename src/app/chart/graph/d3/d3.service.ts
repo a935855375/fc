@@ -45,7 +45,9 @@ export class D3Service {
       container.attr('transform', value);
     };
 
-    zoom = d3.zoom().on('zoom', zoomed);
+    zoom = d3.zoom()
+      .scaleExtent([0.4, 2])
+      .on('zoom', zoomed);
 
     clicked = () => {
       if (this.isCancel == false) {

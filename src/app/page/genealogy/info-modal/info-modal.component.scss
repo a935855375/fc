@@ -69,6 +69,7 @@
 .table td {
   padding: 8px;
   font-size: 12px;
+  vertical-align: middle;
 }
 
 .table .header {
@@ -78,4 +79,33 @@
 
 .table .kind {
   color: #999999;
+}
+
+mat-card {
+  width: 300px;
+  max-height: 570px;
+}
+
+.over {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.over::-webkit-scrollbar { //滚动条的宽度
+  width: 5px;
+  height: 9px;
+}
+
+.over::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+  background-color: #f8f8f8;
+}
+
+.over::-webkit-scrollbar-thumb { //滚动条的设置
+  background-color: #dddddd;
+  background-clip: padding-box;
+  min-height: 28px;
+}
+
+table {
+  margin-bottom: 0;
 }

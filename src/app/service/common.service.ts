@@ -64,4 +64,11 @@ export class CommonService {
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
+
+  getCompanyShortInfoByKey(key: string) {
+    const url = environment.apiUrl + 'companyShortInfo';
+    const params = {key: key};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

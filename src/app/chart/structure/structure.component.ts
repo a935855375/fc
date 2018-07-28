@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Person} from './models/person';
 import {Company} from './models/company';
 import {Target} from './models/target';
@@ -59,6 +59,7 @@ import {StructureService} from './structure.service';
             </svg:tspan>
           </svg:text>
           <svg:text [attr.x]="company.value_x" [attr.y]="company.value_y" class="value-name">{{company._value}}</svg:text>
+          <svg:path [attr.d]="company.path" style="fill: none; stroke-width: 1px;stroke:rgb(0,0,0)"></svg:path>
           <svg:line
             class="link"
             [attr.x1]="company.x"
@@ -68,13 +69,13 @@ import {StructureService} from './structure.service';
             [ngStyle]="{'stroke': 'black','stroke-width': 1, 'marker-start': 'url(#arrow)'}">
           </svg:line>
           <svg:rect
+            (click)="click(company.key)"
             [attr.x]="company.show_x"
             [attr.y]="company.show_y"
             [attr.width]="company.width"
             [attr.height]="company.height"
             style="stroke-width:1px;stroke:rgb(0,0,0);fill: transparent;cursor: pointer;">
           </svg:rect>
-          <svg:path [attr.d]="company.path" style="fill: none; stroke-width: 1px;stroke:rgb(0,0,0)"></svg:path>
         </g>
       </g>
     </svg>
@@ -85,6 +86,7 @@ export class StructureComponent implements OnInit {
   @Input('person') persons: Person[];
   @Input('company') companies: Company[];
   @Input('target') target: Target;
+  @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('svg')
   svg: ElementRef;
@@ -101,10 +103,14 @@ export class StructureComponent implements OnInit {
     this.structureService.init(this.persons, this.companies, this.target, this.options);
   }
 
+  click(event) {
+    this.clicked.emit(event);
+  }
+
   get options() {
     return {
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight - 62
     };
   }
 }

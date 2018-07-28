@@ -45,7 +45,6 @@ export class EnterpriseGraphComponent implements OnInit {
           this.modalData = x.Result;
           this.modalFlag = true;
           this.modalStatus = 'open';
-          this.current = event;
         }
       });
     }

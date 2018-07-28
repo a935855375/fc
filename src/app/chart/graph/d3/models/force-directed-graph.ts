@@ -4,7 +4,7 @@ import {Node} from './node';
 import * as d3 from 'd3';
 
 const FORCES = {
-  LINKS: 1 / 5000,
+  LINKS: 1 / 300,
   COLLISION: 1,
   CHARGE: -1
 };

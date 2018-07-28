@@ -1,1 +1,4 @@
-<structure *ngIf="flag" [person]="persons" [company]="companies" [target]="target"></structure>
+<structure *ngIf="flag" (clicked)="openModal($event)" [person]="persons" [company]="companies"
+           [target]="target"></structure>
+
+<info-modal *ngIf="modalFlag" [data]="modalData" (clicked)="closeModal()" [@modalStatus]="modalStatus"></info-modal>

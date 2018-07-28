@@ -18,11 +18,6 @@ export class CommonService {
     return this.http.post(url, {username: username, mail: mail, password: password}).toPromise();
   }
 
-  test() {
-    const url = environment.apiUrl + 'test';
-    return this.http.get(url, {observe: 'response'}).toPromise();
-  }
-
   getEnterpriseGraphById(id) {
     const url = environment.apiUrl + 'enterprisegraph';
     const params = {id: id.toString()};
@@ -70,5 +65,10 @@ export class CommonService {
     const params = {key: key};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
+  }
+
+  test() {
+    const url = environment.apiUrl + 'tempAssociationgraph';
+    return this.http.get(url).toPromise();
   }
 }

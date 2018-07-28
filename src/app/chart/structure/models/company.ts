@@ -23,6 +23,8 @@ export class Company {
   lines: string[];
   line_y: number[];
 
+  key: string;
+
   get show_x() {
     return this._x - this.width / 2;
   }
@@ -59,8 +61,9 @@ export class Company {
     return CONFIG.COMPANY_HEIGHT;
   }
 
-  constructor(name: string, value: number) {
+  constructor(name: string, value: number, key: string) {
     this._name = name;
     this._value = value;
+    this.key = key;
   }
 }

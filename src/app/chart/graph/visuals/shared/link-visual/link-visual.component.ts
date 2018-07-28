@@ -30,7 +30,7 @@ import CONFIG from '../../../graph.config';
       <text *ngIf="!link.isMultiple()" [attr.x]="link.getX()"
             [attr.y]="link.getY()"
             [attr.transform]="'rotate(' + link.getAngle() + ' ' + link.getX() + ',' + link.getY() + ')'"
-            style="text-anchor: middle;">{{link.relationship}}
+            style="text-anchor: middle">{{link.relationship}}
       </text>
     </svg:g>
   `,

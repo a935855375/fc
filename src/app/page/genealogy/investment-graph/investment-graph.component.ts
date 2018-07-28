@@ -46,7 +46,6 @@ export class InvestmentGraphComponent implements OnInit {
           this.modalData = x.Result;
           this.modalFlag = true;
           this.modalStatus = 'open';
-          this.current = event;
         }
       });
     }
@@ -61,7 +60,6 @@ export class InvestmentGraphComponent implements OnInit {
     this.height = window.innerHeight - 62;
 
     this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 3).then((x: any) => {
-      console.log(x);
       this.dataset = x.Result.Node;
       this.flag = true;
     });

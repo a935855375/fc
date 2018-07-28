@@ -16,9 +16,15 @@ export class AssociationGraphComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.commonService.getAssociationGraphById(localStorage.getItem('cid')).then((x: any) => {
+    /*this.commonService.getAssociationGraphById(localStorage.getItem('cid')).then((x: any) => {
       x.nodes.forEach((x: any) => this.nodes.push(new Node(x.id, x.name, x.category)));
       x.links.forEach((x: any) => this.links.push(new Link(this.nodes[x.source], this.nodes[x.target], x.value)));
+      this.flag = true;
+    });*/
+
+    this.commonService.test().then((x: any) => {
+      x.nodes.forEach((x: any) => this.nodes.push(new Node(x.keyNo, x.name, x.category)));
+      x.links.forEach((x: any) => this.links.push(new Link(this.nodes[x.source], this.nodes[x.target], x.relation)));
       this.flag = true;
     });
   }

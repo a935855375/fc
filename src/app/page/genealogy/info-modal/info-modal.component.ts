@@ -9,7 +9,7 @@ export class InfoModalComponent implements OnInit {
   k: number = 0;
 
   @Input('data') data;
-  @Output() clicked: EventEmitter = new EventEmitter();
+  @Output() clicked: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }

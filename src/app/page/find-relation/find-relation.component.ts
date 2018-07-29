@@ -1,12 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Ng2SearchPipe} from 'ng2-search-filter';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Node} from '../../chart/graph/d3/models';
+import {Link} from '../../chart/graph/d3/models';
 
 @Component({
   selector: 'app-find-relation',
   templateUrl: './find-relation.component.html',
   styleUrls: ['./find-relation.component.scss']
 })
-export class FindRelationComponent implements OnInit {
+export class FindRelationComponent implements OnInit, AfterViewInit {
   selected = '';
   value1 = 1;
   boxWidth = this.value1 / 10 * 100;
@@ -14,8 +15,7 @@ export class FindRelationComponent implements OnInit {
   addCompany = [false];
   dflag = [false, false, false];
 
-  handle(s: string): void {
-  }
+  @ViewChild('card') card: ElementRef;
 
   addCom() {
     if (this.addCompany.length < 3) {
@@ -42,9 +42,19 @@ export class FindRelationComponent implements OnInit {
 
   f = false;
 
-  constructor() {
+  nodes: Node[];
+  links: Link[];
 
+  width;
+
+  height;
+
+  constructor() {
+    this.nodes = this.data.nodes.map(x => new Node(x.id, x.name, x.category));
+    this.links = this.data.links.map(x => new Link(this.nodes[x.source], this.nodes[x.target], x.relation));
   }
+
+
 
   ngOnInit() {
     this.settings = {
@@ -238,6 +248,59 @@ export class FindRelationComponent implements OnInit {
 
   /*多节点关系-选择*/
 
+  data = {
+    nodes: [
+      {
+        id: '84',
+        name: '洪峰',
+        category: 1,
+      }, {
+        id: '73',
+        name: '雷军',
+        category: 1,
+      }, {
+        id: '84',
+        name: '小米商业保理(天津)有限责任公司',
+        category: 0,
+      }, {
+        id: '91',
+        name: '上海小米金融信息服务有限公司',
+        category: 0,
+      }, {
+        id: '45',
+        name: '捷付睿通股份有限公司',
+        category: 0,
+      }
+    ],
+    links: [
+      {
+        source: 0,
+        target: 2,
+        relation: '法人、总经理'
+      }, {
+        source: 0,
+        target: 3,
+        relation: '法人、董事长'
+      }, {
+        source: 0,
+        target: 4,
+        relation: '任职'
+      }, {
+        source: 1,
+        target: 2,
+        relation: '执行董事'
+      }, {
+        source: 1,
+        target: 3,
+        relation: '董事'
+      }, {
+        source: 1,
+        target: 4,
+        relation: '董事长、法人'
+      }
+    ]
+  };
+
   options = {
     title: {
       text: ''
@@ -268,7 +331,6 @@ export class FindRelationComponent implements OnInit {
       data: ['朋友', '战友', '亲戚']
     },
     series: [
-
       {
         type: 'graph',
         layout: 'force',
@@ -373,4 +435,9 @@ export class FindRelationComponent implements OnInit {
       }
     ]
   };
+
+  ngAfterViewInit(): void {
+    this.width = this.card.nativeElement.offsetWidth;
+    this.height = this.card.nativeElement.offsetHeight;
+  }
 }

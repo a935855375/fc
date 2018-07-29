@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {FrameModule} from '../frame/frame.module';
+import {GraphMudule} from '../../chart/graph/graph.mudule';
 
 
 @NgModule({
@@ -19,9 +20,9 @@ import {FrameModule} from '../frame/frame.module';
     FindRelationRoutingModule,
     MaterialModule,
     AngularMultiSelectModule,
-    Ng2SearchPipeModule,
     NgxEchartsModule,
-    FrameModule
+    FrameModule,
+    GraphMudule
   ],
   declarations: [
     FindRelationComponent,

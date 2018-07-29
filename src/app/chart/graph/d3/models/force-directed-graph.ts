@@ -3,7 +3,7 @@ import {Link} from './link';
 import {Node} from './node';
 import * as d3 from 'd3';
 
-const FORCES = {
+let FORCES = {
   LINKS: 1 / 300,
   COLLISION: 1,
   CHARGE: -1
@@ -16,9 +16,11 @@ export class ForceDirectedGraph {
   public nodes: Node[] = [];
   public links: Link[] = [];
 
-  constructor(nodes, links, options: { width, height }) {
+  constructor(nodes, links, options: { width, height }, charge: number) {
     this.nodes = nodes;
     this.links = links;
+
+    FORCES.CHARGE = charge;
 
     this.initSimulation(options);
   }

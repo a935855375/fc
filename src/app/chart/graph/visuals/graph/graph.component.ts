@@ -2,8 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component,
-  EventEmitter,
+  Component, EventEmitter,
   HostListener,
   Input,
   OnInit, Output,
@@ -31,8 +30,13 @@ export class GraphComponent implements OnInit, AfterViewInit {
   @Input('nodes') nodes;
   @Input('links') links;
 
+  @Input('width') width;
+  @Input('height') height;
+
   @Output() open: EventEmitter<string> = new EventEmitter<string>();
   @Output() close: EventEmitter<string> = new EventEmitter<string>();
+
+  @Input('charge') charge: number = -1;
 
   graph: ForceDirectedGraph;
   _options: { width, height } = {width: 800, height: 600};
@@ -42,11 +46,12 @@ export class GraphComponent implements OnInit, AfterViewInit {
     this.graph.initSimulation(this.options);
   }
 
-  constructor(private d3Service: D3Service, private ref: ChangeDetectorRef) {
+  constructor(private d3Service: D3Service,
+              private ref: ChangeDetectorRef) {
   }
 
   ngOnInit() {
-    this.graph = this.d3Service.getForceDirectedGraph(this.nodes, this.links, this.options);
+    this.graph = this.d3Service.getForceDirectedGraph(this.nodes, this.links, this.options, this.charge);
 
     this.d3Service.setGraph(this.graph);
 
@@ -70,9 +75,17 @@ export class GraphComponent implements OnInit, AfterViewInit {
   }
 
   get options() {
-    return this._options = {
+    this._options = {
       width: window.innerWidth,
       height: window.innerHeight - 87
     };
+
+    if (this.width)
+      this._options.width = this.width;
+
+    if (this.height)
+      this._options.height = this.height;
+
+    return this._options;
   }
 }

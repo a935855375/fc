@@ -149,6 +149,8 @@
           </div>
         </div>
       </div>
+
+
       <div *ngIf="select==1">
         <div class="px-3 flex-grow-1">
           <h5 class="font-weight-bold pt-3">疑似关联关系</h5>
@@ -289,14 +291,15 @@
     </div>
 
     <div *ngIf="select==0" class="col-lg-9 col-md-12" style="min-height: 1019px;">
-      <div class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
+      <div #card class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
         <div *ngIf="!f" class="no_data d-flex flex-column align-items-center mt-5">
           <img class="demoAna py-5" src="../../../assets/img/search-relation.jpg" style="width: 900px">
           <div class="f-16" style="color: #bbb">您可以添加两个公司或个人，一键分析即可查看其所有关联路径。</div>
           <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 赵微</span> 的关联路径分析</div>
         </div>
 
-        <div *ngIf="f" echarts [options]="options" style="height: 100vh"></div>
+        <graph *ngIf="f" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="-20"
+               style="height: 100vh"></graph>
       </div>
     </div>
     <div *ngIf="select==1" class="col-lg-9 col-md-12" style="min-height: 1019px;">

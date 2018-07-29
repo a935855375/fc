@@ -44,31 +44,41 @@
     </div>
 
     <div class="mt-1 d-flex">
-      <button mat-button disabled class="btn-head">成立日期</button>
-      <div>
-        <button mat-button *ngFor="let date of dates;let idx=index" (click)="selValue(4,idx)"
-                [class.cate_active]="kind[4]==idx">{{date}}
-        </button>
+      <div class="d-flex">
+        <button mat-button disabled class="btn-head">成立日期</button>
+        <div>
+          <button mat-button *ngFor="let date of dates;let idx=index" (click)="selValue(4,idx)"
+                  [class.cate_active]="kind[4]==idx">{{date}}
+          </button>
+        </div>
       </div>
+      <a class="more ml-auto pt-2 mr-3">更多<i class="fa fa-angle-down"></i></a>
     </div>
 
     <div class="mt-1 d-flex">
-      <button mat-button disabled class="btn-head">省份地区</button>
-      <div>
-        <button mat-button *ngFor="let province of provinces;let idx=index" (click)="selValue(5,idx)"
-                [class.cate_active]="kind[5]==idx">{{province}}
-        </button>
+      <div class="d-flex">
+        <button mat-button disabled class="btn-head">省份地区</button>
+        <div>
+          <button mat-button *ngFor="let province of provinces;let idx=index" (click)="selValue(5,idx)"
+                  [class.cate_active]="kind[5]==idx">{{province}}
+          </button>
+        </div>
       </div>
+      <a class="more ml-auto pt-2 mr-3">更多<i class="fa fa-angle-down"></i></a>
     </div>
 
     <div class="mt-1 d-flex">
-      <button mat-button disabled class="btn-head">行业门类</button>
-      <div>
-        <button mat-button *ngFor="let work of works;let idx=index" (click)="selValue(6,idx)"
-                [class.cate_active]="kind[6]==idx">{{work}}
-        </button>
+      <div class="d-flex">
+        <button mat-button disabled class="btn-head">行业门类</button>
+        <div>
+          <button mat-button *ngFor="let work of works;let idx=index" (click)="selValue(6,idx)"
+                  [class.cate_active]="kind[6]==idx">{{work}}
+          </button>
+        </div>
       </div>
+      <a class="more ml-auto pt-2 mr-3">更多<i class="fa fa-angle-down"></i></a>
     </div>
+
   </div>
 
 

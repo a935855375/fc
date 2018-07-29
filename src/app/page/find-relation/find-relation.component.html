@@ -304,12 +304,15 @@
     </div>
     <div *ngIf="select==1" class="col-lg-9 col-md-12" style="min-height: 1019px;">
       <div class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
-        <div class="no_data d-flex flex-column align-items-center">
+        <div *ngIf="!dSelect" class="no_data d-flex flex-column align-items-center">
           <img class="demoAna py-5" src="../../../assets/img/anaduo.png" style="width: 900px">
           <div class="f-16" style="color: #bbb">您可以添加多个公司或个人，一键分析即可查看其所有关联路径。</div>
           <div class="f-16" style="color: #bbb">示例：<a class="text-primary" (click)="selectDuo()">如雷军 黎万强 傅盛</a> 的关联路径分析
           </div>
         </div>
+
+        <graph *ngIf="dSelect" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="charge"
+               style="height: 100vh"></graph>
       </div>
     </div>
 

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search-cate',
@@ -11,11 +11,13 @@ export class SearchCateComponent {
   kindLast = Array(7).fill(-1);
   ranges = ['企业名', '法人或股东', '高管', '品牌/产品', '联系方式', '经营范围'];
   types = ['企业', '社会组织', '香港公司', '台湾公司'];
-  staues = ['暂无(15)', '正常(671)', '核准设立(1)', '存续(2915)', '迁入(2)', '迁出(3)', '吊销(398)', '撤销(2)', '仍注册(1)', '已告解散(1)', '注销(878)'];
+  staues = ['暂无', '正常', '核准设立', '存续', '迁入', '迁出', '吊销', '撤销', '仍注册', '已告解散', '注销'];
   capitals = ['500万以下', '500~1000万', '1000~5000万', '5000万以上'];
-  dates = ['2018 (207)', '2017 (765)', '2016 (506)', '2015 (454)', '2014 (424)'];
-  provinces = ['安徽 (102)', '北京 (162)', '重庆 (82)', '福建 (40)'];
-  works = ['农、林、牧、渔业 (328)', '采矿业 (11)', '制造业 (325)', '电力、热力、燃气及水生产和供应业 (22)'];
+  dates = ['2018', '2017', '2016', '2015', '2014', '2013'];
+  provinces = ['安徽', '北京', '重庆', '福建', '广东', '广西', '湖北'];
+  works = ['农、林、牧、渔业', '采矿业', '制造业', '电力、热力、燃气及水生产和供应业'];
+
+  @Output() filter: EventEmitter<number> = new EventEmitter<>();
 
   selValue(idx, select) {
     if (this.kindLast[idx] == select) {
@@ -25,5 +27,11 @@ export class SearchCateComponent {
       this.kind[idx] = select;
       this.kindLast[idx] = select;
     }
+    if (idx == 3)
+      this.invokeFilter();
+  }
+
+  invokeFilter() {
+    this.filter.emit(500);
   }
 }

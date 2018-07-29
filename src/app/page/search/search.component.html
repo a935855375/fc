@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-9 col-md-12">
 
-      <app-search-cate></app-search-cate>
+      <app-search-cate (filter)="filter($event)"></app-search-cate>
       <app-search-body
         [company]="companies"
         [k]="key"
@@ -38,3 +38,5 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

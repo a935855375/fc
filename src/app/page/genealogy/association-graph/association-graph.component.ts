@@ -59,6 +59,22 @@ export class AssociationGraphComponent implements OnInit {
       x.nodes.forEach((x: any) => this.nodes.push(new Node(x.id, x.name, x.category)));
       x.links.forEach((x: any) => this.links.push(new Link(this.nodes[x.source], this.nodes[x.target], x.value)));
       this.flag = true;
+    });
+
+    this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 7).then((x: any) => {
+      console.log(x);
+      const node = [];
+      const link = [];
+      for (let i = 0; i < x.data.length; i++) {
+        x.data[i].graph.nodes.forEach(x => node.push(x));
+        x.data[i].graph.relationships.forEach(x => link.push(x));
+      }
+      const body = {
+        nodes: node,
+        links: link
+      };
+
+      this.commonService.test2(body).then(x => {});
     });*/
 
     this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 6).then((x: any) => {

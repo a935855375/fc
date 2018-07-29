@@ -14,6 +14,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   companies: Company[];
 
+  _companies;
+
   people: any[];
 
   interestedCompany = (companies: Company[]) =>
@@ -21,6 +23,11 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   constructor(private router: ActivatedRoute, private searchService: SearchService) {
 
+  }
+
+  filter(z: number) {
+    this._companies = this.companies;
+    this.companies = this.companies.filter(x => x.capital > z);
   }
 
   ngOnInit(): void {

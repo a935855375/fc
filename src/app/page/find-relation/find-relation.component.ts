@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Node} from '../../chart/graph/d3/models';
 import {Link} from '../../chart/graph/d3/models';
+import {CommonService} from '../../service/common.service';
 
 @Component({
   selector: 'app-find-relation',
@@ -42,16 +43,21 @@ export class FindRelationComponent implements OnInit, AfterViewInit {
 
   f = false;
 
+  ff = false;
+
   nodes: Node[];
   links: Link[];
+
+  charge: number;
 
   width;
 
   height;
 
-  constructor() {
+  constructor(private commonService: CommonService) {
     this.nodes = this.data.nodes.map(x => new Node(x.id, x.name, x.category));
     this.links = this.data.links.map(x => new Link(this.nodes[x.source], this.nodes[x.target], x.relation));
+    this.charge = -1;
   }
 
 
@@ -243,7 +249,13 @@ export class FindRelationComponent implements OnInit, AfterViewInit {
   dSelect = false;
 
   selectDuo() {
-    this.dSelect = true;
+    this.commonService.getPersonalGraphById(1, 8).then((x: any) => {
+      console.log(x);
+      this.nodes = x.nodes.map(x => new Node(x.id, x.name, x.category));
+      this.links = x.links.map(x => new Link(this.nodes[x.source], this.nodes[x.target], x.relation));
+      this.charge = -2;
+      this.dSelect = true;
+    });
   }
 
   /*多节点关系-选择*/

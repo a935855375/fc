@@ -7,6 +7,7 @@ import {SearchCateComponent} from './search-cate/search-cate.component';
 import {MaterialModule} from '../../material.module';
 import {SearchBodyComponent} from './search-body/search-body.component';
 import {SearchService} from '../../service/search.service';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {SearchService} from '../../service/search.service';
     CommonModule,
     NgbModule,
     SearchRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FrameModule
   ],
   declarations: [
     SearchComponent,

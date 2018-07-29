@@ -10,7 +10,7 @@ a:hover {
   text-decoration: none;
 }
 
-em {
+::ng-deep em {
   font-style: normal;
   color: #e33244;
 }

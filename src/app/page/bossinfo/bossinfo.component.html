@@ -11,9 +11,24 @@
             <a href="#" class="c_iconDt px-2"><span><i class="fa fa-eye mr-1"></i></span>监控</a>
           </div>
         </div>
-        <p class="f-14 mb-2">简介：雷军， 1969年12月出生于湖北仙桃，现任小米科技董事长兼CEO，同时兼任金山、YY、猎豹移动等三家上市公司董事长，是中国大陆著名天使投资人。...<a href="#"
-                                                                                                              class="ml-2">展开</a>
+        <p class="f-14 mb-2">简介：雷军， 1969年12月出生于湖北仙桃，现任小米科技董事长兼CEO，同时兼任金山、YY、猎豹移动等三家上市公司董事长，是中国大陆著名天使投资人。...<a
+          (click)="openModal(expand)"
+          class="ml-2" style="color: #128bed">展开</a>
         </p>
+        <ng-template #expand let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">雷军的人物介绍</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>雷军， 1969年12月出生于湖北仙桃，现任小米科技董事长兼CEO，同时兼任金山、YY、猎豹移动等三家上市公司董事长，是中国大陆著名天使投资人。
+              雷军曾任两届海淀区政协委员，2012年当选北京市人大代表，2013年2月当选全国人民代表大会代表。 雷军作为中国互联网代表人物及全球年度电子商务创新领袖人物
+              ，曾获中国经济年度人物及十大财智领袖人物、中国互联网年度人物等多项国内外荣誉，并当选《福布斯》（亚洲版）2014年度商业人物。
+            </div>
+          </div>
+        </ng-template>
       </div>
     </div>
   </mat-card>
@@ -284,18 +299,18 @@
           <table class="table mw-100">
             <tbody>
             <tr class="color-primary border">
-              <th>序号</th>
-              <th>企业名称</th>
-              <th>职位</th>
-              <th>注册资本</th>
-              <th>地区</th>
-              <th>行业</th>
-              <th>法定代表人</th>
-              <th>经营状态</th>
+              <td width="8%">序号</td>
+              <td width="12%">企业名称</td>
+              <td>职位</td>
+              <td>注册资本</td>
+              <td>地区</td>
+              <td>行业</td>
+              <td width="15%">法定代表人</td>
+              <td>经营状态</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>1</td>
-              <td><a href="/company/534472fd-7d53-4958-8132-d6a6242423d8" data-event-name="在外任职-点击公司">小米科技有限责任公司</a>
+              <td><a href="#" data-event-name="在外任职-点击公司">小米科技有限责任公司</a>
               </td>
               <td>法定代表人、股东、经理、董事长</td>
               <td>185000 万人民币</td>
@@ -304,7 +319,7 @@
               <td><a href="/name-detail/02ad6587897a976a793aa72ead924a47" data-event-name="在外任职-点击人名">雷军</a></td>
               <td class="">开业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>2</td>
               <td><a href="/company/d5365cd9-42ec-4f56-a5e7-c94cfc51dae4" data-event-name="在外任职-点击公司">广东小米科技有限责任公司</a>
               </td>
@@ -315,7 +330,7 @@
               <td><a href="/name-detail/02ad6587897a976a793aa72ead924a47" data-event-name="在外任职-点击人名">雷军</a></td>
               <td class="">在营（开业）企业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>3</td>
               <td><a href="/company/6b7855c9-a2f8-47b7-ad6b-b82a5ef37cbf" data-event-name="在外任职-点击公司">广州华多网络科技有限公司</a>
               </td>
@@ -326,7 +341,7 @@
               <td><a href="/name-detail/17738737520d801b7c00a55c9934d604" data-event-name="在外任职-点击人名">李婷</a></td>
               <td class="">在营（开业）企业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>4</td>
               <td><a href="/company/de7f2292-4482-4790-92b3-b1564c636bd5" data-event-name="在外任职-点击公司">小米通讯技术有限公司</a>
               </td>
@@ -337,7 +352,7 @@
               <td><a href="/name-detail/007e105cd80818842acd7a512f26a7fe" data-event-name="在外任职-点击人名">黎万强</a></td>
               <td class="">开业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>5</td>
               <td><a href="/company/8ee84f74-d12e-41fd-aeee-21cc20958786" data-event-name="在外任职-点击公司">四川银米科技有限责任公司</a>
               </td>
@@ -348,7 +363,7 @@
               <td><a href="/name-detail/02ad6587897a976a793aa72ead924a47" data-event-name="在外任职-点击人名">雷军</a></td>
               <td class="">存续（在营、开业、在册）</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>6</td>
               <td><a href="/company/54a944d3-03bb-49b8-9ad0-09231c9b6d6d" data-event-name="在外任职-点击公司">四川新网银行股份有限公司</a>
               </td>
@@ -359,7 +374,7 @@
               <td><a href="/name-detail/04742eeb8fd6352bccae0a754b38e39d" data-event-name="在外任职-点击人名">王航</a></td>
               <td class="">存续（在营、开业、在册）</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>7</td>
               <td><a href="/company/da10b2b8-c81f-4ae2-9c04-ee9d3288f61d" data-event-name="在外任职-点击公司">北京口袋时尚科技有限公司</a>
               </td>
@@ -370,7 +385,7 @@
               <td><a href="/name-detail/08c072b4e25c4889189e4f49c2d2a135" data-event-name="在外任职-点击人名">王珂</a></td>
               <td class="">开业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>8</td>
               <td><a href="/company/cf26b580-643b-4f0b-9bda-64db8534c0e3" data-event-name="在外任职-点击公司">北京顺为创业投资有限公司</a>
               </td>
@@ -381,7 +396,7 @@
               <td><a href="/name-detail/02ad6587897a976a793aa72ead924a47" data-event-name="在外任职-点击人名">雷军</a></td>
               <td class="">开业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>9</td>
               <td><a href="/company/527baee4-8d0c-4b6a-8eb4-582ae1fc4718" data-event-name="在外任职-点击公司">北京小米支付技术有限公司</a>
               </td>
@@ -392,7 +407,7 @@
               <td><a href="/name-detail/084537cd7b157f551256bd0039fcab0f" data-event-name="在外任职-点击人名">洪锋</a></td>
               <td class="">开业</td>
             </tr>
-            <tr>
+            <tr class="table-bordered">
               <td>10</td>
               <td><a href="/company/fbe15da5-dd56-457b-9fe7-59788197dea3" data-event-name="在外任职-点击公司">重庆市小米小额贷款有限公司</a>
               </td>

@@ -67,19 +67,38 @@ a, a:hover {
   .cuppa-dropdown {
     .selected-list {
       .c-btn {
-        padding: 2px !important;
-        font-size: 13px;
-        width: 100px;
+        cursor: not-allowed;
+        background-color: #eee;
+        opacity: 1;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        width: 110px;
+        height: 34px;
+        padding: 5px 4px !important;
+        font-size: 15px;
         box-shadow: none;
         .c-angle-down {
           width: 12px;
           height: 12px;
           top: 40%;
+          display: none;
         }
         .c-angle-up {
           width: 12px;
           height: 12px;
           top: 40%;
+          display: none;
+        }
+      }
+    }
+    .dropdown-list {
+      .list-area {
+        .lazyContainer {
+          span {
+            .pure-checkbox {
+              font-size: 15px;
+            }
+          }
         }
       }
     }
@@ -87,123 +106,12 @@ a, a:hover {
 }
 
 .ana-uncheck {
-  margin-top: 2px;
-}
-
-.search {
-  position: absolute;
-  bottom: 20px;
-  right: 0;
-  width: 222px;
-  height: 30px;
-  padding: 2px 2px 2px 72px;
-  background-color: #e5e9ef;
-  background-color: rgba(0, 0, 0, 0.12);
-  border-radius: 0.375rem;
-  border: 1px solid #4791ff;
-  font-size: 12px;
-  z-index: 10;
-}
-
-.search .searchform {
-  background-color: #fff;
-  background-color: hsla(0, 0%, 100%, 0.88);
-  display: block;
-  height: 27px;
-  border-radius: 4px;
-  -webkit-transition: background-color 0.2s;
-  -o-transition: 0.2s background-color;
-  transition: background-color 0.2s;
-}
-
-.search-keyword {
-  float: left;
-  width: 184px;
-  color: #222;
-  font-size: 14px;
-  overflow: hidden;
-  height: 27px;
-  line-height: 27px;
-  padding: 0 12px;
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: transparent;
-  outline: none;
-}
-
-.search-submit {
-  display: block;
-  position: absolute;
-  right: 0;
-  width: 48px;
-  min-width: 0;
+  margin-top: 6px;
   cursor: pointer;
-  height: 27px;
-  background: url('../../../assets/img/search.svg') 10px 0 no-repeat;
-  margin: 0;
-  padding: 0;
-  border: 0;
 }
 
-.bilibili-suggest {
-  position: relative;
-  border: 1px solid #e5e9ef;
-  margin-top: 4px;
-  background: #fff;
-  z-index: 99999;
-  border-radius: 4px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0 2px 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
-  padding-bottom: 5px;
-  font-size: 12px;
-  padding-left: 0;
-}
-
-.bilibili-suggest .b-line {
-  border-top: 1px solid #e5e9ef;
-  position: relative;
-  height: 10px;
-  margin: 10px 10px 0;
-}
-
-.bilibili-suggest .b-line p {
-  margin-top: -10px;
-  text-align: center;
-}
-
-.bilibili-suggest .b-line span {
-  display: inline-block;
-  padding: 0 10px;
-  height: 18px;
-  text-align: center;
-  cursor: pointer;
-  color: #99a2aa;
-  background: #fff;
-}
-
-.bilibili-suggest .suggest-item {
-  padding: 6px 10px;
-  cursor: pointer;
-  word-wrap: break-word;
-  word-break: break-all;
-  display: block;
-  color: #222;
-  position: relative;
-}
-
-.bilibili-suggest .suggest-item a {
-  color: #222;
-  display: block;
-  max-width: 200px;
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.bilibili-suggest .suggest-item:hover {
-  background-color: #e5e9ef;
+input[type="checkbox"][disabled] {
+  cursor: not-allowed;
 }
 
 ul {
@@ -249,4 +157,63 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 50%;
   border: 2px solid #91d5ff;
   background-color: #fff;
+}
+
+/*添加公司*/
+.suggest-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: block;
+  color: #222;
+  position: relative;
+}
+
+.suggest-item a {
+  color: #222;
+  display: block;
+  max-width: 200px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggest-item:hover {
+  background-color: #e5e9ef;
+}
+
+.selPerson {
+  a {
+    color: #000000;
+  }
+  a:hover {
+    color: #128bed;
+  }
+}
+
+/*下拉框*/
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  width: 110px;
+  height: 34px;
+  padding-left: 6px;
+  margin-right: 5px;
+}
+
+select:focus {
+  border-color: #177bbb;
+}
+
+:host /deep/ option {
+  background: #ffffff;
+
 }

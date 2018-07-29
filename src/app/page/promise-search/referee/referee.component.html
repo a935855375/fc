@@ -3,29 +3,29 @@
   /
   <li class="mx-2"><a routerLink="/promise" (click)="selectZx(2)">裁判文书查询</a></li>
   /
-  <li class="mx-2">马云裁判文书查询列表</li>
+  <li class="mx-2">小米裁判文书查询列表</li>
 </div>
 <mat-card class="card rounded-0 py-0 mt-2" style="box-shadow: none">
   <div class="py-3">
-    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">25 </span> 位符合条件的裁判文书</span>
+    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">59 </span> 位符合条件的裁判文书</span>
   </div>
-  <mat-divider></mat-divider>
-  <div *ngFor="let index of [1,2,3,4,5]" class="d-flex justify-content-between">
-    <div class="d-flex">
-      <div class="py-3">
-        <p class="mb-2 d-flex">
-          <a routerLink="/promise-search/referee-info" class="mr-1"
-             style="font-size: 17px; font-weight: 700;"><span class="name">被告人<em>马云</em>非法买卖枪支判决一审判决书</span></a>
-        </p>
-        <p class="f-14 mb-2" style="color: #888">案号：<span>（2016）甘0503刑初348号</span><span
-          class="ml-3" style="color: #888">立案日期：2016-12-07</span></p>
-        <p class="f-14 mb-2" style="color: #888">案件类型： 刑事案件</p>
-        <p class="f-14 mb-2">执行法院：天水市麦积区人民法院</p>
-        <!--<p class="f-14 mb-2"><i class="fa fa-search"></i>法定代表人：<em style="color: #dc3545; font-style: normal">{{c.represent}}</em></p>-->
+  <div *ngFor="let referee of referees">
+    <mat-divider></mat-divider>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <div class="py-3">
+          <p class="mb-2 d-flex">
+            <a routerLink="/promise-search/referee-info" class="mr-1"
+               style="font-size: 17px; font-weight: 700;"><span class="name" [innerHtml]="referee.title"></span></a>
+          </p>
+          <p class="f-14 mb-2" style="color: #888">案号：<span>{{referee.caseNum}}</span><span
+            class="ml-3" style="color: #888">立案日期：{{referee.caseDate}}</span></p>
+          <p class="f-14 mb-2" style="color: #888">案件类型： {{referee.caseType}}</p>
+          <p class="f-14 mb-2">执行法院：{{referee.executiveCourt}}</p>
+        </div>
       </div>
     </div>
   </div>
-  <mat-divider></mat-divider>
 </mat-card>
-<ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="80" [maxSize]="8"
+<ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="60" [maxSize]="6"
                 [(page)]="page"></ngb-pagination>

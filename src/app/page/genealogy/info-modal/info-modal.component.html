@@ -22,9 +22,9 @@
     <div class="d-flex com_head border-top border-left border-right">
       <a class="com_active text-center f-14 py-2 clear_left_border flex-grow-1"
          [ngClass]="{'com_active': k==0, 'clear_left_border': k==0}" (click)="k=0">公司</a>
-      <a class="com_active text-center f-14 py-2 flex-grow-1" [class.com_active]="k==1" (click)="k=1">风险信息</a>
+      <a class="com_active text-center f-14 py-2 flex-grow-1" [class.com_active]="k==1" (click)="k=1">对外投资</a>
       <a class="com_active text-center f-14 py-2 flex-grow-1"
-         [ngClass]="{'com_active': k==2, 'clear_right_border': k==2}" (click)="k=2">知识产权</a>
+         [ngClass]="{'com_active': k==2, 'clear_right_border': k==2}" (click)="k=2">主要人员</a>
     </div>
 
     <div *ngIf="k==0" class="mt-1 over">

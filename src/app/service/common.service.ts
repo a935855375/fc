@@ -67,8 +67,13 @@ export class CommonService {
     return this.http.get(url, options).toPromise();
   }
 
-  test() {
+  /*test() {
     const url = environment.apiUrl + 'tempAssociationgraph';
     return this.http.get(url).toPromise();
   }
+
+  test2(body) {
+    const url = environment.apiUrl + 'tempAssociationgraph';
+    return this.http.post(url, body).toPromise();
+  }*/
 }

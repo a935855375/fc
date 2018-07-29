@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../service/common.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-brands',
@@ -11,8 +12,26 @@ export class BrandsComponent implements OnInit {
   holder = '请输入商标名称、注册号或申请人名称';
   title = '商标';
 
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: CommonService, private router: Router) {
     this.changeKind(this.commonService.special);
+  }
+
+  onKeydown(event) {
+    if (event.key === 'Enter') {
+      this.changeTab();
+    }
+  }
+
+  changeTab() {
+    if (this.commonService.special == 0) {
+      this.router.navigate(['/brand-search']);
+    } else if (this.commonService.special == 1) {
+      this.router.navigate(['/brand-search/patent']);
+    } else if (this.commonService.special == 2) {
+      this.router.navigate(['/brand-search/copyright']);
+    } else if (this.commonService.special == 3) {
+      this.router.navigate(['/brand-search/software']);
+    }
   }
 
   ngOnInit() {

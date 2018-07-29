@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../../service/common.service';
+import {default as SOFTWARE, Software} from './software';
 
 @Component({
   selector: 'app-software',
@@ -8,6 +9,7 @@ import {CommonService} from '../../../service/common.service';
 })
 export class SoftwareComponent implements OnInit {
   page = 1;
+  softwares: Software[] = SOFTWARE;
 
   constructor(private commonService: CommonService) {
   }

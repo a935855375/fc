@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {default as LOSTPRO, Lostpro} from './lostpro';
 
 @Component({
   selector: 'app-lostpro',
@@ -7,8 +8,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LostproComponent implements OnInit {
   page = 1;
+  lostpros: Lostpro[] = LOSTPRO;
 
   constructor() {
+    console.log(LOSTPRO);
   }
 
   ngOnInit() {

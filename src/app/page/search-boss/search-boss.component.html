@@ -2,9 +2,19 @@
   <div class="row flex-column">
     <h1 class="align-self-center mb-5 mt-5" style="color: #5a5a5a">查老板，就上企信通！</h1>
     <div class="align-self-stretch d-flex justify-content-center mb-2">
-      <div class="input-group input-group-lg" style="max-width: 60%">
-        <input type="search" name="q" class="form-control rounded-0" style="font-size: 14px;border: none"
-               placeholder="请输入法定代表人、股东或高管姓名，如“雷军”">
+      <div class="d-flex" style="width: 60%">
+        <div ngbDropdown class="d-flex flex-column w-100" #myDrop="ngbDropdown">
+          <input #input ngbDropdownAnchor id="dropdownManual" name="q" class="rounded-0 flex-grow-1"
+                 style="font-size: 14px;border: none;text-indent: 12px;max-height: 48px" autocomplete="off"
+                 placeholder="请输入法定代表人、股东或高管姓名，如“雷军”" [ngModel]="key" (ngModelChange)="keyChanged($event)"
+                 (keydown)="onKeydown($event)">
+          <div ngbDropdownMenu aria-labelledby="dropdownManual" style="padding: 0">
+            <ul class="py-0 m-0" style="padding-left: 0 !important;" [ngStyle]="{'width': width + 'px'}">
+              <li class="suggest-item" (click)="click(item)" *ngFor="let item of filter(items, key)">{{item}}
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="input-group-btn btn-group-lg">
           <button style="width: 80px" class="btn btn-info rounded-0" routerLink="/boss"><i class="fa fa-search"></i>
           </button>

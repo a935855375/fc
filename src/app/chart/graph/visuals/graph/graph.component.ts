@@ -1,4 +1,13 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Input, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit, Output,
+} from '@angular/core';
 import {D3Service, ForceDirectedGraph} from '../../d3';
 
 @Component({
@@ -9,7 +18,10 @@ import {D3Service, ForceDirectedGraph} from '../../d3';
       <g [zoomableOf]="svg">
         <g [linkVisual]="link" *ngFor="let link of links"></g>
         <g [nodeVisual]="node" *ngFor="let node of nodes"
-           [draggableNode]="node" [draggableInGraph]="graph" [draggableNodes]="nodes" [draggableLink]="links"></g>
+           [draggableNode]="node"
+           [draggableInGraph]="graph"
+           [draggableNodes]="nodes"
+           [draggableLink]="links"></g>
       </g>
     </svg>
   `,
@@ -18,6 +30,10 @@ import {D3Service, ForceDirectedGraph} from '../../d3';
 export class GraphComponent implements OnInit, AfterViewInit {
   @Input('nodes') nodes;
   @Input('links') links;
+
+  @Output() open: EventEmitter<string> = new EventEmitter<string>();
+  @Output() close: EventEmitter<string> = new EventEmitter<string>();
+
   graph: ForceDirectedGraph;
   _options: { width, height } = {width: 800, height: 600};
 
@@ -30,18 +46,20 @@ export class GraphComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    /** Receiving an initialized simulated graph from our custom d3 service */
     this.graph = this.d3Service.getForceDirectedGraph(this.nodes, this.links, this.options);
 
     this.d3Service.setGraph(this.graph);
 
     this.d3Service.setLinks(this.links);
 
-    /** Binding change detection check on each tick
-     * This along with an onPush change detection strategy should enforce checking only when relevant!
-     * This improves scripting computation duration in a couple of tests I've made, consistently.
-     * Also, it makes sense to avoid unnecessary checks when we are dealing only with simulations data binding.
-     */
+    this.d3Service._openModal.subscribe(key => {
+      this.open.emit(key);
+    });
+
+    this.d3Service._closeModal.subscribe(() => {
+      this.close.emit();
+    });
+
     this.graph.ticker.subscribe((d) => {
       this.ref.markForCheck();
     });

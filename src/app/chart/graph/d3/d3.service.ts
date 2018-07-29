@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {ForceDirectedGraph, Link, Node} from './models';
 import * as d3 from 'd3';
 
@@ -24,12 +24,24 @@ export class D3Service {
 
   highLightLink: Link[] = [];
 
+  _openModal: EventEmitter<string> = new EventEmitter<string>();
+
+  _closeModal: EventEmitter<any> = new EventEmitter();
+
   setGraph(graph: ForceDirectedGraph) {
     this.g = graph;
   }
 
   setLinks(links: Link[]) {
     this.links = links;
+  }
+
+  openModal(key) {
+    this._openModal.emit(key);
+  }
+
+  closeModal() {
+    this._closeModal.emit();
   }
 
   /** A method to bind a pan and zoom behaviour to an svg element */
@@ -55,7 +67,7 @@ export class D3Service {
         this.isCancel = true;
       } else {
         this.unFocus();
-        //console.log('清理');
+        this.closeModal();
       }
     };
 

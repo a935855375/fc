@@ -14,17 +14,13 @@
           <div class="pb-3">
             <div class="d-flex">
               <div class="ana-spot align-self-start mr-2 mt-2"></div>
-              <div style="width: 100%" class="d-flex flex-column">
-                <input class="flex-grow-1" placeholder="在此添加公司"
-                       [ngModel]="content"
-                       (ngModelChange)="change($event)">
-                <div class="dropdown" *ngIf="show">
-                  <ul class="bilibili-suggest">
-                    <li class="kw"><a>
-                      <div class="b-line"><p><span>关键词</span></p></div>
-                    </a>
-                    </li>
-                    <li class="suggest-item" (click)="click(item)" *ngFor="let item of items |filter:content">{{item}}
+              <div ngbDropdown class="d-flex flex-column w-100" #myDrop1="ngbDropdown">
+                <input #input1 ngbDropdownAnchor id="dropdownManual" name="q" class="rounded-0 flex-grow-1"
+                       style="font-size: 14px;max-height: 48px" autocomplete="off"
+                       placeholder="在此添加公司" [ngModel]="key1" (ngModelChange)="keyChanged1($event)">
+                <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                  <ul class="py-0 m-0" style="padding-left: 0 !important;" [ngStyle]="{'width': width1 + 'px'}">
+                    <li class="suggest-item" (click)="click1(item)" *ngFor="let item of filter(addcom, key1)">{{item}}
                     </li>
                   </ul>
                 </div>
@@ -32,15 +28,16 @@
             </div>
             <div class="d-flex py-1 pl-3">
               <div *ngIf="flag1" class="pr-2">
-                <angular2-multiselect [data]="itemList"
-                                      [(ngModel)]="selectedItems"
+                <angular2-multiselect [data]="itemList1"
+                                      [(ngModel)]="selectedItems1"
                                       [settings]="settings"
                                       (onSelect)="onItemSelect($event)"
                                       (onDeSelect)="OnItemDeSelect($event)">
                 </angular2-multiselect>
               </div>
               <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" (click)="selPerson1()">
+                <input *ngIf="selFlag1" disabled="disabled" type="checkbox">
+                <input *ngIf="!selFlag1" type="checkbox" (click)="selPerson1()">
               </div>
             </div>
           </div>
@@ -48,23 +45,16 @@
             <div class="d-flex ml-0">
               <div style="width: 100%" class="d-flex">
                 <div class="ana-spot2 align-self-start mr-2 mt-2"></div>
-                <div style="width: 100%" class="d-flex flex-column">
-                  <input class="flex-grow-1" placeholder="在此添加公司"
-                         [ngModel]="content2"
-                         (ngModelChange)="change2($event)">
-
-                  <div class="dropdown" *ngIf="show2">
-                    <ul class="bilibili-suggest">
-                      <li class="kw"><a>
-                        <div class="b-line"><p><span>关键词</span></p></div>
-                      </a>
-                      </li>
-                      <li class="suggest-item" (click)="click2(item)" *ngFor="let item of items |filter:content2">
-                        {{item}}
+                <div ngbDropdown class="d-flex flex-column w-100" #myDrop2="ngbDropdown">
+                  <input #input2 ngbDropdownAnchor name="q" class="rounded-0 flex-grow-1"
+                         style="font-size: 14px;max-height: 48px" autocomplete="off"
+                         placeholder="在此添加公司" [ngModel]="key2" (ngModelChange)="keyChanged2($event)">
+                  <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                    <ul class="py-0 m-0" style="padding-left: 0 !important;" [ngStyle]="{'width': width2 + 'px'}">
+                      <li class="suggest-item" (click)="click2(item)" *ngFor="let item of filter(addcom, key2)">{{item}}
                       </li>
                     </ul>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -78,7 +68,8 @@
                 </angular2-multiselect>
               </div>
               <div class="ana-uncheck f-14">选择人
-                <input name="test" type="checkbox" (change)="selPerson2()">
+                <input *ngIf="selFlag2" disabled="disabled" type="checkbox">
+                <input *ngIf="!selFlag2" type="checkbox" (click)="selPerson2()">
               </div>
             </div>
           </div>
@@ -139,14 +130,14 @@
             <h5 class="font-weight-bold">搜索历史</h5>
             <div class="d-flex">
               <ul class="list-group rel-history flex-grow-1">
-                <li class="list-group-item d-inline-flex">
+                <li class="list-group-item selPerson d-inline-flex">
                   <a class="d-inline-flex flex-column align-items-center flex-grow-1" href="#">
-                    <div>阿里云计算有限公司</div>
+                    <div>小米技术责任有限公司【雷军】</div>
                     <i class="fa fa-long-arrow-down"></i>
-                    <div>腾讯科技(深圳)有限公司【马化腾】</div>
+                    <div>北京小米支付技术有限公司【洪峰】</div>
                   </a>
                 </li>
-                <li class="list-group-item d-inline-flex">
+                <li class="list-group-item selPerson d-inline-flex">
                   <a class="d-inline-flex flex-column align-items-center flex-grow-1" href="#">
                     <div>合宝文娱集团有限公司【李斐】</div>
                     <i class="fa fa-long-arrow-down"></i>
@@ -163,101 +154,119 @@
           <h5 class="font-weight-bold pt-3">疑似关联关系</h5>
           <div class="pt-3">
             <div class="d-flex">
-              <div style="width: 100%" class="d-flex flex-column">
-                <input class="flex-grow-1" placeholder="在此添加公司"
-                       [ngModel]="content"
-                       (ngModelChange)="change($event)">
-                <div class="dropdown" *ngIf="show">
-                  <ul class="bilibili-suggest">
-                    <li><a>
-                      <div class="b-line"><p><span>关键词</span></p></div>
-                    </a>
-                    </li>
-                    <li class="suggest-item" (click)="click(item)" *ngFor="let item of items |filter:content">{{item}}
-                    </li>
-                  </ul>
-                </div>
+              <div class="d-flex flex-column" style="width: 262px">
+                <input *ngIf="!dSelect" name="q" class="rounded-0 flex-grow-1"
+                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
+                       placeholder="在此添加公司">
+                <input *ngIf="dSelect" name="q" class="rounded-0 flex-grow-1"
+                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
+                       placeholder="小米科技有限责任公司">
               </div>
             </div>
-            <div class="d-flex py-1">
+            <div *ngIf="!dSelect" class="d-flex py-1">
               <div *ngIf="dflag1" class="pr-2">
-                <angular2-multiselect [data]="itemList"
-                                      [(ngModel)]="selectedItems"
+                <angular2-multiselect [data]="ditemList1"
+                                      [(ngModel)]="dselectedItems1"
                                       [settings]="settings"
-                                      (onSelect)="onItemSelect($event)"
-                                      (onDeSelect)="OnItemDeSelect($event)">
+                                      (onSelect)="donItemSelect1($event)"
+                                      (onDeSelect)="dOnItemDeSelect1($event)">
                 </angular2-multiselect>
               </div>
               <div class="ana-uncheck f-14">选择人
                 <input type="checkbox" (click)="selDPerson1()">
               </div>
             </div>
+            <div *ngIf="dSelect" class="d-flex py-1">
+              <div class="pr-2">
+                <angular2-multiselect [data]="ditemList1"
+                                      [(ngModel)]="dselectedItems1"
+                                      [settings]="settings1"
+                                      (onSelect)="donItemSelect1($event)"
+                                      (onDeSelect)="dOnItemDeSelect1($event)">
+                </angular2-multiselect>
+              </div>
+              <div class="ana-uncheck f-14">选择人
+                <input type="checkbox" checked="checked">
+              </div>
+            </div>
           </div>
           <div class="pt-3">
             <div class="d-flex">
-              <div style="width: 100%" class="d-flex flex-column">
-                <input class="flex-grow-1" placeholder="在此添加公司" style="width: 262px;"
-                       [ngModel]="content"
-                       (ngModelChange)="change($event)">
-                <div class="dropdown" *ngIf="show">
-                  <ul class="bilibili-suggest">
-                    <li class="kw"><a>
-                      <div class="b-line"><p><span>关键词</span></p></div>
-                    </a>
-                    </li>
-                    <li class="suggest-item" (click)="click(item)" *ngFor="let item of items |filter:content">{{item}}
-                    </li>
-                  </ul>
-                </div>
+              <div class="d-flex flex-column" style="width: 262px">
+                <input *ngIf="!dSelect" name="q" class="rounded-0 flex-grow-1"
+                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
+                       placeholder="在此添加公司">
+                <input *ngIf="dSelect" name="q" class="rounded-0 flex-grow-1"
+                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
+                       placeholder="小米科技有限责任公司">
               </div>
             </div>
-            <div class="d-flex py-1">
+            <div *ngIf="!dSelect" class="d-flex py-1">
               <div *ngIf="dflag2" class="pr-2">
-                <angular2-multiselect [data]="itemList"
-                                      [(ngModel)]="selectedItems"
+                <angular2-multiselect [data]="ditemList2"
+                                      [(ngModel)]="dselectedItems2"
                                       [settings]="settings"
-                                      (onSelect)="onItemSelect($event)"
-                                      (onDeSelect)="OnItemDeSelect($event)">
+                                      (onSelect)="donItemSelect2($event)"
+                                      (onDeSelect)="dOnItemDeSelect2($event)">
                 </angular2-multiselect>
               </div>
               <div class="ana-uncheck f-14">选择人
                 <input type="checkbox" (click)="selDPerson2()">
               </div>
             </div>
-          </div>
-          <div class="pt-3" *ngFor="let add of addCompany;let idx=index">
-            <div style="width: 100%" class="d-flex flex-column">
-              <div class="d-flex ml-0">
-                <input class="flex-grow-1" placeholder="在此添加公司" style="width: 262px;" [ngModel]="content"
-                       (ngModelChange)="change($event)">
-                <a *ngIf="idx==(addCompany.length-1)" (click)="addCom()" class="ml-1"
-                   style="color: #128bed;font-size: 24px"><i class="fa fa-plus-circle"></i></a>
-                <a *ngIf="idx!=(addCompany.length-1)" (click)="divCom()" class="ml-1"
-                   style="color: #128bed;font-size: 24px"><i
-                  class="fa fa-minus-circle"></i></a>
+            <div *ngIf="dSelect" class="d-flex py-1">
+              <div class="pr-2">
+                <angular2-multiselect [data]="ditemList2"
+                                      [(ngModel)]="dselectedItems2"
+                                      [settings]="settings2"
+                                      (onSelect)="donItemSelect2($event)"
+                                      (onDeSelect)="dOnItemDeSelect2($event)">
+                </angular2-multiselect>
               </div>
-              <div class="dropdown" *ngIf="show">
-                <ul class="bilibili-suggest">
-                  <li class="kw"><a>
-                    <div class="b-line"><p><span>关键词</span></p></div>
-                  </a>
-                  </li>
-                  <li class="suggest-item" (click)="click(item)" *ngFor="let item of items |filter:content">{{item}}
-                  </li>
-                </ul>
+              <div class="ana-uncheck f-14">选择人
+                <input type="checkbox" checked="checked">
               </div>
             </div>
-            <div class="d-flex py-1">
+          </div>
+          <div class="pt-3" *ngFor="let add of addCompany;let idx=index">
+            <div class="d-flex">
+              <input *ngIf="!dSelect" class="rounded-0 flex-grow-1"
+                     style="font-size: 14px;max-height: 48px;width: 262px"
+                     autocomplete="off"
+                     placeholder="在此添加公司">
+              <input *ngIf="dSelect" class="rounded-0 flex-grow-1" style="font-size: 14px;max-height: 48px;width: 262px"
+                     autocomplete="off"
+                     placeholder="北京猎豹网络科技有限公司">
+              <a *ngIf="idx==(addCompany.length-1)" (click)="addCom()" class="ml-1"
+                 style="color: #128bed;font-size: 24px"><i class="fa fa-plus-circle"></i></a>
+              <a *ngIf="idx!=(addCompany.length-1)" (click)="divCom()" class="ml-1"
+                 style="color: #128bed;font-size: 24px"><i
+                class="fa fa-minus-circle"></i></a>
+            </div>
+            <div *ngIf="!dSelect" class="d-flex py-1">
               <div *ngIf="dflag[idx]" class="pr-2">
-                <angular2-multiselect [data]="itemList"
-                                      [(ngModel)]="selectedItems"
+                <angular2-multiselect [data]="ditemList1"
+                                      [(ngModel)]="dselectedItems1"
                                       [settings]="settings"
-                                      (onSelect)="onItemSelect($event)"
-                                      (onDeSelect)="OnItemDeSelect($event)">
+                                      (onSelect)="donItemSelect1($event)"
+                                      (onDeSelect)="dOnItemDeSelect1($event)">
                 </angular2-multiselect>
               </div>
               <div class="ana-uncheck f-14">选择人
                 <input type="checkbox" (click)="selDPerson(idx)">
+              </div>
+            </div>
+            <div *ngIf="dSelect" class="d-flex py-1">
+              <div class="pr-2">
+                <angular2-multiselect [data]="ditemList1"
+                                      [(ngModel)]="dselectedItems1"
+                                      [settings]="settings3"
+                                      (onSelect)="donItemSelect1($event)"
+                                      (onDeSelect)="dOnItemDeSelect1($event)">
+                </angular2-multiselect>
+              </div>
+              <div class="ana-uncheck f-14">选择人
+                <input type="checkbox" checked="checked">
               </div>
             </div>
           </div>
@@ -267,8 +276,8 @@
             <h5 class="font-weight-bold">搜索历史</h5>
             <div class="d-flex">
               <ul class="list-group rel-history flex-grow-1">
-                <li class="list-group-item d-inline-flex">
-                  <a class="d-inline-flex flex-column align-items-center flex-grow-1" href="#">
+                <li class="list-group-item selPerson d-inline-flex">
+                  <a class="d-inline-flex flex-column align-items-center flex-grow-1" (click)="selectDuo()">
                     <div>雷军 黎万强 傅盛</div>
                   </a>
                 </li>
@@ -293,9 +302,10 @@
     <div *ngIf="select==1" class="col-lg-9 col-md-12" style="min-height: 1019px;">
       <div class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
         <div class="no_data d-flex flex-column align-items-center">
-          <img class="demoAna py-5" src="../../../assets/img/relation_exa.png" style="width: 900px">
+          <img class="demoAna py-5" src="../../../assets/img/anaduo.png" style="width: 900px">
           <div class="f-16" style="color: #bbb">您可以添加多个公司或个人，一键分析即可查看其所有关联路径。</div>
-          <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 马化腾</span> 的关联路径分析</div>
+          <div class="f-16" style="color: #bbb">示例：<a class="text-primary" (click)="selectDuo()">如雷军 黎万强 傅盛</a> 的关联路径分析
+          </div>
         </div>
       </div>
     </div>

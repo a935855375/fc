@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Ng2SearchPipe} from 'ng2-search-filter';
 
 @Component({
@@ -7,11 +7,15 @@ import {Ng2SearchPipe} from 'ng2-search-filter';
   styleUrls: ['./find-relation.component.scss']
 })
 export class FindRelationComponent implements OnInit {
-  value1 = 0;
+  selected = '';
+  value1 = 1;
   boxWidth = this.value1 / 10 * 100;
   sInfo = true;
   addCompany = [false];
   dflag = [false, false, false];
+
+  handle(s: string): void {
+  }
 
   addCom() {
     if (this.addCompany.length < 3) {
@@ -29,7 +33,63 @@ export class FindRelationComponent implements OnInit {
     this.sInfo = !this.sInfo;
   }
 
-  itemList = [
+
+  settings = {};
+  settings1 = {};
+  settings2 = {};
+  settings3 = {};
+  select = 0;
+
+  f = false;
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    this.settings = {
+      singleSelection: true,
+      text: '请选择人',
+      classes: 'myclass custom-class'
+    };
+    this.settings1 = {
+      singleSelection: true,
+      text: '雷军',
+      classes: 'myclass custom-class'
+    };
+    this.settings2 = {
+      singleSelection: true,
+      text: '黎万强',
+      classes: 'myclass custom-class'
+    };
+    this.settings3 = {
+      singleSelection: true,
+      text: '傅盛',
+      classes: 'myclass custom-class'
+    };
+  }
+
+  changeValue(con) {
+    this.value1 = con;
+    this.boxWidth = this.value1 / 10 * 100;
+  }
+
+  /*两节点关系-添加公司*/
+  /*两节点关系*/
+  flag1 = false;
+  flag2 = false;
+  selFlag1 = true;
+  selFlag2 = true;
+
+  selPerson1() {
+    this.flag1 = !this.flag1;
+  }
+
+  selPerson2() {
+    this.flag2 = !this.flag2;
+  }
+
+  itemList1 = [
     {'id': 1, 'itemName': '雷军'},
     {'id': 2, 'itemName': '黎万强'},
     {'id': 3, 'itemName': '洪峰'},
@@ -44,31 +104,75 @@ export class FindRelationComponent implements OnInit {
     {'id': 3, 'itemName': '林斌'},
     {'id': 4, 'itemName': '刘德'},
   ];
-  selectedItems = [];
+  selectedItems1 = [];
   selectedItems2 = [];
-  settings = {};
-  select = 0;
 
-  f = false;
-
-  constructor() {
-
+  onItemSelect(item: any) {
+    console.log(item);
+    console.log(this.selectedItems1);
   }
 
-  /*两节点关系*/
-  flag1 = false;
-  flag2 = false;
-
-  selPerson1() {
-    console.log('ss');
-    this.flag1 = !this.flag1;
+  OnItemDeSelect(item: any) {
+    console.log(item);
+    console.log(this.selectedItems1);
   }
 
-  selPerson2() {
-    console.log('ss');
-    this.flag2 = !this.flag2;
+  width1 = 0;
+  key1: string = '';
+
+  @ViewChild('myDrop1') myDrop1;
+  @ViewChild('input1') input1;
+
+  addcom: string[] = ['小米科技有限责任公司',
+    '北京小米支付技术有限公司',
+    '小米通讯技术有限公司',
+    '熊小米(北京)文化传播有限公司',
+    '北京小米保险经纪有限公司'];
+
+
+  filter = (array: string[], key: string) => array.filter(x => x.includes(key));
+
+  keyChanged1(event) {
+    this.width1 = this.input1.nativeElement.offsetWidth;
+    this.key1 = event;
+    this.selFlag1 = false;
+    if (!(this.filter(this.addcom, this.key1).length === 0 || this.key1.length === 0)) {
+      this.myDrop1.open();
+    } else {
+      this.myDrop1.close();
+    }
   }
 
+  click1(value: string): void {
+    this.key1 = value;
+    this.input1.nativeElement.focus();
+  }
+
+  width2 = 0;
+  key2: string = '';
+
+  @ViewChild('myDrop2') myDrop2;
+  @ViewChild('input2') input2;
+
+  keyChanged2(event) {
+    this.width2 = this.input2.nativeElement.offsetWidth;
+    this.key2 = event;
+    this.selFlag2 = false;
+    if (!(this.filter(this.addcom, this.key2).length === 0 || this.key2.length === 0)) {
+      this.myDrop2.open();
+    } else {
+      this.myDrop2.close();
+    }
+  }
+
+  click2(value: string): void {
+    this.key2 = value;
+    this.input2.nativeElement.focus();
+  }
+
+  /*两节点关系-添加公司*/
+
+  /*多节点关系-添加公司*/
   /*多节点关系*/
   dflag1 = false;
   dflag2 = false;
@@ -85,73 +189,54 @@ export class FindRelationComponent implements OnInit {
     this.dflag[idx] = !this.dflag[idx];
   }
 
-  ngOnInit() {
-    this.settings = {
-      singleSelection: true,
-      text: '请选择人',
-      classes: 'myclass custom-class'
-    };
+  ditemList1 = [
+    {'id': 1, 'itemName': '雷军'},
+    {'id': 2, 'itemName': '黎万强'},
+    {'id': 3, 'itemName': '洪峰'},
+    {'id': 4, 'itemName': '刘德'},
+    {'id': 5, 'itemName': '林斌'},
+    {'id': 6, 'itemName': '刘芹'},
+    {'id': 8, 'itemName': '许达来'}
+  ];
+  ditemList2 = [
+    {'id': 1, 'itemName': '洪峰'},
+    {'id': 2, 'itemName': '雷军'},
+    {'id': 3, 'itemName': '林斌'},
+    {'id': 4, 'itemName': '刘德'},
+  ];
+  dselectedItems1 = [];
+  dselectedItems2 = [];
 
-  }
-
-  onItemSelect(item: any) {
+  donItemSelect1(item: any) {
     console.log(item);
-    console.log(this.selectedItems);
+    console.log(this.dselectedItems1);
   }
 
-  OnItemDeSelect(item: any) {
+  dOnItemDeSelect1(item: any) {
     console.log(item);
-    console.log(this.selectedItems);
+    console.log(this.dselectedItems1);
   }
 
-
-  content = '';
-  selected: string;
-  show: boolean = false;
-  filter = new Ng2SearchPipe();
-
-  changeValue(con) {
-    this.value1 = con;
-    this.boxWidth = this.value1 / 10 * 100;
+  donItemSelect2(item: any) {
+    console.log(item);
+    console.log(this.dselectedItems2);
   }
 
-  change(content: string): void {
-    this.show = true;
-    this.content = content;
-    if (this.filter.transform(this.items, this.content).length === 0 || this.content.length === 0)
-      this.show = false;
+  dOnItemDeSelect2(item: any) {
+    console.log(item);
+    console.log(this.selectedItems2);
   }
 
-  click(value: string): void {
-    this.selected = value;
-    this.show = false;
-    this.content = value;
+  /*多节点关系-添加公司*/
+
+  /*多节点关系-选择*/
+  dSelect = false;
+
+  selectDuo() {
+    this.dSelect = true;
   }
 
-  content2 = '';
-  selected2: string;
-  show2: boolean = false;
-  filter2 = new Ng2SearchPipe();
-
-  change2(content: string): void {
-    this.show2 = true;
-    this.content2 = content;
-    if (this.filter.transform(this.items, this.content2).length === 0 || this.content2.length === 0)
-      this.show2 = false;
-  }
-
-  click2(value: string): void {
-    this.selected2 = value;
-    this.show2 = false;
-    this.content2 = value;
-  }
-
-  items: string[] = ['小米科技有限责任公司',
-    '北京小米支付技术有限公司',
-    '小米通讯技术有限公司',
-    '熊小米(北京)文化传播有限公司',
-    '北京小米保险经纪有限公司'];
-
+  /*多节点关系-选择*/
 
   options = {
     title: {

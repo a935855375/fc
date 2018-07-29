@@ -8,7 +8,7 @@ a:hover {
   cursor: pointer;
 }
 
-em {
+::ng-deep em {
   font-style: normal;
   color: #e33244;
 }

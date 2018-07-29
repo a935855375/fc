@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-bossinfo',
@@ -7,10 +8,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BossinfoComponent implements OnInit {
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
   }
 
   ngOnInit() {
   }
 
+  openModal(content) {
+    this.modalService.open(content, {size: 'lg'});
+  }
 }

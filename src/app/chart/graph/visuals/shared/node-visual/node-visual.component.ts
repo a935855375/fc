@@ -1,10 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {D3Service, Node} from '../../../d3';
 
 @Component({
   selector: '[nodeVisual]',
   template: `
-    <svg:g (mouseenter)="highLight()" (mouseleave)="unHighLight()" style="cursor: pointer"
+    <svg:g (click)="openModal(node)" (mouseenter)="highLight()" (mouseleave)="unHighLight()" style="cursor: pointer"
            [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
       <svg:circle
         class="node"
@@ -45,5 +45,12 @@ export class NodeVisualComponent {
 
   unHighLight() {
     this.d3Service.unHighLight();
+  }
+
+  openModal(key) {
+    if (key.category != 1)
+      this.d3Service.openModal(key.id);
+    else
+      this.d3Service.closeModal();
   }
 }

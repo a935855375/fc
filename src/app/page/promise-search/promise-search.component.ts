@@ -11,7 +11,7 @@ export class PromiseSearchComponent implements OnInit {
   kind = 0;
 
   constructor(private commonService: CommonService) {
-    this.kind = this.commonService.spitem1;
+    this.kind = this.commonService.promise;
   }
 
   ngOnInit() {
@@ -22,6 +22,6 @@ export class PromiseSearchComponent implements OnInit {
   }
 
   changeSpItem(sel) {
-    this.commonService.spitem2 = sel;
+    this.commonService.special = sel;
   }
 }

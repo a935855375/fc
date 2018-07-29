@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../service/common.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-brandsinfo',
@@ -11,15 +12,17 @@ export class BrandSearchComponent implements OnInit {
   kind = 0;
   title = '商标';
 
-  constructor(private commonService: CommonService) {
-    this.kind = this.commonService.spitem2;
+  constructor(private commonService: CommonService, private router: Router) {
+    this.kind = this.commonService.special;
   }
 
   ngOnInit() {
   }
 
+
   selectPromise(sel) {
     this.kind = sel;
+    this.commonService.special = sel;
     if (sel == 0)
       this.title = '商标';
     else if (sel == 1)
@@ -31,6 +34,6 @@ export class BrandSearchComponent implements OnInit {
   }
 
   changeSpItem(sel) {
-    this.commonService.spitem1 = sel;
+    this.commonService.promise = sel;
   }
 }

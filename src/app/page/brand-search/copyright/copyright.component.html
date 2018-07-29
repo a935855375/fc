@@ -5,29 +5,29 @@
   /
   <li class="mx-2">小米著作权查询列表</li>
 </div>
-<mat-card class="card rounded-0 py-0 mt-3" style="box-shadow: none">
+<mat-card class="card rounded-0 py-0 mt-2" style="box-shadow: none">
   <div class="py-3">
-    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">46 </span> 位符合条件的人员</span>
+    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">84 </span> 位符合条件的人员</span>
   </div>
-  <mat-divider></mat-divider>
-  <div *ngFor="let index of [1,2,3,4,5]" class="d-flex justify-content-between">
-    <div class="d-flex">
-      <div class="py-3">
-        <p class="mb-2 d-flex">
-          <a routerLink="/brand-info" class="mr-1"
-             style="font-size: 18px; font-weight: bold"><em>小米</em>公司2012年台历之10月<em>小米</em>手机漫画</a>
-        </p>
-        <p class="f-14 mb-2" style="color: #888">登记日期：2012-07-16<span
-          class="ml-3" style="color: #888">登记号：国作登字-2012-F-00065931</span></p>
-        <p class="f-14 mb-2" style="color: #888">创作完成日期：2011-09-30<span
-          class="ml-3" style="color: #888">类别：美术</span></p>
-        <p class="f-14 mb-2">作品著作权人：<a style="color: #007AFC">北京小米科技有限责任公司</a></p>
-        <!--<p class="f-14 mb-2"><i class="fa fa-search"></i>法定代表人：<em style="color: #dc3545; font-style: normal">{{c.represent}}</em></p>-->
+  <div *ngFor="let copyright of copyrights">
+    <mat-divider></mat-divider>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <div class="py-3">
+          <p class="mb-2 d-flex">
+            <a class="mr-1"
+               style="font-size: 18px; font-weight: bold" [innerHTML]="copyright.title"></a>
+          </p>
+          <p class="f-14 mb-2" style="color: #888">登记日期：{{copyright.registrationDate}}<span
+            class="ml-3" style="color: #888">登记号：{{copyright.registrationNum}}</span></p>
+          <p class="f-14 mb-2" style="color: #888">创作完成日期：{{copyright.finishDate}}<span
+            class="ml-3" style="color: #888">类别：{{copyright.category}}</span></p>
+          <p class="f-14 mb-2">作品著作权人：<a style="color: #007AFC">{{copyright.worksHolder}}</a></p>
+        </div>
       </div>
     </div>
   </div>
-  <mat-divider></mat-divider>
 </mat-card>
-<ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="80" [maxSize]="8"
+<ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="90" [maxSize]="9"
                 [(page)]="page"></ngb-pagination>
 

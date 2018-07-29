@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../../service/common.service';
+import {default as REFEREE, Referee} from './referee';
 
 @Component({
   selector: 'app-referee',
@@ -8,6 +9,7 @@ import {CommonService} from '../../../service/common.service';
 })
 export class RefereeComponent implements OnInit {
   page = 1;
+  referees: Referee[] = REFEREE;
 
   constructor(private commonService: CommonService) {
   }

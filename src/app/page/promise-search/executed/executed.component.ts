@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../../service/common.service';
+import {default as EXECUTED, Executed} from './executed';
 
 @Component({
   selector: 'app-executed',
@@ -8,6 +9,7 @@ import {CommonService} from '../../../service/common.service';
 })
 export class ExecutedComponent implements OnInit {
   page = 1;
+  executeds: Executed[] = EXECUTED;
 
   constructor(private commonService: CommonService) {
   }

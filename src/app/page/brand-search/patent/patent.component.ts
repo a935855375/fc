@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../../service/common.service';
+import {default as PATENT, Patent} from './patent';
 
 @Component({
   selector: 'app-patent',
@@ -8,6 +9,7 @@ import {CommonService} from '../../../service/common.service';
 })
 export class PatentComponent implements OnInit {
   page = 1;
+  patents: Patent[] = PATENT;
 
   constructor(private commonService: CommonService) {
   }

@@ -5,30 +5,30 @@
   /
   <li class="mx-2">小米专利查询列表</li>
 </div>
-<mat-card class="card rounded-0 py-0 mt-3" style="box-shadow: none">
+<mat-card class="card rounded-0 py-0 mt-2" style="box-shadow: none">
   <div class="py-3">
-    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">46 </span> 位符合条件的人员</span>
+    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">28 </span> 位符合条件的人员</span>
   </div>
-  <mat-divider></mat-divider>
-  <div *ngFor="let index of [1,2,3,4,5]" class="d-flex justify-content-between">
-    <div class="d-flex">
-      <div class="py-3">
-        <p class="mb-2 d-flex">
-          <a routerLink="/brand-search/patent-info" class="mr-1"
-             style="font-size: 18px; font-weight: bold">包装箱（<em>小米</em>）</a>
-        </p>
-        <p class="f-14 mb-2" style="color: #888">申请号：CN201330350602.6 <span
-          class="ml-3" style="color: #888">公布号：CN302686412S</span></p>
-        <p class="f-14 mb-2" style="color: #888">类别：外观设计 <span
-          class="ml-3" style="color: #888">申请公布日：2013-12-18</span></p>
-        <p class="f-14 mb-2" style="color: #888">发明人：王子壮</p>
-        <p class="f-14 mb-2">申请人：<a style="color: #007AFC">翼城县隆化小米专业合作社</a></p>
-        <!--<p class="f-14 mb-2"><i class="fa fa-search"></i>法定代表人：<em style="color: #dc3545; font-style: normal">{{c.represent}}</em></p>-->
+  <div *ngFor="let patent of patents">
+    <mat-divider></mat-divider>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <div class="py-3">
+          <p class="mb-2 d-flex">
+            <a routerLink="/brand-search/patent-info" class="mr-1"
+               style="font-size: 18px; font-weight: bold" [innerHTML]="patent.name"></a>
+          </p>
+          <p class="f-14 mb-2" style="color: #888">申请号：{{patent.applicantNum}} <span
+            class="ml-3" style="color: #888">公布号：{{patent.publicantNum}}</span></p>
+          <p class="f-14 mb-2" style="color: #888">类别：{{patent.category}} <span
+            class="ml-3" style="color: #888">申请公布日：{{patent.requestDate}}</span></p>
+          <p class="f-14 mb-2" style="color: #888">发明人：{{patent.inventor}}</p>
+          <p class="f-14 mb-2">申请人：<a style="color: #007AFC">{{patent.applicant}}</a></p>
+        </div>
       </div>
     </div>
   </div>
-  <mat-divider></mat-divider>
 </mat-card>
-<ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="80" [maxSize]="8"
+<ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="30" [maxSize]="3"
                 [(page)]="page"></ngb-pagination>
 

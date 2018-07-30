@@ -5,6 +5,7 @@ import {MaterialModule} from '../../material.module';
 import {SearchBossRoutingModule} from './search-boss-routing.module';
 import {SearchBossComponent} from './search-boss.component';
 import {FormsModule} from '@angular/forms';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     NgbModule,
     SearchBossRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FrameModule
   ],
   declarations: [
     SearchBossComponent,

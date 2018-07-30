@@ -6,6 +6,7 @@ import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
 import {BrandSearchComponent} from './brand-search.component';
 import {BrandSearchRoutingModule, routedComponent} from './brand-search.routing.module';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {BrandSearchRoutingModule, routedComponent} from './brand-search.routing.
     NgbModule,
     BrandSearchRoutingModule,
     MaterialModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    FrameModule
   ],
   declarations: [
     BrandSearchComponent,

@@ -18,7 +18,7 @@
                  placeholder={{holder}} [ngModel]="key" (ngModelChange)="keyChanged($event)"
                  (keydown)="onKeydown($event)">
           <div ngbDropdownMenu aria-labelledby="dropdownManual">
-            <ul class="px-3 py-0 m-0" [ngStyle]="{'width': width + 'px'}">
+            <ul class="pl-0 py-0 m-0" [ngStyle]="{'width': width + 'px'}">
               <li class="suggest-item" (click)="click(item)" *ngFor="let item of filter(items, key)">{{item}}
               </li>
             </ul>

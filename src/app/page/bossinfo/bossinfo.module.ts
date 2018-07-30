@@ -6,6 +6,7 @@ import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
 import {BossinfoRoutingModule} from './bossinfo.routing.module';
 import {BossinfoComponent} from './bossinfo.component';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {BossinfoComponent} from './bossinfo.component';
     NgbModule,
     BossinfoRoutingModule,
     MaterialModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    FrameModule
   ],
   declarations: [
     BossinfoComponent,

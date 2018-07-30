@@ -6,6 +6,7 @@ import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
 import {PromiseComponent} from './promise.component';
 import {PromiseRoutingModule} from './promise.routing.module';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {PromiseRoutingModule} from './promise.routing.module';
     NgbModule,
     PromiseRoutingModule,
     MaterialModule,
-    AngularMultiSelectModule
+    AngularMultiSelectModule,
+    FrameModule
   ],
   declarations: [
     PromiseComponent,

@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {HighSearchComponent} from './high-search.component';
 import {HighSearchRoutingModule} from './high-search.routing.module';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {HighSearchRoutingModule} from './high-search.routing.module';
     HighSearchRoutingModule,
     MaterialModule,
     AngularMultiSelectModule,
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    FrameModule
   ],
   declarations: [
     HighSearchComponent,

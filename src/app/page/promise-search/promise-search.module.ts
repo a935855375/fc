@@ -6,6 +6,7 @@ import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import {FormsModule} from '@angular/forms';
 import {PromiseSearchRoutingModule, routedComponent} from './promise-search.routing.module';
 import {PromiseSearchComponent} from './promise-search.component';
+import {FrameModule} from '../frame/frame.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {PromiseSearchComponent} from './promise-search.component';
     PromiseSearchRoutingModule,
     MaterialModule,
     AngularMultiSelectModule,
+    FrameModule
   ],
   declarations: [
     PromiseSearchComponent,

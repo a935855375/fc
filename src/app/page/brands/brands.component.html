@@ -11,7 +11,7 @@
       <div class="align-self-stretch d-flex justify-content-center mb-2">
         <div class="input-group input-group-lg" style="max-width: 60%">
           <input type="search" name="q" class="form-control rounded-0" (keydown)="onKeydown($event)"
-                 style="font-size: 14px;border: none"
+                 style="font-size: 14px;border: none" autocomplete="off"
                  placeholder="{{holder}}">
           <div class="input-group-btn btn-group-lg">
             <button style="width: 80px" class="btn btn-info rounded-0" (click)="changeTab()"><i
@@ -31,3 +31,5 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

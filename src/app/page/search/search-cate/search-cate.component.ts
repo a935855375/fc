@@ -17,7 +17,7 @@ export class SearchCateComponent {
   provinces = ['安徽', '北京', '重庆', '福建', '广东', '广西', '湖北'];
   works = ['农、林、牧、渔业', '采矿业', '制造业', '电力、热力、燃气及水生产和供应业'];
 
-  @Output() filter: EventEmitter<number> = new EventEmitter<>();
+  @Output() filter: EventEmitter<number> = new EventEmitter<number>();
 
   selValue(idx, select) {
     if (this.kindLast[idx] == select) {

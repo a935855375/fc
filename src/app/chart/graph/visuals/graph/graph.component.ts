@@ -65,7 +65,7 @@ export class GraphComponent implements OnInit, AfterViewInit {
       this.close.emit();
     });
 
-    this.graph.ticker.subscribe((d) => {
+    this.graph.ticker.subscribe(d => {
       this.ref.markForCheck();
     });
   }

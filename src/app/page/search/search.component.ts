@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   filter(z: number) {
     this._companies = this.companies;
-    this.companies = this.companies.filter(x => x.capital > z);
+    this.companies = this.companies.filter(x => x.money > z);
   }
 
   ngOnInit(): void {

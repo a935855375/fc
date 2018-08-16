@@ -1,9 +1,9 @@
 export class Company {
   id: number;
   name: string;
-  represent: string;
-  capital: number;
-  found_time: string;
+  representname: string;
+  capital: string;
+  foundTime: string;
   mail: string;
   phone: string;
   addr: string;
@@ -11,4 +11,5 @@ export class Company {
   introduction: string;
   img: string;
   status: string;
+  money: number;
 }

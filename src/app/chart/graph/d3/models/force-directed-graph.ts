@@ -50,7 +50,7 @@ export class ForceDirectedGraph {
       throw new Error('missing options when initializing simulation');
     }
 
-    /** Creating the simulation */
+    /** 创建数据模型 */
     if (!this.simulation) {
       const ticker = this.ticker;
 
@@ -65,33 +65,37 @@ export class ForceDirectedGraph {
             .radius(d => d['r'] + 5).iterations(2)
         );
 
-      // Connecting the d3 ticker to an angular event emitter
-      this.simulation.on('tick', function () {
-        ticker.emit(this);
+      // 连接d3的tick到Angular的事件发射器
+      this.simulation.on('tick', () => {
+        ticker.emit();
       });
 
       this.initNodes();
       this.initLinks();
     }
 
-    /** Updating the central force of the simulation */
+    /** 更新力导图的中心位置 */
     this.simulation.force('centers', d3.forceCenter(options.width / 2, options.height / 2));
 
-    /** Restarting the simulation internal timer */
+    /** 重新计算力导图的位置信息 */
     this.simulation.restart();
 
+    // 手动tick模拟碰撞计算力导出初始的分布位置
     for (let x = 1; x < 200; x++) {
       this.simulation.tick();
     }
 
+    // 固定所有的节点
     for (let x = 0; x < this.nodes.length; x++) {
       this.nodes[x].fx = this.nodes[x].x;
       this.nodes[x].fy = this.nodes[x].y;
     }
 
+    // 结束模拟
     this.simulation.stop();
   }
 
+  // 强制刷新信息
   refresh() {
     this.ticker.emit();
   }

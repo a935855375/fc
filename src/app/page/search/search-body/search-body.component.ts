@@ -27,7 +27,6 @@ export class SearchBodyComponent {
   }
 
   navigate(id) {
-    console.log('id === ' + id);
     localStorage.setItem('cid', id);
     this.router.navigate(['company']);
   }

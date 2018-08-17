@@ -24,7 +24,7 @@
     <span>公司</span>
     <span class="mr-3">状态</span>
   </div>
-  <div *ngFor="let c of company.slice((page - 1) * 10, page * 10)" class="d-flex justify-content-between">
+  <div *ngFor="let c of company | slice: ((page - 1) * 10) : page * 10" class="d-flex justify-content-between">
     <mat-divider></mat-divider>
     <div class="d-flex" style="max-width: 82%">
       <img class="align-self-center mr-4" style="width: 80px; height: 80px"

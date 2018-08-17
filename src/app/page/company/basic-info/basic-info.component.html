@@ -133,9 +133,9 @@
   </table>
 
   <!--股东信息-->
-  <p *ngIf="d && d.shareholder_information" id="shareholder-information" class="title">股东信息</p>
+  <p *ngIf="d && d.shareholder_information.length > 0" id="shareholder-information" class="title">股东信息</p>
 
-  <table *ngIf="d && d.shareholder_information" class="table mw-100">
+  <table *ngIf="d && d.shareholder_information.length > 0" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="60">序号</td>
@@ -147,7 +147,7 @@
     <tr *ngFor="let si of d.shareholder_information; let i = index" class="table-bordered">
       <td class="text-center">{{i + 1}}</td>
       <td>
-        <a class="cliable">{{si.name}}</a>
+        <a class="cliable">{{si.shareholderName}}</a>
         <a *ngIf="si.count > 0" class="associate">他关联 {{si.count}} 家公司></a>
       </td>
       <td class="text-center">{{si.ratio}}</td>
@@ -166,8 +166,8 @@
   </div>
 
   <!--对外投资-->
-  <p *ngIf="d && d.outbound_investment" id="foreign-investment" class="title">对外投资</p>
-  <table *ngIf="d && d.outbound_investment" class="table mw-100">
+  <p *ngIf="d && d.outbound_investment.length > 0" id="foreign-investment" class="title">对外投资</p>
+  <table *ngIf="d && d.outbound_investment.length > 0" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="27%" class="text-center">被投资企业名称</td>
@@ -209,8 +209,8 @@
   </table>
 
   <!--主要人员-->
-  <p *ngIf="d && d.main_personnel" id="main-staff" class="title">主要人员</p>
-  <table *ngIf="d && d.main_personnel" class="table mw-100">
+  <p *ngIf="d && d.main_personnel.length > 0" id="main-staff" class="title">主要人员</p>
+  <table *ngIf="d && d.main_personnel.length > 0" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="50" class="text-center">序号</td>
@@ -229,8 +229,8 @@
   </table>
 
   <!--变更记录-->
-  <p *ngIf="d && d.change_record" id="change-log" class="title">变更记录</p>
-  <table *ngIf="d && d.change_record" class="table mw-100">
+  <p *ngIf="d && d.change_record.length > 0" id="change-log" class="title">变更记录</p>
+  <table *ngIf="d && d.change_record.length > 0" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td width="7%" class="text-center">序号</td>
@@ -250,7 +250,8 @@
   </table>
 
   <!--公司简介-->
-  <p *ngIf="d && d.company" id="company-profile" class="title">公司简介</p>
-  <div *ngIf="d && d.company" [innerHTML]="d.company.introduction | safeHTML" class="p-3 f-14 border"></div>
+  <p *ngIf="d && d.company.introduction.length > 0" id="company-profile" class="title">公司简介</p>
+  <div *ngIf="d && d.company.introduction.length > 0" [innerHTML]="d.company.introduction | safeHTML"
+       class="p-3 f-14 border"></div>
 
 </div>

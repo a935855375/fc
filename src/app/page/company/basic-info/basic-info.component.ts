@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {PageScrollConfig} from 'ngx-page-scroll';
 import {CompanyService} from '../../../service/company.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {PERSONDATA} from './person';
 import {PersonModal} from '../modals/person.modal';
 import {StructureModal} from '../modals/structure.modal';
 
@@ -14,7 +13,6 @@ import {StructureModal} from '../modals/structure.modal';
 export class BasicInfoComponent implements OnInit {
   d: any;
   title: string;
-  data2: any = PERSONDATA;
 
   constructor(private companyService: CompanyService,
               private modalService: NgbModal) {

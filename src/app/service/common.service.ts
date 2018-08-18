@@ -76,4 +76,11 @@ export class CommonService {
     const url = environment.apiUrl + 'tempAssociationgraph';
     return this.http.post(url, body).toPromise();
   }*/
+
+  getBossGraphById(id) {
+    const url = environment.apiUrl + 'bossgraph';
+    const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

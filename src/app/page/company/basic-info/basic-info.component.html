@@ -27,8 +27,7 @@
       <td class="no_bottom_border">
         <div class="mt-2 d-flex flex-column justify-content-between">
           <div class="d-flex align-self-center">
-            <img style="height: 54px; width: 54px" class="mr-3"
-                 src="{{d.boss_info.avator}}">
+            <img style="height: 54px; width: 54px" class="mr-3" src="{{d.boss_info.avator}}">
             <div class="d-flex flex-column justify-content-between">
               <a>{{d.boss_info.name}}</a>
               <a class="associate">他关联 {{d.boss_info.count}} 家公司 ></a>
@@ -51,13 +50,13 @@
     </tr>
     <tr>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center" (click)="openLg(0)">查看人物图谱</button>
+        <button class="btn btn-primary align-self-center" (click)="openLg(0, d.boss_info.id)">查看人物图谱</button>
       </td>
       <td class="no_top_border text-center">
         <button routerLink="/genealogy" class="btn btn-primary align-self-center">查看详情</button>
       </td>
       <td class="no_top_border text-center">
-        <button class="btn btn-primary align-self-center" (click)="openLg(1)">查看详情</button>
+        <button class="btn btn-primary align-self-center" (click)="openLg(1, d.company.id)">查看详情</button>
       </td>
     </tr>
     </tbody>

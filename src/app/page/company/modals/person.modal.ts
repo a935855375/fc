@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from '../../../service/common.service';
+import {CompanyService} from '../../../service/company.service';
 
 
 @Component({
@@ -34,7 +35,11 @@ export class PersonModal implements OnInit {
 
   dataset;
 
-  constructor(public bsModalRef: NgbActiveModal, private commonService: CommonService) {
+  size: string;
+
+  constructor(public bsModalRef: NgbActiveModal,
+              private commonService: CommonService,
+              private companyService: CompanyService) {
     this.height = window.innerHeight * 0.85;
   }
 
@@ -43,9 +48,8 @@ export class PersonModal implements OnInit {
       this.width = this.div.nativeElement.offsetWidth;
     });
 
-    this.commonService.getPersonalGraphById(1, 0).then((x: any) => {
+    this.commonService.getBossGraphById(this.companyService.bid).then((x: any) => {
       this.dataset = x;
-      console.log(x);
       this.flag = true;
     });
   }

@@ -7,6 +7,8 @@ import {Subject} from 'rxjs';
 export class CompanyService {
   subject = new Subject();
 
+  bid: number;
+
   constructor(private http: HttpClient) {
   }
 

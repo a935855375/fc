@@ -36,9 +36,11 @@ export class BasicInfoComponent implements OnInit {
     });
   }
 
-  openLg(content: number) {
-    if (content == 0)
+  openLg(content: number, id: number) {
+    if (content == 0) {
+      this.companyService.bid = id;
       this.modalService.open(PersonModal, {size: 'lg'});
+    }
     else
       this.modalService.open(StructureModal, {size: 'lg'});
   }

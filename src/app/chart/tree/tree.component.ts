@@ -209,15 +209,8 @@ export class TreeComponent implements OnChanges {
           return 'rotate(' + (d.x < Math.PI ? d.x - Math.PI / 2 : d.x + Math.PI / 2) * 180 / Math.PI + ')';
         })
         .text(function (d) {
-          if (!d.data.children) {
-            if (d.parent.data.name == '担任法定代表人')
-              return '';
-            else if (d.parent.data.name == '在外任职')
-              return d.data.Relation.filter(x => x.Type == 2)[0].Value;
-            else if (d.parent.data.name == '对外投资') {
-              return d.data.Relation.filter(x => x.Type == 1)[0].Value;
-            }
-            return d.data.Value;
+          if (!d.data.children && d.data.value) {
+            return d.data.value;
           }
           else
             return '';

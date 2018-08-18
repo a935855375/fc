@@ -4,6 +4,7 @@ import {CompanyService} from '../../../service/company.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PersonModal} from '../modals/person.modal';
 import {StructureModal} from '../modals/structure.modal';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-basic-info',
@@ -15,7 +16,8 @@ export class BasicInfoComponent implements OnInit {
   title: string;
 
   constructor(private companyService: CompanyService,
-              private modalService: NgbModal) {
+              private modalService: NgbModal,
+              private router: Router) {
   }
 
   rangeArray = (start, end) =>
@@ -38,13 +40,17 @@ export class BasicInfoComponent implements OnInit {
 
   openLg(content: number, id: number) {
     if (content == 0) {
-      this.companyService.bid = id;
+      localStorage.setItem('bid', id.toString());
       this.modalService.open(PersonModal, {size: 'lg'});
     }
     else
       this.modalService.open(StructureModal, {size: 'lg'});
   }
 
+  goToBoss(id: number) {
+    localStorage.setItem('bid', id.toString());
+    this.router.navigate(['/bossinfo']);
+  }
 
   data = [{
     name: '北京',

@@ -7,6 +7,8 @@ import {FormsModule} from '@angular/forms';
 import {BossinfoRoutingModule} from './bossinfo.routing.module';
 import {BossinfoComponent} from './bossinfo.component';
 import {FrameModule} from '../frame/frame.module';
+import {NgxEchartsModule} from 'ngx-echarts';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import {FrameModule} from '../frame/frame.module';
     CommonModule,
     FormsModule,
     NgbModule,
+    NgxEchartsModule,
+    NgxPageScrollModule,
     BossinfoRoutingModule,
     MaterialModule,
     AngularMultiSelectModule,

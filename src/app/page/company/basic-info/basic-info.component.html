@@ -29,7 +29,7 @@
           <div class="d-flex align-self-center">
             <img style="height: 54px; width: 54px" class="mr-3" src="{{d.boss_info.avator}}">
             <div class="d-flex flex-column justify-content-between">
-              <a>{{d.boss_info.name}}</a>
+              <a (click)="goToBoss(d.boss_info.id)">{{d.boss_info.name}}</a>
               <a class="associate">他关联 {{d.boss_info.count}} 家公司 ></a>
             </div>
           </div>

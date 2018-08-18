@@ -7,8 +7,6 @@ import {Subject} from 'rxjs';
 export class CompanyService {
   subject = new Subject();
 
-  bid: number;
-
   constructor(private http: HttpClient) {
   }
 
@@ -26,6 +24,13 @@ export class CompanyService {
   get cid() {
     if (localStorage.getItem('cid') != null)
       return localStorage.getItem('cid');
+    else
+      return 1;
+  }
+
+  get bid() {
+    if (localStorage.getItem('bid') != null)
+      return localStorage.getItem('bid');
     else
       return 1;
   }

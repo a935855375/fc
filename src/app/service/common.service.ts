@@ -55,7 +55,7 @@ export class CommonService {
 
   getPersonalGraphById(id, kind) {
     const url = environment.apiUrl + 'personalGraph';
-    const params = {id: id.toString(), kind: kind.toString()};
+    const params = {id: '1', kind: kind.toString()};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
@@ -80,6 +80,14 @@ export class CommonService {
   getBossGraphById(id) {
     const url = environment.apiUrl + 'bossgraph';
     const params = {id: id.toString()};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  /*老板信息*/
+  getBossInfoById(id) {
+    const url = environment.apiUrl + 'bossinfo';
+    const params = {id: id};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }

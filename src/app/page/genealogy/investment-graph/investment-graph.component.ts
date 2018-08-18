@@ -59,7 +59,7 @@ export class InvestmentGraphComponent implements OnInit {
     this.width = window.innerWidth;
     this.height = window.innerHeight - 62;
 
-    this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 3).then((x: any) => {
+    this.commonService.getInvestmentGraphById(localStorage.getItem('cid')).then((x: any) => {
       this.dataset = x.Result.Node;
       this.flag = true;
     });

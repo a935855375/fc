@@ -39,6 +39,13 @@ export class IndentedTreeComponent implements OnChanges {
 
   draw() {
     this.data.root = true;
+    if (this.data.children[0]) {
+      this.data.children[0].color = true;
+      this.data.children.forEach(x => {
+        if (x.children[0])
+          x.children[0].color = true;
+      });
+    }
     this.svg = d3.select(this.svg_ref.nativeElement)
       .attr('width', this.width)
       .append('g');
@@ -107,10 +114,14 @@ export class IndentedTreeComponent implements OnChanges {
         if (d.data.root)
           return 'rgb(18, 139, 237)';
         else {
-          if (d.id == 2)
+          if (d.data.color)
             return 'rgb(247, 76, 82)';
-          else
-            return 'rgb(88, 208, 177)';
+          else {
+            if (d.data.Org == 0)
+              return 'rgb(127, 130, 242)';
+            else
+              return 'rgb(89, 207, 177)';
+          }
         }
       })
       .style('fill-opacity', 1)
@@ -147,8 +158,12 @@ export class IndentedTreeComponent implements OnChanges {
       .text(d => {
         if (d.data.root)
           return '';
-        else
-          return d.data.percent;
+        else {
+          if (d.data.Percent && d.data.Percent != '0%')
+            return d.data.Percent;
+          else
+            return '-';
+        }
       });
 
     nodeEnter.append('line')
@@ -212,8 +227,12 @@ export class IndentedTreeComponent implements OnChanges {
       .text(d => {
         if (d.data.root)
           return '';
-        else
-          return d.data.money + '万元';
+        else {
+          if (d.data.ShouldCapi)
+            return d.data.ShouldCapi + '万元';
+          else
+            return '-';
+        }
       });
 
     nodeEnter.transition()

@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from '../../../service/common.service';
+import {CompanyService} from '../../../service/company.service';
 
 
 @Component({
@@ -14,8 +15,8 @@ import {CommonService} from '../../../service/common.service';
     </div>
     <div class="modal-body">
       <div class="mb-1 info">
-        <span style="font-size: 18px;color: #333;">疑似实际控制人：</span> <span class="relation">雷军</span> <span
-        class="final-radio-wrap"> <span id="final-radio">77.8%</span> </span> <span class="relation">小米科技有限责任公司</span>
+        <span style="font-size: 18px;color: #333;">疑似实际控制人：</span> <span class="relation">{{p1}}</span> <span
+        class="final-radio-wrap"> <span id="final-radio">{{relation}}</span> </span> <span class="relation">{{p2}}</span>
 
         <div class="legend" style="visibility: visible;">
           <span class="big-block"></span>
@@ -43,7 +44,15 @@ export class StructureModal implements OnInit {
 
   width = 0;
 
-  constructor(public bsModalRef: NgbActiveModal, private commonService: CommonService) {
+  p1 = '?';
+
+  p2 = '?';
+
+  relation = '?';
+
+  constructor(public bsModalRef: NgbActiveModal,
+              private commonService: CommonService,
+              private companyService: CompanyService) {
   }
 
   ngOnInit(): void {
@@ -51,17 +60,17 @@ export class StructureModal implements OnInit {
       this.width = this.div.nativeElement.offsetWidth;
     });
 
-    this.commonService.getPersonalGraphById(1, 1).then((x: any) => {
-      this.data.children = [];
-      this.data.name = x.Result.Name;
-      x.Result.DetailList.forEach(x => this.data.children.push({name: x.Name, percent: x.Percent, money: x.ShouldCapi}));
+    this.commonService.getEquityStructureGraphById(this.companyService.cid).then((x: any) => {
+      this.data = x.Result;
+      this.p2 = this.data.name;
+      if (this.data.ControllerData) {
+        this.p1 = this.data.ControllerData.name;
+        this.relation = this.data.ControllerData.PercentTotal;
+      }
       this.flag = true;
     });
   }
 
-  data = {
-    'name': 'flare',
-    'children': [],
-  };
+  data: any;
 }
 

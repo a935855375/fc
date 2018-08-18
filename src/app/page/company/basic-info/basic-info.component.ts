@@ -43,8 +43,10 @@ export class BasicInfoComponent implements OnInit {
       localStorage.setItem('bid', id.toString());
       this.modalService.open(PersonModal, {size: 'lg'});
     }
-    else
+    else {
+      localStorage.setItem('cid', id.toString());
       this.modalService.open(StructureModal, {size: 'lg'});
+    }
   }
 
   goToBoss(id: number) {

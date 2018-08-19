@@ -91,6 +91,12 @@ export class ForceDirectedGraph {
       this.nodes[x].fy = this.nodes[x].y;
     }
 
+    for (let x = 0; x < this.links.length; x++) {
+      if (isNaN(this.links[x].getX())) {
+        this.links.splice(x, 1);
+      }
+    }
+
     // 结束模拟
     this.simulation.stop();
   }

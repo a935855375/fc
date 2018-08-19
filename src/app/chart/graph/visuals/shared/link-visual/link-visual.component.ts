@@ -27,7 +27,7 @@ import CONFIG from '../../../graph.config';
         [ngStyle]="{'stroke': link.getColor(),'stroke-width': link.width, 'marker-end': link.getArrowColor(), 'stroke-opacity': link.opacity}"
       >
       </svg:line>
-      <text *ngIf="!link.isMultiple()" [attr.x]="link.getX()"
+      <text [attr.x]="link.getX()"
             [attr.y]="link.getY()"
             [attr.transform]="'rotate(' + link.getAngle() + ' ' + link.getX() + ',' + link.getY() + ')'"
             style="text-anchor: middle">{{link.relationship}}

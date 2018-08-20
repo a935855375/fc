@@ -10,6 +10,9 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {FrameModule} from '../frame/frame.module';
 import {GraphMudule} from '../../chart/graph/graph.mudule';
+import {MultiNodeComponent} from './multi-node-relation/multi-node.component';
+import {TwoNodeComponent} from './two-node-relation/two-node.component';
+import {NodeSearchComponent} from './node-search/node-search.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import {GraphMudule} from '../../chart/graph/graph.mudule';
   ],
   declarations: [
     FindRelationComponent,
+    MultiNodeComponent,
+    TwoNodeComponent,
+    NodeSearchComponent
   ]
 })
 export class FindRelationModule {

@@ -46,36 +46,18 @@ export class CommonService {
     return this.http.get(url, options).toPromise();
   }
 
-  getSuspectedControllerById(id) {
-    const url = environment.apiUrl + 'suspectedcontroller';
+  getSecondEquityStructureGraphById(id) {
+    const url = environment.apiUrl + 'secondequitystructuregraph';
     const params = {id: id.toString()};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
-
-  getPersonalGraphById(id, kind) {
-    const url = environment.apiUrl + 'personalGraph';
-    const params = {id: '1', kind: kind.toString()};
-    const options = {params: params};
-    return this.http.get(url, options).toPromise();
-  }
-
   getCompanyShortInfoByKey(key: string) {
     const url = environment.apiUrl + 'companyShortInfo';
     const params = {key: key};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
-
-  /*test() {
-    const url = environment.apiUrl + 'tempAssociationgraph';
-    return this.http.get(url).toPromise();
-  }
-
-  test2(body) {
-    const url = environment.apiUrl + 'tempAssociationgraph';
-    return this.http.post(url, body).toPromise();
-  }*/
 
   getBossGraphById(id) {
     const url = environment.apiUrl + 'bossgraph';
@@ -87,6 +69,27 @@ export class CommonService {
   /*老板信息*/
   getBossInfoById(id) {
     const url = environment.apiUrl + 'bossinfo';
+    const params = {id: id};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  getMultipleAssociationGraphById(nodes) {
+    const url = environment.apiUrl + 'multipleAssociationGraph';
+    const params = {nodes: nodes};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  getHintCompany(name) {
+    const url = environment.apiUrl + 'hintcompany';
+    const params = {name: name};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  getHintBoss(id) {
+    const url = environment.apiUrl + 'hintboss';
     const params = {id: id};
     const options = {params: params};
     return this.http.get(url, options).toPromise();

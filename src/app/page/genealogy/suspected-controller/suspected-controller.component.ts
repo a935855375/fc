@@ -21,14 +21,22 @@ export class SuspectedControllerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.commonService.getSuspectedControllerById(localStorage.getItem('cid')).then((x: any) => {
-      const source = new Node(x.person.id, x.person.name, 1);
-      const target = new Node(x.company.id, x.company.name, 2);
+    this.commonService.getEquityStructureGraphById(localStorage.getItem('cid')).then((x: any) => {
+      const data = x.Result;
+      let p1 = '?';
+      let p2 = data.name;
+      let relation = '?';
+      if (data.ControllerData) {
+        p1 = data.ControllerData.name;
+        relation = data.ControllerData.PercentTotal;
+      }
+      const source = new Node(p1, p1, 1);
+      const target = new Node(p2, p2, 2);
       this.nodes.push(source);
       this.nodes.push(target);
-      this.links.push(new Link(source, target, x.person.shareholding_ratio + '%'));
-      this.name = x.person.name;
-      this.rate = x.person.shareholding_ratio + '%';
+      this.links.push(new Link(source, target, relation));
+      this.name = p1;
+      this.rate = relation;
       this.flag = true;
     });
   }

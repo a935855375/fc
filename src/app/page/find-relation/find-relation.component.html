@@ -8,314 +8,34 @@
             (click)="select=1"><h2 class="font-weight-bold my-3 f-15 text-center">
           多节点关系</h2></li>
       </div>
-      <div *ngIf="select==0" class="d-flex rel-content">
-        <div class="px-3 flex-grow-1">
-          <h5 class="font-weight-bold py-3">关联路径</h5>
-          <div class="pb-3">
-            <div class="d-flex">
-              <div class="ana-spot align-self-start mr-2 mt-2"></div>
-              <div ngbDropdown class="d-flex flex-column w-100" #myDrop1="ngbDropdown">
-                <input #input1 ngbDropdownAnchor id="dropdownManual" name="q" class="rounded-0 flex-grow-1"
-                       style="font-size: 14px;max-height: 48px" autocomplete="off"
-                       placeholder="在此添加公司" [ngModel]="key1" (ngModelChange)="keyChanged1($event)">
-                <div ngbDropdownMenu aria-labelledby="dropdownManual">
-                  <ul class="py-0 m-0" style="padding-left: 0 !important;" [ngStyle]="{'width': width1 + 'px'}">
-                    <li class="suggest-item" (click)="click1(item)" *ngFor="let item of filter(addcom, key1)">{{item}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex py-1 pl-3">
-              <div *ngIf="flag1" class="pr-2">
-                <angular2-multiselect [data]="itemList1"
-                                      [(ngModel)]="selectedItems1"
-                                      [settings]="settings"
-                                      (onSelect)="onItemSelect($event)"
-                                      (onDeSelect)="OnItemDeSelect($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input *ngIf="selFlag1" disabled="disabled" type="checkbox">
-                <input *ngIf="!selFlag1" type="checkbox" (click)="selPerson1()">
-              </div>
-            </div>
-          </div>
-          <div class="pb-3">
-            <div class="d-flex ml-0">
-              <div style="width: 100%" class="d-flex">
-                <div class="ana-spot2 align-self-start mr-2 mt-2"></div>
-                <div ngbDropdown class="d-flex flex-column w-100" #myDrop2="ngbDropdown">
-                  <input #input2 ngbDropdownAnchor name="q" class="rounded-0 flex-grow-1"
-                         style="font-size: 14px;max-height: 48px" autocomplete="off"
-                         placeholder="在此添加公司" [ngModel]="key2" (ngModelChange)="keyChanged2($event)">
-                  <div ngbDropdownMenu aria-labelledby="dropdownManual">
-                    <ul class="py-0 m-0" style="padding-left: 0 !important;" [ngStyle]="{'width': width2 + 'px'}">
-                      <li class="suggest-item" (click)="click2(item)" *ngFor="let item of filter(addcom, key2)">{{item}}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex py-1 pl-3">
-              <div *ngIf="flag2" class="pr-2">
-                <angular2-multiselect [data]="itemList2"
-                                      [(ngModel)]="selectedItems2"
-                                      [settings]="settings"
-                                      (onSelect)="onItemSelect($event)"
-                                      (onDeSelect)="OnItemDeSelect($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input *ngIf="selFlag2" disabled="disabled" type="checkbox">
-                <input *ngIf="!selFlag2" type="checkbox" (click)="selPerson2()">
-              </div>
-            </div>
-          </div>
-          <div class="pb-3">
-            <span class="f-14">显示路径数</span>
-            <div class="row">
-              <div class="col-md-10 pr-0">
-                <input [ngStyle]="{'background-size': boxWidth+'% 100%'}" type="range" value="{{value1}}" max="10"
-                       min="0" step="1" [ngModel]="value1" (ngModelChange)="changeValue($event)"/>
-              </div>
-              <div class="col-md-2" style="margin-top: 1px">{{value1}}</div>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-info" (click)="f=!f" style="width: 100%;">开始分析</button>
-          <div class="mt-3" style="border-bottom: 1px solid #ddd"></div>
-          <div *ngIf="f" class="py-3">
-            <div class="d-flex">
-              <h5 class="font-weight-bold pb-3">路径详情</h5>
-              <div class="ml-auto f-14">找到1条路径</div>
-            </div>
-            <div class="py-1">
-              <div class="d-flex py-2 px-2 panel-all mb-1">
-                <div class="panel-heading">路径1</div>
-                <a *ngIf="sInfo" class="d-inline-flex ml-auto" (click)="seeInfo()">3站<i
-                  class="fa fa-angle-right align-self-center pl-1"></i></a>
-                <a *ngIf="!sInfo" class="d-inline-flex ml-auto" (click)="seeInfo()">3站<i
-                  class="fa fa-angle-down align-self-center pl-1"></i></a>
-              </div>
-              <div *ngIf="!sInfo" class="panel-body mt-1">
-                <ul class="ana-timeline">
-                  <li class="d-flex">
-                    <div class="point"></div>
-                    <div class="mr-auto content">
-                      <div class="com">雷军</div>
-                      <div class="member">执行董事</div>
-                    </div>
-                  </li>
-                  <li class="d-flex">
-                    <div class="point"></div>
-                    <div class="mr-auto content">
-                      <div class="com">小米商业保理(天津)有限责任公司</div>
-                      <div class="member">法人,总经理,总经理</div>
-                    </div>
-                  </li>
-                  <li class="d-flex">
-                    <div class="point"></div>
-                    <div class="mr-auto content">
-                      <div class="com">洪锋</div>
-                      <div class="member"></div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div style="border-bottom: 1px solid #ddd"></div>
-          <div class="py-3">
-            <h5 class="font-weight-bold">搜索历史</h5>
-            <div class="d-flex">
-              <ul class="list-group rel-history flex-grow-1">
-                <li class="list-group-item selPerson d-inline-flex">
-                  <a class="d-inline-flex flex-column align-items-center flex-grow-1" href="#">
-                    <div>小米技术责任有限公司【雷军】</div>
-                    <i class="fa fa-long-arrow-down"></i>
-                    <div>北京小米支付技术有限公司【洪峰】</div>
-                  </a>
-                </li>
-                <li class="list-group-item selPerson d-inline-flex">
-                  <a class="d-inline-flex flex-column align-items-center flex-grow-1" href="#">
-                    <div>合宝文娱集团有限公司【李斐】</div>
-                    <i class="fa fa-long-arrow-down"></i>
-                    <div>北京阿里巴巴技术有限公司【马云】</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
 
-
-      <div *ngIf="select==1">
-        <div class="px-3 flex-grow-1">
-          <h5 class="font-weight-bold pt-3">疑似关联关系</h5>
-          <div class="pt-3">
-            <div class="d-flex">
-              <div class="d-flex flex-column" style="width: 262px">
-                <input *ngIf="!dSelect" name="q" class="rounded-0 flex-grow-1"
-                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
-                       placeholder="在此添加公司">
-                <input *ngIf="dSelect" name="q" class="rounded-0 flex-grow-1"
-                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
-                       placeholder="小米科技有限责任公司">
-              </div>
-            </div>
-            <div *ngIf="!dSelect" class="d-flex py-1">
-              <div *ngIf="dflag1" class="pr-2">
-                <angular2-multiselect [data]="ditemList1"
-                                      [(ngModel)]="dselectedItems1"
-                                      [settings]="settings"
-                                      (onSelect)="donItemSelect1($event)"
-                                      (onDeSelect)="dOnItemDeSelect1($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" (click)="selDPerson1()">
-              </div>
-            </div>
-            <div *ngIf="dSelect" class="d-flex py-1">
-              <div class="pr-2">
-                <angular2-multiselect [data]="ditemList1"
-                                      [(ngModel)]="dselectedItems1"
-                                      [settings]="settings1"
-                                      (onSelect)="donItemSelect1($event)"
-                                      (onDeSelect)="dOnItemDeSelect1($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" checked="checked">
-              </div>
-            </div>
-          </div>
-          <div class="pt-3">
-            <div class="d-flex">
-              <div class="d-flex flex-column" style="width: 262px">
-                <input *ngIf="!dSelect" name="q" class="rounded-0 flex-grow-1"
-                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
-                       placeholder="在此添加公司">
-                <input *ngIf="dSelect" name="q" class="rounded-0 flex-grow-1"
-                       style="font-size: 14px;max-height: 48px;" autocomplete="off"
-                       placeholder="小米科技有限责任公司">
-              </div>
-            </div>
-            <div *ngIf="!dSelect" class="d-flex py-1">
-              <div *ngIf="dflag2" class="pr-2">
-                <angular2-multiselect [data]="ditemList2"
-                                      [(ngModel)]="dselectedItems2"
-                                      [settings]="settings"
-                                      (onSelect)="donItemSelect2($event)"
-                                      (onDeSelect)="dOnItemDeSelect2($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" (click)="selDPerson2()">
-              </div>
-            </div>
-            <div *ngIf="dSelect" class="d-flex py-1">
-              <div class="pr-2">
-                <angular2-multiselect [data]="ditemList2"
-                                      [(ngModel)]="dselectedItems2"
-                                      [settings]="settings2"
-                                      (onSelect)="donItemSelect2($event)"
-                                      (onDeSelect)="dOnItemDeSelect2($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" checked="checked">
-              </div>
-            </div>
-          </div>
-          <div class="pt-3" *ngFor="let add of addCompany;let idx=index">
-            <div class="d-flex">
-              <input *ngIf="!dSelect" class="rounded-0 flex-grow-1"
-                     style="font-size: 14px;max-height: 48px;width: 262px"
-                     autocomplete="off"
-                     placeholder="在此添加公司">
-              <input *ngIf="dSelect" class="rounded-0 flex-grow-1" style="font-size: 14px;max-height: 48px;width: 262px"
-                     autocomplete="off"
-                     placeholder="北京猎豹网络科技有限公司">
-              <a *ngIf="idx==(addCompany.length-1)" (click)="addCom()" class="ml-1"
-                 style="color: #128bed;font-size: 24px"><i class="fa fa-plus-circle"></i></a>
-              <a *ngIf="idx!=(addCompany.length-1)" (click)="divCom()" class="ml-1"
-                 style="color: #128bed;font-size: 24px"><i
-                class="fa fa-minus-circle"></i></a>
-            </div>
-            <div *ngIf="!dSelect" class="d-flex py-1">
-              <div *ngIf="dflag[idx]" class="pr-2">
-                <angular2-multiselect [data]="ditemList1"
-                                      [(ngModel)]="dselectedItems1"
-                                      [settings]="settings"
-                                      (onSelect)="donItemSelect1($event)"
-                                      (onDeSelect)="dOnItemDeSelect1($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" (click)="selDPerson(idx)">
-              </div>
-            </div>
-            <div *ngIf="dSelect" class="d-flex py-1">
-              <div class="pr-2">
-                <angular2-multiselect [data]="ditemList1"
-                                      [(ngModel)]="dselectedItems1"
-                                      [settings]="settings3"
-                                      (onSelect)="donItemSelect1($event)"
-                                      (onDeSelect)="dOnItemDeSelect1($event)">
-                </angular2-multiselect>
-              </div>
-              <div class="ana-uncheck f-14">选择人
-                <input type="checkbox" checked="checked">
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-info mt-3" style="width: 100%;">开始分析</button>
-          <div class="mt-3" style="border-bottom: 1px solid #ddd"></div>
-          <div class="py-3">
-            <h5 class="font-weight-bold">搜索历史</h5>
-            <div class="d-flex">
-              <ul class="list-group rel-history flex-grow-1">
-                <li class="list-group-item selPerson d-inline-flex">
-                  <a class="d-inline-flex flex-column align-items-center flex-grow-1" (click)="selectDuo()">
-                    <div>雷军 黎万强 傅盛</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-two-node *ngIf="select==0"></app-two-node>
+      <app-multi-node *ngIf="select==1"></app-multi-node>
     </div>
 
-    <div *ngIf="select==0" class="col-lg-9 col-md-12" style="min-height: 1019px;">
+
+    <div class="col-lg-9 col-md-12" style="min-height: 1019px;">
       <div #card class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
-        <div *ngIf="!f" class="no_data d-flex flex-column align-items-center mt-5">
-          <img class="demoAna py-5" src="../../../assets/img/search-relation.jpg" style="width: 900px">
+        <div *ngIf="select==0" class="no_data d-flex flex-column align-items-center mt-5">
+          <img class="demoAna py-5" src="../../../assets/img/search-relation.jpg" style="max-width: 100%;">
           <div class="f-16" style="color: #bbb">您可以添加两个公司或个人，一键分析即可查看其所有关联路径。</div>
           <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 赵微</span> 的关联路径分析</div>
         </div>
 
-        <graph *ngIf="f" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="-20"
-               style="height: 100vh"></graph>
-      </div>
-    </div>
-    <div *ngIf="select==1" class="col-lg-9 col-md-12" style="min-height: 1019px;">
-      <div class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
-        <div *ngIf="!dSelect" class="no_data d-flex flex-column align-items-center">
-          <img class="demoAna py-5" src="../../../assets/img/anaduo.png" style="width: 900px">
+        <div *ngIf="select==1" class="no_data d-flex flex-column align-items-center">
+          <img class="demoAna py-5" src="../../../assets/img/anaduo.png" style="max-width: 100%;">
           <div class="f-16" style="color: #bbb">您可以添加多个公司或个人，一键分析即可查看其所有关联路径。</div>
-          <div class="f-16" style="color: #bbb">示例：<a class="text-primary" (click)="selectDuo()">如雷军 黎万强 傅盛</a> 的关联路径分析
+          <div class="f-16" style="color: #bbb">示例：<a class="text-primary">如雷军 黎万强 傅盛</a>
+            的关联路径分析
           </div>
         </div>
 
-        <graph *ngIf="dSelect" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="charge"
+        <graph *ngIf="flag" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="-20"
                style="height: 100vh"></graph>
       </div>
     </div>
-
   </div>
+
 </div>
+
 <app-footer></app-footer>

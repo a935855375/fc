@@ -61,7 +61,7 @@ export class EquityStructureGraphComponent implements OnInit {
 
 
   constructor(private commonService: CommonService) {
-    this.commonService.getPersonalGraphById(localStorage.getItem('cid'), 5).then((x: any) => {
+    this.commonService.getSecondEquityStructureGraphById(localStorage.getItem('cid')).then((x: any) => {
       this.target = new Target();
       this.target.name = x.Result.Name;
 

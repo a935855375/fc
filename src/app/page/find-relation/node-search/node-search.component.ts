@@ -41,7 +41,7 @@ export class NodeSearchComponent {
     if (this.companyItems.length == 0)
       this.drop1.close();
     this.commonService.getHintCompany(e).then((x: any) => {
-      this.companyItems = x.map(z => z._source);
+      this.companyItems = x;
       if (this.companyItems.length != 0)
         this.drop1.open();
     });
@@ -50,7 +50,7 @@ export class NodeSearchComponent {
   selectCompany(c) {
     this.inputKey = c.name;
     this.selectedCompany = c;
-    this.emitter.emit({company: this.selectedCompany.id});
+    this.emitter.emit({company: this.selectedCompany.keyno});
     if (this.selectButton) {
       this.commonService.getHintBoss(this.selectedCompany.id).then((x: any) => {
         this.bossList = x;
@@ -59,7 +59,7 @@ export class NodeSearchComponent {
   }
 
   selectBoss(boss) {
-    this.emitter.emit({company: this.selectedCompany.id, boss: boss.itemName});
+    this.emitter.emit({company: this.selectedCompany.keyno, boss: boss.itemName});
   }
 
   enableSelectBoss() {

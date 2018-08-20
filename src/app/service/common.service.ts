@@ -74,7 +74,7 @@ export class CommonService {
     return this.http.get(url, options).toPromise();
   }
 
-  getMultipleAssociationGraphById(nodes) {
+  getMultipleAssociationGraph(nodes) {
     const url = environment.apiUrl + 'multipleAssociationGraph';
     const params = {nodes: nodes};
     const options = {params: params};

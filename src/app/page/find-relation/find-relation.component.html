@@ -10,19 +10,19 @@
       </div>
 
       <app-two-node *ngIf="select==0"></app-two-node>
-      <app-multi-node *ngIf="select==1"></app-multi-node>
+      <app-multi-node (emitter)="openGraph($event)" *ngIf="select==1"></app-multi-node>
     </div>
 
 
     <div class="col-lg-9 col-md-12" style="min-height: 1019px;">
       <div #card class="card rounded-0 ml-3" style="min-height: 1019px;background-color: #ffffff">
-        <div *ngIf="select==0" class="no_data d-flex flex-column align-items-center mt-5">
+        <div *ngIf="select==0 && !flag" class="no_data d-flex flex-column align-items-center mt-5">
           <img class="demoAna py-5" src="../../../assets/img/search-relation.jpg" style="max-width: 100%;">
           <div class="f-16" style="color: #bbb">您可以添加两个公司或个人，一键分析即可查看其所有关联路径。</div>
           <div class="f-16" style="color: #bbb">示例：<span class="text-primary">如马云 赵微</span> 的关联路径分析</div>
         </div>
 
-        <div *ngIf="select==1" class="no_data d-flex flex-column align-items-center">
+        <div *ngIf="select==1 && !flag" class="no_data d-flex flex-column align-items-center">
           <img class="demoAna py-5" src="../../../assets/img/anaduo.png" style="max-width: 100%;">
           <div class="f-16" style="color: #bbb">您可以添加多个公司或个人，一键分析即可查看其所有关联路径。</div>
           <div class="f-16" style="color: #bbb">示例：<a class="text-primary">如雷军 黎万强 傅盛</a>
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <graph *ngIf="flag" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="-20"
+        <graph *ngIf="flag" [nodes]="nodes" [links]="links" [width]="width" [height]="height" [charge]="charge"
                style="height: 100vh"></graph>
       </div>
     </div>

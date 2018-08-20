@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {CommonService} from '../../../service/common.service';
 
 @Component({
   selector: 'app-multi-node',
@@ -6,6 +7,9 @@ import {Component} from '@angular/core';
   styleUrls: ['../find-relation.component.scss']
 })
 export class MultiNodeComponent {
+  @Output() emitter: EventEmitter<any> = new EventEmitter<any>();
+  arg: string;
+
   company = Array(5);
 
   showDemo() {
@@ -14,6 +18,19 @@ export class MultiNodeComponent {
 
   recieve(e, id) {
     this.company[id] = e;
-    console.log(this.company);
+  }
+
+  begin() {
+    this.arg = '';
+    this.company.forEach(x => {
+      let c = x.company;
+      if (x.boss) {
+        c = c + '_' + x.boss;
+      }
+      this.arg = this.arg + ',' + c;
+    });
+    this.arg = this.arg.substring(1);
+
+    this.emitter.emit(this.arg);
   }
 }

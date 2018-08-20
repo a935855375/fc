@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Node} from '../../chart/graph/d3/models';
-import {Link} from '../../chart/graph/d3/models';
+import {Link, Node} from '../../chart/graph/d3/models';
 import {CommonService} from '../../service/common.service';
 
 @Component({
@@ -18,14 +17,22 @@ export class FindRelationComponent implements OnInit, AfterViewInit {
   nodes: Node[];
   links: Link[];
 
-  charge: number;
+  charge: number = -1;
   width;
   height;
 
   constructor(private commonService: CommonService) {
-    /*this.nodes = this.data.nodes.map(x => new Node(x.id, x.name, x.category));
-    this.links = this.data.links.map(x => new Link(this.nodes[x.source], this.nodes[x.target], x.relation));
-    this.charge = -1;*/
+  }
+
+  openGraph(arg) {
+    this.commonService.getMultipleAssociationGraph(arg).then((x: any) => {
+      this.nodes = [];
+      this.links = [];
+      x.nodes.forEach((x: any) => this.nodes.push(new Node(x.keyNo, x.name, x.category)));
+      x.links.forEach((x: any) => this.links.push(new Link(this.nodes[x.source], this.nodes[x.target], x.relation)));
+      console.log(x);
+      this.flag = true;
+    });
   }
 
   ngOnInit() {

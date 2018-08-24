@@ -31,6 +31,8 @@ export class InvestmentGraphComponent implements OnInit {
 
   modalData;
 
+  layer = 1;
+
   constructor(private commonService: CommonService) {
   }
 

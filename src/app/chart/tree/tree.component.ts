@@ -20,6 +20,8 @@ export class TreeComponent implements OnChanges {
   @Input('showValue')
   showValue = false;
 
+  @Input('layer') layer: number;
+
   @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
 
   tree;
@@ -28,6 +30,16 @@ export class TreeComponent implements OnChanges {
   linkContainer;
   nodeIndex = 0;
 
+  high = [0, 180, 240, 360, 540, 780, 1080];
+
+  collapse = d => {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(this.collapse);
+      d.children = null;
+    }
+  };
+
   constructor() {
 
   }
@@ -35,8 +47,22 @@ export class TreeComponent implements OnChanges {
   BCG = d3.linkRadial<HierarchyPointLink<{}>, HierarchyPointNode<{}>>().angle(d => d.x).radius(d => d.y);
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.width != 0)
-      this.draw();
+    for (let propName in changes) {
+      if (propName == 'width') {
+        if (changes[propName].isFirstChange()) {
+          this.draw();
+        }
+      }
+
+      if (propName == 'layer') {
+        const change = changes[propName];
+        if (!change.isFirstChange()) {
+          this.rootData.children.forEach(this.collapse);
+          this.rootData.children.forEach(x => this.changeLayer(x, change.currentValue));
+          this.drawTree(this.rootData);
+        }
+      }
+    }
   }
 
   draw() {
@@ -53,7 +79,7 @@ export class TreeComponent implements OnChanges {
     this.linkContainer = this.container.append('g');
 
     const zoom = d3.zoom()
-      .scaleExtent([0.4, 2])
+      .scaleExtent([0.2, 2])
       .on('zoom', () => {
         // v4: 原来的translate和scale值现在都在 event.transform 中
         // d3.event.transform 等价于
@@ -73,14 +99,6 @@ export class TreeComponent implements OnChanges {
 
     this.rootData.color = 0;
 
-    const collapse = d => {
-      if (d.children) {
-        d._children = d.children;
-        d._children.forEach(collapse);
-        d.children = null;
-      }
-    };
-
     const addColor = (d, c) => {
       if (d) {
         if (d.children)
@@ -95,7 +113,7 @@ export class TreeComponent implements OnChanges {
     }
 
     // 全部缩回
-    this.rootData.children.forEach(collapse);
+    this.rootData.children.forEach(this.collapse);
 
     // 展开第二次
     this.rootData.children.forEach(this.chanegStatus);
@@ -118,11 +136,7 @@ export class TreeComponent implements OnChanges {
 
     // 初始化高度
     nodes.forEach(d => {
-      if (d.depth === 1) {
-        d.y = d.depth * 180;
-      } else {
-        d.y = d.depth * 220;
-      }
+      d.y = d.depth * this.high[d.depth];
     });
 
     const node = this.container.selectAll('.node')
@@ -344,6 +358,16 @@ export class TreeComponent implements OnChanges {
       d.y0 = d.y;
     });
   }
+
+  changeLayer = (d, num) => {
+    if (num != 0) {
+      if (d._children) {
+        d.children = d._children;
+        d.children.forEach(x => this.changeLayer(x, num - 1));
+        d._children = null;
+      }
+    }
+  };
 
   chanegStatus(d) {
     if (d.children) {

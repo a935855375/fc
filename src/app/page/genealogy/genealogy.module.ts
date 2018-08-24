@@ -7,10 +7,12 @@ import {GraphMudule} from '../../chart/graph/graph.mudule';
 import {TreeModule} from '../../chart/tree/tree.module';
 import {StructureModule} from '../../chart/structure/structure.module';
 import {MatCardModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     GenealogyRoutingModule,
     NgxPageScrollModule,
     GraphMudule,

@@ -11,6 +11,8 @@ export class DashboardComponent {
   kind = 0;
   holder = '请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军';
   key: string = '';
+  headline: any;
+  recommend: any;
 
   items: string[] = ['小米科技有限责任公司',
     '北京小米支付技术有限公司',
@@ -31,6 +33,13 @@ export class DashboardComponent {
 
   constructor(private router: Router, private commonService: CommonService) {
 
+  }
+
+  ngOnInit() {
+    this.commonService.getNews().then((x: any) => {
+      this.headline = x.filter((x, y) => y % 2 == 0);
+      this.recommend = x.filter((x, y) => y % 2 == 1);
+    });
   }
 
   click(value: string): void {
@@ -98,5 +107,10 @@ export class DashboardComponent {
         this.holder = '请输入企业经营范围，如“软件”';
         break;
     }
+  }
+
+  findNews(s) {
+    localStorage.setItem('url', s);
+    this.router.navigate(['/hotnews']);
   }
 }

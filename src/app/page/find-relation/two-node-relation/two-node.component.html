@@ -1,36 +1,10 @@
 <div class="px-3 flex-grow-1">
-  <h5 class="font-weight-bold py-3">关联路径</h5>
+  <h5 class="font-weight-bold pt-3">关联路径</h5>
 
-  <div class="pb-3">
-    <div class="d-flex">
-      <div class="ana-spot align-self-start mr-2 mt-2"></div>
-      <div ngbDropdown class="d-flex flex-column w-100" #myDrop1="ngbDropdown">
-        <input #input1 ngbDropdownAnchor id="dropdownManual" class="rounded-0 flex-grow-1" autocomplete="off"
-               placeholder="在此添加公司" [ngModel]="inputKey" (ngModelChange)="keyChange($event)">
-        <div ngbDropdownMenu aria-labelledby="dropdownManual">
-          <ul class="py-0 m-0" style="padding-left: 0 !important;" [ngStyle]="{'width': width1 + 'px'}">
-            <li class="suggest-item" (click)="selectCompany(item)" *ngFor="let item of companyItems">{{item}}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="d-flex py-1 pl-3">
-      <div *ngIf="selectButton" class="pr-2">
-        <angular2-multiselect [data]="itemList"
-                              [(ngModel)]="itemSelectedList"
-                              [settings]="settings"
-                              (onSelect)="selectBoss($event)">
-        </angular2-multiselect>
-      </div>
-      <div class="ana-uncheck f-14">选择人
-        <input *ngIf="selectButton" disabled="disabled" type="checkbox">
-        <input *ngIf="!selectButton" type="checkbox" (click)="selectButton=!selectButton">
-      </div>
-    </div>
-  </div>
+  <app-node-search *ngFor="let x of rangeArray(0, line)" [MaxLine]="line" [Current]="x" (add)="add($event)"
+                   (emitter)="recieve($event, x)"></app-node-search>
 
-  <div class="pb-3">
+  <div class="py-3">
     <span class="f-14">显示路径数</span>
     <div class="row">
       <div class="col-md-10 pr-0">

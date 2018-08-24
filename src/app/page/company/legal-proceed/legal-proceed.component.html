@@ -1,12 +1,12 @@
 <div class="mb-2">
   <div class="d-flex flex-wrap px-2 py-2">
-    <a class="my-2 anchor" href="#">被执行人信息</a>
-    <a class="my-2 anchor">失信被执行人</a>
-    <a class="my-2 anchor">裁判文书</a>
-    <a class="my-2 anchor">主要成员</a>
-    <a class="my-2 anchor">法院公告</a>
-    <a class="my-2 anchor">开庭公告</a>
-    <a class="my-2 anchor">司法协助</a>
+    <a pageScroll class="my-2 anchor" href="#executor">被执行人信息<span class="ml-1">0</span></a>
+    <a pageScroll class="my-2 anchor">失信被执行人<span class="ml-1">0</span></a>
+    <a pageScroll class="my-2 anchor" href="#adjudicative_documents">裁判文书<span class="ml-1" *ngIf="d&&d.referee">{{this.num[0]+d.referee.length}}</span></a>
+    <a pageScroll class="my-2 anchor">主要成员<span class="ml-1">0</span></a>
+    <a pageScroll class="my-2 anchor" href="#court_announcement">法院公告<span class="ml-1" *ngIf="d&&d.courtNotice">{{this.num[1]+d.courtNotice.length}}</span></a>
+    <a pageScroll class="my-2 anchor" href="#court_bulletin">开庭公告<span class="ml-1" *ngIf="d&&d.openingNotice">{{this.num[2]+d.openingNotice.length}}</span></a>
+    <a pageScroll class="my-2 anchor">司法协助<span class="ml-1">0</span></a>
   </div>
   <mat-divider></mat-divider>
 
@@ -18,36 +18,30 @@
   </div>
 
   <!--被执行人-->
-  <p class="mt-4 title">被执行人<span class="tbadge">2</span></p>
-  <table class="table mw-100">
-    <tbody>
-    <tr class="color-primary border">
-      <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">案号</td>
-      <td class="text-center" width="90">立案时间</td>
-      <td class="text-center" width="160">执行法院</td>
-      <td class="text-center" width="115">执行标的</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">1</td>
-      <td class="text-center vertical-middle"><a class="cliable">(2018)粤0306执4965号</a></td>
-      <td class="text-center vertical-middle">2018-03-16</td>
-      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
-      <td class="text-center vertical-middle">25</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">2</td>
-      <td class="text-center vertical-middle"><a class="cliable">(2018)粤0306执4964号</a></td>
-      <td class="text-center vertical-middle">2018-03-16</td>
-      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
-      <td class="text-center vertical-middle">1999</td>
-    </tr>
-    </tbody>
-  </table>
+  <!-- <p id="executor" class="mt-4 title">被执行人<span class="tbadge">2</span></p>
+   <table class="table mw-100">
+     <tbody>
+     <tr class="color-primary border">
+       <td class="text-center" width="8%">序号</td>
+       <td class="text-center">案号</td>
+       <td class="text-center" width="18%">立案时间</td>
+       <td class="text-center" width="25%">执行法院</td>
+       <td class="text-center" width="10%">执行标的</td>
+     </tr>
+     <tr class="table-bordered" *ngFor="let idx of [1,2,3,4]">
+       <td class="text-center vertical-middle">{{idx}}</td>
+       <td class="text-center vertical-middle"><a class="cliable">(2018)粤0306执4965号</a></td>
+       <td class="text-center vertical-middle">2018-03-16</td>
+       <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
+       <td class="text-center vertical-middle">25</td>
+     </tr>
+     </tbody>
+   </table>-->
 
   <!--裁判文书-->
-  <p class="mt-4 title">裁判文书<span class="tbadge">28</span></p>
-  <table class="table mw-100">
+  <p *ngIf="d&&d.referee" id="adjudicative_documents" class="mt-4 title">裁判文书<span class="tbadge">{{this.num[0]+d.referee.length}}</span>
+  </p>
+  <table *ngIf="d&&d.referee" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="8%">序号</td>
@@ -57,205 +51,75 @@
       <td class="text-center" width="24%">案件身份</td>
       <td class="text-center" width="15%">执行法院</td>
     </tr>
-    <!--<tr *ngFor="let index of [1,2]" class="table-bordered">-->
-    <!--<td class="text-center vertical-middle">{{index}}</td>-->
-    <!--<td class="text-center vertical-middle"><a class="cliable">小米科技有限责任公司与璧山区星峰通讯器材销售部侵害商标权纠纷一审民事裁定书</a></td>-->
-    <!--<td class="text-center vertical-middle">2018-05-07</td>-->
-    <!--<td class="text-center vertical-middle">（2018）渝0112民初1715号</td>-->
-    <!--<td class="text-center vertical-middle">原告 - 小米科技有限责任公司</td>-->
-    <!--<td class="text-center vertical-middle">重庆市渝北区人民法院</td>-->
-    <!--</tr>-->
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">1</td>
-      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与邓一兵侵害商标权纠纷一审民事裁定书</a>
+    <tr class="table-bordered" *ngFor="let s of d.referee;let idx=index">
+      <td class="text-center vertical-middle">{{idx+1}}</td>
+      <td class="vertical-middle"><a href="#">{{s.name}}</a></td>
+      <td class="text-center vertical-middle">{{s.date}}</td>
+      <td class="text-center vertical-middle">{{s.num}}</td>
+      <td class="vertical-middle" [innerHtml]="s.identity">
+        <!-- <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
+         <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
+         <div class="m-b-xs">被告 - <a href="#">邓一兵</a></div>-->
       </td>
-      <td class="text-center vertical-middle">2018-06-11</td>
-      <td class="text-center vertical-middle">（2018）鄂07民初12号</td>
-      <td>
-        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
-        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
-        <div class="m-b-xs">被告 - <a href="#">邓一兵</a></div>
-      </td>
-      <td class="text-center vertical-middle">湖北省鄂州市中级人民法院</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">2</td>
-      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与徐兰娇商标权权属纠纷一审民事裁定书</a></td>
-      <td class="text-center vertical-middle">2018-05-10</td>
-      <td class="text-center vertical-middle">（2018）鄂11民初38号</td>
-      <td>
-        <div>原告 - <a href="#">小米科技有限责任公司</a></div>
-        <div>代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
-        <div>被告 - <a href="#">徐兰娇</a>
-        </div>
-      </td>
-      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">3</td>
-      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与叶佳侵害商标权纠纷一审民事裁定书</a>
-      </td>
-      <td class="text-center vertical-middle" width="103">2018-05-10</td>
-      <td class="text-center vertical-middle" width="15%">（2018）鄂11民初39号</td>
-      <td width="24%">
-        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
-        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
-        <div class="m-b-xs">被告 - <a href="#">叶佳</a></div>
-      </td>
-      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">4</td>
-      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与查小丽侵害商标权纠纷一审民事裁定书</a></td>
-      <td class="text-center vertical-middle" width="103">2018-05-10</td>
-      <td class="text-center vertical-middle" width="15%">（2018）鄂11民初35号</td>
-      <td width="24%">
-        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
-        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
-        <div class="m-b-xs">被告 - <a href="#">查小丽</a>
-        </div>
-      </td>
-      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">5</td>
-      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与郭小林商标权权属纠纷一审民事裁定书</a></td>
-      <td class="text-center vertical-middle" width="103">2018-05-10</td>
-      <td class="text-center vertical-middle" width="15%">（2018）鄂11民初33号</td>
-      <td width="24%">
-        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
-        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
-        <div class="m-b-xs">被告 - <a href="#">郭小林</a>
-        </div>
-      </td>
-      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
+      <td class="text-center vertical-middle">{{s.court}}</td>
     </tr>
     </tbody>
   </table>
-  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="60" [maxSize]="10"
+  <ngb-pagination *ngIf="d&&d.referee" class="d-flex mt-4 justify-content-end"
+                  [collectionSize]="this.num[0]+d.referee.length" [maxSize]="10"
                   [(page)]="page"></ngb-pagination>
 
   <!--法院公告-->
-  <p class="mt-0 title">法院公告<span class="tbadge">35</span></p>
-  <table class="table mw-100">
+  <p *ngIf="d&&d.courtNotice" id="court_announcement" class="mt-0 title">法院公告<span class="tbadge">{{this.num[1]+d.courtNotice.length}}</span>
+  </p>
+  <table *ngIf="d&&d.courtNotice" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
-      <td class="text-center" width="60">序号</td>
-      <td class="text-center" width="370">当事人</td>
-      <td class="text-center" width="90">公告类型</td>
-      <td class="text-center" width="160">公告人</td>
-      <td class="text-center" width="115">刊登时间</td>
-      <td class="text-center" width="115">内容</td>
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">当事人</td>
+      <td class="text-center" width="13%">公告类型</td>
+      <td class="text-center" width="20%">公告人</td>
+      <td class="text-center" width="14%">刊登时间</td>
+      <td class="text-center" width="13%">内容</td>
     </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">1</td>
-      <td class="text-center vertical-middle">深圳市龙华新区达克港电子商务商行</td>
-      <td class="text-center vertical-middle" width="15%">裁判文书</td>
-      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
-      <td class="text-center vertical-middle" width="103">2018-06-24</td>
-      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">2</td>
-      <td class="text-center vertical-middle">北京晟煌科技有限公司</td>
-      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
-      <td class="text-center vertical-middle">北京市东城区人民法院</td>
-      <td class="text-center vertical-middle" width="103">2018-05-29</td>
-      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">3</td>
-      <td class="text-center vertical-middle">陈丽婵</td>
-      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
-      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
-      <td class="text-center vertical-middle" width="103">2018-05-17</td>
-      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">4</td>
-      <td class="text-center vertical-middle">廖海量</td>
-      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
-      <td class="text-center vertical-middle">[广东]肇庆市端州区人民法院</td>
-      <td class="text-center vertical-middle" width="103">2018-05-13</td>
-      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">5</td>
-      <td class="text-center vertical-middle">深圳市盛航光电有限公司</td>
-      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
-      <td class="text-center vertical-middle">[广东]深圳市宝安区人民法院</td>
-      <td class="text-center vertical-middle" width="103">2018-05-08</td>
-      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
+    <tr class="table-bordered" *ngFor="let s of d.courtNotice;let idx=index">
+      <td class="text-center vertical-middle">{{idx+1}}</td>
+      <td class="text-center vertical-middle">{{s.party}}</td>
+      <td class="text-center vertical-middle">{{s.type}}</td>
+      <td class="text-center vertical-middle">{{s.announcer}}</td>
+      <td class="text-center vertical-middle">{{s.date}}</td>
+      <td class="text-center vertical-middle"><a href="#">{{s.content}}</a></td>
     </tr>
     </tbody>
   </table>
-  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="70" [maxSize]="10"
+  <ngb-pagination *ngIf="d&&d.courtNotice" class="d-flex mt-4 justify-content-end"
+                  [collectionSize]="this.num[1]+d.courtNotice.length" [maxSize]="10"
                   [(page)]="page"></ngb-pagination>
 
   <!--开庭公告-->
-  <p class="mt-0 title">开庭公告<span class="tbadge">32</span></p>
-  <table class="table mw-100">
+  <p *ngIf="d&&d.openingNotice" id="court_bulletin" class="mt-0 title">开庭公告<span class="tbadge">{{this.num[2]+d.openingNotice.length}}</span>
+  </p>
+  <table *ngIf="d&&d.openingNotice" class="table mw-100">
     <tbody>
     <tr class="color-primary border">
       <td class="text-center" width="8%">序号</td>
       <td class="text-center" width="20%">案号</td>
       <td class="text-center" width="12%">开庭日期</td>
       <td class="text-center">案由</td>
-      <td class="text-center" width="25%">公诉人/原告/上诉人/申请人</td>
-      <td class="text-center" width="28%">被告人/被告/被上诉人/被申请人</td>
+      <td class="text-center" width="21%">公诉人/原告/上诉人/申请人</td>
+      <td class="text-center" width="26%">被告人/被告/被上诉人/被申请人</td>
     </tr>
-    <!--<tr *ngFor="let index of [1,2]" class="table-bordered">
-      <td class="text-center vertical-middle">{{index}}</td>
-      <td class="text-center vertical-middle"><a class="cliable">(2018)渝05民初455号</a></td>
-      <td class="text-center vertical-middle">2018-09-17 14:30:00</td>
-      <td class="text-center vertical-middle">案由</td>
-      <td class="text-center vertical-middle">-</td>
-      <td class="text-center vertical-middle"><a class="cliable">-</a></td>
-    </tr>-->
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">1</td>
-      <td class="text-center vertical-middle"><a href="#">(2018)川06民初53号</a></td>
-      <td class="text-center vertical-middle">2018-08-22 09:00:00</td>
-      <td class="text-center vertical-middle">-</td>
-      <td class="text-center vertical-middle">小米科技有限责任公司</td>
-      <td class="text-center vertical-middle">德阳市区信远通讯器材经营部</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">2</td>
-      <td class="text-center vertical-middle"><a href="#">(2018)川06民初50号</a>
-      </td>
-      <td class="text-center vertical-middle">2018-08-22 09:00:00</td>
-      <td class="text-center vertical-middle">-</td>
-      <td class="text-center vertical-middle">小米科技有限责任公司</td>
-      <td class="text-center vertical-middle">刘娇</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">3</td>
-      <td class="text-center vertical-middle"><a href="#">(2018)川16民初12号</a>
-      </td>
-      <td class="text-center vertical-middle">2018-08-10 09:00:00</td>
-      <td class="text-center vertical-middle">-</td>
-      <td class="text-center vertical-middle">小米科技有限责任公司</td>
-      <td class="text-center vertical-middle">李海燕</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">4</td>
-      <td class="text-center vertical-middle"><a href="#">(2018)川13民初33号</a></td>
-      <td class="text-center vertical-middle">2018-07-23 09:00:00</td>
-      <td class="text-center vertical-middle">-</td>
-      <td class="text-center vertical-middle">小米科技有限责任公司</td>
-      <td class="text-center vertical-middle">苏忠元</td>
-    </tr>
-    <tr class="table-bordered">
-      <td class="text-center vertical-middle">5</td>
-      <td class="text-center vertical-middle"><a href="#">(2018)川01民初1532号</a></td>
-      <td class="text-center vertical-middle">2018-07-16 09:50:00</td>
-      <td class="text-center vertical-middle">-</td>
-      <td class="text-center vertical-middle">小米科技有限责任公司</td>
-      <td class="text-center vertical-middle">青羊区旗航通讯器材经营部</td>
+    <tr class="table-bordered" *ngFor="let s of d.openingNotice;let idx=index">
+      <td class="text-center vertical-middle">{{idx+1}}</td>
+      <td class="text-center vertical-middle"><a class="cliable">{{s.num}}</a></td>
+      <td class="text-center vertical-middle">{{s.date}}</td>
+      <td class="text-center vertical-middle">{{s.cause}}</td>
+      <td class="text-center vertical-middle">{{s.source}}</td>
+      <td class="text-center vertical-middle">{{s.target}}</td>
     </tr>
     </tbody>
   </table>
-  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="70" [maxSize]="10"
+  <ngb-pagination *ngIf="d&&d.openingNotice" class="d-flex mt-4 justify-content-end"
+                  [collectionSize]="this.num[2]+d.openingNotice.length" [maxSize]="10"
                   [(page)]="page"></ngb-pagination>
 </div>

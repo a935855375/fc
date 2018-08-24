@@ -1,3 +1,370 @@
-<p>
-  history-info works!
-</p>
+<div class="mb-2">
+  <div class="d-flex flex-wrap px-2 py-2">
+    <a pageScroll class="my-2 anchor">历史工商信息</a>
+    <a pageScroll class="my-2 anchor" href="#foreign-investment">历史对外投资</a>
+    <a pageScroll class="my-2 anchor">历史股东</a>
+    <a pageScroll class="my-2 anchor">历史失信被执行人</a>
+    <a pageScroll class="my-2 anchor">历史失信被执行人</a>
+    <a pageScroll class="my-2 anchor">历史执行人</a>
+    <a pageScroll class="my-2 anchor">历史法院公告</a>
+    <a pageScroll class="my-2 anchor">历史裁判文书</a>
+    <a pageScroll class="my-2 anchor">历史行政处罚</a>
+    <a pageScroll class="my-2 anchor">历史动产抵押</a>
+    <a pageScroll class="my-2 anchor">历史开庭公告</a>
+    <a pageScroll class="my-2 anchor">历史股权出质</a>
+    <a pageScroll class="my-2 anchor">历史行政许可</a>
+  </div>
+  <mat-divider></mat-divider>
+  <!--历史对外投资-->
+  <p id="foreign-investment" class="title">历史对外投资</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td width="27%" class="text-center">被投资企业名称</td>
+      <td width="28%" class="text-center">被投资法定代表人</td>
+      <td width="15%" class="text-center">注册资本</td>
+      <td width="10%" class="text-center">出资比例</td>
+      <td class="text-center">成立日期</td>
+      <td width="7%" class="text-center">状态</td>
+    </tr>
+    <tr *ngFor="let idx of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle"><a class="cliable">重庆小米商业保理有限公司</a></td>
+      <td class="vertical-middle">
+        <a class="cliable">洪锋</a>
+        <a *ngIf="idx.investment_representative.length < 15" class="associate">对外投资与任职></a>
+      </td>
+      <td class="text-center vertical-middle">10000万</td>
+      <td class="text-center vertical-middle">100%</td>
+      <td class="text-center vertical-middle">2017-08-11</td>
+      <td class="text-center vertical-middle text-success text-danger">存续</td>
+    </tr>
+    </tbody>
+  </table>
+  <!--历史股权出质-->
+  <p id="stock_pledge" class="title">历史股权出质</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="260">登记编号</td>
+      <td class="text-center" width="90">出质人</td>
+      <td class="text-center" width="250">质权人</td>
+      <td class="text-center" width="115">出质股权数额</td>
+      <td class="text-center" width="150">设立登记日期</td>
+      <td class="text-center" width="110">状态</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td><a class="cliable">91110108551385082Q_0</a></td>
+      <td class="text-center">雷军</td>
+      <td class="text-center">小米通讯技术有限公司</td>
+      <td class="text-center">143934.0478</td>
+      <td class="text-center">2018-06-20</td>
+      <td class="text-center">有效</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--历史被执行人-->
+  <p class="mt-4 title">历史被执行人<span class="tbadge">2</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">案号</td>
+      <td class="text-center" width="90">立案时间</td>
+      <td class="text-center" width="160">执行法院</td>
+      <td class="text-center" width="115">执行标的</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle"><a class="cliable">(2018)粤0306执4965号</a></td>
+      <td class="text-center vertical-middle">2018-03-16</td>
+      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
+      <td class="text-center vertical-middle">25</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle"><a class="cliable">(2018)粤0306执4964号</a></td>
+      <td class="text-center vertical-middle">2018-03-16</td>
+      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
+      <td class="text-center vertical-middle">1999</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--历史裁判文书-->
+  <p class="mt-4 title">历史裁判文书<span class="tbadge">28</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">案件名称</td>
+      <td class="text-center" width="12%">发布时间</td>
+      <td class="text-center" width="15%">案件编号</td>
+      <td class="text-center" width="24%">案件身份</td>
+      <td class="text-center" width="15%">执行法院</td>
+    </tr>
+    <!--<tr *ngFor="let index of [1,2]" class="table-bordered">-->
+    <!--<td class="text-center vertical-middle">{{index}}</td>-->
+    <!--<td class="text-center vertical-middle"><a class="cliable">小米科技有限责任公司与璧山区星峰通讯器材销售部侵害商标权纠纷一审民事裁定书</a></td>-->
+    <!--<td class="text-center vertical-middle">2018-05-07</td>-->
+    <!--<td class="text-center vertical-middle">（2018）渝0112民初1715号</td>-->
+    <!--<td class="text-center vertical-middle">原告 - 小米科技有限责任公司</td>-->
+    <!--<td class="text-center vertical-middle">重庆市渝北区人民法院</td>-->
+    <!--</tr>-->
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与邓一兵侵害商标权纠纷一审民事裁定书</a>
+      </td>
+      <td class="text-center vertical-middle">2018-06-11</td>
+      <td class="text-center vertical-middle">（2018）鄂07民初12号</td>
+      <td>
+        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
+        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
+        <div class="m-b-xs">被告 - <a href="#">邓一兵</a></div>
+      </td>
+      <td class="text-center vertical-middle">湖北省鄂州市中级人民法院</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与徐兰娇商标权权属纠纷一审民事裁定书</a></td>
+      <td class="text-center vertical-middle">2018-05-10</td>
+      <td class="text-center vertical-middle">（2018）鄂11民初38号</td>
+      <td>
+        <div>原告 - <a href="#">小米科技有限责任公司</a></div>
+        <div>代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
+        <div>被告 - <a href="#">徐兰娇</a>
+        </div>
+      </td>
+      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与叶佳侵害商标权纠纷一审民事裁定书</a>
+      </td>
+      <td class="text-center vertical-middle" width="103">2018-05-10</td>
+      <td class="text-center vertical-middle" width="15%">（2018）鄂11民初39号</td>
+      <td width="24%">
+        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
+        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
+        <div class="m-b-xs">被告 - <a href="#">叶佳</a></div>
+      </td>
+      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与查小丽侵害商标权纠纷一审民事裁定书</a></td>
+      <td class="text-center vertical-middle" width="103">2018-05-10</td>
+      <td class="text-center vertical-middle" width="15%">（2018）鄂11民初35号</td>
+      <td width="24%">
+        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
+        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
+        <div class="m-b-xs">被告 - <a href="#">查小丽</a>
+        </div>
+      </td>
+      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="text-center vertical-middle"><a href="#">小米科技有限责任公司与郭小林商标权权属纠纷一审民事裁定书</a></td>
+      <td class="text-center vertical-middle" width="103">2018-05-10</td>
+      <td class="text-center vertical-middle" width="15%">（2018）鄂11民初33号</td>
+      <td width="24%">
+        <div class="m-b-xs">原告 - <a href="#">小米科技有限责任公司</a></div>
+        <div class="m-b-xs">代理律师事务所 - <a href="#">湖北巨天律师事务所</a></div>
+        <div class="m-b-xs">被告 - <a href="#">郭小林</a>
+        </div>
+      </td>
+      <td class="text-center vertical-middle" width="15%">湖北省黄冈市中级人民法院</td>
+    </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="60" [maxSize]="10"
+                  [(page)]="page"></ngb-pagination>
+
+  <!--历史法院公告-->
+  <p class="mt-0 title">历史法院公告<span class="tbadge">35</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="370">当事人</td>
+      <td class="text-center" width="90">公告类型</td>
+      <td class="text-center" width="160">公告人</td>
+      <td class="text-center" width="115">刊登时间</td>
+      <td class="text-center" width="115">内容</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle">深圳市龙华新区达克港电子商务商行</td>
+      <td class="text-center vertical-middle" width="15%">裁判文书</td>
+      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
+      <td class="text-center vertical-middle" width="103">2018-06-24</td>
+      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle">北京晟煌科技有限公司</td>
+      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
+      <td class="text-center vertical-middle">北京市东城区人民法院</td>
+      <td class="text-center vertical-middle" width="103">2018-05-29</td>
+      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="text-center vertical-middle">陈丽婵</td>
+      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
+      <td class="text-center vertical-middle">深圳市宝安区人民法院</td>
+      <td class="text-center vertical-middle" width="103">2018-05-17</td>
+      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="text-center vertical-middle">廖海量</td>
+      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
+      <td class="text-center vertical-middle">[广东]肇庆市端州区人民法院</td>
+      <td class="text-center vertical-middle" width="103">2018-05-13</td>
+      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="text-center vertical-middle">深圳市盛航光电有限公司</td>
+      <td class="text-center vertical-middle" width="15%">起诉状副本及开庭传票</td>
+      <td class="text-center vertical-middle">[广东]深圳市宝安区人民法院</td>
+      <td class="text-center vertical-middle" width="103">2018-05-08</td>
+      <td class="text-center vertical-middle" width="90"><a href="#">查看详情</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="70" [maxSize]="10"
+                  [(page)]="page"></ngb-pagination>
+
+  <!--历史开庭公告-->
+  <p class="mt-0 title">历史开庭公告<span class="tbadge">32</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="20%">案号</td>
+      <td class="text-center" width="12%">开庭日期</td>
+      <td class="text-center">案由</td>
+      <td class="text-center" width="25%">公诉人/原告/上诉人/申请人</td>
+      <td class="text-center" width="28%">被告人/被告/被上诉人/被申请人</td>
+    </tr>
+    <!--<tr *ngFor="let index of [1,2]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle"><a class="cliable">(2018)渝05民初455号</a></td>
+      <td class="text-center vertical-middle">2018-09-17 14:30:00</td>
+      <td class="text-center vertical-middle">案由</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle"><a class="cliable">-</a></td>
+    </tr>-->
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">1</td>
+      <td class="text-center vertical-middle"><a href="#">(2018)川06民初53号</a></td>
+      <td class="text-center vertical-middle">2018-08-22 09:00:00</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">小米科技有限责任公司</td>
+      <td class="text-center vertical-middle">德阳市区信远通讯器材经营部</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">2</td>
+      <td class="text-center vertical-middle"><a href="#">(2018)川06民初50号</a>
+      </td>
+      <td class="text-center vertical-middle">2018-08-22 09:00:00</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">小米科技有限责任公司</td>
+      <td class="text-center vertical-middle">刘娇</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">3</td>
+      <td class="text-center vertical-middle"><a href="#">(2018)川16民初12号</a>
+      </td>
+      <td class="text-center vertical-middle">2018-08-10 09:00:00</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">小米科技有限责任公司</td>
+      <td class="text-center vertical-middle">李海燕</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">4</td>
+      <td class="text-center vertical-middle"><a href="#">(2018)川13民初33号</a></td>
+      <td class="text-center vertical-middle">2018-07-23 09:00:00</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">小米科技有限责任公司</td>
+      <td class="text-center vertical-middle">苏忠元</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center vertical-middle">5</td>
+      <td class="text-center vertical-middle"><a href="#">(2018)川01民初1532号</a></td>
+      <td class="text-center vertical-middle">2018-07-16 09:50:00</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">小米科技有限责任公司</td>
+      <td class="text-center vertical-middle">青羊区旗航通讯器材经营部</td>
+    </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="70" [maxSize]="10"
+                  [(page)]="page"></ngb-pagination>
+
+  <!--历史行政许可[工商局]-->
+  <p id="administrative_licensing" class="mt-4 title">历史行政许可<span>[工商局]</span><span class="tbadge">5</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">许可文件编号</td>
+      <td class="text-center" width="20%">许可文件名称</td>
+      <td class="text-center" width="12%">有效期自</td>
+      <td class="text-center" width="12%">有效期至</td>
+      <td class="text-center">许可机关</td>
+      <td class="text-center" width="20%">许可内容</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">1</td>
+      <td>HDJDXN20161123355</td>
+      <td>渣土消纳许可</td>
+      <td>2016-11-23</td>
+      <td>-</td>
+      <td>海淀区市政市容委</td>
+      <td>渣土消纳许可</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">2</td>
+      <td>0014151113000030</td>
+      <td>准予行政许可决定书</td>
+      <td>2015-12-14</td>
+      <td>-</td>
+      <td>-</td>
+      <td>超限高层建筑工程抗震设防审批</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">3</td>
+      <td>京网文〔2017〕1530-131号</td>
+      <td>网络文化经营许可证</td>
+      <td>2017-09-05</td>
+      <td>-</td>
+      <td>北京市文化局</td>
+      <td>设立经营性互联网文化单位审批</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">4</td>
+      <td>京国土海预[2015]0015号</td>
+      <td>建设项目用地预审意见</td>
+      <td>2015-03-23</td>
+      <td>-</td>
+      <td>-</td>
+      <td>建设项目用地预审</td>
+    </tr>
+    <tr class="table-bordered">
+      <td class="text-center">5</td>
+      <td>J1000088560404</td>
+      <td>开户许可证</td>
+      <td>长期</td>
+      <td>-</td>
+      <td>-</td>
+      <td>变更</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

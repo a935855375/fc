@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-two-node',
@@ -7,48 +7,49 @@ import {Component} from '@angular/core';
 })
 export class TwoNodeComponent {
   showPath = false;
-
   value1 = 1;
   boxWidth = this.value1 / 10 * 100;
-
-  selectButton = false;
-
-  inputKey = '';
-
-  companyItems = [];
-
-  itemList = [
-    {'id': 1, 'itemName': '雷军'},
-    {'id': 2, 'itemName': '黎万强'},
-    {'id': 3, 'itemName': '洪峰'},
-    {'id': 4, 'itemName': '刘德'},
-    {'id': 5, 'itemName': '林斌'},
-    {'id': 6, 'itemName': '刘芹'},
-    {'id': 8, 'itemName': '许达来'}
-  ];
-
-  itemSelectedList = [];
-
-  settings = {
-    singleSelection: true,
-    text: '请选择人',
-    classes: 'myclass custom-class'
-  };
 
   changeValue(con) {
     this.value1 = con;
     this.boxWidth = this.value1 / 10 * 100;
   }
 
-  keyChange(value) {
+  @Output() emitter: EventEmitter<any> = new EventEmitter<any>();
+  arg: string;
 
+  line = 1;
+
+  company = Array(5);
+
+  rangeArray = (start, end) => Array(end - start + 1).fill(0).map((v, i) => i + start);
+
+  showDemo() {
+    console.log('show demo');
   }
 
-  selectCompany(company) {
-    console.log(company);
+  recieve(e, id) {
+    this.company[id] = e;
   }
 
-  selectBoss(boss) {
-    console.log(boss);
+  begin() {
+    this.arg = '';
+    this.company.forEach(x => {
+      let c = x.company;
+      if (x.boss) {
+        c = c + '_' + x.boss;
+      }
+      this.arg = this.arg + ',' + c;
+    });
+    this.arg = this.arg.substring(1);
+
+    this.emitter.emit(this.arg);
+  }
+
+  add(arg) {
+    if (arg == 0 && this.line < 5)
+      this.line = this.line + 1;
+    if (arg == 1 && this.line > 1)
+      this.line = this.line - 1;
   }
 }

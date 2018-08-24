@@ -94,4 +94,35 @@ export class CommonService {
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }
+
+  /*法律诉讼信息*/
+  getLegalactionInfo(id) {
+    const url = environment.apiUrl + 'legalaction';
+    const params = {id: id};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  /*经营状况信息*/
+  getOperatingConditions(id) {
+    const url = environment.apiUrl + 'operatingconditions';
+    const params = {id: id};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  /*热门推荐*/
+  getNews() {
+    const url = environment.apiUrl + 'news';
+    return this.http.get(url).toPromise();
+  }
+
+  /*热门推荐详细信息*/
+  getNewsInfo(info) {
+    const url = environment.apiUrl + 'newsbody';
+    const params = {url: info};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
 }

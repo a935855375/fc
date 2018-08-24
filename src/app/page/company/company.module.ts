@@ -5,7 +5,6 @@ import {MaterialModule} from '../../material.module';
 import {CommonModule} from '@angular/common';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
-import {SafeHtmlPipe} from '../../service/safehtml.pipe';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FrameModule} from '../frame/frame.module';
 import {TreeModule} from '../../chart/tree/tree.module';
@@ -13,6 +12,7 @@ import {PersonModal} from './modals/person.modal';
 import {IndentedTreeModule} from '../../chart/indented-tree/indented-tree.module';
 import {StructureModal} from './modals/structure.modal';
 import {FormsModule} from '@angular/forms';
+import {UtilModule} from '../../service/util.module';
 
 @NgModule({
   imports: [
@@ -25,11 +25,11 @@ import {FormsModule} from '@angular/forms';
     NgxPageScrollModule,
     FrameModule,
     TreeModule,
-    IndentedTreeModule
+    IndentedTreeModule,
+    UtilModule
   ],
   declarations: [
     CompanyComponent,
-    SafeHtmlPipe,
     PersonModal,
     StructureModal,
     ...routedComponent

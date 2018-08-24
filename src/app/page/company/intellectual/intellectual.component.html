@@ -1,3 +1,161 @@
-<p>
-  intellectual works!
-</p>
+<div class="mb-2">
+  <div class="d-flex flex-wrap px-2 py-2">
+    <a class="my-2 anchor">商标信息</a>
+    <a class="my-2 anchor">专利信息</a>
+    <a class="my-2 anchor">证书信息</a>
+    <a class="my-2 anchor">作品著作权</a>
+    <a class="my-2 anchor">软件著作权</a>
+    <a class="my-2 anchor">网站信息</a>
+  </div>
+  <mat-divider></mat-divider>
+
+  <!--商标信息-->
+  <p id="procdure_info" class="mt-4 title">商标信息<span class="tbadge">5</span></p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">商标</td>
+      <td class="text-center" width="10%">商标名</td>
+      <td class="text-center" width="16%">状态</td>
+      <td class="text-center" width="15%">申请时间</td>
+      <td class="text-center" width="10%">注册号</td>
+      <td class="text-center" width="15%">国际分类</td>
+      <td class="text-center">内容</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle"><img
+        src="http://tm-image.qichacha.com/b5223bf425ea50e553869b4453723212.jpg?x-oss-process=style/small"
+        style="width: 66px;max-height: 66px;"></td>
+      <td class="text-center vertical-middle"><a class="c_a" href="#">无</a></td>
+      <td class="text-center vertical-middle">商标注册申请-申请收文-结束</td>
+      <td class="text-center vertical-middle">2018-04-18</td>
+      <td class="text-center vertical-middle">30336245</td>
+      <td class="text-center vertical-middle">11 - 灯具空调</td>
+      <td class="text-center vertical-middle"><a href="#" class="cliable">查看详情</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--专利信息-->
+  <p class="title">专利信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center" width="15%">专利类型</td>
+      <td class="text-center" width="20%">公开（公告）号</td>
+      <td class="text-center" width="20%">公开（公告）日期</td>
+      <td class="text-center">名称</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="text-center vertical-middle">发明授权</td>
+      <td class="text-center vertical-middle">CN104156684B</td>
+      <td class="text-center vertical-middle">2018-07-10</td>
+      <td class="vertical-middle"><a href="#" class="cliable">数据显示方法和装置</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="d-flex mt-4 justify-content-end" [collectionSize]="50" [maxSize]="5"
+                  [(page)]="page"></ngb-pagination>
+
+  <!--证书信息-->
+  <p class="title">证书信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">证书名称</td>
+      <td class="text-center" width="20%">证书编号</td>
+      <td class="text-center" width="15%">发证日期</td>
+      <td class="text-center" width="15%">截止日期</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="vertical-middle"><a class="cliable">TD-LTE数字移动电话机TD-LTEDigitalMobilePhone</a></td>
+      <td class="text-center vertical-middle">01717Q10347R2M</td>
+      <td class="text-center vertical-middle">2017-04-01</td>
+      <td class="text-center vertical-middle">2018-12-10</td>
+
+    </tr>
+    </tbody>
+  </table>
+
+  <!--作品著作权-->
+  <p class="title">作品著作权</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">作品名称</td>
+      <td class="text-center" width="15%">首次发表日期</td>
+      <td class="text-center" width="15%">创作完成日期</td>
+      <td class="text-center" width="15%">登记号</td>
+      <td class="text-center" width="15%">登记日期</td>
+      <td class="text-center" width="12%">登记类别</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="vertical-middle">爱的梦想（客服之歌）</td>
+      <td class="text-center vertical-middle">2018-05-18</td>
+      <td class="text-center vertical-middle">2018-05-18</td>
+      <td class="text-center vertical-middle">国作登字-2018-A-00548611</td>
+      <td class="text-center vertical-middle"> 2018-05-18</td>
+      <td class="text-center vertical-middle">文字</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--软件著作权-->
+  <p class="title">软件著作权</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">软件名称</td>
+      <td class="text-center" width="12%">版本号</td>
+      <td class="text-center" width="15%">发布日期</td>
+      <td class="text-center" width="15%">软件简称</td>
+      <td class="text-center" width="15%">登记号</td>
+      <td class="text-center" width="15%">登记批准日期</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td class="vertical-middle">小米移动网上营业厅软件（Android版）</td>
+      <td class="text-center vertical-middle">V1.0</td>
+      <td class="text-center vertical-middle">2016-06-20</td>
+      <td class="text-center vertical-middle">-</td>
+      <td class="text-center vertical-middle">2016SR330529</td>
+      <td class="text-center vertical-middle"> 2016-11-15</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--网站信息-->
+  <p class="title">网站信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="8%">序号</td>
+      <td class="text-center">网址</td>
+      <td class="text-center" width="12%">网站名称</td>
+      <td class="text-center" width="15%">域名</td>
+      <td class="text-center" width="20%">网站备案/许可证号</td>
+      <td class="text-center" width="15%">审核时间</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center vertical-middle">{{index}}</td>
+      <td>
+        <a>58.220.59.2</a>
+        <a class="associate" href="#">流量分析></a>
+      </td>
+      <td class="text-center vertical-middle">小米科技</td>
+      <td class="text-center vertical-middle">58.220.59.2</td>
+      <td class="text-center vertical-middle">京ICP备10046444号-16</td>
+      <td class="text-center vertical-middle">2017-12-18</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

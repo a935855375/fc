@@ -1,3 +1,217 @@
-<p>
-  business-report works!
-</p>
+<div class="mb-2">
+  <div class="d-flex flex-wrap px-2 py-2">
+    <a pageScroll class="my-2 anchor">2017年度报告</a>
+    <a pageScroll class="my-2 anchor">2016年度报告</a>
+    <a pageScroll class="my-2 anchor">2015年度报告</a>
+  </div>
+  <mat-divider></mat-divider>
+
+  <!--企业基本信息-->
+  <p class="mt-4 title">企业基本信息</p>
+  <table class="table table-bordered">
+    <tbody>
+    <tr>
+      <td class="table-primary">注册号</td>
+      <td>110108012660422</td>
+      <td class="table-primary">统一社会信用代码</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td class="table-primary">企业经营状态</td>
+      <td>开业</td>
+      <td class="table-primary">企业联系电话</td>
+      <td>60606666-1000</td>
+    </tr>
+    <tr>
+      <td class="table-primary">从业人数</td>
+      <td>企业选择不公示</td>
+      <td class="table-primary">邮政编码</td>
+      <td>100085</td>
+    </tr>
+    <tr>
+      <td class="table-primary">有限责任公司本年度是否发生股东股权转让</td>
+      <td>否</td>
+      <td class="table-primary">企业是否有投资信息或购买其他公司股权</td>
+      <td>否</td>
+    </tr>
+    <tr>
+      <td class="table-primary">电子邮箱</td>
+      <td colspan="3">chenchongwei@xiaomi.com</td>
+    </tr>
+    <tr>
+      <td class="table-primary">企业通讯地址</td>
+      <td colspan="3"><a class="cliable">北京市海淀区清河中街68号华润五彩城购物中心二期13层</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--网站或网店信息-->
+  <p class="title">网站或网店信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="160">类型</td>
+      <td class="text-center" width="90">名称</td>
+      <td class="text-center">网址</td>
+    </tr>
+    <tr *ngFor="let index of [1]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center">网站</td>
+      <td class="text-center">小米科技</td>
+      <td class="cliable">www.xiaomi.com</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--股东（发起人）出资信息-->
+  <p class="title">股东（发起人）出资信息</p>
+  <table class="table mw-100">
+    <tbody>
+    <tr class="color-primary border">
+      <td class="text-center" width="60">序号</td>
+      <td class="text-center" width="160">发起人</td>
+      <td class="text-center" width="200">认缴出资额（万元）</td>
+      <td class="text-center" width="200">认缴出资时间</td>
+      <td class="text-center" width="200">认缴出资方式</td>
+      <td class="text-center" width="200">实缴出资额（万元）</td>
+      <td class="text-center" width="200">实缴出资时间</td>
+      <td class="text-center" width="200">实缴出资方式</td>
+    </tr>
+    <tr *ngFor="let index of [1,2,3,4,5]" class="table-bordered">
+      <td class="text-center">{{index}}</td>
+      <td class="text-center">刘德</td>
+      <td class="text-center">100.4999</td>
+      <td class="text-center">2013-02-04</td>
+      <td class="text-center">货币</td>
+      <td class="text-center">100.4999</td>
+      <td class="text-center">2013-02-04</td>
+      <td class="text-center">货币</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--企业资产状况信息-->
+  <p class="mt-4 title">企业资产状况信息</p>
+  <table class="table table-bordered">
+    <tbody>
+    <tr>
+      <td class="table-primary">资产总额</td>
+      <td>企业选择不公示</td>
+      <td class="table-primary">所有者权益合计</td>
+      <td>企业选择不公示</td>
+    </tr>
+    <tr>
+      <td class="table-primary">营业总收入</td>
+      <td>企业选择不公示</td>
+      <td class="table-primary">利润总额</td>
+      <td>企业选择不公示</td>
+    </tr>
+    <tr>
+      <td class="table-primary">营业总收入中主营业务收入</td>
+      <td>企业选择不公示</td>
+      <td class="table-primary">净利润</td>
+      <td>企业选择不公示</td>
+    </tr>
+    <tr>
+      <td class="table-primary">纳税总额</td>
+      <td>企业选择不公示</td>
+      <td class="table-primary">负债总额</td>
+      <td>企业选择不公示</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--社保信息-->
+  <p class="mt-4 title">社保信息</p>
+  <table class="table table-bordered">
+    <tbody>
+    <tr>
+      <td class="table-primary">城镇职工基本养老保险</td>
+      <td>-</td>
+      <td class="table-primary">职工基本医疗保险</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td class="table-primary">生育保险</td>
+      <td>-</td>
+      <td class="table-primary">失业保险</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td class="table-primary">工伤保险</td>
+      <td colspan="3">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加城镇职工基本养老保险缴费基数</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加失业保险缴费基数</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary">单位缴纳基数</td>
+      <td width="30%">单位参加职工基本医疗保险缴费基数</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加生育保险缴费基数</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">参加城镇职工基本养老保险本期实际缴费金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">参加失业保险本期实际缴费金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary">本期实际缴费金额</td>
+      <td width="30%">参加职工基本医疗保险本期实际缴费金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">参加工伤保险本期实际缴费金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">参加生育保险本期实际缴费金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加城镇职工基本养老保险累计欠缴金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加失业保险累计欠缴金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary">单位累计欠缴金额</td>
+      <td width="30%">单位参加职工基本医疗保险累计欠缴金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加工伤保险累计欠缴金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    <tr>
+      <td class="table-primary"></td>
+      <td width="30%">单位参加生育保险累计欠缴金额</td>
+      <td width="30%" colspan="2">-</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

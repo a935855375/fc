@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {CommonService} from '../../../service/common.service';
 
 @Component({
@@ -11,6 +11,10 @@ export class NodeSearchComponent {
   @ViewChild('myDrop1') drop1;
 
   @Output() emitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output() add: EventEmitter<any> = new EventEmitter<any>();
+
+  @Input() MaxLine: number;
+  @Input() Current: number;
 
   width = 0;
 
@@ -69,5 +73,9 @@ export class NodeSearchComponent {
         this.bossList = x;
       });
     }
+  }
+
+  plus(a) {
+    this.add.emit(a);
   }
 }

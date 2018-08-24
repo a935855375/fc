@@ -4,6 +4,7 @@ import {HotnewsRoutingModule} from './hotnews.routing.module';
 import {HotnewsComponent} from './hotnews.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {FrameModule} from '../frame/frame.module';
+import {UtilModule} from '../../service/util.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {FrameModule} from '../frame/frame.module';
     CommonModule,
     HotnewsRoutingModule,
     NgxPageScrollModule,
-    FrameModule
+    FrameModule,
+    UtilModule
   ],
   declarations: [
     HotnewsComponent,

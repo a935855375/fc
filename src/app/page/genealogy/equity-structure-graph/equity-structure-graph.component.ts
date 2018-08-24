@@ -65,13 +65,15 @@ export class EquityStructureGraphComponent implements OnInit {
       this.target = new Target();
       this.target.name = x.Result.Name;
 
-      for (let z = 0; z < x.Result.touzi.length; z++) {
-        this.companies.push(new Company(x.Result.touzi[z].Name, x.Result.touzi[z].FundedRatio, x.Result.touzi[z].KeyNo));
-      }
+      if (x.Result.touzi)
+        for (let z = 0; z < x.Result.touzi.length; z++) {
+          this.companies.push(new Company(x.Result.touzi[z].Name, x.Result.touzi[z].FundedRatio, x.Result.touzi[z].KeyNo));
+        }
 
-      for (let z = 0; z < x.Result.DetailList.length; z++) {
-        this.persons.push(new Person(x.Result.DetailList[z].Name, x.Result.DetailList[z].Percent.trim()));
-      }
+      if (x.Result.DetailList)
+        for (let z = 0; z < x.Result.DetailList.length; z++) {
+          this.persons.push(new Person(x.Result.DetailList[z].Name, x.Result.DetailList[z].Percent.trim()));
+        }
 
       this.flag = true;
     });

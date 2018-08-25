@@ -9,7 +9,7 @@
           多节点关系</h2></li>
       </div>
 
-      <app-two-node *ngIf="select==0"></app-two-node>
+      <app-two-node (emitter)="openGraph($event)" *ngIf="select==0"></app-two-node>
       <app-multi-node (emitter)="openGraph($event)" *ngIf="select==1"></app-multi-node>
     </div>
 

@@ -9,6 +9,7 @@ import {default as COPYRIGHT, Copyright} from './copyright';
 })
 export class CopyrightComponent implements OnInit {
   page = 1;
+  searchContent = localStorage.getItem('brandSearch');
   copyrights: Copyright[] = COPYRIGHT;
 
   constructor(private commonService: CommonService) {

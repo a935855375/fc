@@ -19,7 +19,7 @@
                  (keydown)="onKeydown($event)">
           <div ngbDropdownMenu aria-labelledby="dropdownManual">
             <ul class="pl-0 py-0 m-0" [ngStyle]="{'width': width + 'px'}">
-              <li class="suggest-item" (click)="click(item)" *ngFor="let item of filter(items, key)">{{item}}
+              <li class="suggest-item" (click)="click(item.id)" *ngFor="let item of items">{{item.name}}
               </li>
             </ul>
           </div>

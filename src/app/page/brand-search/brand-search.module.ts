@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {BrandSearchComponent} from './brand-search.component';
 import {BrandSearchRoutingModule, routedComponent} from './brand-search.routing.module';
 import {FrameModule} from '../frame/frame.module';
+import {UtilModule} from '../../service/util.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {FrameModule} from '../frame/frame.module';
     BrandSearchRoutingModule,
     MaterialModule,
     AngularMultiSelectModule,
-    FrameModule
+    FrameModule,
+    UtilModule
   ],
   declarations: [
     BrandSearchComponent,

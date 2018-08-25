@@ -11,6 +11,7 @@ export class BrandsComponent implements OnInit {
   kind = 0;
   holder = '请输入商标名称、注册号或申请人名称';
   title = '商标';
+  searchContent = '';
 
   constructor(private commonService: CommonService, private router: Router) {
     this.changeKind(this.commonService.special);
@@ -23,6 +24,8 @@ export class BrandsComponent implements OnInit {
   }
 
   changeTab() {
+    this.commonService.subject.next(this.searchContent);
+    localStorage.setItem('brandSearch', this.searchContent);
     if (this.commonService.special == 0) {
       this.router.navigate(['/brand-search']);
     } else if (this.commonService.special == 1) {

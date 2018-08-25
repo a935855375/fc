@@ -1,19 +1,39 @@
-import {Component, OnInit} from '@angular/core';
-import {default as TRADEMARK, Trademark} from './brand-body';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonService} from '../../../service/common.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-brand-body',
   templateUrl: './brand-body.component.html',
   styleUrls: ['./brand-body.component.scss']
 })
-export class BrandBodyComponent implements OnInit {
+export class BrandBodyComponent implements OnInit, OnDestroy {
   page = 1;
-  trademarks: Trademark[] = TRADEMARK;
+  trademarks: any;
+  searchContent = localStorage.getItem('brandSearch');
+  /*搜索的关键字*/
+  unSubscriber;
 
-  constructor() {
+  constructor(private router: Router, private commonService: CommonService) {
   }
 
   ngOnInit() {
+    this.commonService.getBrand(localStorage.getItem('brandSearch')).then(x => {
+      this.trademarks = x;
+    });
+    this.unSubscriber = this.commonService.subject.subscribe(x => {
+      this.commonService.getBrand(x).then(x => {
+        this.trademarks = x;
+      });
+    });
   }
 
+  selBrandInfo(id) {
+    localStorage.setItem('brandId', id);
+    this.router.navigate(['/brand-search/trademark']);
+  }
+
+  ngOnDestroy(): void {
+    this.unSubscriber.unsubscribe();
+  }
 }

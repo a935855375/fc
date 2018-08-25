@@ -9,6 +9,7 @@ import {default as PATENT, Patent} from './patent';
 })
 export class PatentComponent implements OnInit {
   page = 1;
+  searchContent = localStorage.getItem('brandSearch');
   patents: Patent[] = PATENT;
 
   constructor(private commonService: CommonService) {

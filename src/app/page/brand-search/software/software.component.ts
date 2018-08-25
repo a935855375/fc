@@ -9,6 +9,7 @@ import {default as SOFTWARE, Software} from './software';
 })
 export class SoftwareComponent implements OnInit {
   page = 1;
+  searchContent = localStorage.getItem('brandSearch');
   softwares: Software[] = SOFTWARE;
 
   constructor(private commonService: CommonService) {

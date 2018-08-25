@@ -30,7 +30,6 @@ export class FindRelationComponent implements OnInit, AfterViewInit {
       this.links = [];
       x.nodes.forEach((x: any) => this.nodes.push(new Node(x.keyNo, x.name, x.category)));
       x.links.forEach((x: any) => this.links.push(new Link(this.nodes[x.source], this.nodes[x.target], x.relation)));
-      console.log(x);
       this.flag = true;
     });
   }

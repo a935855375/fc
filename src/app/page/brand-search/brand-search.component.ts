@@ -11,6 +11,7 @@ export class BrandSearchComponent implements OnInit {
   page = 1;
   kind = 0;
   title = '商标';
+  searchContent = localStorage.getItem('brandSearch');
 
   constructor(private commonService: CommonService, private router: Router) {
     this.kind = this.commonService.special;
@@ -19,6 +20,16 @@ export class BrandSearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  onKeydown(event) {
+    if (event.key === 'Enter') {
+      this.selBrand();
+    }
+  }
+
+  selBrand() {
+    this.commonService.subject.next(this.searchContent);
+    localStorage.setItem('brandSearch', this.searchContent);
+  }
 
   selectPromise(sel) {
     this.kind = sel;

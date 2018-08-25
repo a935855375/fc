@@ -14,11 +14,7 @@ export class DashboardComponent {
   headline: any;
   recommend: any;
 
-  items: string[] = ['小米科技有限责任公司',
-    '北京小米支付技术有限公司',
-    '小米通讯技术有限公司',
-    '熊小米(北京)文化传播有限公司',
-    '北京小米保险经纪有限公司'];
+  items: any[] = [];
 
   @ViewChild('myDrop') myDrop;
   @ViewChild('input') input;
@@ -42,9 +38,9 @@ export class DashboardComponent {
     });
   }
 
-  click(value: string): void {
-    this.key = value;
-    this.input.nativeElement.focus();
+  click(id): void {
+    localStorage.setItem('cid', id);
+    this.router.navigate(['company']);
   }
 
   selSpecial(sel) {
@@ -64,8 +60,14 @@ export class DashboardComponent {
   keyChanged(event) {
     this.width = this.input.nativeElement.offsetWidth;
     this.key = event;
-    if (!(this.filter(this.items, this.key).length === 0 || this.key.length === 0))
-      this.myDrop.open();
+
+    if (this.key.length !== 0) {
+      this.commonService.getSearchHint(this.key, this.kind).then((x: any[]) => {
+        this.items = x.map(x => x._source);
+        if (this.items.length > 0)
+          this.myDrop.open();
+      });
+    }
     else
       this.myDrop.close();
   }

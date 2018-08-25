@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class CommonService {
@@ -8,6 +9,8 @@ export class CommonService {
   promise = 0;
   spitem1 = 0;
   spitem2 = 0;
+
+  subject = new Subject<string>();
 
   constructor(private http: HttpClient) {
 
@@ -95,6 +98,13 @@ export class CommonService {
     return this.http.get(url, options).toPromise();
   }
 
+  getSearchHint(key, kind) {
+    const url = environment.apiUrl + 'searchhint';
+    const params = {key: key, kind: kind};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
   /*法律诉讼信息*/
   getLegalactionInfo(id) {
     const url = environment.apiUrl + 'legalaction';
@@ -121,6 +131,22 @@ export class CommonService {
   getNewsInfo(info) {
     const url = environment.apiUrl + 'newsbody';
     const params = {url: info};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  /*专利查询-商标*/
+  getBrand(name) {
+    const url = environment.apiUrl + 'searchbrand';
+    const params = {key: name};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  /*专利查询-商标详细信息*/
+  getBrandInfo(id) {
+    const url = environment.apiUrl + 'brandbody';
+    const params = {id: id};
     const options = {params: params};
     return this.http.get(url, options).toPromise();
   }

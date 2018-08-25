@@ -3,12 +3,12 @@
   /
   <li class="mx-2"><a routerLink="/brands">商标查询</a></li>
   /
-  <li class="mx-2"><a routerLink="/brand-search/brand-body">小米商标查询列表</a></li>
+  <li class="mx-2"><a routerLink="/brand-search/brand-body">{{searchContent}}商标查询列表</a></li>
   /
   <li class="mx-2">商标查询详情</li>
 </div>
-<section class="panel panel-default patentdetailbox" id="searchlist">
-  <table class="table  table-bordered">
+<section *ngIf="d&&d.body" class="panel panel-default patentdetailbox" id="searchlist" [innerHtml]="d.body | safeHTML">
+  <!--<table class="table  table-bordered">
     <tbody>
     <tr></tr>
     <tr>
@@ -78,5 +78,5 @@
       </td>
     </tr>
     </tbody>
-  </table>
+  </table>-->
 </section>

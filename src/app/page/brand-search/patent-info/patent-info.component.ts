@@ -7,6 +7,7 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./patent-info.component.scss']
 })
 export class PatentInfoComponent implements OnInit {
+  searchContent = localStorage.getItem('brandSearch');
 
   constructor(private commonService: CommonService) {
   }

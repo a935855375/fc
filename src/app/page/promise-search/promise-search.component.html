@@ -19,8 +19,9 @@
       <div class="ml-2 mt-2">
         <div class="input-group">
           <input type="text" class="form-control input-lg" style="font-size: 14px;" placeholder="请输入你想要查找的裁判文书名称"
-                 autocomplete="off" value="小米">
-          <span class="input-group-btn"><button type="submit" class="input-lg fa fa-search"></button> </span>
+                 autocomplete="off" value="{{searchContent}}" [(ngModel)]="searchContent" (keydown)="onKeydown($event)">
+          <span class="input-group-btn"><button type="submit" class="input-lg fa fa-search"
+                                                (click)="selPromise()"></button> </span>
         </div>
       </div>
     </div>

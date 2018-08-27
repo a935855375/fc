@@ -9,6 +9,7 @@ import {CommonService} from '../../service/common.service';
 export class PromiseSearchComponent implements OnInit {
   page = 1;
   kind = 0;
+  searchContent = localStorage.getItem('promiseSearch');
 
   constructor(private commonService: CommonService) {
     this.kind = this.commonService.promise;
@@ -23,5 +24,15 @@ export class PromiseSearchComponent implements OnInit {
 
   changeSpItem(sel) {
     this.commonService.special = sel;
+  }
+
+  onKeydown(event) {
+    if (event.key === 'Enter') {
+      this.selPromise();
+    }
+  }
+
+  selPromise() {
+    this.commonService.subjectPromise.next(this.searchContent);
   }
 }

@@ -7,6 +7,9 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./referee-info.component.scss']
 })
 export class RefereeInfoComponent implements OnInit {
+  searchContent = localStorage.getItem('promiseSearch');
+
+  /*搜索的关键字*/
 
   constructor(private commonService: CommonService) {
   }

@@ -3,12 +3,12 @@
   /
   <li class="mx-2"><a routerLink="/promise">失信人查询</a></li>
   /
-  <li class="mx-2"><a routerLink="/promise-search/lostpro">小米失信人查询列表</a></li>
+  <li class="mx-2"><a routerLink="/promise-search/lostpro">{{searchContent}}失信人查询列表</a></li>
   /
   <li class="mx-2">失信人查询详情</li>
 </div>
-<section class="panel panel-default patentdetailbox" id="searchlist">
-  <table class="table  table-bordered">
+<section *ngIf="d&&d.body" class="panel panel-default patentdetailbox" id="searchlist" [innerHtml]="d.body | safeHTML">
+  <!--<table class="table  table-bordered">
     <tbody>
     <tr>
       <td width="30%">名称：</td>
@@ -63,5 +63,5 @@
       <td>2015-07-06</td>
     </tr>
     </tbody>
-  </table>
+  </table>-->
 </section>

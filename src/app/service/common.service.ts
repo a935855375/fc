@@ -11,6 +11,7 @@ export class CommonService {
   spitem2 = 0;
 
   subject = new Subject<string>();
+  subjectPromise = new Subject<string>();
 
   constructor(private http: HttpClient) {
 
@@ -151,4 +152,19 @@ export class CommonService {
     return this.http.get(url, options).toPromise();
   }
 
+  /*专利查询-失信人*/
+  getLostPro(name) {
+    const url = environment.apiUrl + 'searchlosecredit';
+    const params = {key: name};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
+
+  /*专利查询-失信人详细信息*/
+  getLostProInfo(id) {
+    const url = environment.apiUrl + 'losecreditbody';
+    const params = {id: id};
+    const options = {params: params};
+    return this.http.get(url, options).toPromise();
+  }
 }

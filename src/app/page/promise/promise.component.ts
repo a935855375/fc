@@ -11,6 +11,7 @@ export class PromiseComponent implements OnInit {
   kind = 0;
   holder = '输入姓名/组织名';
   title = '失信人';
+  searchContent = '';
 
   constructor(private commonService: CommonService, private router: Router) {
     this.changeKind(this.commonService.promise);
@@ -20,6 +21,8 @@ export class PromiseComponent implements OnInit {
   }
 
   changeTab() {
+    this.commonService.subjectPromise.next(this.searchContent);
+    localStorage.setItem('promiseSearch', this.searchContent);
     if (this.commonService.promise == 0) {
       this.router.navigate(['/promise-search']);
     } else if (this.commonService.promise == 1) {

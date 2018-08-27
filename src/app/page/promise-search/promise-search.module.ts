@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {PromiseSearchRoutingModule, routedComponent} from './promise-search.routing.module';
 import {PromiseSearchComponent} from './promise-search.component';
 import {FrameModule} from '../frame/frame.module';
+import {UtilModule} from '../../service/util.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {FrameModule} from '../frame/frame.module';
     PromiseSearchRoutingModule,
     MaterialModule,
     AngularMultiSelectModule,
-    FrameModule
+    FrameModule,
+    UtilModule
   ],
   declarations: [
     PromiseSearchComponent,

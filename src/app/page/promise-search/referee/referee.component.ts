@@ -10,6 +10,9 @@ import {default as REFEREE, Referee} from './referee';
 export class RefereeComponent implements OnInit {
   page = 1;
   referees: Referee[] = REFEREE;
+  searchContent = localStorage.getItem('promiseSearch');
+
+  /*搜索的关键字*/
 
   constructor(private commonService: CommonService) {
   }

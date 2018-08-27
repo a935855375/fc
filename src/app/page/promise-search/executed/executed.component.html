@@ -3,11 +3,11 @@
   /
   <li class="mx-2"><a routerLink="/promise" (click)="selectZx(1)">被执行人查询</a></li>
   /
-  <li class="mx-2">小米被执行人查询列表</li>
+  <li class="mx-2">{{searchContent}}被执行人查询列表</li>
 </div>
 <mat-card class="card rounded-0 py-0 mt-2" style="box-shadow: none">
   <div class="py-3">
-    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">20 </span> 位符合条件的被执行人</span>
+    <span class="f-15 text-dark">企信通为您找到<span class="text-danger font-weight-bold"> 20 </span>位符合条件的被执行人</span>
   </div>
   <div *ngFor="let executed of executeds">
     <mat-divider></mat-divider>

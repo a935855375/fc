@@ -3,11 +3,11 @@
   /
   <li class="mx-2"><a routerLink="/promise" (click)="selectZx(2)">裁判文书查询</a></li>
   /
-  <li class="mx-2">小米裁判文书查询列表</li>
+  <li class="mx-2">{{searchContent}}裁判文书查询列表</li>
 </div>
 <mat-card class="card rounded-0 py-0 mt-2" style="box-shadow: none">
   <div class="py-3">
-    <span class="f-15 text-dark">企信通为您找到<span class="text-danger">59 </span> 位符合条件的裁判文书</span>
+    <span class="f-15 text-dark">企信通为您找到<span class="text-danger font-weight-bold"> 59 </span>位符合条件的裁判文书</span>
   </div>
   <div *ngFor="let referee of referees">
     <mat-divider></mat-divider>

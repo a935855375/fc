@@ -10,6 +10,9 @@ import {default as EXECUTED, Executed} from './executed';
 export class ExecutedComponent implements OnInit {
   page = 1;
   executeds: Executed[] = EXECUTED;
+  searchContent = localStorage.getItem('promiseSearch');
+
+  /*搜索的关键字*/
 
   constructor(private commonService: CommonService) {
   }

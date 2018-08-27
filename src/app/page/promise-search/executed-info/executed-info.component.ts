@@ -7,6 +7,9 @@ import {CommonService} from '../../../service/common.service';
   styleUrls: ['./executed-info.component.scss']
 })
 export class ExecutedInfoComponent implements OnInit {
+  searchContent = localStorage.getItem('promiseSearch');
+
+  /*搜索的关键字*/
 
   constructor(private commonService: CommonService) {
   }
